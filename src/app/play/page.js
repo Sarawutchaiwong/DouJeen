@@ -4,50 +4,75 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 
 const BASE_CHARS = {
-  '火': { char: '火', pinyin: 'huǒ', emoji: '🔥', name: 'Fire' },
-  '山': { char: '山', pinyin: 'shān', emoji: '⛰️', name: 'Mountain' },
-  '水': { char: '水', pinyin: 'shuǐ', emoji: '💧', name: 'Water' },
-  '木': { char: '木', pinyin: 'mù', emoji: '🌲', name: 'Wood' },
+  '气': { char: '气', pinyin: 'qì', emoji: '💨', name: 'Air' },
   '土': { char: '土', pinyin: 'tǔ', emoji: '🌱', name: 'Earth' },
+  '火': { char: '火', pinyin: 'huǒ', emoji: '🔥', name: 'Fire' },
+  '水': { char: '水', pinyin: 'shuǐ', emoji: '💧', name: 'Water' },
 };
 
 const RECIPES = {
-  '火山': { result: '火山', pinyin: 'huǒshān', name: 'Volcano', emoji: '🌋' },
+  // New Starter Recipes
+  '土土': { result: '山', pinyin: 'shān', name: 'Mountain', emoji: '⛰️' },
+  '水水': { result: '冰', pinyin: 'bīng', name: 'Ice', emoji: '🧊' },
+  '火火': { result: '炎', pinyin: 'yán', name: 'Blaze', emoji: '💥' },
+  '气气': { result: '风', pinyin: 'fēng', name: 'Wind', emoji: '🌬️' },
+  
+  // Progression to original base elements
+  '水土': { result: '木', pinyin: 'mù', name: 'Wood', emoji: '🌲' },
+  '火山': { result: '金', pinyin: 'jīn', name: 'Gold', emoji: '🪙' },
+  '炎炎': { result: '日', pinyin: 'rì', name: 'Sun', emoji: '☀️' },
+  '冰冰': { result: '月', pinyin: 'yuè', name: 'Moon', emoji: '🌙' },
+  
+  // Existing & New Combos
+  '日日': { result: '晶', pinyin: 'jīng', name: 'Crystal', emoji: '💎' },
   '火木': { result: '炭', pinyin: 'tàn', name: 'Charcoal', emoji: '🖤' },
   '水木': { result: '树', pinyin: 'shù', name: 'Tree', emoji: '🌳' },
   '水火': { result: '汽', pinyin: 'qì', name: 'Steam', emoji: '💨' },
   '山山': { result: '岭', pinyin: 'lǐng', name: 'Mountain Range', emoji: '🏔️' },
   '木木': { result: '林', pinyin: 'lín', name: 'Grove', emoji: '🎋' },
   '林木': { result: '森林', pinyin: 'sēnlín', name: 'Forest', emoji: '🌲🌲' },
-  '火火': { result: '炎', pinyin: 'yán', name: 'Blaze', emoji: '💥' },
-  '水水': { result: '冰', pinyin: 'bīng', name: 'Ice', emoji: '🧊' },
-  '水土': { result: '泥', pinyin: 'ní', name: 'Mud', emoji: '💩' },
   '山水': { result: '瀑', pinyin: 'pù', name: 'Waterfall', emoji: '🌊' },
   '木火': { result: '灰', pinyin: 'huī', name: 'Ash', emoji: '🌫️' },
   '土山': { result: '岛', pinyin: 'dǎo', name: 'Island', emoji: '🏝️' },
+  '日月': { result: '明', pinyin: 'míng', name: 'Bright', emoji: '✨' },
+  '木金': { result: '斧', pinyin: 'fǔ', name: 'Axe', emoji: '🪓' },
+  '日木': { result: '果', pinyin: 'guǒ', name: 'Fruit', emoji: '🍎' },
+  '月水': { result: '潮', pinyin: 'cháo', name: 'Tide', emoji: '🌊' },
+  '火金': { result: '熔', pinyin: 'róng', name: 'Lava', emoji: '🫠' },
+  '金金': { result: '鑫', pinyin: 'xīn', name: 'Prosperity', emoji: '💰' },
+  '山月': { result: '崩', pinyin: 'bēng', name: 'Landslide', emoji: '🚜' },
+  '气土': { result: '尘', pinyin: 'chén', name: 'Dust', emoji: '🌪️' },
+  '气水': { result: '云', pinyin: 'yún', name: 'Cloud', emoji: '☁️' },
+  '气火': { result: '烟', pinyin: 'yān', name: 'Smoke', emoji: '💨' },
 };
 
 export default function GamePage() {
-  const [library, setLibrary] = useState(['火', '山', '水', '木', '土']);
+  const [library, setLibrary] = useState(['气', '土', '火', '水']);
   const [activeItems, setActiveItems] = useState([]); 
   const [discovery, setDiscovery] = useState(null);
   const [isCombining, setIsCombining] = useState(false);
+  const [hint, setHint] = useState(null);
+
+  React.useEffect(() => {
+    generateRandomHint();
+  }, []);
+
+  const generateRandomHint = () => {
+    const keys = Object.keys(RECIPES);
+    const randomCombo = keys[Math.floor(Math.random() * keys.length)];
+    const char1 = randomCombo[0];
+    const char2 = randomCombo[1];
+    setHint({
+      name1: getData(char1).name,
+      name2: getData(char2).name
+    });
+  };
 
   const getData = (char) => {
-    return BASE_CHARS[char] || RECIPES[Object.keys(RECIPES).find(k => RECIPES[k].result === char)] || { char, pinyin: '?', emoji: '✨' };
+    return BASE_CHARS[char] || RECIPES[Object.keys(RECIPES).find(k => RECIPES[k].result === char)] || { char, pinyin: '?', emoji: '✨', name: 'Unknown' };
   };
 
-  const handleDragStart = (e, char) => {
-    e.dataTransfer.setData('text/plain', char);
-  };
-
-  const handleDrop = (e) => {
-    e.preventDefault();
-    const char = e.dataTransfer.getData('text/plain');
-    if (!char || isCombining) return;
-
-    const newItem = { char, ...getData(char) };
-    const newActive = [...activeItems, newItem].slice(-2);
+  const processItems = (newActive) => {
     setActiveItems(newActive);
 
     if (newActive.length === 2) {
@@ -62,11 +87,33 @@ export default function GamePage() {
           if (!library.includes(match.result)) {
             setLibrary(prev => [...prev, match.result]);
           }
+          generateRandomHint(); // New hint after discovery
         }
         setActiveItems([]);
         setIsCombining(false);
       }, 1000);
     }
+  };
+
+  const selectItem = (char) => {
+    if (isCombining || (typeof window !== 'undefined' && window.innerWidth >= 768)) return;
+    const newItem = { char, ...getData(char) };
+    const newActive = [...activeItems, newItem].slice(-2);
+    processItems(newActive);
+  };
+
+  const handleDragStart = (e, char) => {
+    e.dataTransfer.setData('text/plain', char);
+  };
+
+  const handleDrop = (e) => {
+    e.preventDefault();
+    const char = e.dataTransfer.getData('text/plain');
+    if (!char || isCombining) return;
+
+    const newItem = { char, ...getData(char) };
+    const newActive = [...activeItems, newItem].slice(-2);
+    processItems(newActive);
   };
 
   return (
@@ -117,7 +164,16 @@ export default function GamePage() {
                )}
                
                {activeItems.map((item, i) => (
-                 <div key={i} className="w-24 h-24 md:w-40 md:h-40 bg-white rounded-[40px] md:rounded-[50px] shadow-[0_12px_0_#efefef] flex flex-col items-center justify-center animate-[zoom-in_0.4s_ease-out] border-4 border-white ring-8 ring-white/10">
+                 <div 
+                   key={i} 
+                   onClick={() => !isCombining && setActiveItems(prev => prev.filter((_, idx) => idx !== i))}
+                   className={`
+                     w-24 h-24 md:w-40 md:h-40 bg-white rounded-[40px] md:rounded-[50px] 
+                     shadow-[0_12px_0_#efefef] flex flex-col items-center justify-center 
+                     animate-[zoom-in_0.4s_ease-out] border-4 border-white ring-8 ring-white/10
+                     ${!isCombining ? 'cursor-pointer hover:scale-105 active:scale-95 transition-transform' : ''}
+                   `}
+                 >
                    <span className="text-4xl md:text-6xl mb-1">{item.emoji}</span>
                    <span className="text-2xl md:text-4xl font-black text-zinc-800">{item.char}</span>
                    <span className="text-[8px] md:text-xs font-black text-zinc-300 uppercase mt-1">{item.pinyin}</span>
@@ -128,12 +184,14 @@ export default function GamePage() {
         </div>
 
         {/* Floating Hint HUD */}
-        <div className="absolute bottom-10 md:bottom-12 bg-white/90 px-8 py-4 rounded-full shadow-[0_12px_30px_rgba(0,0,0,0.05)] border-2 border-white backdrop-blur-md animate-[bounce_4s_infinite] flex items-center gap-4">
-          <div className="w-8 h-8 bg-[#B2F2BB] rounded-full flex items-center justify-center text-white text-xs font-black">!</div>
-          <p className="text-zinc-600 font-black text-xs md:text-sm tracking-tight">
-            TRY: <span className="text-[#74C0FC]">Mountain</span> + <span className="text-[#74C0FC]">Earth</span>
-          </p>
-        </div>
+        {hint && (
+          <div className="absolute bottom-4 md:bottom-12 bg-white/90 px-3 py-1.5 md:px-8 md:py-4 rounded-full shadow-[0_12px_30px_rgba(0,0,0,0.05)] border-2 border-white backdrop-blur-md animate-[bounce_4s_infinite] flex items-center gap-2 md:gap-4">
+            <div className="w-5 h-5 md:w-8 md:h-8 bg-[#B2F2BB] rounded-full flex items-center justify-center text-white text-[8px] md:text-xs font-black">!</div>
+            <p className="text-zinc-600 font-black text-[9px] md:text-sm tracking-tight">
+              TRY: <span className="text-[#74C0FC]">{hint.name1}</span> + <span className="text-[#74C0FC]">{hint.name2}</span>
+            </p>
+          </div>
+        )}
       </section>
 
       {/* The Journal HUD - Floating Sticker Palette with Breathing Room */}
@@ -167,6 +225,7 @@ export default function GamePage() {
                 key={char}
                 draggable
                 onDragStart={(e) => handleDragStart(e, char)}
+                onClick={() => selectItem(char)}
                 className={`
                   aspect-square bg-white rounded-[28px] md:rounded-[36px] 
                   shadow-[0_8px_0_#efefef] hover:shadow-[0_4px_0_#efefef]
@@ -176,10 +235,27 @@ export default function GamePage() {
                   group relative p-1 select-none overflow-visible
                 `}
               >
+                {/* Mobile-Friendly Select Button - Hidden on Desktop */}
+                <button 
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    selectItem(char);
+                  }}
+                  className="md:hidden absolute -top-2 -right-2 w-8 h-8 bg-[#74C0FC] text-white rounded-full flex items-center justify-center shadow-lg active:scale-95 transition-all z-20 border-2 border-white"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                </button>
+
                 <span className="text-2xl md:text-4xl mb-0.5 group-hover:scale-110 group-hover:animate-bounce transition-transform">{data.emoji}</span>
                 <span className="text-xl md:text-2xl font-black text-zinc-800 leading-tight">{char}</span>
                 <span className="text-[7px] md:text-[9px] font-black text-zinc-300 uppercase tracking-tighter mt-0.5">{data.pinyin}</span>
                 
+                {/* Desktop Hover Tooltip - Meaning */}
+                <div className="hidden md:flex absolute -top-10 left-1/2 -translate-x-1/2 invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-300 bg-zinc-800 text-white text-[10px] font-black py-1.5 px-3 rounded-xl whitespace-nowrap shadow-xl z-50 items-center justify-center">
+                  {data.name}
+                  <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-zinc-800 rotate-45"></div>
+                </div>
+
                 {/* Visual Polish: Corner Shine */}
                 <div className="absolute top-2 left-2 w-2 h-2 bg-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
               </div>
@@ -188,53 +264,33 @@ export default function GamePage() {
         </div>
       </aside>
 
-      {/* Discovery Modal - Premium Game Overlay */}
-      {discovery && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#FFF9DB]/80 backdrop-blur-md animate-[fade-in_0.3s_ease-out]">
-          <div className="bg-white rounded-[60px] p-8 md:p-16 shadow-[0_50px_100px_rgba(0,0,0,0.1)] border-[12px] border-[#B2F2BB] text-center max-w-sm md:max-w-md w-full animate-[bounce-in_0.5s_cubic-bezier(0.34,1.56,0.64,1)] relative">
-            <div className="text-7xl md:text-9xl mb-6 animate-bounce drop-shadow-xl">{discovery.emoji}</div>
-            <h2 className="text-xl md:text-2xl font-black text-[#74C0FC] mb-6 uppercase tracking-[0.2em]">New Secret Found!</h2>
-            
-            <div className="bg-zinc-50 p-8 rounded-[40px] mb-8 border-4 border-dashed border-[#B2F2BB]/50">
-              <p className="text-6xl md:text-8xl font-black text-zinc-800 mb-2">{discovery.result}</p>
-              <p className="text-xl md:text-2xl font-black text-[#74C0FC] uppercase tracking-widest">{discovery.pinyin}</p>
-            </div>
-            
-            <p className="text-2xl font-black text-zinc-400 mb-10 italic">"{discovery.name}"</p>
-            
-            <button 
-              onClick={() => setDiscovery(null)}
-              className="w-full bg-[#74C0FC] text-white py-5 rounded-[30px] text-xl font-black shadow-[0_10px_0_#3d8ecf] hover:translate-y-[2px] hover:shadow-[0_8px_0_#3d8ecf] active:translate-y-[6px] active:shadow-none transition-all"
-            >
-              GREAT!
-            </button>
-          </div>
-        </div>
-      )}
-
-      <style jsx global>{`
-        .custom-scrollbar::-webkit-scrollbar { width: 8px; }
-        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
-        .custom-scrollbar::-webkit-scrollbar-thumb { background: #B2F2BB; border-radius: 20px; }
-        
-        @keyframes fusion {
-          0% { transform: scale(1); }
-          20% { transform: scale(1.1) rotate(5deg); }
-          40% { transform: scale(0.9) rotate(-5deg); }
-          60% { transform: scale(1.3); filter: brightness(1.2); }
-          100% { transform: scale(0); opacity: 0; }
-        }
-        @keyframes bounce-in {
-          0% { transform: scale(0.3); opacity: 0; }
-          60% { transform: scale(1.05); opacity: 1; }
-          100% { transform: scale(1); }
-        }
-        @keyframes fade-in {
-          0% { opacity: 0; }
-          100% { opacity: 1; }
-        }
-        .animate-fusion { animation: fusion 1s forwards cubic-bezier(0.68, -0.55, 0.265, 1.55); }
-      `}</style>
+      <DiscoveryModal discovery={discovery} onClose={() => setDiscovery(null)} />
     </main>
+  );
+}
+
+function DiscoveryModal({ discovery, onClose }) {
+  if (!discovery) return null;
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#FFF9DB]/80 backdrop-blur-md animate-[fade-in_0.3s_ease-out]">
+      <div className="bg-white rounded-[60px] p-8 md:p-16 shadow-[0_50px_100px_rgba(0,0,0,0.1)] border-[12px] border-[#B2F2BB] text-center max-w-sm md:max-w-md w-full animate-[bounce-in_0.5s_cubic-bezier(0.34,1.56,0.64,1)] relative">
+        <div className="text-7xl md:text-9xl mb-6 animate-bounce drop-shadow-xl">{discovery.emoji}</div>
+        <h2 className="text-xl md:text-2xl font-black text-[#74C0FC] mb-6 uppercase tracking-[0.2em]">New Secret Found!</h2>
+        
+        <div className="bg-zinc-50 p-8 rounded-[40px] mb-8 border-4 border-dashed border-[#B2F2BB]/50">
+          <p className="text-6xl md:text-8xl font-black text-zinc-800 mb-2">{discovery.result}</p>
+          <p className="text-xl md:text-2xl font-black text-[#74C0FC] uppercase tracking-widest">{discovery.pinyin}</p>
+        </div>
+        
+        <p className="text-2xl font-black text-zinc-400 mb-10 italic">"{discovery.name}"</p>
+        
+        <button 
+          onClick={onClose}
+          className="w-full bg-[#74C0FC] text-white py-5 rounded-[30px] text-xl font-black shadow-[0_10px_0_#3d8ecf] hover:translate-y-[2px] hover:shadow-[0_8px_0_#3d8ecf] active:translate-y-[6px] active:shadow-none transition-all"
+        >
+          GREAT!
+        </button>
+      </div>
+    </div>
   );
 }
