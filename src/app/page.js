@@ -16,7 +16,7 @@ export default function LandingPage() {
   };
 
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center bg-[#FFF9DB] p-8 font-sans overflow-hidden relative">
+    <main className="min-h-screen flex flex-col items-center justify-center bg-[#FFF9DB] p-4 sm:p-8 font-sans overflow-x-hidden relative">
       {/* Dynamic Background Gradients */}
       <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-[#B2F2BB] blur-[120px] rounded-full opacity-40 animate-pulse"></div>
       <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-[#74C0FC] blur-[120px] rounded-full opacity-30 animate-pulse delay-1000"></div>
@@ -39,8 +39,13 @@ export default function LandingPage() {
         <div className="absolute top-40 -right-60 text-7xl md:text-8xl opacity-20 animate-[bounce_7s_infinite_delay-150ms] select-none pointer-events-none drop-shadow-lg">💧</div>
 
         {settingsOpen && (
-          <div className="fixed inset-0 z-30 flex items-center justify-center bg-black/20 p-4 backdrop-blur-sm">
-            <div className="relative w-full max-w-lg rounded-[36px] border border-zinc-200 bg-white p-6 shadow-[0_30px_80px_rgba(15,23,42,0.18)] animate-genz-pop">
+          <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/20 p-3 sm:p-4 backdrop-blur-sm touch-manipulation">
+            <div
+              role="dialog"
+              aria-modal="true"
+              className="relative z-10 w-full max-w-lg max-h-[calc(100dvh-2rem)] overflow-y-auto rounded-[36px] border border-zinc-200 bg-white p-6 shadow-[0_30px_80px_rgba(15,23,42,0.18)] animate-genz-pop"
+              onClick={(event) => event.stopPropagation()}
+            >
               <div className="pointer-events-none absolute -top-8 right-6 flex items-center gap-3">
                 
               </div>
@@ -59,13 +64,13 @@ export default function LandingPage() {
               <div className="mt-6 space-y-4">
                 <button
                   onClick={handleReset}
-                  className="w-full rounded-[28px] bg-[#ff5f5f] px-5 py-3 text-sm font-black uppercase tracking-[0.35em] text-white transition hover:bg-[#e64545]"
+                  className="w-full rounded-[28px] bg-[#ff5f5f] px-5 py-3 text-sm font-black uppercase tracking-[0.35em] text-white transition hover:bg-[#e64545] active:scale-[0.98] touch-manipulation"
                 >
                   Reset Data
                 </button>
                 <button
                   onClick={() => setSettingsOpen(false)}
-                  className="w-full rounded-[28px] border border-zinc-200 bg-white px-5 py-3 text-sm font-black uppercase tracking-[0.35em] text-zinc-700 transition hover:bg-zinc-100"
+                  className="w-full rounded-[28px] border border-zinc-200 bg-white px-5 py-3 text-sm font-black uppercase tracking-[0.35em] text-zinc-700 transition hover:bg-zinc-100 active:scale-[0.98] touch-manipulation"
                 >
                   Exit Settings
                 </button>
