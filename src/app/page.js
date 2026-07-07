@@ -24,10 +24,10 @@ export default function LandingPage() {
 
       <button
         onClick={() => setSettingsOpen(true)}
-        className="group fixed right-4 top-4 z-30 inline-flex items-center gap-2 rounded-full border border-[#74C0FC]/20  px-3 py-2.5 text-[#2b5e32] backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:scale-[1.02] hover:bg-white hover:shadow-[0_12px_30px_rgba(15,23,42,0.12)] focus:outline-none focus:ring-4 focus:ring-[#74C0FC]/20 active:scale-95 sm:right-6 sm:top-6 sm:px-4 sm:py-3"
+        className="group fixed right-4 top-4 z-30 inline-flex items-center gap-2 rounded-full   px-3 py-2.5 text-[#2b5e32] backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:scale-[1.02] hover:bg-white hover:shadow-[0_12px_30px_rgba(15,23,42,0.12)] focus:outline-none focus:ring-4 focus:ring-[#74C0FC]/20 active:scale-95 sm:right-6 sm:top-6 sm:px-4 sm:py-3"
         aria-label="Open settings"
       >
-        <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#74C0FC] text-xl text-white transition-transform duration-300 group-hover:rotate-45">
+        <span className="flex h-9 w-9 items-center justify-center rounded-full text-xl text-white transition-transform duration-300 group-hover:rotate-45">
           ⚙️
         </span>
       </button>
