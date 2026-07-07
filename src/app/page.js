@@ -24,12 +24,12 @@ export default function LandingPage() {
 
       <button
         onClick={() => setSettingsOpen(true)}
-        className="absolute right-4 top-4 z-20 inline-flex items-center gap-2 rounded-full bg-[#74C0FC] px-4 py-3 text-white shadow-[0_16px_40px_rgba(116,192,252,0.24)] ring-1 ring-[#74C0FC]/20 transition duration-300 hover:scale-105 hover:bg-[#5da9e6] focus:outline-none focus:ring-4 focus:ring-[#74C0FC]/20 active:scale-100 relative"
+        className="group fixed right-4 top-4 z-30 inline-flex items-center gap-2 rounded-full border border-[#74C0FC]/20 bg-white/90 px-3 py-2.5 text-[#2b5e32] backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:scale-[1.02] hover:bg-white hover:shadow-[0_12px_30px_rgba(15,23,42,0.12)] focus:outline-none focus:ring-4 focus:ring-[#74C0FC]/20 active:scale-95 sm:right-6 sm:top-6 sm:px-4 sm:py-3"
         aria-label="Open settings"
       >
-        <span className="text-2xl">⚙️</span>
-        <span className="hidden sm:inline text-xs font-black uppercase tracking-[0.35em]">Settings</span>
-        <span className="absolute -bottom-2 -right-2 block h-3 w-3 rounded-full bg-[#FFD8A8] shadow-[0_0_0_8px_rgba(255,216,168,0.18)]" />
+        <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#74C0FC] text-xl text-white transition-transform duration-300 group-hover:rotate-45">
+          ⚙️
+        </span>
       </button>
 
       <div className="flex flex-col items-center text-center max-w-2xl relative z-10">
