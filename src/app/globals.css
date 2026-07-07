@@ -25,10 +25,27 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Force a light theme for pages that opt into it */
+.light-theme {
+  --background: #FFF9DB;
+  --foreground: #171717;
+  background-color: var(--background) !important;
+  color: var(--foreground) !important;
+}
 /* Custom styles migrated from play page */
 .custom-scrollbar::-webkit-scrollbar { width: 8px; }
 .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
 .custom-scrollbar::-webkit-scrollbar-thumb { background: #B2F2BB; border-radius: 20px; }
+
+/* Scientist's Log Theme Background */
+.bg-graph-paper {
+  background-color: #FFF9DB;
+  background-image: 
+    linear-gradient(#e5e5e5 1px, transparent 1px),
+    linear-gradient(90deg, #e5e5e5 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: center center;
+}
 
 @keyframes fusion {
   0% { transform: scale(1); }
@@ -45,10 +62,59 @@ body {
 }
 
 @keyframes fade-in {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes sparkle {
+  0%, 100% { transform: scale(0); opacity: 0; }
+  50% { transform: scale(1.2); opacity: 1; }
+}
+
+@keyframes genz-pop {
+  0% {
+    opacity: 0;
+    transform: translateY(32px) scale(0.92);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-10px) scale(1.04);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes genz-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
 }
 
 .animate-fusion { 
   animation: fusion 1s forwards cubic-bezier(0.68, -0.55, 0.265, 1.55); 
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-sparkle {
+  animation: sparkle 0.6s ease-out forwards;
+}
+
+.animate-genz-pop {
+  animation: genz-pop 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-genz-float {
+  animation: genz-float 3.8s ease-in-out infinite;
 }

@@ -2,75 +2,66 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { BASE_CHARS, RECIPES, getData } from '../data';
 
-const BASE_CHARS = {
-  '气': { char: '气', pinyin: 'qì', emoji: '💨', name: 'Air' },
-  '土': { char: '土', pinyin: 'tǔ', emoji: '🌱', name: 'Earth' },
-  '火': { char: '火', pinyin: 'huǒ', emoji: '🔥', name: 'Fire' },
-  '水': { char: '水', pinyin: 'shuǐ', emoji: '💧', name: 'Water' },
-};
-
-const RECIPES = {
-  // New Starter Recipes
-  '土土': { result: '山', pinyin: 'shān', name: 'Mountain', emoji: '⛰️' },
-  '水水': { result: '冰', pinyin: 'bīng', name: 'Ice', emoji: '🧊' },
-  '火火': { result: '炎', pinyin: 'yán', name: 'Blaze', emoji: '💥' },
-  '气气': { result: '风', pinyin: 'fēng', name: 'Wind', emoji: '🌬️' },
-  
-  // Progression to original base elements
-  '水土': { result: '木', pinyin: 'mù', name: 'Wood', emoji: '🌲' },
-  '火山': { result: '金', pinyin: 'jīn', name: 'Gold', emoji: '🪙' },
-  '炎炎': { result: '日', pinyin: 'rì', name: 'Sun', emoji: '☀️' },
-  '冰冰': { result: '月', pinyin: 'yuè', name: 'Moon', emoji: '🌙' },
-  
-  // Existing & New Combos
-  '日日': { result: '晶', pinyin: 'jīng', name: 'Crystal', emoji: '💎' },
-  '火木': { result: '炭', pinyin: 'tàn', name: 'Charcoal', emoji: '🖤' },
-  '水木': { result: '树', pinyin: 'shù', name: 'Tree', emoji: '🌳' },
-  '水火': { result: '汽', pinyin: 'qì', name: 'Steam', emoji: '💨' },
-  '山山': { result: '岭', pinyin: 'lǐng', name: 'Mountain Range', emoji: '🏔️' },
-  '木木': { result: '林', pinyin: 'lín', name: 'Grove', emoji: '🎋' },
-  '林木': { result: '森林', pinyin: 'sēnlín', name: 'Forest', emoji: '🌲🌲' },
-  '山水': { result: '瀑', pinyin: 'pù', name: 'Waterfall', emoji: '🌊' },
-  '木火': { result: '灰', pinyin: 'huī', name: 'Ash', emoji: '🌫️' },
-  '土山': { result: '岛', pinyin: 'dǎo', name: 'Island', emoji: '🏝️' },
-  '日月': { result: '明', pinyin: 'míng', name: 'Bright', emoji: '✨' },
-  '木金': { result: '斧', pinyin: 'fǔ', name: 'Axe', emoji: '🪓' },
-  '日木': { result: '果', pinyin: 'guǒ', name: 'Fruit', emoji: '🍎' },
-  '月水': { result: '潮', pinyin: 'cháo', name: 'Tide', emoji: '🌊' },
-  '火金': { result: '熔', pinyin: 'róng', name: 'Lava', emoji: '🫠' },
-  '金金': { result: '鑫', pinyin: 'xīn', name: 'Prosperity', emoji: '💰' },
-  '山月': { result: '崩', pinyin: 'bēng', name: 'Landslide', emoji: '🚜' },
-  '气土': { result: '尘', pinyin: 'chén', name: 'Dust', emoji: '🌪️' },
-  '气水': { result: '云', pinyin: 'yún', name: 'Cloud', emoji: '☁️' },
-  '气火': { result: '烟', pinyin: 'yān', name: 'Smoke', emoji: '💨' },
+const getRandomHint = () => {
+  const keys = Object.keys(RECIPES);
+  const randomCombo = keys[Math.floor(Math.random() * keys.length)];
+  const char1 = randomCombo[0];
+  const char2 = randomCombo[1];
+  return {
+    name1: getData(char1).name,
+    name2: getData(char2).name
+  };
 };
 
 export default function GamePage() {
   const [library, setLibrary] = useState(['气', '土', '火', '水']);
+  const [hasLoaded, setHasLoaded] = useState(false);
   const [activeItems, setActiveItems] = useState([]); 
   const [discovery, setDiscovery] = useState(null);
   const [isCombining, setIsCombining] = useState(false);
   const [hint, setHint] = useState(null);
 
   React.useEffect(() => {
-    generateRandomHint();
+    // Load progress from localStorage on mount
+    const saved = localStorage.getItem('doujeen_progress');
+    let loadedLibrary = ['气', '土', '火', '水'];
+    if (saved) {
+      try {
+        const { unlocked, lastActive } = JSON.parse(saved);
+        const oneDayMs = 24 * 60 * 60 * 1000;
+        if (Date.now() - lastActive < oneDayMs) {
+          loadedLibrary = unlocked;
+        } else {
+          // Clear progress if older than 1 day
+          localStorage.removeItem('doujeen_progress');
+        }
+      } catch (e) {
+        console.error('Failed to parse progress:', e);
+      }
+    }
+
+    const timer = setTimeout(() => {
+      setLibrary(loadedLibrary);
+      setHasLoaded(true);
+      setHint(getRandomHint());
+    }, 0);
+    return () => clearTimeout(timer);
   }, []);
 
-  const generateRandomHint = () => {
-    const keys = Object.keys(RECIPES);
-    const randomCombo = keys[Math.floor(Math.random() * keys.length)];
-    const char1 = randomCombo[0];
-    const char2 = randomCombo[1];
-    setHint({
-      name1: getData(char1).name,
-      name2: getData(char2).name
-    });
-  };
-
-  const getData = (char) => {
-    return BASE_CHARS[char] || RECIPES[Object.keys(RECIPES).find(k => RECIPES[k].result === char)] || { char, pinyin: '?', emoji: '✨', name: 'Unknown' };
-  };
+  React.useEffect(() => {
+    if (!hasLoaded) return;
+    try {
+      const progress = {
+        unlocked: library,
+        lastActive: Date.now()
+      };
+      localStorage.setItem('doujeen_progress', JSON.stringify(progress));
+    } catch (e) {
+      console.error('Failed to save progress:', e);
+    }
+  }, [library, hasLoaded]);
 
   const processItems = (newActive) => {
     setActiveItems(newActive);
@@ -87,7 +78,7 @@ export default function GamePage() {
           if (!library.includes(match.result)) {
             setLibrary(prev => [...prev, match.result]);
           }
-          generateRandomHint(); // New hint after discovery
+          setHint(getRandomHint()); // New hint after discovery
         }
         setActiveItems([]);
         setIsCombining(false);
@@ -282,7 +273,7 @@ function DiscoveryModal({ discovery, onClose }) {
           <p className="text-xl md:text-2xl font-black text-[#74C0FC] uppercase tracking-widest">{discovery.pinyin}</p>
         </div>
         
-        <p className="text-2xl font-black text-zinc-400 mb-10 italic">"{discovery.name}"</p>
+        <p className="text-2xl font-black text-zinc-400 mb-10 italic">&ldquo;{discovery.name}&rdquo;</p>
         
         <button 
           onClick={onClose}
