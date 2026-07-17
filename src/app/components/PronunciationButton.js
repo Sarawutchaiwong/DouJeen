@@ -16,7 +16,7 @@ export default function PronunciationButton({
       }}
       onPointerDown={(event) => event.stopPropagation()}
       onDragStart={(event) => event.preventDefault()}
-      className={`inline-flex items-center justify-center rounded-full border-2 border-white bg-[#74C0FC] text-white shadow-lg transition hover:scale-110 hover:bg-[#5da9e6] focus:outline-none focus-visible:ring-4 focus-visible:ring-[#74C0FC]/30 active:scale-95 ${className}`}
+      className={`inline-flex items-center justify-center rounded-full border-2 border-white bg-[var(--lab-action)] text-white shadow-lg transition hover:scale-110 hover:bg-[var(--lab-action-hover)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/30 focus-visible:ring-offset-2 active:scale-95 ${className}`}
       aria-label={`Listen to ${character} pronunciation`}
       aria-busy={isPlaying}
       title={`Listen to ${character}`}

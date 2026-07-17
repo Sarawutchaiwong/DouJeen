@@ -3,6 +3,18 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --lab-cream: #FFF9DB;
+  --lab-mint: #B2F2BB;
+  --lab-mint-ink: #2B5E32;
+  --lab-peach: #FFD8A8;
+  --lab-peach-ink: #8A4B0F;
+  --lab-sky: #74C0FC;
+  --lab-action: #2D78A8;
+  --lab-action-hover: #245F86;
+  --lab-action-shadow: #1F5375;
+  --lab-muted: #5F626C;
+  --lab-danger: #B4232D;
+  --lab-danger-hover: #8E1C24;
 }
 
 @theme inline {
@@ -117,4 +129,15 @@ body {
 
 .animate-genz-float {
   animation: genz-float 3.8s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
