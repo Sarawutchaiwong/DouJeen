@@ -3,6 +3,8 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { BASE_CHARS, RECIPES, getData } from '../data';
+import PronunciationButton from '../components/PronunciationButton';
+import { usePronunciation } from '../usePronunciation';
 
 const getRandomHint = () => {
   const keys = Object.keys(RECIPES);
@@ -22,6 +24,11 @@ export default function GamePage() {
   const [discovery, setDiscovery] = useState(null);
   const [isCombining, setIsCombining] = useState(false);
   const [hint, setHint] = useState(null);
+  const {
+    playingCharacter,
+    playPronunciation,
+    pronunciationError,
+  } = usePronunciation();
 
   React.useEffect(() => {
     // Load progress from localStorage on mount
@@ -237,6 +244,13 @@ export default function GamePage() {
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
                 </button>
 
+                <PronunciationButton
+                  character={char}
+                  isPlaying={playingCharacter === char}
+                  onPlay={playPronunciation}
+                  className="absolute -left-2 -top-2 z-20 h-9 w-9 md:h-10 md:w-10"
+                />
+
                 <span className="text-2xl md:text-4xl mb-0.5 group-hover:scale-110 group-hover:animate-bounce transition-transform">{data.emoji}</span>
                 <span className="text-xl md:text-2xl font-black text-zinc-800 leading-tight">{char}</span>
                 <span className="text-[7px] md:text-[9px] font-black text-zinc-300 uppercase tracking-tighter mt-0.5">{data.pinyin}</span>
@@ -255,12 +269,26 @@ export default function GamePage() {
         </div>
       </aside>
 
-      <DiscoveryModal discovery={discovery} onClose={() => setDiscovery(null)} />
+      {pronunciationError && (
+        <div
+          role="status"
+          className="fixed left-1/2 top-5 z-[70] -translate-x-1/2 rounded-full bg-zinc-800 px-5 py-3 text-center text-xs font-black text-white shadow-xl"
+        >
+          {pronunciationError}
+        </div>
+      )}
+
+      <DiscoveryModal
+        discovery={discovery}
+        onClose={() => setDiscovery(null)}
+        onPlay={playPronunciation}
+        playingCharacter={playingCharacter}
+      />
     </main>
   );
 }
 
-function DiscoveryModal({ discovery, onClose }) {
+function DiscoveryModal({ discovery, onClose, onPlay, playingCharacter }) {
   if (!discovery) return null;
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#FFF9DB]/80 backdrop-blur-md animate-[fade-in_0.3s_ease-out]">
@@ -271,6 +299,12 @@ function DiscoveryModal({ discovery, onClose }) {
         <div className="bg-zinc-50 p-8 rounded-[40px] mb-8 border-4 border-dashed border-[#B2F2BB]/50">
           <p className="text-6xl md:text-8xl font-black text-zinc-800 mb-2">{discovery.result}</p>
           <p className="text-xl md:text-2xl font-black text-[#74C0FC] uppercase tracking-widest">{discovery.pinyin}</p>
+          <PronunciationButton
+            character={discovery.result}
+            isPlaying={playingCharacter === discovery.result}
+            onPlay={onPlay}
+            className="mx-auto mt-5 h-12 w-12"
+          />
         </div>
         
         <p className="text-2xl font-black text-zinc-400 mb-10 italic">&ldquo;{discovery.name}&rdquo;</p>
