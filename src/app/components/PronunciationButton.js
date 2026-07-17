@@ -6,6 +6,10 @@ export default function PronunciationButton({
   onPlay,
   className = '',
 }) {
+  const playbackLabel = isPlaying
+    ? `Playing ${character} pronunciation`
+    : `Listen to ${character} pronunciation`;
+
   return (
     <button
       type="button"
@@ -16,14 +20,13 @@ export default function PronunciationButton({
       }}
       onPointerDown={(event) => event.stopPropagation()}
       onDragStart={(event) => event.preventDefault()}
-      className={`inline-flex items-center justify-center rounded-full border-2 border-white bg-[var(--lab-action)] text-white shadow-lg transition hover:scale-110 hover:bg-[var(--lab-action-hover)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/30 focus-visible:ring-offset-2 active:scale-95 ${className}`}
-      aria-label={`Listen to ${character} pronunciation`}
+      className={`inline-flex items-center justify-center rounded-full border-2 border-[var(--lab-surface)] bg-[var(--lab-action)] text-[var(--lab-surface)] shadow-lg transition-[transform,background-color,box-shadow] duration-[var(--duration-press)] ease-[var(--ease-out)] hover:scale-110 hover:bg-[var(--lab-action-hover)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/30 focus-visible:ring-offset-2 active:scale-95 ${className}`}
+      aria-label={playbackLabel}
       aria-busy={isPlaying}
-      title={`Listen to ${character}`}
+      title={playbackLabel}
     >
       <svg
         aria-hidden="true"
-        className={isPlaying ? 'animate-pulse' : ''}
         xmlns="http://www.w3.org/2000/svg"
         width="18"
         height="18"
@@ -35,8 +38,8 @@ export default function PronunciationButton({
         strokeLinejoin="round"
       >
         <path d="M11 5 6 9H2v6h4l5 4V5Z" />
-        <path d="M15.5 8.5a5 5 0 0 1 0 7" />
-        <path d="M18.5 5.5a9 9 0 0 1 0 13" />
+        <path className={isPlaying ? 'sound-wave-near' : ''} d="M15.5 8.5a5 5 0 0 1 0 7" />
+        <path className={isPlaying ? 'sound-wave-far' : ''} d="M18.5 5.5a9 9 0 0 1 0 13" />
       </svg>
     </button>
   );

@@ -98,33 +98,36 @@ export default function GuidePage() {
     <main className="min-h-screen bg-graph-paper font-sans relative pb-20">
       
       {/* Scientist Header */}
-      <header className="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b-4 border-[#74C0FC]/20 shadow-sm">
-        <div className="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-4">
+      <header className="sticky top-0 z-40 bg-[var(--lab-surface-90)] backdrop-blur-md border-b-4 border-[var(--lab-sky)]/20 shadow-sm">
+        <div className="max-w-4xl mx-auto flex items-center justify-between gap-2 px-3 py-3 sm:px-6 sm:py-4">
+          <div className="flex min-w-0 items-center gap-2 sm:gap-4">
             <Link
               href="/"
-              className="bg-white shadow-[0_4px_0_#efefef] hover:translate-y-[2px] active:translate-y-[4px] active:shadow-none p-3 rounded-2xl text-[var(--lab-action)] transition-all border-2 border-zinc-100 focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/30"
+              aria-label="Back to home"
+              title="Back to home"
+              className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border-2 border-[var(--lab-line)] bg-[var(--lab-surface)] text-[var(--lab-action)] shadow-[0_4px_0_var(--lab-shadow)] transition-[transform,background-color,box-shadow,border-color] duration-[var(--duration-press)] ease-[var(--ease-out)] hover:translate-y-[2px] active:translate-y-[4px] active:shadow-none focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/30"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
             </Link>
-            <div>
-              <h1 className="text-xl font-black text-zinc-800 tracking-tight flex items-center gap-2">
-                Scientist&apos;s Log <span className="text-[#74C0FC]">🔬</span>
+            <div className="min-w-0">
+              <h1 className="flex items-center gap-1 truncate text-base font-black tracking-tight text-zinc-800 sm:gap-2 sm:text-xl">
+                Scientist&apos;s Log <span aria-hidden="true">🔬</span>
               </h1>
-              <p className="text-[10px] font-black text-[var(--lab-muted)] uppercase tracking-widest">Research & Discovery Manual</p>
+              <p className="hidden text-[10px] font-black text-[var(--lab-muted)] uppercase tracking-widest min-[360px]:block">Research & Discovery Manual</p>
             </div>
           </div>
 
           <Link
             href="/play"
-            className="bg-[var(--lab-action)] text-white shadow-[0_4px_0_var(--lab-action-shadow)] hover:bg-[var(--lab-action-hover)] hover:translate-y-[2px] active:translate-y-[4px] active:shadow-none px-6 py-3 rounded-2xl text-sm font-black transition-all focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/30"
+            className="inline-flex min-h-11 shrink-0 items-center justify-center rounded-2xl bg-[var(--lab-action)] px-4 py-3 text-xs font-black text-[var(--lab-surface)] shadow-[0_4px_0_var(--lab-action-shadow)] transition-[transform,background-color,box-shadow] duration-[var(--duration-press)] ease-[var(--ease-out)] hover:translate-y-[2px] hover:bg-[var(--lab-action-hover)] active:translate-y-[4px] active:shadow-none focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/30 sm:px-6 sm:text-sm"
           >
-            LABORATORY
+            <span className="sm:hidden">LAB</span>
+            <span className="hidden sm:inline">LABORATORY</span>
           </Link>
         </div>
       </header>
 
-      <div className="max-w-4xl mx-auto px-6 py-8">
+      <div className="max-w-4xl mx-auto px-3 py-8 sm:px-6">
         
         
 
@@ -141,10 +144,10 @@ export default function GuidePage() {
                 key={item.char}
                 type="button"
                 onClick={() => addToSandbox(item.char)}
-                className="bg-white rounded-3xl p-5 shadow-[0_6px_0_#efefef] border-2 border-transparent hover:border-[var(--lab-action)] flex flex-col items-center gap-2 transition-all hover:-translate-y-1 active:translate-y-1 active:shadow-none group focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/30"
+                className="bg-[var(--lab-surface)] rounded-3xl p-5 shadow-[0_6px_0_var(--lab-shadow)] border-2 border-transparent hover:border-[var(--lab-action)] flex flex-col items-center gap-2 transition-[transform,background-color,box-shadow,border-color] duration-[var(--duration-press)] ease-[var(--ease-out)] hover:-translate-y-1 active:translate-y-1 active:shadow-none group focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/30"
                 aria-label={`Add ${item.char}, ${item.name}, to the reagent sandbox`}
               >
-                <span className="text-4xl group-hover:animate-bounce">{item.emoji}</span>
+                <span className="text-4xl transition-transform duration-[var(--duration-press)] ease-[var(--ease-out)] group-hover:scale-110">{item.emoji}</span>
                 <span className="text-2xl font-black text-zinc-800">{item.char}</span>
                 <span className="text-[10px] font-black text-[var(--lab-action)] uppercase tracking-widest">{item.pinyin}</span>
               </button>
@@ -152,7 +155,7 @@ export default function GuidePage() {
           </div>
 
           <div
-            className="mt-6 min-h-32 rounded-[32px] border-4 border-dashed border-[var(--lab-sky)]/40 bg-white/80 p-6 text-center shadow-sm"
+            className="mt-6 min-h-32 rounded-[32px] border-4 border-dashed border-[var(--lab-sky)]/40 bg-[var(--lab-surface-90)] p-6 text-center shadow-sm"
             role="status"
             aria-live="polite"
             aria-atomic="true"
@@ -191,7 +194,7 @@ export default function GuidePage() {
               <button
                 type="button"
                 onClick={clearSandbox}
-                className="mt-5 min-h-11 rounded-2xl border-2 border-zinc-200 bg-white px-5 py-2 text-xs font-black text-zinc-700 hover:bg-zinc-50 focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/30"
+                className="mt-5 min-h-11 rounded-2xl border-2 border-[var(--lab-line)] bg-[var(--lab-surface)] px-5 py-2 text-xs font-black text-zinc-700 transition-colors duration-[var(--duration-press)] ease-[var(--ease-out)] hover:bg-[var(--lab-surface-soft)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/30"
               >
                 CLEAR SANDBOX
               </button>
@@ -200,7 +203,7 @@ export default function GuidePage() {
         </section>
 
         {/* Controls & Filter */}
-        <section className="mb-12 sticky top-24 z-30">
+        <section className="mb-12 sticky top-20 z-30 sm:top-24">
           <div className="flex flex-col sm:flex-row gap-4">
             <div className="flex-1 relative group">
               <label htmlFor="recipe-search" className="sr-only">Search recipes</label>
@@ -211,13 +214,13 @@ export default function GuidePage() {
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Search by element, pinyin, or logic..."
-                className="w-full bg-white rounded-3xl px-6 py-4 pl-14 text-sm font-bold text-zinc-700 placeholder:text-[var(--lab-muted)] border-4 border-transparent shadow-[0_8px_30px_rgba(0,0,0,0.04)] focus:outline-none focus:border-[var(--lab-action)]/50 transition-all"
+                className="w-full bg-[var(--lab-surface)] rounded-3xl px-6 py-4 pl-14 text-sm font-bold text-zinc-700 placeholder:text-[var(--lab-muted)] border-4 border-transparent shadow-[0_8px_30px_rgba(0,0,0,0.04)] focus:outline-none focus:border-[var(--lab-action)]/50 transition-[border-color,box-shadow] duration-[var(--duration-ui)] ease-[var(--ease-out)]"
               />
-              <svg aria-hidden="true" className="absolute left-6 top-1/2 -translate-y-1/2 text-[var(--lab-muted)] group-focus-within:text-[var(--lab-action)] transition-colors" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+              <svg aria-hidden="true" className="absolute left-6 top-1/2 -translate-y-1/2 text-[var(--lab-muted)] group-focus-within:text-[var(--lab-action)] transition-colors duration-[var(--duration-ui)] ease-[var(--ease-out)]" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
             </div>
             <div className="flex gap-2">
-              <button type="button" onClick={revealAll} className="min-h-11 bg-zinc-800 text-white px-6 py-3 rounded-2xl text-xs font-black hover:bg-zinc-700 transition-colors shadow-lg focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/30">SHOW ALL</button>
-              <button type="button" onClick={hideAll} className="min-h-11 bg-white text-[var(--lab-muted)] border-2 border-zinc-100 px-6 py-3 rounded-2xl text-xs font-black hover:bg-zinc-50 transition-colors shadow-sm focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/30">RESET</button>
+              <button type="button" onClick={revealAll} className="min-h-11 bg-zinc-800 text-[var(--lab-surface)] px-6 py-3 rounded-2xl text-xs font-black hover:bg-zinc-700 transition-colors duration-[var(--duration-press)] ease-[var(--ease-out)] shadow-lg focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/30">SHOW ALL</button>
+              <button type="button" onClick={hideAll} className="min-h-11 bg-[var(--lab-surface)] text-[var(--lab-muted)] border-2 border-[var(--lab-line)] px-6 py-3 rounded-2xl text-xs font-black hover:bg-[var(--lab-surface-soft)] transition-colors duration-[var(--duration-press)] ease-[var(--ease-out)] shadow-sm focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/30">RESET</button>
             </div>
           </div>
         </section>
@@ -229,7 +232,7 @@ export default function GuidePage() {
           
           return (
             <section key={category} className="mb-12">
-              <h3 className="text-lg font-black text-zinc-800 mb-6 flex items-center gap-3">
+              <h3 className="mb-6 flex flex-wrap items-center gap-2 text-lg font-black text-zinc-800 sm:gap-3">
                 {category === 'States of Matter' ? '🧪' : category === 'Materials' ? '🔬' : '🌱'}
                 {category}
                 <span className="text-[10px] text-[var(--lab-muted)] uppercase tracking-widest font-black ml-auto">{catRecipes.length} Discoveries</span>
@@ -251,20 +254,20 @@ export default function GuidePage() {
                       onClick={() => toggleReveal(key, isFound)}
                       aria-expanded={isRevealed}
                       className={`
-                        w-full bg-white rounded-[32px] p-6 shadow-[0_8px_0_#efefef] border-4 border-transparent
-                        hover:border-[#FFD8A8]/50 transition-all text-left cursor-pointer relative group
+                        w-full bg-[var(--lab-surface)] rounded-[32px] p-4 sm:p-6 shadow-[0_8px_0_var(--lab-shadow)] border-4 border-transparent
+                        hover:border-[var(--lab-peach)]/50 transition-[transform,background-color,box-shadow,border-color] duration-[var(--duration-press)] ease-[var(--ease-out)] text-left cursor-pointer relative group
                         focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/30
-                        ${isFound ? 'ring-2 ring-[#B2F2BB]/50' : ''}
+                        ${isFound ? 'ring-2 ring-[var(--lab-mint)]/50' : ''}
                       `}
                     >
                       {isFound && (
-                        <div className="absolute -top-3 -right-3 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center text-xl border-2 border-[#B2F2BB] z-10 animate-float">
+                        <div className="absolute -top-3 -right-3 w-10 h-10 bg-[var(--lab-surface)] rounded-full shadow-lg flex items-center justify-center text-xl border-2 border-[var(--lab-mint)] z-10">
                           ⭐
                         </div>
                       )}
 
                       {/* Formula */}
-                      <div className="flex items-center gap-4 mb-4">
+                      <div className="mb-4 flex flex-wrap items-center gap-2 sm:gap-4">
                         <div className="flex items-center gap-1.5 bg-zinc-50 px-3 py-2 rounded-2xl border-2 border-zinc-100">
                           <span className="text-xl">{d1.emoji}</span>
                           <span className="text-xl font-black text-zinc-800">{char1}</span>
@@ -276,21 +279,30 @@ export default function GuidePage() {
                         </div>
                         <span className="text-[var(--lab-muted)] font-black">=</span>
 
-                        {isRevealed ? (
-                          <div className="flex items-center gap-2 animate-[fade-in_0.3s_ease-out]">
+                        <div className="grid min-w-[8rem] flex-1">
+                          <div
+                            aria-hidden={!isRevealed}
+                            className={`col-start-1 row-start-1 flex items-center gap-2 transition-[transform,opacity] duration-[var(--duration-ui)] ease-[var(--ease-out)] ${isRevealed ? 'translate-y-0 opacity-100' : 'pointer-events-none translate-y-1 opacity-0'}`}
+                          >
                             <span className="text-2xl">{recipe.emoji}</span>
                             <span className="text-2xl font-black text-[var(--lab-action)]">{recipe.result}</span>
                           </div>
-                        ) : (
-                          <div className="bg-[#FFD8A8]/35 text-[var(--lab-peach-ink)] px-4 py-2 rounded-2xl text-[10px] font-black uppercase tracking-widest border-2 border-dashed border-[#FFD8A8] group-hover:bg-[#FFD8A8]/50 transition-colors">
+                          <div
+                            aria-hidden={isRevealed}
+                            className={`col-start-1 row-start-1 justify-self-start rounded-2xl border-2 border-dashed border-[var(--lab-peach)] bg-[var(--lab-peach)]/35 px-4 py-2 text-[10px] font-black uppercase tracking-widest text-[var(--lab-peach-ink)] transition-[transform,opacity,background-color] duration-[var(--duration-ui)] ease-[var(--ease-out)] group-hover:bg-[var(--lab-peach)]/50 ${isRevealed ? 'pointer-events-none -translate-y-1 opacity-0' : 'translate-y-0 opacity-100'}`}
+                          >
                             Reveal Logic
                           </div>
-                        )}
+                        </div>
                       </div>
 
                       {/* Scientific Data */}
-                      {isRevealed && (
-                        <div className="space-y-3 animate-[fade-in_0.4s_ease-out]">
+                      <div
+                        aria-hidden={!isRevealed}
+                        className={`grid transition-[grid-template-rows,opacity] duration-[var(--duration-ui)] ease-[var(--ease-out)] ${isRevealed ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}
+                      >
+                        <div className="min-h-0 overflow-hidden">
+                          <div className="space-y-3">
                           <div className="flex items-center gap-3">
                             <span className="text-xs font-black text-[var(--lab-action)] uppercase tracking-widest">{recipe.pinyin}</span>
                             <span className="w-1 h-1 bg-zinc-200 rounded-full"></span>
@@ -299,8 +311,9 @@ export default function GuidePage() {
                           <p className="text-[11px] leading-relaxed text-[var(--lab-muted)] font-bold bg-zinc-50/50 p-3 rounded-xl border border-zinc-100 italic">
                             &ldquo;{recipe.note}&rdquo;
                           </p>
+                          </div>
                         </div>
-                      )}
+                      </div>
                     </button>
                   );
                 })}
@@ -310,7 +323,7 @@ export default function GuidePage() {
         })}
 
         {filteredRecipes.length === 0 && (
-          <div className="bg-white/40 border-4 border-dashed border-zinc-100 rounded-[40px] p-20 text-center">
+          <div className="bg-[var(--lab-surface-40)] border-4 border-dashed border-zinc-100 rounded-[40px] p-20 text-center">
             <span className="text-6xl mb-6 block opacity-20">🧪</span>
             <p className="text-[var(--lab-muted)] font-black uppercase tracking-widest">No matching research entries found.</p>
           </div>
