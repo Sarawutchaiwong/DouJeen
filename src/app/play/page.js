@@ -94,7 +94,7 @@ export default function GamePage() {
   };
 
   const selectItem = (char) => {
-    if (isCombining || (typeof window !== 'undefined' && window.innerWidth >= 768)) return;
+    if (isCombining) return;
     const newItem = { char, ...getData(char) };
     const newActive = [...activeItems, newItem].slice(-2);
     processItems(newActive);
@@ -115,7 +115,7 @@ export default function GamePage() {
   };
 
   return (
-    <main className="h-screen w-full bg-[#FFF9DB] font-sans overflow-hidden flex flex-col md:flex-row relative">
+    <main className="h-screen w-full bg-[#FFF9DB] font-sans overflow-hidden flex flex-col lg:flex-row relative">
       
       {/* Background Decor: The "Stage" */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_#ffffff_0%,_transparent_70%)] opacity-40 pointer-events-none"></div>
@@ -193,7 +193,7 @@ export default function GamePage() {
       </section>
 
       {/* The Journal HUD - Floating Sticker Palette with Breathing Room */}
-      <aside className="w-full md:w-[440px] h-[45vh] md:h-[80vh] md:my-auto md:ml-12 md:mr-4 md:rounded-[60px] bg-white/40 backdrop-blur-3xl border-t-8 md:border-8 border-[#B2F2BB] shadow-[0_40px_80px_rgba(0,0,0,0.12)] flex flex-col z-30 overflow-hidden transition-all ring-1 ring-white/50 relative">
+      <aside className="h-[45vh] w-full border-t-8 border-[#B2F2BB] bg-white/40 shadow-[0_40px_80px_rgba(0,0,0,0.12)] ring-1 ring-white/50 backdrop-blur-3xl flex flex-col z-30 overflow-hidden transition-all relative lg:my-auto lg:ml-12 lg:mr-4 lg:h-[80vh] lg:w-[440px] lg:rounded-[60px] lg:border-8">
         <div className="p-6 md:p-10 bg-white/20 border-b-2 border-[#B2F2BB]/20 shrink-0">
           <div className="flex items-center justify-between mb-6">
             <div className="flex flex-col">
@@ -215,7 +215,7 @@ export default function GamePage() {
           </div>
         </div>
         
-        <div className="flex-1 grid grid-cols-4 md:grid-cols-3 gap-3 md:gap-5 p-6 md:p-10 overflow-y-auto custom-scrollbar content-start">
+        <div className="custom-scrollbar grid flex-1 grid-cols-4 content-start gap-3 overflow-y-auto p-6 md:gap-5 md:p-10 lg:grid-cols-3">
           {library.map((char, index) => {
             const data = getData(char);
             return (
@@ -230,16 +230,20 @@ export default function GamePage() {
                   flex flex-col items-center justify-center cursor-grab active:cursor-grabbing 
                   hover:scale-110 hover:-translate-y-2 hover:rotate-2 transition-all duration-300 
                   border-[3px] md:border-[5px] ${index % 2 === 0 ? 'border-[#74C0FC]' : 'border-[#FFD8A8]'}
-                  group relative p-1 select-none overflow-visible
+                  group relative p-1 select-none overflow-visible touch-manipulation
                 `}
               >
-                {/* Mobile-Friendly Select Button - Hidden on Desktop */}
-                <button 
+                {/* Touch select control — shown by input capability, not screen width */}
+                <button
+                  type="button"
+                  draggable={false}
                   onClick={(e) => {
                     e.stopPropagation();
                     selectItem(char);
                   }}
-                  className="md:hidden absolute -top-2 -right-2 w-8 h-8 bg-[#74C0FC] text-white rounded-full flex items-center justify-center shadow-lg active:scale-95 transition-all z-20 border-2 border-white"
+                  onPointerDown={(e) => e.stopPropagation()}
+                  className="absolute -right-2 -top-2 z-20 hidden h-11 w-11 items-center justify-center rounded-full border-2 border-white bg-[#74C0FC] text-white shadow-lg transition hover:bg-[#5da9e6] focus:outline-none focus-visible:ring-4 focus-visible:ring-[#74C0FC]/30 active:scale-95 pointer-coarse:flex any-pointer-coarse:flex"
+                  aria-label={`Add ${char} to combination`}
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
                 </button>
@@ -248,7 +252,7 @@ export default function GamePage() {
                   character={char}
                   isPlaying={playingCharacter === char}
                   onPlay={playPronunciation}
-                  className="absolute -left-2 -top-2 z-20 h-9 w-9 md:h-10 md:w-10"
+                  className="absolute -left-2 -top-2 z-20 h-11 w-11"
                 />
 
                 <span className="text-2xl md:text-4xl mb-0.5 group-hover:scale-110 group-hover:animate-bounce transition-transform">{data.emoji}</span>
