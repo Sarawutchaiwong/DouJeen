@@ -12,16 +12,20 @@ export default function GuidePage() {
   const [sandboxResult, setSandboxResult] = useState(null);
 
   useEffect(() => {
-    try {
-      const saved = localStorage.getItem('doujeen_progress');
-      if (!saved) return;
-      const { unlocked } = JSON.parse(saved);
-      if (Array.isArray(unlocked)) {
-        setProgress(unlocked);
+    const timer = window.setTimeout(() => {
+      try {
+        const saved = localStorage.getItem('doujeen_progress');
+        if (!saved) return;
+        const { unlocked } = JSON.parse(saved);
+        if (Array.isArray(unlocked)) {
+          setProgress(unlocked);
+        }
+      } catch (e) {
+        console.error('Failed to parse progress:', e);
       }
-    } catch (e) {
-      console.error('Failed to parse progress:', e);
-    }
+    }, 0);
+
+    return () => window.clearTimeout(timer);
   }, []);
 
   const toggleReveal = (key) => {
