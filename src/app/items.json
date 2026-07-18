@@ -1,0 +1,887 @@
+[
+  {
+    "char": "水",
+    "sourcePinyin": "shui3",
+    "name": "Water",
+    "sourceDefinition": "water",
+    "emoji": "💧",
+    "hskLevel": "HSK 1"
+  },
+  {
+    "char": "火",
+    "sourcePinyin": "huo3",
+    "name": "Fire",
+    "sourceDefinition": "fire",
+    "emoji": "🔥"
+  },
+  {
+    "char": "风",
+    "sourcePinyin": "feng1",
+    "name": "Wind",
+    "sourceDefinition": "wind",
+    "emoji": "🌬️"
+  },
+  {
+    "char": "土",
+    "sourcePinyin": "tu3",
+    "name": "Earth",
+    "sourceDefinition": "earth; dust; clay",
+    "emoji": "🌍"
+  },
+  {
+    "char": "黏土",
+    "sourcePinyin": "nian2 tu3",
+    "name": "Clay",
+    "sourceDefinition": "clay",
+    "emoji": "🟤"
+  },
+  {
+    "char": "蒸汽",
+    "sourcePinyin": "zheng1 qi4",
+    "name": "Steam",
+    "sourceDefinition": "steam",
+    "emoji": "♨️"
+  },
+  {
+    "char": "波浪",
+    "sourcePinyin": "bo1 lang4",
+    "name": "Wave",
+    "sourceDefinition": "wave",
+    "emoji": "🌊"
+  },
+  {
+    "char": "沙尘",
+    "sourcePinyin": "sha1 chen2",
+    "name": "Airborne Dust",
+    "sourceDefinition": "airborne sand and dust",
+    "emoji": "🌫️"
+  },
+  {
+    "char": "熔岩",
+    "sourcePinyin": "rong2 yan2",
+    "name": "Lava",
+    "sourceDefinition": "(geology) lava",
+    "emoji": "🌋"
+  },
+  {
+    "char": "河",
+    "sourcePinyin": "he2",
+    "name": "River",
+    "sourceDefinition": "river",
+    "emoji": "🏞️"
+  },
+  {
+    "char": "砖",
+    "sourcePinyin": "zhuan1",
+    "name": "Brick",
+    "sourceDefinition": "brick; tile (floor or wall, not roof)",
+    "emoji": "🧱"
+  },
+  {
+    "char": "泥",
+    "sourcePinyin": "ni2",
+    "name": "Mud",
+    "sourceDefinition": "mud; clay; paste; pulp",
+    "emoji": "🟫"
+  },
+  {
+    "char": "云",
+    "sourcePinyin": "yun2",
+    "name": "Cloud",
+    "sourceDefinition": "cloud",
+    "emoji": "☁️"
+  },
+  {
+    "char": "雨",
+    "sourcePinyin": "yu3",
+    "name": "Rain",
+    "sourceDefinition": "rain",
+    "emoji": "🌧️"
+  },
+  {
+    "char": "暴风雨",
+    "sourcePinyin": "bao4 feng1 yu3",
+    "name": "Rainstorm",
+    "sourceDefinition": "rainstorm; storm; tempest",
+    "emoji": "⛈️"
+  },
+  {
+    "char": "岩石",
+    "sourcePinyin": "yan2 shi2",
+    "name": "Rock",
+    "sourceDefinition": "(geology) rock",
+    "emoji": "🪨"
+  },
+  {
+    "char": "沙",
+    "sourcePinyin": "sha1",
+    "name": "Sand",
+    "sourceDefinition": "sand; granule; powder",
+    "emoji": "🏜️"
+  },
+  {
+    "char": "玻璃",
+    "sourcePinyin": "bo1 li5",
+    "name": "Glass",
+    "sourceDefinition": "glass",
+    "emoji": "🪟"
+  },
+  {
+    "char": "沙滩",
+    "sourcePinyin": "sha1 tan1",
+    "name": "Beach",
+    "sourceDefinition": "beach; sandy shore",
+    "emoji": "🏖️"
+  },
+  {
+    "char": "海岸",
+    "sourcePinyin": "hai3 an4",
+    "name": "Coast",
+    "sourceDefinition": "coastal; seacoast",
+    "emoji": "🌅"
+  },
+  {
+    "char": "河岸",
+    "sourcePinyin": "he2 an4",
+    "name": "Riverbank",
+    "sourceDefinition": "riverside; river bank",
+    "emoji": "🌿"
+  },
+  {
+    "char": "海洋",
+    "sourcePinyin": "hai3 yang2",
+    "name": "Ocean",
+    "sourceDefinition": "ocean",
+    "emoji": "🌊"
+  },
+  {
+    "char": "墙",
+    "sourcePinyin": "qiang2",
+    "name": "Wall",
+    "sourceDefinition": "wall",
+    "emoji": "🧱"
+  },
+  {
+    "char": "窗",
+    "sourcePinyin": "chuang1",
+    "name": "Window",
+    "sourceDefinition": "window",
+    "emoji": "🪟"
+  },
+  {
+    "char": "房子",
+    "sourcePinyin": "fang2 zi5",
+    "name": "House",
+    "sourceDefinition": "house; building (single- or two-story); apartment; room",
+    "emoji": "🏠"
+  },
+  {
+    "char": "壁炉",
+    "sourcePinyin": "bi4 lu2",
+    "name": "Fireplace",
+    "sourceDefinition": "fireplace",
+    "emoji": "🔥"
+  },
+  {
+    "char": "村庄",
+    "sourcePinyin": "cun1 zhuang1",
+    "name": "Village",
+    "sourceDefinition": "village; hamlet",
+    "emoji": "🏘️"
+  },
+  {
+    "char": "城市",
+    "sourcePinyin": "cheng2 shi4",
+    "name": "City",
+    "sourceDefinition": "city; town",
+    "emoji": "🏙️"
+  },
+  {
+    "char": "港口",
+    "sourcePinyin": "gang3 kou3",
+    "name": "Port",
+    "sourceDefinition": "port; harbor",
+    "emoji": "⚓"
+  },
+  {
+    "char": "船",
+    "sourcePinyin": "chuan2",
+    "name": "Boat",
+    "sourceDefinition": "boat; vessel; ship",
+    "emoji": "⛵",
+    "hskLevel": "HSK 2"
+  },
+  {
+    "char": "帆船",
+    "sourcePinyin": "fan1 chuan2",
+    "name": "Sailboat",
+    "sourceDefinition": "sailboat",
+    "emoji": "⛵"
+  },
+  {
+    "char": "陶器",
+    "sourcePinyin": "tao2 qi4",
+    "name": "Pottery",
+    "sourceDefinition": "pottery",
+    "emoji": "🏺"
+  },
+  {
+    "char": "天气",
+    "sourcePinyin": "tian1 qi4",
+    "name": "Weather",
+    "sourceDefinition": "weather",
+    "emoji": "🌤️",
+    "hskLevel": "HSK 1"
+  },
+  {
+    "char": "雨天",
+    "sourcePinyin": "yu3 tian1",
+    "name": "Rainy Day",
+    "sourceDefinition": "rainy day; rainy weather",
+    "emoji": "🌧️"
+  },
+  {
+    "char": "家",
+    "sourcePinyin": "jia1",
+    "name": "Home",
+    "sourceDefinition": "home; family",
+    "emoji": "🏡",
+    "hskLevel": "HSK 1"
+  },
+  {
+    "char": "社区",
+    "sourcePinyin": "she4 qu1",
+    "name": "Community",
+    "sourceDefinition": "community; neighborhood",
+    "emoji": "🏘️"
+  },
+  {
+    "char": "海",
+    "sourcePinyin": "hai3",
+    "name": "Sea",
+    "sourceDefinition": "ocean; sea",
+    "emoji": "🌊"
+  },
+  {
+    "char": "海风",
+    "sourcePinyin": "hai3 feng1",
+    "name": "Sea Breeze",
+    "sourceDefinition": "sea breeze",
+    "emoji": "🌬️"
+  },
+  {
+    "char": "海水",
+    "sourcePinyin": "hai3 shui3",
+    "name": "Seawater",
+    "sourceDefinition": "seawater",
+    "emoji": "💧"
+  },
+  {
+    "char": "山",
+    "sourcePinyin": "shan1",
+    "name": "Mountain",
+    "sourceDefinition": "mountain; hill",
+    "emoji": "⛰️"
+  },
+  {
+    "char": "火山",
+    "sourcePinyin": "huo3 shan1",
+    "name": "Volcano",
+    "sourceDefinition": "volcano",
+    "emoji": "🌋"
+  },
+  {
+    "char": "光",
+    "sourcePinyin": "guang1",
+    "name": "Light",
+    "sourceDefinition": "light; ray",
+    "emoji": "✨"
+  },
+  {
+    "char": "空气",
+    "sourcePinyin": "kong1 qi4",
+    "name": "Air",
+    "sourceDefinition": "air; atmosphere",
+    "emoji": "💨"
+  },
+  {
+    "char": "天空",
+    "sourcePinyin": "tian1 kong1",
+    "name": "Sky",
+    "sourceDefinition": "sky",
+    "emoji": "🌤️"
+  },
+  {
+    "char": "太阳",
+    "sourcePinyin": "tai4 yang5",
+    "name": "Sun",
+    "sourceDefinition": "sun; sunlight; sunshine",
+    "emoji": "☀️"
+  },
+  {
+    "char": "月亮",
+    "sourcePinyin": "yue4 liang5",
+    "name": "Moon",
+    "sourceDefinition": "the moon",
+    "emoji": "🌙"
+  },
+  {
+    "char": "雪",
+    "sourcePinyin": "xue3",
+    "name": "Snow",
+    "sourceDefinition": "snow",
+    "emoji": "❄️",
+    "hskLevel": "HSK 2"
+  },
+  {
+    "char": "晴",
+    "sourcePinyin": "qing2",
+    "name": "Clear Weather",
+    "sourceDefinition": "clear; fine (weather)",
+    "emoji": "☀️",
+    "hskLevel": "HSK 2"
+  },
+  {
+    "char": "下雨",
+    "sourcePinyin": "xia4 yu3",
+    "name": "To Rain",
+    "sourceDefinition": "to rain",
+    "emoji": "🌧️",
+    "hskLevel": "HSK 1"
+  },
+  {
+    "char": "闪电",
+    "sourcePinyin": "shan3 dian4",
+    "name": "Lightning",
+    "sourceDefinition": "lightning",
+    "emoji": "⚡"
+  },
+  {
+    "char": "雷",
+    "sourcePinyin": "lei2",
+    "name": "Thunder",
+    "sourceDefinition": "thunder",
+    "emoji": "🌩️"
+  },
+  {
+    "char": "植物",
+    "sourcePinyin": "zhi2 wu4",
+    "name": "Plant",
+    "sourceDefinition": "plant; vegetation",
+    "emoji": "🌱"
+  },
+  {
+    "char": "树",
+    "sourcePinyin": "shu4",
+    "name": "Tree",
+    "sourceDefinition": "tree",
+    "emoji": "🌳"
+  },
+  {
+    "char": "花",
+    "sourcePinyin": "hua1",
+    "name": "Flower",
+    "sourceDefinition": "flower; blossom",
+    "emoji": "🌸"
+  },
+  {
+    "char": "森林",
+    "sourcePinyin": "sen1 lin2",
+    "name": "Forest",
+    "sourceDefinition": "forest",
+    "emoji": "🌲"
+  },
+  {
+    "char": "水果",
+    "sourcePinyin": "shui3 guo3",
+    "name": "Fruit",
+    "sourceDefinition": "fruit",
+    "emoji": "🍎",
+    "hskLevel": "HSK 1"
+  },
+  {
+    "char": "苹果",
+    "sourcePinyin": "ping2 guo3",
+    "name": "Apple",
+    "sourceDefinition": "apple",
+    "emoji": "🍎",
+    "hskLevel": "HSK 1"
+  },
+  {
+    "char": "食物",
+    "sourcePinyin": "shi2 wu4",
+    "name": "Food",
+    "sourceDefinition": "food",
+    "emoji": "🍽️"
+  },
+  {
+    "char": "菜",
+    "sourcePinyin": "cai4",
+    "name": "Vegetable / Dish",
+    "sourceDefinition": "vegetable; dish (of food)",
+    "emoji": "🥬",
+    "hskLevel": "HSK 1"
+  },
+  {
+    "char": "茶",
+    "sourcePinyin": "cha2",
+    "name": "Tea",
+    "sourceDefinition": "tea; tea plant",
+    "emoji": "🍵",
+    "hskLevel": "HSK 1"
+  },
+  {
+    "char": "杯子",
+    "sourcePinyin": "bei1 zi5",
+    "name": "Cup",
+    "sourceDefinition": "cup; glass",
+    "emoji": "🥛",
+    "hskLevel": "HSK 1"
+  },
+  {
+    "char": "吃",
+    "sourcePinyin": "chi1",
+    "name": "Eat",
+    "sourceDefinition": "to eat; to consume",
+    "emoji": "🍴",
+    "hskLevel": "HSK 1"
+  },
+  {
+    "char": "喝",
+    "sourcePinyin": "he1",
+    "name": "Drink",
+    "sourceDefinition": "to drink",
+    "emoji": "🥤",
+    "hskLevel": "HSK 1"
+  },
+  {
+    "char": "米饭",
+    "sourcePinyin": "mi3 fan4",
+    "name": "Cooked Rice",
+    "sourceDefinition": "(cooked) rice",
+    "emoji": "🍚",
+    "hskLevel": "HSK 1"
+  },
+  {
+    "char": "饭馆",
+    "sourcePinyin": "fan4 guan3",
+    "name": "Restaurant",
+    "sourceDefinition": "restaurant",
+    "emoji": "🍜",
+    "hskLevel": "HSK 1"
+  },
+  {
+    "char": "人",
+    "sourcePinyin": "ren2",
+    "name": "Person",
+    "sourceDefinition": "person; people",
+    "emoji": "🧑",
+    "hskLevel": "HSK 1"
+  },
+  {
+    "char": "朋友",
+    "sourcePinyin": "peng2 you5",
+    "name": "Friend",
+    "sourceDefinition": "friend",
+    "emoji": "🤝",
+    "hskLevel": "HSK 1"
+  },
+  {
+    "char": "家人",
+    "sourcePinyin": "jia1 ren2",
+    "name": "Family Member",
+    "sourceDefinition": "family member",
+    "emoji": "👪"
+  },
+  {
+    "char": "邻居",
+    "sourcePinyin": "lin2 ju1",
+    "name": "Neighbor",
+    "sourceDefinition": "neighbor",
+    "emoji": "👋"
+  },
+  {
+    "char": "工作",
+    "sourcePinyin": "gong1 zuo4",
+    "name": "Work",
+    "sourceDefinition": "to work; job; work; task",
+    "emoji": "💼",
+    "hskLevel": "HSK 1"
+  },
+  {
+    "char": "工人",
+    "sourcePinyin": "gong1 ren2",
+    "name": "Worker",
+    "sourceDefinition": "worker",
+    "emoji": "🦺"
+  },
+  {
+    "char": "纸",
+    "sourcePinyin": "zhi3",
+    "name": "Paper",
+    "sourceDefinition": "paper",
+    "emoji": "📄"
+  },
+  {
+    "char": "说话",
+    "sourcePinyin": "shuo1 hua4",
+    "name": "Speak",
+    "sourceDefinition": "to speak; to say; to talk",
+    "emoji": "💬",
+    "hskLevel": "HSK 1"
+  },
+  {
+    "char": "听",
+    "sourcePinyin": "ting1",
+    "name": "Listen",
+    "sourceDefinition": "to listen to; to hear",
+    "emoji": "👂",
+    "hskLevel": "HSK 1"
+  },
+  {
+    "char": "看",
+    "sourcePinyin": "kan4",
+    "name": "Look / See",
+    "sourceDefinition": "to see; to look at; to read; to watch",
+    "emoji": "👀",
+    "hskLevel": "HSK 1"
+  },
+  {
+    "char": "字",
+    "sourcePinyin": "zi4",
+    "name": "Character",
+    "sourceDefinition": "letter; symbol; character; word",
+    "emoji": "✍️",
+    "hskLevel": "HSK 1"
+  },
+  {
+    "char": "书",
+    "sourcePinyin": "shu1",
+    "name": "Book",
+    "sourceDefinition": "book; letter; document",
+    "emoji": "📖",
+    "hskLevel": "HSK 1"
+  },
+  {
+    "char": "学习",
+    "sourcePinyin": "xue2 xi2",
+    "name": "Study",
+    "sourceDefinition": "to learn; to study",
+    "emoji": "📚",
+    "hskLevel": "HSK 1"
+  },
+  {
+    "char": "学校",
+    "sourcePinyin": "xue2 xiao4",
+    "name": "School",
+    "sourceDefinition": "school",
+    "emoji": "🏫",
+    "hskLevel": "HSK 1"
+  },
+  {
+    "char": "学生",
+    "sourcePinyin": "xue2 sheng5",
+    "name": "Student",
+    "sourceDefinition": "student; schoolchild",
+    "emoji": "🎒",
+    "hskLevel": "HSK 1"
+  },
+  {
+    "char": "老师",
+    "sourcePinyin": "lao3 shi1",
+    "name": "Teacher",
+    "sourceDefinition": "teacher",
+    "emoji": "🧑‍🏫",
+    "hskLevel": "HSK 1"
+  },
+  {
+    "char": "同学",
+    "sourcePinyin": "tong2 xue2",
+    "name": "Classmate",
+    "sourceDefinition": "fellow student; classmate",
+    "emoji": "🧑‍🎓",
+    "hskLevel": "HSK 1"
+  },
+  {
+    "char": "教室",
+    "sourcePinyin": "jiao4 shi4",
+    "name": "Classroom",
+    "sourceDefinition": "classroom",
+    "emoji": "🏫",
+    "hskLevel": "HSK 2"
+  },
+  {
+    "char": "读",
+    "sourcePinyin": "du2",
+    "name": "Read",
+    "sourceDefinition": "to read; to attend (school); to study (a subject in school)",
+    "emoji": "📖",
+    "hskLevel": "HSK 1"
+  },
+  {
+    "char": "写",
+    "sourcePinyin": "xie3",
+    "name": "Write",
+    "sourceDefinition": "to write",
+    "emoji": "✍️",
+    "hskLevel": "HSK 1"
+  },
+  {
+    "char": "门",
+    "sourcePinyin": "men2",
+    "name": "Door",
+    "sourceDefinition": "gate; door; doorway",
+    "emoji": "🚪",
+    "hskLevel": "HSK 2"
+  },
+  {
+    "char": "房间",
+    "sourcePinyin": "fang2 jian1",
+    "name": "Room",
+    "sourceDefinition": "room",
+    "emoji": "🛏️",
+    "hskLevel": "HSK 2"
+  },
+  {
+    "char": "桌子",
+    "sourcePinyin": "zhuo1 zi5",
+    "name": "Table / Desk",
+    "sourceDefinition": "table; desk",
+    "emoji": "🪵",
+    "hskLevel": "HSK 1"
+  },
+  {
+    "char": "椅子",
+    "sourcePinyin": "yi3 zi5",
+    "name": "Chair",
+    "sourceDefinition": "chair",
+    "emoji": "🪑",
+    "hskLevel": "HSK 1"
+  },
+  {
+    "char": "路",
+    "sourcePinyin": "lu4",
+    "name": "Road",
+    "sourceDefinition": "road; journey; route",
+    "emoji": "🛣️",
+    "hskLevel": "HSK 2"
+  },
+  {
+    "char": "车",
+    "sourcePinyin": "che1",
+    "name": "Vehicle",
+    "sourceDefinition": "car; vehicle",
+    "emoji": "🚗"
+  },
+  {
+    "char": "火车",
+    "sourcePinyin": "huo3 che1",
+    "name": "Train",
+    "sourceDefinition": "train",
+    "emoji": "🚆"
+  },
+  {
+    "char": "火车站",
+    "sourcePinyin": "huo3 che1 zhan4",
+    "name": "Train Station",
+    "sourceDefinition": "train station",
+    "emoji": "🚉",
+    "hskLevel": "HSK 1"
+  },
+  {
+    "char": "公共汽车",
+    "sourcePinyin": "gong1 gong4 qi4 che1",
+    "name": "Bus",
+    "sourceDefinition": "bus",
+    "emoji": "🚌",
+    "hskLevel": "HSK 2"
+  },
+  {
+    "char": "自行车",
+    "sourcePinyin": "zi4 xing2 che1",
+    "name": "Bicycle",
+    "sourceDefinition": "bicycle; bike",
+    "emoji": "🚲",
+    "hskLevel": "HSK 2"
+  },
+  {
+    "char": "飞机",
+    "sourcePinyin": "fei1 ji1",
+    "name": "Airplane",
+    "sourceDefinition": "airplane",
+    "emoji": "✈️",
+    "hskLevel": "HSK 1"
+  },
+  {
+    "char": "机场",
+    "sourcePinyin": "ji1 chang3",
+    "name": "Airport",
+    "sourceDefinition": "airport; airfield",
+    "emoji": "🛫",
+    "hskLevel": "HSK 2"
+  },
+  {
+    "char": "交通",
+    "sourcePinyin": "jiao1 tong1",
+    "name": "Transportation",
+    "sourceDefinition": "traffic; transportation; communications",
+    "emoji": "🚦"
+  },
+  {
+    "char": "旅游",
+    "sourcePinyin": "lu:3 you2",
+    "name": "Travel",
+    "sourceDefinition": "trip; journey; tourism; travel",
+    "emoji": "🧳",
+    "hskLevel": "HSK 2"
+  },
+  {
+    "char": "电",
+    "sourcePinyin": "dian4",
+    "name": "Electricity",
+    "sourceDefinition": "lightning; electricity; electric (bound form)",
+    "emoji": "⚡"
+  },
+  {
+    "char": "电灯",
+    "sourcePinyin": "dian4 deng1",
+    "name": "Electric Light",
+    "sourceDefinition": "electric light",
+    "emoji": "💡"
+  },
+  {
+    "char": "电话",
+    "sourcePinyin": "dian4 hua4",
+    "name": "Telephone",
+    "sourceDefinition": "telephone; phone call; phone number",
+    "emoji": "☎️"
+  },
+  {
+    "char": "手机",
+    "sourcePinyin": "shou3 ji1",
+    "name": "Mobile Phone",
+    "sourceDefinition": "cell phone; mobile phone",
+    "emoji": "📱",
+    "hskLevel": "HSK 2"
+  },
+  {
+    "char": "电脑",
+    "sourcePinyin": "dian4 nao3",
+    "name": "Computer",
+    "sourceDefinition": "computer",
+    "emoji": "💻",
+    "hskLevel": "HSK 1"
+  },
+  {
+    "char": "电视",
+    "sourcePinyin": "dian4 shi4",
+    "name": "Television",
+    "sourceDefinition": "television; TV",
+    "emoji": "📺",
+    "hskLevel": "HSK 1"
+  },
+  {
+    "char": "时间",
+    "sourcePinyin": "shi2 jian1",
+    "name": "Time",
+    "sourceDefinition": "(concept of) time; (duration of) time; (point in) time",
+    "emoji": "⏰",
+    "hskLevel": "HSK 2"
+  },
+  {
+    "char": "现在",
+    "sourcePinyin": "xian4 zai4",
+    "name": "Now",
+    "sourceDefinition": "now; at present; currently",
+    "emoji": "⏱️",
+    "hskLevel": "HSK 1"
+  },
+  {
+    "char": "今天",
+    "sourcePinyin": "jin1 tian1",
+    "name": "Today",
+    "sourceDefinition": "today; the present time",
+    "emoji": "📅",
+    "hskLevel": "HSK 1"
+  },
+  {
+    "char": "明天",
+    "sourcePinyin": "ming2 tian1",
+    "name": "Tomorrow",
+    "sourceDefinition": "tomorrow",
+    "emoji": "🌅",
+    "hskLevel": "HSK 1"
+  },
+  {
+    "char": "昨天",
+    "sourcePinyin": "zuo2 tian1",
+    "name": "Yesterday",
+    "sourceDefinition": "yesterday",
+    "emoji": "↩️",
+    "hskLevel": "HSK 1"
+  },
+  {
+    "char": "上午",
+    "sourcePinyin": "shang4 wu3",
+    "name": "Morning",
+    "sourceDefinition": "morning",
+    "emoji": "🌄",
+    "hskLevel": "HSK 1"
+  },
+  {
+    "char": "中午",
+    "sourcePinyin": "zhong1 wu3",
+    "name": "Noon",
+    "sourceDefinition": "noon; midday",
+    "emoji": "🕛",
+    "hskLevel": "HSK 1"
+  },
+  {
+    "char": "下午",
+    "sourcePinyin": "xia4 wu3",
+    "name": "Afternoon",
+    "sourceDefinition": "afternoon; p.m.",
+    "emoji": "🌇",
+    "hskLevel": "HSK 1"
+  },
+  {
+    "char": "晚上",
+    "sourcePinyin": "wan3 shang5",
+    "name": "Evening",
+    "sourceDefinition": "evening; night",
+    "emoji": "🌙",
+    "hskLevel": "HSK 2"
+  },
+  {
+    "char": "日",
+    "sourcePinyin": "ri4",
+    "name": "Day",
+    "sourceDefinition": "sun; day; date, day of the month",
+    "emoji": "☀️",
+    "hskLevel": "HSK 1"
+  },
+  {
+    "char": "月",
+    "sourcePinyin": "yue4",
+    "name": "Month",
+    "sourceDefinition": "moon; month; monthly",
+    "emoji": "🗓️",
+    "hskLevel": "HSK 1"
+  },
+  {
+    "char": "星期",
+    "sourcePinyin": "xing1 qi1",
+    "name": "Week",
+    "sourceDefinition": "week; day of the week",
+    "emoji": "📆",
+    "hskLevel": "HSK 1"
+  },
+  {
+    "char": "年",
+    "sourcePinyin": "nian2",
+    "name": "Year",
+    "sourceDefinition": "year",
+    "emoji": "🎊",
+    "hskLevel": "HSK 1"
+  }
+]

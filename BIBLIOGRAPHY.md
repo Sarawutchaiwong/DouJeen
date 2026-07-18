@@ -11,38 +11,56 @@ source shown in the discovery notebook.
    124,724 entries. <https://www.mdbg.net/chinese/dictionary?page=cc-cedict>
    Licensed under the [Creative Commons Attribution-ShareAlike 4.0
    International License](https://creativecommons.org/licenses/by-sa/4.0/).
+2. Chinese Testing International. *New HSK Levels 1–4 Vocabulary List*.
+   <https://www.chinesetest.cn/userfiles/file/cihui.pdf>
 
 Every simplified Chinese headword, Mandarin pinyin reading, and English gloss
 in `src/app/data.js` is transcribed from the matching CC-CEDICT entry. Display
 pinyin is generated from the stored numbered reading rather than guessed
-independently.
+independently. Beginner-priority badges are limited to words present in the
+official HSK 1 or HSK 2 lists.
 
 ## Factual connections
 
-2. U.S. Geological Survey. *Environmental Characteristics of Clays and Clay
+3. U.S. Geological Survey. *Environmental Characteristics of Clays and Clay
    Mineral Deposits*. <https://pubs.usgs.gov/info/clays/>
-3. National Oceanic and Atmospheric Administration. *How Clouds Form*.
+4. National Oceanic and Atmospheric Administration. *How Clouds Form*.
    <https://prod-01-alb-www-noaa.woc.noaa.gov/jetstream/clouds/how-clouds-form>
-4. National Oceanic and Atmospheric Administration. *Precipitation*.
+5. National Oceanic and Atmospheric Administration. *Precipitation*.
    <https://prod-01-alb-www-noaa.woc.noaa.gov/jetstream/atmosphere/precipitation>
-5. NOAA National Ocean Service. *Why does the ocean have waves?*
+6. NOAA National Ocean Service. *Why does the ocean have waves?*
    <https://oceanservice.noaa.gov/facts/wavesinocean.html>
-6. U.S. Geological Survey. *Wind erosion and dust from U.S. drylands*.
+7. U.S. Geological Survey. *Wind erosion and dust from U.S. drylands*.
    <https://www.usgs.gov/publications/wind-erosion-and-dust-us-drylands-a-review-causes-consequences-and-solutions-a>
-7. U.S. Geological Survey. *Rock Types and the Rock Cycle*.
+8. U.S. Geological Survey. *Rock Types and the Rock Cycle*.
    <https://www.usgs.gov/educational-resources/whats-new-weeks-9-12>
-8. U.S. Geological Survey. *Lava-Cooling Operations during the 1973 Eruption
+9. U.S. Geological Survey. *Lava-Cooling Operations during the 1973 Eruption
    of Eldfell Volcano*. <https://pubs.usgs.gov/of/1997/of97-724/lavacool.html>
-9. U.S. Geological Survey. *Geology of Great Sand Dunes National Park*.
+10. U.S. Geological Survey. *Geology of Great Sand Dunes National Park*.
    <https://www.usgs.gov/geology-and-ecology-of-national-parks/geology-great-sand-dunes-national-park>
-10. Corning. *How Glass is Made*.
+11. U.S. Geological Survey. *Geology of Rocky Mountain National Park*.
+    <https://www.usgs.gov/geology-and-ecology-of-national-parks/geology-rocky-mountain-national-park>
+12. NASA. *Studying the Sun*.
+    <https://www.nasa.gov/science-research/heliophysics/studying-the-sun/>
+13. NOAA NESDIS. *What Causes Tides?*
+    <https://www.nesdis.noaa.gov/about/k-12-education/oceans-coasts/what-causes-tides>
+14. National Oceanic and Atmospheric Administration. *How Lightning is
+    Created*.
+    <https://prod-01-alb-www-noaa.woc.noaa.gov/jetstream/lightning/how-lightning-is-created>
+15. NOAA NESDIS. *What Is Precipitation?*
+    <https://www.nesdis.noaa.gov/about/k-12-education/atmosphere/what-precipitation>
+16. USDA Natural Resources Conservation Service. *Your Food and You*.
+    <https://www.nrcs.usda.gov/sites/default/files/2024-03/Montana-Your-Food-and-You.pdf>
+17. U.S. Environmental Protection Agency. *Paper Making and Recycling*.
+    <https://archive.epa.gov/wastes/conserve/materials/paper/web/html/papermaking.html>
+18. Corning. *How Glass is Made*.
     <https://www.corning.com/worldwide/en/innovation/materials-science/glass/how-glass-made.html>
-11. Brick Industry Association. *Manufacturing of Brick*.
+19. Brick Industry Association. *Manufacturing of Brick*.
     <https://www.gobrick.com/media/file/9-manufacturing-of-brick.pdf>
 
 ## Interaction reference
 
-12. Agarwal, Neal. *Infinite Craft*. <https://neal.fun/infinite-craft/>
+20. Agarwal, Neal. *Infinite Craft*. <https://neal.fun/infinite-craft/>
 
 DouJeen follows the four-starter, free-canvas, discovery-library loop. It does
 not copy Infinite Craft's generated recipes or visual identity. DouJeen uses a

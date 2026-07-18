@@ -25,6 +25,12 @@ const CATEGORY_ICONS = {
   'Earth & Materials': '🪨',
   'Human World': '🏘️',
   'Sea Connections': '🌊',
+  'Living World': '🌱',
+  'Food & Daily Life': '🍚',
+  'People & Learning': '📚',
+  'Home & Places': '🏠',
+  'Travel & Technology': '🚆',
+  'Time & Routine': '🕰️',
 };
 
 export default function GuidePage() {
@@ -123,7 +129,7 @@ export default function GuidePage() {
                   <span>
                     <span className="hanzi-text block text-2xl font-black text-[var(--lab-ink)]" lang="zh-Hans">{text}</span>
                     <span className="block text-[10px] font-black text-[var(--lab-action)]">{item.pinyin}</span>
-                    <span className="block text-xs font-bold text-[var(--lab-muted)]">{item.name}</span>
+                    <span className="block text-xs font-bold text-[var(--lab-muted)]">{item.name}{item.hskLevel ? ` · ${item.hskLevel}` : ''}</span>
                   </span>
                 </div>
               );
@@ -189,7 +195,7 @@ export default function GuidePage() {
                         <div className="min-w-0 flex-1">
                           <h3 className="hanzi-text text-3xl font-black tracking-[-0.04em] text-[var(--lab-ink)]" lang="zh-Hans">{recipe.result}</h3>
                           <p className="text-sm font-black text-[var(--lab-action)]">{recipe.pinyin}</p>
-                          <p className="text-sm font-bold text-[var(--lab-muted)]">{recipe.name}</p>
+                          <p className="text-sm font-bold text-[var(--lab-muted)]">{recipe.name}{recipe.hskLevel ? ` · ${recipe.hskLevel}` : ''}</p>
                         </div>
                         <PronunciationButton character={recipe.result} isPlaying={playingCharacter === recipe.result} onPlay={playPronunciation} className="h-12 w-12 shrink-0" />
                       </div>
@@ -212,7 +218,7 @@ export default function GuidePage() {
         <section aria-labelledby="bibliography-title" className="surface-panel mt-16 rounded-[2rem] p-6 sm:p-8">
           <div className="eyebrow">Sources · no invented vocabulary</div>
           <h2 id="bibliography-title" className="mt-2 text-2xl font-black tracking-[-0.035em] text-[var(--lab-ink)]">Bibliography</h2>
-          <p className="mt-2 max-w-3xl text-sm font-bold leading-6 text-[var(--lab-muted)]">CC-CEDICT supplies every Chinese headword, reading, and definition. Scientific references explain physical transformations; Infinite Craft is cited only for the interaction model.</p>
+          <p className="mt-2 max-w-3xl text-sm font-bold leading-6 text-[var(--lab-muted)]">CC-CEDICT supplies every Chinese headword, reading, and definition. The official HSK list marks essential beginner words. Scientific references explain physical transformations; Infinite Craft is cited only for the interaction model.</p>
           <ol className="mt-5 grid gap-3 md:grid-cols-2">
             {BIBLIOGRAPHY.map((source, index) => (
               <li key={source.id} className="rounded-[1.3rem] bg-[var(--lab-lilac)] p-4 text-sm leading-relaxed text-[var(--lab-ink-soft)]">

@@ -1,0 +1,1062 @@
+[
+  {
+    "ingredients": [
+      "水",
+      "土"
+    ],
+    "result": "黏土",
+    "category": "First Reactions",
+    "factSourceId": "usgs-clay",
+    "explanation": "Water makes clay-rich earth sticky and workable."
+  },
+  {
+    "ingredients": [
+      "水",
+      "火"
+    ],
+    "result": "蒸汽",
+    "category": "First Reactions",
+    "factSourceId": "noaa-clouds",
+    "explanation": "Heat changes liquid water into water vapor."
+  },
+  {
+    "ingredients": [
+      "水",
+      "风"
+    ],
+    "result": "波浪",
+    "category": "First Reactions",
+    "factSourceId": "noaa-waves",
+    "explanation": "Wind transfers energy to surface water and creates waves."
+  },
+  {
+    "ingredients": [
+      "风",
+      "土"
+    ],
+    "result": "沙尘",
+    "category": "First Reactions",
+    "factSourceId": "usgs-wind-erosion",
+    "explanation": "Wind erosion lifts fine soil into airborne dust."
+  },
+  {
+    "ingredients": [
+      "火",
+      "土"
+    ],
+    "result": "熔岩",
+    "category": "First Reactions",
+    "factSourceId": "usgs-rock-cycle",
+    "explanation": "Enough heat melts rock; molten rock at the surface is lava."
+  },
+  {
+    "ingredients": [
+      "水",
+      "水"
+    ],
+    "result": "河",
+    "category": "First Reactions",
+    "explanation": "Flowing water gathers into a larger body: a river."
+  },
+  {
+    "ingredients": [
+      "黏土",
+      "火"
+    ],
+    "result": "砖",
+    "category": "Earth & Materials",
+    "factSourceId": "brick-manufacturing",
+    "explanation": "Clay is shaped, dried, and fired into durable brick."
+  },
+  {
+    "ingredients": [
+      "黏土",
+      "水"
+    ],
+    "result": "泥",
+    "category": "Earth & Materials",
+    "factSourceId": "usgs-clay",
+    "explanation": "Adding water to clay-rich earth produces mud."
+  },
+  {
+    "ingredients": [
+      "蒸汽",
+      "沙尘"
+    ],
+    "result": "云",
+    "category": "Weather Cycle",
+    "factSourceId": "noaa-clouds",
+    "explanation": "Water vapor condenses on tiny dust particles to form cloud droplets."
+  },
+  {
+    "ingredients": [
+      "云",
+      "水"
+    ],
+    "result": "雨",
+    "category": "Weather Cycle",
+    "factSourceId": "noaa-precipitation",
+    "explanation": "Cloud droplets grow until they are heavy enough to fall as rain."
+  },
+  {
+    "ingredients": [
+      "雨",
+      "风"
+    ],
+    "result": "暴风雨",
+    "category": "Weather Cycle",
+    "factSourceId": "noaa-precipitation",
+    "explanation": "Strong wind and heavy rain come together in a rainstorm."
+  },
+  {
+    "ingredients": [
+      "云",
+      "风"
+    ],
+    "result": "天气",
+    "category": "Weather Cycle",
+    "factSourceId": "noaa-clouds",
+    "explanation": "Wind moves moisture and helps shape changing weather."
+  },
+  {
+    "ingredients": [
+      "天气",
+      "雨"
+    ],
+    "result": "雨天",
+    "category": "Weather Cycle",
+    "factSourceId": "noaa-precipitation",
+    "explanation": "Rain turns the day into rainy weather."
+  },
+  {
+    "ingredients": [
+      "熔岩",
+      "水"
+    ],
+    "result": "岩石",
+    "category": "Earth & Materials",
+    "factSourceId": "usgs-lava-cooling",
+    "explanation": "Water removes heat from lava, helping it solidify into rock."
+  },
+  {
+    "ingredients": [
+      "岩石",
+      "风"
+    ],
+    "result": "沙",
+    "category": "Earth & Materials",
+    "factSourceId": "usgs-weathering",
+    "explanation": "Wind and weathering break rock down into sediment such as sand."
+  },
+  {
+    "ingredients": [
+      "沙",
+      "火"
+    ],
+    "result": "玻璃",
+    "category": "Earth & Materials",
+    "factSourceId": "corning-glass",
+    "explanation": "Glass begins with sand melted at very high temperature."
+  },
+  {
+    "ingredients": [
+      "沙",
+      "水"
+    ],
+    "result": "沙滩",
+    "category": "Earth & Materials",
+    "factSourceId": "usgs-weathering",
+    "explanation": "Deposited sand and water meet at a beach."
+  },
+  {
+    "ingredients": [
+      "波浪",
+      "沙滩"
+    ],
+    "result": "海岸",
+    "category": "Earth & Materials",
+    "factSourceId": "noaa-waves",
+    "explanation": "Waves shape the boundary where land meets water: the coast."
+  },
+  {
+    "ingredients": [
+      "河",
+      "土"
+    ],
+    "result": "河岸",
+    "category": "Earth & Materials",
+    "explanation": "Earth beside a river forms its bank."
+  },
+  {
+    "ingredients": [
+      "河",
+      "河"
+    ],
+    "result": "海洋",
+    "category": "Earth & Materials",
+    "explanation": "Many rivers ultimately feed the ocean."
+  },
+  {
+    "ingredients": [
+      "泥",
+      "火"
+    ],
+    "result": "陶器",
+    "category": "Earth & Materials",
+    "factSourceId": "usgs-clay",
+    "explanation": "Clay-rich mud can be shaped and fired as pottery."
+  },
+  {
+    "ingredients": [
+      "砖",
+      "砖"
+    ],
+    "result": "墙",
+    "category": "Human World",
+    "explanation": "Bricks are assembled into a wall."
+  },
+  {
+    "ingredients": [
+      "墙",
+      "玻璃"
+    ],
+    "result": "窗",
+    "category": "Human World",
+    "explanation": "Glass set into a wall creates a window."
+  },
+  {
+    "ingredients": [
+      "墙",
+      "窗"
+    ],
+    "result": "房子",
+    "category": "Human World",
+    "explanation": "Walls and windows form the shell of a house."
+  },
+  {
+    "ingredients": [
+      "砖",
+      "火"
+    ],
+    "result": "壁炉",
+    "category": "Human World",
+    "explanation": "Brick safely contains a household fire in a fireplace."
+  },
+  {
+    "ingredients": [
+      "房子",
+      "房子"
+    ],
+    "result": "村庄",
+    "category": "Human World",
+    "explanation": "A group of houses forms a village."
+  },
+  {
+    "ingredients": [
+      "村庄",
+      "村庄"
+    ],
+    "result": "城市",
+    "category": "Human World",
+    "explanation": "As settlements grow together, they become a city."
+  },
+  {
+    "ingredients": [
+      "城市",
+      "水"
+    ],
+    "result": "港口",
+    "category": "Human World",
+    "explanation": "A city connected to navigable water can form a port."
+  },
+  {
+    "ingredients": [
+      "港口",
+      "水"
+    ],
+    "result": "船",
+    "category": "Human World",
+    "explanation": "A port and open water imply a boat."
+  },
+  {
+    "ingredients": [
+      "船",
+      "风"
+    ],
+    "result": "帆船",
+    "category": "Human World",
+    "explanation": "Wind powers a sailboat through its sails."
+  },
+  {
+    "ingredients": [
+      "房子",
+      "壁炉"
+    ],
+    "result": "家",
+    "category": "Human World",
+    "explanation": "A warm, lived-in house becomes a home."
+  },
+  {
+    "ingredients": [
+      "家",
+      "家"
+    ],
+    "result": "社区",
+    "category": "Human World",
+    "explanation": "Homes together form a community."
+  },
+  {
+    "ingredients": [
+      "海岸",
+      "海洋"
+    ],
+    "result": "海",
+    "category": "Sea Connections",
+    "explanation": "A coast borders a large body of seawater: the sea."
+  },
+  {
+    "ingredients": [
+      "海",
+      "风"
+    ],
+    "result": "海风",
+    "category": "Sea Connections",
+    "factSourceId": "noaa-waves",
+    "explanation": "Air moving from the sea is a sea breeze."
+  },
+  {
+    "ingredients": [
+      "海",
+      "水"
+    ],
+    "result": "海水",
+    "category": "Sea Connections",
+    "explanation": "Water in the sea is seawater."
+  },
+  {
+    "ingredients": [
+      "岩石",
+      "土"
+    ],
+    "result": "山",
+    "category": "Earth & Materials",
+    "factSourceId": "usgs-mountains",
+    "explanation": "Mountains expose uplifted rock and develop soil through weathering."
+  },
+  {
+    "ingredients": [
+      "山",
+      "火"
+    ],
+    "result": "火山",
+    "category": "Earth & Materials",
+    "explanation": "火 (fire) and 山 (mountain) form the real Chinese word 火山: volcano."
+  },
+  {
+    "ingredients": [
+      "火",
+      "火"
+    ],
+    "result": "光",
+    "category": "Living World",
+    "explanation": "A bright fire gives off visible light."
+  },
+  {
+    "ingredients": [
+      "风",
+      "风"
+    ],
+    "result": "空气",
+    "category": "Weather Cycle",
+    "explanation": "Wind is moving air, so repeated wind points back to air itself."
+  },
+  {
+    "ingredients": [
+      "云",
+      "光"
+    ],
+    "result": "天空",
+    "category": "Weather Cycle",
+    "explanation": "Clouds and daylight are both seen across the sky."
+  },
+  {
+    "ingredients": [
+      "光",
+      "天气"
+    ],
+    "result": "太阳",
+    "category": "Weather Cycle",
+    "factSourceId": "nasa-sun",
+    "explanation": "Sunlight supplies energy that drives much of Earth’s weather."
+  },
+  {
+    "ingredients": [
+      "天空",
+      "海洋"
+    ],
+    "result": "月亮",
+    "category": "Weather Cycle",
+    "factSourceId": "noaa-tides",
+    "explanation": "The Moon in the sky exerts a major influence on ocean tides."
+  },
+  {
+    "ingredients": [
+      "空气",
+      "雨"
+    ],
+    "result": "雪",
+    "category": "Weather Cycle",
+    "factSourceId": "noaa-precipitation-forms",
+    "explanation": "When atmospheric conditions are cold enough, precipitation falls as snow instead of rain."
+  },
+  {
+    "ingredients": [
+      "太阳",
+      "天气"
+    ],
+    "result": "晴",
+    "category": "Weather Cycle",
+    "factSourceId": "nasa-sun",
+    "explanation": "Clear weather lets direct sunshine reach the ground."
+  },
+  {
+    "ingredients": [
+      "天空",
+      "雨"
+    ],
+    "result": "下雨",
+    "category": "Weather Cycle",
+    "factSourceId": "noaa-precipitation-forms",
+    "explanation": "Rain falling from the sky gives the everyday action 下雨: to rain."
+  },
+  {
+    "ingredients": [
+      "光",
+      "暴风雨"
+    ],
+    "result": "闪电",
+    "category": "Weather Cycle",
+    "factSourceId": "noaa-lightning",
+    "explanation": "Lightning is the bright electrical discharge seen in a storm."
+  },
+  {
+    "ingredients": [
+      "空气",
+      "暴风雨"
+    ],
+    "result": "雷",
+    "category": "Weather Cycle",
+    "factSourceId": "noaa-lightning",
+    "explanation": "Lightning rapidly heats the surrounding air, producing thunder."
+  },
+  {
+    "ingredients": [
+      "泥",
+      "雨"
+    ],
+    "result": "植物",
+    "category": "Living World",
+    "factSourceId": "usda-plant-growth",
+    "explanation": "Plants need soil and water to establish and grow."
+  },
+  {
+    "ingredients": [
+      "土",
+      "植物"
+    ],
+    "result": "树",
+    "category": "Living World",
+    "factSourceId": "usda-plant-growth",
+    "explanation": "A tree is a plant rooted in soil."
+  },
+  {
+    "ingredients": [
+      "光",
+      "植物"
+    ],
+    "result": "花",
+    "category": "Living World",
+    "factSourceId": "usda-plant-growth",
+    "explanation": "Light supports plant growth, including flowering."
+  },
+  {
+    "ingredients": [
+      "树",
+      "树"
+    ],
+    "result": "森林",
+    "category": "Living World",
+    "explanation": "A large area covered mainly with trees is a forest."
+  },
+  {
+    "ingredients": [
+      "树",
+      "花"
+    ],
+    "result": "水果",
+    "category": "Living World",
+    "factSourceId": "usda-plant-growth",
+    "explanation": "After flowering, many cultivated trees develop fruit."
+  },
+  {
+    "ingredients": [
+      "树",
+      "水果"
+    ],
+    "result": "苹果",
+    "category": "Living World",
+    "explanation": "An apple is a familiar fruit that grows on a tree."
+  },
+  {
+    "ingredients": [
+      "家",
+      "社区"
+    ],
+    "result": "人",
+    "category": "People & Learning",
+    "explanation": "Homes and communities exist because people live in them."
+  },
+  {
+    "ingredients": [
+      "人",
+      "植物"
+    ],
+    "result": "食物",
+    "category": "Food & Daily Life",
+    "factSourceId": "usda-plant-growth",
+    "explanation": "People cultivate plants as an important source of food."
+  },
+  {
+    "ingredients": [
+      "火",
+      "植物"
+    ],
+    "result": "菜",
+    "category": "Food & Daily Life",
+    "explanation": "Cooking edible plants produces a vegetable dish: 菜."
+  },
+  {
+    "ingredients": [
+      "水",
+      "植物"
+    ],
+    "result": "茶",
+    "category": "Food & Daily Life",
+    "explanation": "Tea is prepared by infusing tea leaves in water."
+  },
+  {
+    "ingredients": [
+      "水",
+      "陶器"
+    ],
+    "result": "杯子",
+    "category": "Food & Daily Life",
+    "explanation": "A ceramic cup is a common vessel for drinking water."
+  },
+  {
+    "ingredients": [
+      "人",
+      "食物"
+    ],
+    "result": "吃",
+    "category": "Food & Daily Life",
+    "explanation": "People consume food: 吃 means to eat."
+  },
+  {
+    "ingredients": [
+      "人",
+      "水"
+    ],
+    "result": "喝",
+    "category": "Food & Daily Life",
+    "explanation": "People drink water: 喝 means to drink."
+  },
+  {
+    "ingredients": [
+      "火",
+      "食物"
+    ],
+    "result": "米饭",
+    "category": "Food & Daily Life",
+    "explanation": "Cooking rice with heat produces 米饭, cooked rice."
+  },
+  {
+    "ingredients": [
+      "房子",
+      "米饭"
+    ],
+    "result": "饭馆",
+    "category": "Food & Daily Life",
+    "explanation": "A place that prepares and serves meals is a restaurant: 饭馆."
+  },
+  {
+    "ingredients": [
+      "人",
+      "人"
+    ],
+    "result": "朋友",
+    "category": "People & Learning",
+    "explanation": "A friendly relationship between people gives 朋友: friend."
+  },
+  {
+    "ingredients": [
+      "人",
+      "家"
+    ],
+    "result": "家人",
+    "category": "People & Learning",
+    "explanation": "A person who belongs to one’s family is 家人."
+  },
+  {
+    "ingredients": [
+      "人",
+      "社区"
+    ],
+    "result": "邻居",
+    "category": "People & Learning",
+    "explanation": "A person living nearby in the same community is a neighbor."
+  },
+  {
+    "ingredients": [
+      "人",
+      "城市"
+    ],
+    "result": "工作",
+    "category": "People & Learning",
+    "explanation": "People carry out jobs and tasks across a city: 工作 means work."
+  },
+  {
+    "ingredients": [
+      "人",
+      "墙"
+    ],
+    "result": "工人",
+    "category": "People & Learning",
+    "explanation": "A person who performs construction work, such as building a wall, is a worker."
+  },
+  {
+    "ingredients": [
+      "水",
+      "树"
+    ],
+    "result": "纸",
+    "category": "People & Learning",
+    "factSourceId": "epa-papermaking",
+    "explanation": "Papermaking turns wood fiber and water into a sheet of paper."
+  },
+  {
+    "ingredients": [
+      "人",
+      "空气"
+    ],
+    "result": "说话",
+    "category": "People & Learning",
+    "explanation": "People move air through the vocal tract when they speak."
+  },
+  {
+    "ingredients": [
+      "人",
+      "风"
+    ],
+    "result": "听",
+    "category": "People & Learning",
+    "explanation": "Sound reaches a listener through vibrations traveling in air."
+  },
+  {
+    "ingredients": [
+      "人",
+      "光"
+    ],
+    "result": "看",
+    "category": "People & Learning",
+    "explanation": "Light enables a person to see: 看 means to look or see."
+  },
+  {
+    "ingredients": [
+      "纸",
+      "说话"
+    ],
+    "result": "字",
+    "category": "People & Learning",
+    "explanation": "Spoken language can be represented on paper with written characters."
+  },
+  {
+    "ingredients": [
+      "字",
+      "纸"
+    ],
+    "result": "书",
+    "category": "People & Learning",
+    "explanation": "Written characters arranged on paper form a book."
+  },
+  {
+    "ingredients": [
+      "人",
+      "书"
+    ],
+    "result": "学习",
+    "category": "People & Learning",
+    "explanation": "A person uses books to learn and study: 学习."
+  },
+  {
+    "ingredients": [
+      "房子",
+      "学习"
+    ],
+    "result": "学校",
+    "category": "People & Learning",
+    "explanation": "A place organized for learning is a school."
+  },
+  {
+    "ingredients": [
+      "人",
+      "学习"
+    ],
+    "result": "学生",
+    "category": "People & Learning",
+    "explanation": "A person who studies at school is a student."
+  },
+  {
+    "ingredients": [
+      "工作",
+      "学校"
+    ],
+    "result": "老师",
+    "category": "People & Learning",
+    "explanation": "A person whose work at a school is teaching is a teacher."
+  },
+  {
+    "ingredients": [
+      "学校",
+      "学生"
+    ],
+    "result": "同学",
+    "category": "People & Learning",
+    "explanation": "Students who study together at the same school are classmates."
+  },
+  {
+    "ingredients": [
+      "墙",
+      "树"
+    ],
+    "result": "门",
+    "category": "Home & Places",
+    "explanation": "A wooden opening set into a wall becomes a door."
+  },
+  {
+    "ingredients": [
+      "墙",
+      "门"
+    ],
+    "result": "房间",
+    "category": "Home & Places",
+    "explanation": "Walls and a door enclose an interior room."
+  },
+  {
+    "ingredients": [
+      "房间",
+      "学校"
+    ],
+    "result": "教室",
+    "category": "Home & Places",
+    "explanation": "A room used for teaching and learning in a school is a classroom."
+  },
+  {
+    "ingredients": [
+      "房间",
+      "工作"
+    ],
+    "result": "桌子",
+    "category": "Home & Places",
+    "explanation": "A table or desk provides a surface for work in a room."
+  },
+  {
+    "ingredients": [
+      "房间",
+      "人"
+    ],
+    "result": "椅子",
+    "category": "Home & Places",
+    "explanation": "A chair gives a person a place to sit in a room."
+  },
+  {
+    "ingredients": [
+      "书",
+      "学习"
+    ],
+    "result": "读",
+    "category": "People & Learning",
+    "explanation": "Reading a book is a basic way to study: 读 means to read."
+  },
+  {
+    "ingredients": [
+      "字",
+      "学习"
+    ],
+    "result": "写",
+    "category": "People & Learning",
+    "explanation": "Learning to form characters is writing: 写."
+  },
+  {
+    "ingredients": [
+      "城市",
+      "土"
+    ],
+    "result": "路",
+    "category": "Travel & Technology",
+    "explanation": "A prepared route across land connects places in a city: 路."
+  },
+  {
+    "ingredients": [
+      "人",
+      "路"
+    ],
+    "result": "车",
+    "category": "Travel & Technology",
+    "explanation": "People use vehicles to travel along roads."
+  },
+  {
+    "ingredients": [
+      "火",
+      "车"
+    ],
+    "result": "火车",
+    "category": "Travel & Technology",
+    "explanation": "火 (fire) and 车 (vehicle) form the real Chinese word 火车: train."
+  },
+  {
+    "ingredients": [
+      "城市",
+      "火车"
+    ],
+    "result": "火车站",
+    "category": "Travel & Technology",
+    "explanation": "A city stop where passengers board trains is a train station."
+  },
+  {
+    "ingredients": [
+      "社区",
+      "车"
+    ],
+    "result": "公共汽车",
+    "category": "Travel & Technology",
+    "explanation": "A shared public vehicle serving a community is a bus."
+  },
+  {
+    "ingredients": [
+      "人",
+      "车"
+    ],
+    "result": "自行车",
+    "category": "Travel & Technology",
+    "explanation": "A person powers a bicycle as an individual road vehicle."
+  },
+  {
+    "ingredients": [
+      "天空",
+      "车"
+    ],
+    "result": "飞机",
+    "category": "Travel & Technology",
+    "explanation": "A vehicle designed to travel through the sky is an airplane."
+  },
+  {
+    "ingredients": [
+      "城市",
+      "飞机"
+    ],
+    "result": "机场",
+    "category": "Travel & Technology",
+    "explanation": "The place where aircraft arrive and depart near a city is an airport."
+  },
+  {
+    "ingredients": [
+      "城市",
+      "路"
+    ],
+    "result": "交通",
+    "category": "Travel & Technology",
+    "explanation": "Roads and vehicles moving through a city form its transportation system."
+  },
+  {
+    "ingredients": [
+      "人",
+      "交通"
+    ],
+    "result": "旅游",
+    "category": "Travel & Technology",
+    "explanation": "People use transportation to take trips and travel."
+  },
+  {
+    "ingredients": [
+      "城市",
+      "闪电"
+    ],
+    "result": "电",
+    "category": "Travel & Technology",
+    "factSourceId": "noaa-lightning",
+    "explanation": "Lightning is an electrical discharge; 电 means electricity as well as lightning."
+  },
+  {
+    "ingredients": [
+      "电",
+      "光"
+    ],
+    "result": "电灯",
+    "category": "Travel & Technology",
+    "explanation": "Electricity powers an electric light: 电灯."
+  },
+  {
+    "ingredients": [
+      "电",
+      "说话"
+    ],
+    "result": "电话",
+    "category": "Travel & Technology",
+    "explanation": "A telephone carries spoken communication using electrical technology."
+  },
+  {
+    "ingredients": [
+      "人",
+      "电话"
+    ],
+    "result": "手机",
+    "category": "Travel & Technology",
+    "explanation": "A personal telephone carried by hand is a mobile phone: 手机."
+  },
+  {
+    "ingredients": [
+      "电",
+      "学习"
+    ],
+    "result": "电脑",
+    "category": "Travel & Technology",
+    "explanation": "A computer is an electronic tool widely used for learning."
+  },
+  {
+    "ingredients": [
+      "电",
+      "看"
+    ],
+    "result": "电视",
+    "category": "Travel & Technology",
+    "explanation": "Television is an electronic medium people watch."
+  },
+  {
+    "ingredients": [
+      "太阳",
+      "月亮"
+    ],
+    "result": "时间",
+    "category": "Time & Routine",
+    "explanation": "The apparent cycles of the Sun and Moon are traditional ways to mark time."
+  },
+  {
+    "ingredients": [
+      "人",
+      "时间"
+    ],
+    "result": "现在",
+    "category": "Time & Routine",
+    "explanation": "The point in time a person is experiencing is now: 现在."
+  },
+  {
+    "ingredients": [
+      "太阳",
+      "现在"
+    ],
+    "result": "今天",
+    "category": "Time & Routine",
+    "explanation": "The current day under the Sun is today: 今天."
+  },
+  {
+    "ingredients": [
+      "今天",
+      "月亮"
+    ],
+    "result": "明天",
+    "category": "Time & Routine",
+    "explanation": "After the current day passes through night, the next day is tomorrow."
+  },
+  {
+    "ingredients": [
+      "今天",
+      "时间"
+    ],
+    "result": "昨天",
+    "category": "Time & Routine",
+    "explanation": "The day immediately before today is yesterday."
+  },
+  {
+    "ingredients": [
+      "今天",
+      "光"
+    ],
+    "result": "上午",
+    "category": "Time & Routine",
+    "explanation": "The earlier daylight portion of today is the morning."
+  },
+  {
+    "ingredients": [
+      "上午",
+      "太阳"
+    ],
+    "result": "中午",
+    "category": "Time & Routine",
+    "explanation": "When the morning reaches its midpoint around midday, it is noon."
+  },
+  {
+    "ingredients": [
+      "中午",
+      "时间"
+    ],
+    "result": "下午",
+    "category": "Time & Routine",
+    "explanation": "The part of the day after noon is the afternoon."
+  },
+  {
+    "ingredients": [
+      "下午",
+      "月亮"
+    ],
+    "result": "晚上",
+    "category": "Time & Routine",
+    "explanation": "After afternoon, the Moon becomes associated with evening and night."
+  },
+  {
+    "ingredients": [
+      "太阳",
+      "时间"
+    ],
+    "result": "日",
+    "category": "Time & Routine",
+    "explanation": "日 means both the Sun and a calendar day."
+  },
+  {
+    "ingredients": [
+      "月亮",
+      "时间"
+    ],
+    "result": "月",
+    "category": "Time & Routine",
+    "explanation": "月 means both the Moon and a calendar month."
+  },
+  {
+    "ingredients": [
+      "日",
+      "时间"
+    ],
+    "result": "星期",
+    "category": "Time & Routine",
+    "explanation": "Calendar days are organized into a week: 星期."
+  },
+  {
+    "ingredients": [
+      "树",
+      "时间"
+    ],
+    "result": "年",
+    "category": "Time & Routine",
+    "explanation": "A tree records seasonal growth over the course of a year."
+  }
+]
