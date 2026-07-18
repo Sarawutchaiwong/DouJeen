@@ -150,7 +150,7 @@ export default function LandingPage() {
 
       {settingsOpen && (
         <div
-          className={`fixed inset-0 z-[60] flex items-center justify-center bg-[var(--lab-overlay)] p-4 ${settingsExiting ? 'animate-backdrop-exit pointer-events-none' : 'animate-backdrop-enter'}`}
+          className={`fixed inset-0 z-[60] flex items-center justify-center overflow-y-auto bg-[var(--lab-overlay)] p-4 backdrop-blur-[6px] sm:p-6 ${settingsExiting ? 'animate-backdrop-exit pointer-events-none' : 'animate-backdrop-enter'}`}
           onClick={closeSettings}
         >
           <div
@@ -160,7 +160,7 @@ export default function LandingPage() {
             aria-labelledby="settings-title"
             aria-describedby="settings-description"
             tabIndex={-1}
-            className={`surface-panel relative z-10 w-full max-w-md rounded-[2rem] p-7 ${settingsExiting ? 'animate-modal-exit' : 'animate-modal-enter'}`}
+            className={`surface-panel relative z-10 max-h-[calc(100dvh-2rem)] w-full max-w-md overflow-y-auto rounded-[2rem] p-5 sm:max-h-[calc(100dvh-3rem)] sm:p-7 ${settingsExiting ? 'animate-modal-exit' : 'animate-modal-enter'}`}
             onClick={(event) => event.stopPropagation()}
           >
             <button ref={settingsCloseRef} type="button" onClick={closeSettings} className="lift-control absolute right-4 top-4 inline-grid h-11 w-11 place-items-center rounded-full bg-[var(--lab-surface-soft)] text-[var(--lab-muted)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/25" aria-label={resetConfirming ? 'Close reset confirmation' : 'Close settings'}>×</button>
