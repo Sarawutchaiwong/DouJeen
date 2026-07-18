@@ -78,6 +78,7 @@ export default function GamePage() {
   const [discoveredRecipeKeys, setDiscoveredRecipeKeys] = useState([]);
   const [canvasItems, setCanvasItems] = useState([]);
   const [selectedId, setSelectedId] = useState(null);
+  const [draggingId, setDraggingId] = useState(null);
   const [mobileSelection, setMobileSelection] = useState([]);
   const [discovery, setDiscovery] = useState(null);
   const [resetConfirming, setResetConfirming] = useState(false);
@@ -300,11 +301,11 @@ export default function GamePage() {
       moved: false,
     };
 
-    commitCanvas((current) => [
-      ...current.filter(({ id }) => id !== itemId),
-      item,
-    ]);
-  }, [commitCanvas]);
+    // WHY: raise z-index instead of reordering the array. Moving the captured
+    // node in the DOM makes iPad Safari drop the pointer capture, so the drag
+    // stops tracking the finger. A CSS elevation keeps the element in place.
+    setDraggingId(itemId);
+  }, []);
 
   const handlePointerMove = useCallback((event, itemId) => {
     const drag = dragStateRef.current;
@@ -330,6 +331,7 @@ export default function GamePage() {
       event.currentTarget.releasePointerCapture?.(event.pointerId);
     }
     dragStateRef.current = null;
+    setDraggingId(null);
 
     if (drag.moved) {
       const collisionId = findCollision(itemId);
@@ -350,6 +352,7 @@ export default function GamePage() {
       event.currentTarget.releasePointerCapture?.(event.pointerId);
     }
     dragStateRef.current = null;
+    setDraggingId(null);
   }, []);
 
   const handleKeyboardSelect = useCallback((itemId) => {
@@ -509,10 +512,10 @@ export default function GamePage() {
                 onPointerUp={(event) => handlePointerUp(event, item.id)}
                 onPointerCancel={handlePointerCancel}
                 onClick={(event) => event.detail === 0 && handleKeyboardSelect(item.id)}
-                aria-label={`${item.text}, ${data.name}. Drag to another word or select to combine.`}
+                aria-label={`${item.text}, ${wordLabel(data)}. Drag to another word or select to combine.`}
                 aria-pressed={isSelected}
                 className={`craft-node absolute z-20 hidden min-h-14 touch-none select-none items-center gap-2 rounded-[1.15rem] border bg-[var(--lab-surface)] px-3 py-2 text-left shadow-[0_10px_24px_var(--lab-shadow)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/25 md:flex ${isSelected ? 'border-[var(--lab-action)] ring-4 ring-[var(--lab-action)]/15' : 'border-[var(--lab-line-strong)]'}`}
-                style={{ left: `${item.x}%`, top: `${item.y}%` }}
+                style={{ left: `${item.x}%`, top: `${item.y}%`, zIndex: draggingId === item.id ? 30 : undefined }}
               >
                 <span className="text-xl" aria-hidden="true"><Glyph data={data} /></span>
                 <span>
