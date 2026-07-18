@@ -219,6 +219,18 @@ input {
 .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
 .custom-scrollbar::-webkit-scrollbar-thumb { background: var(--lab-line-strong); border-radius: 999px; }
 
+.craft-node {
+  cursor: grab;
+  transform: translate(-50%, -50%);
+  transition:
+    border-color var(--duration-press) var(--ease-out),
+    box-shadow var(--duration-press) var(--ease-out);
+}
+
+.craft-node:active {
+  cursor: grabbing;
+}
+
 @keyframes fusion {
   0% { transform: scale(1); opacity: 1; }
   55% { transform: scale(1.04); opacity: 1; }

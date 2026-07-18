@@ -1,7 +1,6 @@
-// Shared vocabulary data for the laboratory and answer key.
-// Headwords, numbered Mandarin pinyin, and English glosses are transcribed from
-// the CC-CEDICT release identified in BIBLIOGRAPHY. Display pinyin is generated
-// from that numbered source value so tone marks cannot drift independently.
+// Shared progression data for the Chinese discovery game.
+// Chinese headwords, pinyin, and English glosses come from the CC-CEDICT
+// release cited below. Physical-process notes cite their own factual sources.
 
 export const BIBLIOGRAPHY = Object.freeze([
   Object.freeze({
@@ -12,9 +11,75 @@ export const BIBLIOGRAPHY = Object.freeze([
     licenseUrl: 'https://creativecommons.org/licenses/by-sa/4.0/',
     scope: 'Simplified Chinese headwords, standard Mandarin pinyin, and English definitions.',
   }),
+  Object.freeze({
+    id: 'usgs-clay',
+    citation: 'U.S. Geological Survey. Environmental Characteristics of Clays and Clay Mineral Deposits.',
+    url: 'https://pubs.usgs.gov/info/clays/',
+    scope: 'How clay minerals interact with water and become workable mud or ceramic material.',
+  }),
+  Object.freeze({
+    id: 'noaa-clouds',
+    citation: 'National Oceanic and Atmospheric Administration. How Clouds Form.',
+    url: 'https://prod-01-alb-www-noaa.woc.noaa.gov/jetstream/clouds/how-clouds-form',
+    scope: 'Water vapor, condensation nuclei, cloud droplets, and atmospheric motion.',
+  }),
+  Object.freeze({
+    id: 'noaa-precipitation',
+    citation: 'National Oceanic and Atmospheric Administration. Precipitation.',
+    url: 'https://prod-01-alb-www-noaa.woc.noaa.gov/jetstream/atmosphere/precipitation',
+    scope: 'How cloud droplets grow and fall as rain.',
+  }),
+  Object.freeze({
+    id: 'noaa-waves',
+    citation: 'NOAA National Ocean Service. Why does the ocean have waves?',
+    url: 'https://oceanservice.noaa.gov/facts/wavesinocean.html',
+    scope: 'Wind transferring energy to surface water to create waves.',
+  }),
+  Object.freeze({
+    id: 'usgs-wind-erosion',
+    citation: 'U.S. Geological Survey. Wind erosion and dust from U.S. drylands.',
+    url: 'https://www.usgs.gov/publications/wind-erosion-and-dust-us-drylands-a-review-causes-consequences-and-solutions-a',
+    scope: 'Wind erosion, airborne soil, sand, and dust.',
+  }),
+  Object.freeze({
+    id: 'usgs-rock-cycle',
+    citation: 'U.S. Geological Survey. Rock Types and the Rock Cycle.',
+    url: 'https://www.usgs.gov/educational-resources/whats-new-weeks-9-12',
+    scope: 'Rock melting into lava and lava cooling into igneous rock.',
+  }),
+  Object.freeze({
+    id: 'usgs-lava-cooling',
+    citation: 'U.S. Geological Survey. Lava-Cooling Operations during the 1973 Eruption of Eldfell Volcano.',
+    url: 'https://pubs.usgs.gov/of/1997/of97-724/lavacool.html',
+    scope: 'Water removing heat from lava and accelerating solidification.',
+  }),
+  Object.freeze({
+    id: 'usgs-weathering',
+    citation: 'U.S. Geological Survey. Geology of Great Sand Dunes National Park.',
+    url: 'https://www.usgs.gov/geology-and-ecology-of-national-parks/geology-great-sand-dunes-national-park',
+    scope: 'Weathering, erosion, wind, water, sediment, and sand formation.',
+  }),
+  Object.freeze({
+    id: 'corning-glass',
+    citation: 'Corning. How Glass is Made.',
+    url: 'https://www.corning.com/worldwide/en/innovation/materials-science/glass/how-glass-made.html',
+    scope: 'Sand melting at high temperature and cooling into glass.',
+  }),
+  Object.freeze({
+    id: 'brick-manufacturing',
+    citation: 'Brick Industry Association. Manufacturing of Brick.',
+    url: 'https://www.gobrick.com/media/file/9-manufacturing-of-brick.pdf',
+    scope: 'Clay or shale being formed, dried, and fired into durable brick.',
+  }),
+  Object.freeze({
+    id: 'infinite-craft',
+    citation: 'Agarwal, Neal. Infinite Craft.',
+    url: 'https://neal.fun/infinite-craft/',
+    scope: 'Interaction reference: four starter elements, a free canvas, and a discovery-only item library.',
+  }),
 ]);
 
-const SOURCE_ID = BIBLIOGRAPHY[0].id;
+const DICTIONARY_SOURCE_ID = BIBLIOGRAPHY[0].id;
 const RECIPE_SEPARATOR = '\u001F';
 
 const TONE_MARKS = Object.freeze({
@@ -27,8 +92,9 @@ const TONE_MARKS = Object.freeze({
 });
 
 const markSyllable = (syllable) => {
-  const match = syllable.toLowerCase().replaceAll('u:', 'ü').match(/^([a-zü]+)([1-5])$/u);
-  if (!match) return syllable.toLowerCase().replaceAll('u:', 'ü');
+  const normalized = syllable.toLowerCase().replaceAll('u:', 'ü');
+  const match = normalized.match(/^([a-zü]+)([1-5])$/u);
+  if (!match) return normalized;
 
   const [, letters, toneText] = match;
   const tone = Number(toneText);
@@ -54,140 +120,138 @@ const markSyllable = (syllable) => {
 export const formatPinyin = (numberedPinyin) =>
   numberedPinyin.split(/\s+/u).map(markSyllable).join(' ');
 
-const defineEntry = ({ sourcePinyin, sourceDefinition, ...entry }) =>
-  Object.freeze({
-    ...entry,
-    pinyin: formatPinyin(sourcePinyin),
-    sourceId: SOURCE_ID,
-    sourcePinyin,
-    sourceDefinition,
-  });
+const defineItem = ({ sourcePinyin, ...item }) => Object.freeze({
+  ...item,
+  pinyin: formatPinyin(sourcePinyin),
+  sourceId: DICTIONARY_SOURCE_ID,
+  sourcePinyin,
+});
 
-const BASE_ENTRIES = [
-  { char: '火', sourcePinyin: 'huo3', name: 'Fire', sourceDefinition: 'fire', emoji: '🔥' },
-  { char: '山', sourcePinyin: 'shan1', name: 'Mountain', sourceDefinition: 'mountain; hill', emoji: '⛰️' },
-  { char: '口', sourcePinyin: 'kou3', name: 'Mouth', sourceDefinition: 'mouth', emoji: '👄' },
-  { char: '灰', sourcePinyin: 'hui1', name: 'Ash', sourceDefinition: 'ash', emoji: '🌫️' },
-  { char: '海', sourcePinyin: 'hai3', name: 'Sea', sourceDefinition: 'ocean; sea', emoji: '🌊' },
+const ITEM_ENTRIES = [
   { char: '水', sourcePinyin: 'shui3', name: 'Water', sourceDefinition: 'water', emoji: '💧' },
-  { char: '边', sourcePinyin: 'bian1', name: 'Side', sourceDefinition: 'side; edge; margin; border; boundary', emoji: '↔️' },
-  { char: '大', sourcePinyin: 'da4', name: 'Big', sourceDefinition: 'big; large; great', emoji: '🐘' },
+  { char: '火', sourcePinyin: 'huo3', name: 'Fire', sourceDefinition: 'fire', emoji: '🔥' },
   { char: '风', sourcePinyin: 'feng1', name: 'Wind', sourceDefinition: 'wind', emoji: '🌬️' },
-  { char: '果', sourcePinyin: 'guo3', name: 'Fruit', sourceDefinition: 'fruit', emoji: '🍎' },
-  { char: '气', sourcePinyin: 'qi4', name: 'Air', sourceDefinition: 'gas; air', emoji: '💨' },
-  { char: '雨', sourcePinyin: 'yu3', name: 'Rain', sourceDefinition: 'rain', emoji: '🌧️' },
-  { char: '小', sourcePinyin: 'xiao3', name: 'Small', sourceDefinition: 'small; tiny', emoji: '🐭' },
-  { char: '天', sourcePinyin: 'tian1', name: 'Sky', sourceDefinition: 'day; sky; heaven', emoji: '🌤️' },
-  { char: '空', sourcePinyin: 'kong1', name: 'Empty', sourceDefinition: 'empty; air; sky', emoji: '🫧' },
-  { char: '白', sourcePinyin: 'bai2', name: 'White', sourceDefinition: 'white', emoji: '⚪' },
+  { char: '土', sourcePinyin: 'tu3', name: 'Earth', sourceDefinition: 'earth; dust; clay', emoji: '🌍' },
+  { char: '黏土', sourcePinyin: 'nian2 tu3', name: 'Clay', sourceDefinition: 'clay', emoji: '🟤' },
+  { char: '蒸汽', sourcePinyin: 'zheng1 qi4', name: 'Steam', sourceDefinition: 'steam', emoji: '♨️' },
+  { char: '波浪', sourcePinyin: 'bo1 lang4', name: 'Wave', sourceDefinition: 'wave', emoji: '🌊' },
+  { char: '沙尘', sourcePinyin: 'sha1 chen2', name: 'Airborne Dust', sourceDefinition: 'airborne sand and dust', emoji: '🌫️' },
+  { char: '熔岩', sourcePinyin: 'rong2 yan2', name: 'Lava', sourceDefinition: 'lava', emoji: '🌋' },
+  { char: '河', sourcePinyin: 'he2', name: 'River', sourceDefinition: 'river', emoji: '🏞️' },
+  { char: '砖', sourcePinyin: 'zhuan1', name: 'Brick', sourceDefinition: 'brick; tile', emoji: '🧱' },
+  { char: '泥', sourcePinyin: 'ni2', name: 'Mud', sourceDefinition: 'mud; clay; paste; pulp', emoji: '🟫' },
   { char: '云', sourcePinyin: 'yun2', name: 'Cloud', sourceDefinition: 'cloud', emoji: '☁️' },
-  { char: '黑', sourcePinyin: 'hei1', name: 'Black', sourceDefinition: 'black; dark', emoji: '⚫' },
-  { char: '夜', sourcePinyin: 'ye4', name: 'Night', sourceDefinition: 'night', emoji: '🌃' },
-  { char: '月', sourcePinyin: 'yue4', name: 'Moon', sourceDefinition: 'moon; month', emoji: '🌙' },
-  { char: '光', sourcePinyin: 'guang1', name: 'Light', sourceDefinition: 'light; ray', emoji: '✨' },
-  { char: '日', sourcePinyin: 'ri4', name: 'Sun', sourceDefinition: 'sun; day', emoji: '☀️' },
-  { char: '人', sourcePinyin: 'ren2', name: 'Person', sourceDefinition: 'person; people', emoji: '🧑' },
-  { char: '家', sourcePinyin: 'jia1', name: 'Home', sourceDefinition: 'home; family', emoji: '🏠' },
-  { char: '国', sourcePinyin: 'guo2', name: 'Country', sourceDefinition: 'country; nation; state', emoji: '🗺️' },
-  { char: '中', sourcePinyin: 'zhong1', name: 'Middle', sourceDefinition: 'middle; center', emoji: '🎯' },
-  { char: '学', sourcePinyin: 'xue2', name: 'Study', sourceDefinition: 'to learn; to study', emoji: '📖' },
-  { char: '生', sourcePinyin: 'sheng1', name: 'Life', sourceDefinition: 'to live; life; student (bound form)', emoji: '🌱' },
-  { char: '校', sourcePinyin: 'xiao4', name: 'School', sourceDefinition: 'school; college (bound form)', emoji: '🏫' },
-  { char: '电', sourcePinyin: 'dian4', name: 'Electricity', sourceDefinition: 'electricity; electric', emoji: '⚡' },
-  { char: '话', sourcePinyin: 'hua4', name: 'Speech', sourceDefinition: 'spoken words; speech; talk', emoji: '💬' },
-  { char: '脑', sourcePinyin: 'nao3', name: 'Brain', sourceDefinition: 'brain; mind; head', emoji: '🧠' },
-  { char: '影', sourcePinyin: 'ying3', name: 'Image', sourceDefinition: 'picture; image; film; movie', emoji: '🎞️' },
-  { char: '视', sourcePinyin: 'shi4', name: 'View', sourceDefinition: 'to look at', emoji: '👀' },
-  { char: '车', sourcePinyin: 'che1', name: 'Vehicle', sourceDefinition: 'car; vehicle', emoji: '🚗' },
-  { char: '手', sourcePinyin: 'shou3', name: 'Hand', sourceDefinition: 'hand', emoji: '✋' },
-  { char: '机', sourcePinyin: 'ji1', name: 'Machine', sourceDefinition: 'machine; mechanism (bound form)', emoji: '⚙️' },
-  { char: '场', sourcePinyin: 'chang3', name: 'Place', sourceDefinition: 'large place used for a specific purpose', emoji: '📍' },
-  { char: '飞', sourcePinyin: 'fei1', name: 'Fly', sourceDefinition: 'to fly', emoji: '🪽' },
-  { char: '站', sourcePinyin: 'zhan4', name: 'Station', sourceDefinition: 'station', emoji: '🚉' },
+  { char: '雨', sourcePinyin: 'yu3', name: 'Rain', sourceDefinition: 'rain', emoji: '🌧️' },
+  { char: '暴风雨', sourcePinyin: 'bao4 feng1 yu3', name: 'Rainstorm', sourceDefinition: 'rainstorm; storm; tempest', emoji: '⛈️' },
+  { char: '岩石', sourcePinyin: 'yan2 shi2', name: 'Rock', sourceDefinition: 'rock', emoji: '🪨' },
+  { char: '沙', sourcePinyin: 'sha1', name: 'Sand', sourceDefinition: 'sand; granule; powder', emoji: '🏜️' },
+  { char: '玻璃', sourcePinyin: 'bo1 li5', name: 'Glass', sourceDefinition: 'glass', emoji: '🪟' },
+  { char: '沙滩', sourcePinyin: 'sha1 tan1', name: 'Beach', sourceDefinition: 'beach; sandy shore', emoji: '🏖️' },
+  { char: '海岸', sourcePinyin: 'hai3 an4', name: 'Coast', sourceDefinition: 'coastal; seacoast', emoji: '🌅' },
+  { char: '河岸', sourcePinyin: 'he2 an4', name: 'Riverbank', sourceDefinition: 'riverside; river bank', emoji: '🌿' },
+  { char: '海洋', sourcePinyin: 'hai3 yang2', name: 'Ocean', sourceDefinition: 'ocean', emoji: '🌊' },
+  { char: '墙', sourcePinyin: 'qiang2', name: 'Wall', sourceDefinition: 'wall', emoji: '🧱' },
+  { char: '窗', sourcePinyin: 'chuang1', name: 'Window', sourceDefinition: 'window', emoji: '🪟' },
+  { char: '房子', sourcePinyin: 'fang2 zi5', name: 'House', sourceDefinition: 'house; building; apartment; room', emoji: '🏠' },
+  { char: '壁炉', sourcePinyin: 'bi4 lu2', name: 'Fireplace', sourceDefinition: 'fireplace', emoji: '🔥' },
+  { char: '村庄', sourcePinyin: 'cun1 zhuang1', name: 'Village', sourceDefinition: 'village; hamlet', emoji: '🏘️' },
+  { char: '城市', sourcePinyin: 'cheng2 shi4', name: 'City', sourceDefinition: 'city; town', emoji: '🏙️' },
+  { char: '港口', sourcePinyin: 'gang3 kou3', name: 'Port', sourceDefinition: 'port; harbor', emoji: '⚓' },
+  { char: '船', sourcePinyin: 'chuan2', name: 'Boat', sourceDefinition: 'boat; vessel; ship', emoji: '⛵' },
+  { char: '帆船', sourcePinyin: 'fan1 chuan2', name: 'Sailboat', sourceDefinition: 'sailboat', emoji: '⛵' },
+  { char: '陶器', sourcePinyin: 'tao2 qi4', name: 'Pottery', sourceDefinition: 'pottery', emoji: '🏺' },
+  { char: '天气', sourcePinyin: 'tian1 qi4', name: 'Weather', sourceDefinition: 'weather', emoji: '🌤️' },
+  { char: '雨天', sourcePinyin: 'yu3 tian1', name: 'Rainy Day', sourceDefinition: 'rainy day; rainy weather', emoji: '🌧️' },
+  { char: '家', sourcePinyin: 'jia1', name: 'Home', sourceDefinition: 'home; family', emoji: '🏡' },
+  { char: '社区', sourcePinyin: 'she4 qu1', name: 'Community', sourceDefinition: 'community; neighborhood', emoji: '🏘️' },
+  { char: '海', sourcePinyin: 'hai3', name: 'Sea', sourceDefinition: 'ocean; sea', emoji: '🌊' },
+  { char: '海风', sourcePinyin: 'hai3 feng1', name: 'Sea Breeze', sourceDefinition: 'sea breeze', emoji: '🌬️' },
+  { char: '海水', sourcePinyin: 'hai3 shui3', name: 'Seawater', sourceDefinition: 'seawater', emoji: '💧' },
 ];
 
-export const BASE_CHARS = Object.freeze(Object.fromEntries(
-  BASE_ENTRIES.map((entry) => [entry.char, defineEntry(entry)])
+export const ITEMS = Object.freeze(Object.fromEntries(
+  ITEM_ENTRIES.map((item) => [item.char, defineItem(item)])
 ));
 
-export const makeRecipeKey = (first, second) => `${first}${RECIPE_SEPARATOR}${second}`;
+export const STARTER_ITEMS = Object.freeze(['水', '火', '风', '土']);
+
+export const BASE_CHARS = Object.freeze(Object.fromEntries(
+  STARTER_ITEMS.map((item) => [item, ITEMS[item]])
+));
+
+const canonicalIngredients = (first, second) => [first, second].sort((a, b) => a.localeCompare(b, 'zh-Hans-CN'));
+
+export const makeRecipeKey = (first, second) => canonicalIngredients(first, second).join(RECIPE_SEPARATOR);
 export const getRecipeIngredients = (key) => key.split(RECIPE_SEPARATOR);
 
 const RECIPE_ENTRIES = [
-  // Nature and weather
-  { ingredients: ['火', '山'], result: '火山', sourcePinyin: 'huo3 shan1', name: 'Volcano', sourceDefinition: 'volcano', emoji: '🌋', category: 'Nature & Weather' },
-  { ingredients: ['火山', '口'], result: '火山口', sourcePinyin: 'huo3 shan1 kou3', name: 'Volcanic Crater', sourceDefinition: 'volcanic crater', emoji: '🌋⭕', category: 'Nature & Weather' },
-  { ingredients: ['火山', '灰'], result: '火山灰', sourcePinyin: 'huo3 shan1 hui1', name: 'Volcanic Ash', sourceDefinition: 'volcanic ash', emoji: '🌋🌫️', category: 'Nature & Weather' },
-  { ingredients: ['海', '水'], result: '海水', sourcePinyin: 'hai3 shui3', name: 'Seawater', sourceDefinition: 'seawater', emoji: '🌊💧', category: 'Nature & Weather' },
-  { ingredients: ['海', '边'], result: '海边', sourcePinyin: 'hai3 bian1', name: 'Seaside', sourceDefinition: 'coast; seaside; seashore; beach', emoji: '🏖️', category: 'Nature & Weather' },
-  { ingredients: ['大', '海'], result: '大海', sourcePinyin: 'da4 hai3', name: 'Ocean', sourceDefinition: 'sea; ocean', emoji: '🌊🐋', category: 'Nature & Weather' },
-  { ingredients: ['海', '风'], result: '海风', sourcePinyin: 'hai3 feng1', name: 'Sea Breeze', sourceDefinition: 'sea breeze', emoji: '🌊🌬️', category: 'Nature & Weather' },
-  { ingredients: ['水', '果'], result: '水果', sourcePinyin: 'shui3 guo3', name: 'Fruit', sourceDefinition: 'fruit', emoji: '🍉', category: 'Nature & Weather' },
-  { ingredients: ['水', '气'], result: '水气', sourcePinyin: 'shui3 qi4', name: 'Water Vapor', sourceDefinition: 'water vapor; steam', emoji: '♨️', category: 'Nature & Weather' },
-  { ingredients: ['雨', '水'], result: '雨水', sourcePinyin: 'yu3 shui3', name: 'Rainwater', sourceDefinition: 'rainwater; rainfall; rain', emoji: '🌧️💧', category: 'Nature & Weather' },
-  { ingredients: ['大', '雨'], result: '大雨', sourcePinyin: 'da4 yu3', name: 'Heavy Rain', sourceDefinition: 'heavy rain', emoji: '⛈️', category: 'Nature & Weather' },
-  { ingredients: ['小', '雨'], result: '小雨', sourcePinyin: 'xiao3 yu3', name: 'Light Rain', sourceDefinition: 'light rain; drizzle', emoji: '🌦️', category: 'Nature & Weather' },
-  { ingredients: ['风', '雨'], result: '风雨', sourcePinyin: 'feng1 yu3', name: 'Wind and Rain', sourceDefinition: 'wind and rain; the elements', emoji: '🌬️🌧️', category: 'Nature & Weather' },
-  { ingredients: ['大', '风'], result: '大风', sourcePinyin: 'da4 feng1', name: 'Gale', sourceDefinition: 'gale', emoji: '💨🌳', category: 'Nature & Weather' },
-  { ingredients: ['天', '气'], result: '天气', sourcePinyin: 'tian1 qi4', name: 'Weather', sourceDefinition: 'weather', emoji: '🌤️🌡️', category: 'Nature & Weather' },
-  { ingredients: ['天', '空'], result: '天空', sourcePinyin: 'tian1 kong1', name: 'Sky', sourceDefinition: 'sky', emoji: '🌌', category: 'Nature & Weather' },
-  { ingredients: ['空', '气'], result: '空气', sourcePinyin: 'kong1 qi4', name: 'Air', sourceDefinition: 'air; atmosphere', emoji: '🫧💨', category: 'Nature & Weather' },
-  { ingredients: ['白', '云'], result: '白云', sourcePinyin: 'bai2 yun2', name: 'White Cloud', sourceDefinition: 'white cloud', emoji: '☁️🤍', category: 'Nature & Weather' },
-  { ingredients: ['黑', '夜'], result: '黑夜', sourcePinyin: 'hei1 ye4', name: 'Night', sourceDefinition: 'night', emoji: '🌑', category: 'Nature & Weather' },
-  { ingredients: ['月', '光'], result: '月光', sourcePinyin: 'yue4 guang1', name: 'Moonlight', sourceDefinition: 'moonlight', emoji: '🌙✨', category: 'Nature & Weather' },
-  { ingredients: ['日', '光'], result: '日光', sourcePinyin: 'ri4 guang1', name: 'Sunlight', sourceDefinition: 'sunlight', emoji: '☀️✨', category: 'Nature & Weather' },
+  { ingredients: ['水', '土'], result: '黏土', category: 'First Reactions', factSourceId: 'usgs-clay', explanation: 'Water makes clay-rich earth sticky and workable.' },
+  { ingredients: ['水', '火'], result: '蒸汽', category: 'First Reactions', factSourceId: 'noaa-clouds', explanation: 'Heat changes liquid water into water vapor.' },
+  { ingredients: ['水', '风'], result: '波浪', category: 'First Reactions', factSourceId: 'noaa-waves', explanation: 'Wind transfers energy to surface water and creates waves.' },
+  { ingredients: ['风', '土'], result: '沙尘', category: 'First Reactions', factSourceId: 'usgs-wind-erosion', explanation: 'Wind erosion lifts fine soil into airborne dust.' },
+  { ingredients: ['火', '土'], result: '熔岩', category: 'First Reactions', factSourceId: 'usgs-rock-cycle', explanation: 'Enough heat melts rock; molten rock at the surface is lava.' },
+  { ingredients: ['水', '水'], result: '河', category: 'First Reactions', explanation: 'Flowing water gathers into a larger body: a river.' },
 
-  // People and places
-  { ingredients: ['人', '口'], result: '人口', sourcePinyin: 'ren2 kou3', name: 'Population', sourceDefinition: 'population; people', emoji: '👥', category: 'People & Places' },
-  { ingredients: ['家', '人'], result: '家人', sourcePinyin: 'jia1 ren2', name: 'Family Member', sourceDefinition: 'family member', emoji: '👨‍👩‍👧‍👦', category: 'People & Places' },
-  { ingredients: ['国', '家'], result: '国家', sourcePinyin: 'guo2 jia1', name: 'Country', sourceDefinition: 'country; nation; state', emoji: '🌐', category: 'People & Places' },
-  { ingredients: ['中', '国'], result: '中国', sourcePinyin: 'Zhong1 guo2', name: 'China', sourceDefinition: 'China', emoji: '🇨🇳', category: 'People & Places' },
-  { ingredients: ['中国', '人'], result: '中国人', sourcePinyin: 'Zhong1 guo2 ren2', name: 'Chinese Person', sourceDefinition: 'Chinese person', emoji: '🇨🇳🧑', category: 'People & Places' },
+  { ingredients: ['黏土', '火'], result: '砖', category: 'Earth & Materials', factSourceId: 'brick-manufacturing', explanation: 'Clay is shaped, dried, and fired into durable brick.' },
+  { ingredients: ['黏土', '水'], result: '泥', category: 'Earth & Materials', factSourceId: 'usgs-clay', explanation: 'Adding water to clay-rich earth produces mud.' },
+  { ingredients: ['蒸汽', '沙尘'], result: '云', category: 'Weather Cycle', factSourceId: 'noaa-clouds', explanation: 'Water vapor condenses on tiny dust particles to form cloud droplets.' },
+  { ingredients: ['云', '水'], result: '雨', category: 'Weather Cycle', factSourceId: 'noaa-precipitation', explanation: 'Cloud droplets grow until they are heavy enough to fall as rain.' },
+  { ingredients: ['雨', '风'], result: '暴风雨', category: 'Weather Cycle', factSourceId: 'noaa-precipitation', explanation: 'Strong wind and heavy rain come together in a rainstorm.' },
+  { ingredients: ['云', '风'], result: '天气', category: 'Weather Cycle', factSourceId: 'noaa-clouds', explanation: 'Wind moves moisture and helps shape changing weather.' },
+  { ingredients: ['天气', '雨'], result: '雨天', category: 'Weather Cycle', factSourceId: 'noaa-precipitation', explanation: 'Rain turns the day into rainy weather.' },
 
-  // Learning
-  { ingredients: ['学', '生'], result: '学生', sourcePinyin: 'xue2 sheng5', name: 'Student', sourceDefinition: 'student; schoolchild', emoji: '🧑‍🎓', category: 'Learning' },
-  { ingredients: ['大', '学'], result: '大学', sourcePinyin: 'da4 xue2', name: 'University', sourceDefinition: 'university; college', emoji: '🎓', category: 'Learning' },
-  { ingredients: ['大学', '生'], result: '大学生', sourcePinyin: 'da4 xue2 sheng1', name: 'University Student', sourceDefinition: 'university student; college student', emoji: '🎓🧑', category: 'Learning' },
-  { ingredients: ['中', '学'], result: '中学', sourcePinyin: 'zhong1 xue2', name: 'Middle School', sourceDefinition: 'middle school', emoji: '🏫📘', category: 'Learning' },
-  { ingredients: ['中学', '生'], result: '中学生', sourcePinyin: 'zhong1 xue2 sheng1', name: 'Middle-School Student', sourceDefinition: 'middle-school student; high school student', emoji: '📘🧑', category: 'Learning' },
-  { ingredients: ['小', '学'], result: '小学', sourcePinyin: 'xiao3 xue2', name: 'Primary School', sourceDefinition: 'elementary school; primary school', emoji: '🏫✏️', category: 'Learning' },
-  { ingredients: ['小学', '生'], result: '小学生', sourcePinyin: 'xiao3 xue2 sheng1', name: 'Primary-School Student', sourceDefinition: 'primary school student; schoolchild', emoji: '✏️🧑', category: 'Learning' },
-  { ingredients: ['学', '校'], result: '学校', sourcePinyin: 'xue2 xiao4', name: 'School', sourceDefinition: 'school', emoji: '🏫', category: 'Learning' },
+  { ingredients: ['熔岩', '水'], result: '岩石', category: 'Earth & Materials', factSourceId: 'usgs-lava-cooling', explanation: 'Water removes heat from lava, helping it solidify into rock.' },
+  { ingredients: ['岩石', '风'], result: '沙', category: 'Earth & Materials', factSourceId: 'usgs-weathering', explanation: 'Wind and weathering break rock down into sediment such as sand.' },
+  { ingredients: ['沙', '火'], result: '玻璃', category: 'Earth & Materials', factSourceId: 'corning-glass', explanation: 'Glass begins with sand melted at very high temperature.' },
+  { ingredients: ['沙', '水'], result: '沙滩', category: 'Earth & Materials', factSourceId: 'usgs-weathering', explanation: 'Deposited sand and water meet at a beach.' },
+  { ingredients: ['波浪', '沙滩'], result: '海岸', category: 'Earth & Materials', factSourceId: 'noaa-waves', explanation: 'Waves shape the boundary where land meets water: the coast.' },
+  { ingredients: ['河', '土'], result: '河岸', category: 'Earth & Materials', explanation: 'Earth beside a river forms its bank.' },
+  { ingredients: ['河', '河'], result: '海洋', category: 'Earth & Materials', explanation: 'Many rivers ultimately feed the ocean.' },
+  { ingredients: ['泥', '火'], result: '陶器', category: 'Earth & Materials', factSourceId: 'usgs-clay', explanation: 'Clay-rich mud can be shaped and fired as pottery.' },
 
-  // Technology and transport
-  { ingredients: ['电', '话'], result: '电话', sourcePinyin: 'dian4 hua4', name: 'Telephone', sourceDefinition: 'telephone; phone call; phone number', emoji: '☎️', category: 'Technology & Transport' },
-  { ingredients: ['电', '脑'], result: '电脑', sourcePinyin: 'dian4 nao3', name: 'Computer', sourceDefinition: 'computer', emoji: '💻', category: 'Technology & Transport' },
-  { ingredients: ['电', '影'], result: '电影', sourcePinyin: 'dian4 ying3', name: 'Movie', sourceDefinition: 'movie; film', emoji: '🎬', category: 'Technology & Transport' },
-  { ingredients: ['电', '视'], result: '电视', sourcePinyin: 'dian4 shi4', name: 'Television', sourceDefinition: 'television; TV', emoji: '📺', category: 'Technology & Transport' },
-  { ingredients: ['电', '车'], result: '电车', sourcePinyin: 'dian4 che1', name: 'Electric Vehicle', sourceDefinition: 'tram; streetcar; trolleybus; electric car; e-bike', emoji: '🚋', category: 'Technology & Transport' },
-  { ingredients: ['手', '机'], result: '手机', sourcePinyin: 'shou3 ji1', name: 'Mobile Phone', sourceDefinition: 'cell phone; mobile phone', emoji: '📱', category: 'Technology & Transport' },
-  { ingredients: ['机', '场'], result: '机场', sourcePinyin: 'ji1 chang3', name: 'Airport', sourceDefinition: 'airport; airfield', emoji: '🛫', category: 'Technology & Transport' },
-  { ingredients: ['飞', '机'], result: '飞机', sourcePinyin: 'fei1 ji1', name: 'Airplane', sourceDefinition: 'airplane', emoji: '✈️', category: 'Technology & Transport' },
-  { ingredients: ['飞机', '场'], result: '飞机场', sourcePinyin: 'fei1 ji1 chang3', name: 'Airport', sourceDefinition: 'airport', emoji: '✈️🛬', category: 'Technology & Transport' },
-  { ingredients: ['火', '车'], result: '火车', sourcePinyin: 'huo3 che1', name: 'Train', sourceDefinition: 'train', emoji: '🚂', category: 'Technology & Transport' },
-  { ingredients: ['火车', '站'], result: '火车站', sourcePinyin: 'huo3 che1 zhan4', name: 'Train Station', sourceDefinition: 'train station', emoji: '🚂🚉', category: 'Technology & Transport' },
-  { ingredients: ['车', '站'], result: '车站', sourcePinyin: 'che1 zhan4', name: 'Station', sourceDefinition: 'rail station; bus stop', emoji: '🚏', category: 'Technology & Transport' },
+  { ingredients: ['砖', '砖'], result: '墙', category: 'Human World', explanation: 'Bricks are assembled into a wall.' },
+  { ingredients: ['墙', '玻璃'], result: '窗', category: 'Human World', explanation: 'Glass set into a wall creates a window.' },
+  { ingredients: ['墙', '窗'], result: '房子', category: 'Human World', explanation: 'Walls and windows form the shell of a house.' },
+  { ingredients: ['砖', '火'], result: '壁炉', category: 'Human World', explanation: 'Brick safely contains a household fire in a fireplace.' },
+  { ingredients: ['房子', '房子'], result: '村庄', category: 'Human World', explanation: 'A group of houses forms a village.' },
+  { ingredients: ['村庄', '村庄'], result: '城市', category: 'Human World', explanation: 'As settlements grow together, they become a city.' },
+  { ingredients: ['城市', '水'], result: '港口', category: 'Human World', explanation: 'A city connected to navigable water can form a port.' },
+  { ingredients: ['港口', '水'], result: '船', category: 'Human World', explanation: 'A port and open water imply a boat.' },
+  { ingredients: ['船', '风'], result: '帆船', category: 'Human World', explanation: 'Wind powers a sailboat through its sails.' },
+  { ingredients: ['房子', '壁炉'], result: '家', category: 'Human World', explanation: 'A warm, lived-in house becomes a home.' },
+  { ingredients: ['家', '家'], result: '社区', category: 'Human World', explanation: 'Homes together form a community.' },
+
+  { ingredients: ['海岸', '海洋'], result: '海', category: 'Sea Connections', explanation: 'A coast borders a large body of seawater: the sea.' },
+  { ingredients: ['海', '风'], result: '海风', category: 'Sea Connections', factSourceId: 'noaa-waves', explanation: 'Air moving from the sea is a sea breeze.' },
+  { ingredients: ['海', '水'], result: '海水', category: 'Sea Connections', explanation: 'Water in the sea is seawater.' },
 ];
 
 export const RECIPE_CATEGORIES = Object.freeze([
-  'Nature & Weather',
-  'People & Places',
-  'Learning',
-  'Technology & Transport',
+  'First Reactions',
+  'Weather Cycle',
+  'Earth & Materials',
+  'Human World',
+  'Sea Connections',
 ]);
 
 export const RECIPES = Object.freeze(Object.fromEntries(
-  RECIPE_ENTRIES.map((entry) => {
-    const recipe = defineEntry(entry);
-    return [makeRecipeKey(...recipe.ingredients), recipe];
+  RECIPE_ENTRIES.map((recipe) => {
+    const result = ITEMS[recipe.result];
+    if (!result) throw new Error(`Missing item data for recipe result: ${recipe.result}`);
+    const completeRecipe = Object.freeze({ ...result, ...recipe });
+    return [makeRecipeKey(...recipe.ingredients), completeRecipe];
   })
 ));
 
-export const getRecipe = (first, second) => RECIPES[makeRecipeKey(first, second)] ?? null;
+export const DISCOVERABLE_ITEMS = Object.freeze([
+  ...new Set(Object.values(RECIPES).map(({ result }) => result)),
+]);
 
-export const getData = (text) => {
-  if (BASE_CHARS[text]) return BASE_CHARS[text];
-  const recipe = Object.values(RECIPES).find(({ result }) => result === text);
-  if (recipe) return { char: recipe.result, ...recipe };
-  return { char: text, pinyin: '?', emoji: '✨', name: 'Unknown' };
-};
+export const getRecipe = (first, second) => RECIPES[makeRecipeKey(first, second)] ?? null;
+export const getData = (text) => ITEMS[text] ?? Object.freeze({
+  char: text,
+  pinyin: '?',
+  emoji: '✨',
+  name: 'Unknown',
+  sourceDefinition: 'Unknown',
+});
