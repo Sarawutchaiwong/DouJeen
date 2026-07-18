@@ -1,0 +1,9 @@
+{
+  "LocaleSwitcher": {
+    "label": "Change language",
+    "switchTo": "ไทย"
+  },
+  "Nav": {
+    "notebook": "Notebook"
+  }
+}

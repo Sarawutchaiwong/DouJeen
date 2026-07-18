@@ -1,0 +1,9 @@
+{
+  "LocaleSwitcher": {
+    "label": "เปลี่ยนภาษา",
+    "switchTo": "EN"
+  },
+  "Nav": {
+    "notebook": "สมุดจด"
+  }
+}

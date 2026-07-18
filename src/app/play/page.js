@@ -2,6 +2,7 @@
 
 import React, { useCallback, useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 import {
   DISCOVERABLE_ITEMS,
   RECIPES,
@@ -11,6 +12,7 @@ import {
   makeRecipeKey,
 } from '../data';
 import BrandMark from '../components/BrandMark';
+import LocaleSwitcher from '../components/LocaleSwitcher';
 import PronunciationButton from '../components/PronunciationButton';
 import { useDialogFocus } from '../useDialogFocus';
 import { usePronunciation } from '../usePronunciation';
@@ -29,6 +31,7 @@ const SPAWN_POINTS = [
 const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
 
 export default function GamePage() {
+  const tNav = useTranslations('Nav');
   const [library, setLibrary] = useState(STARTER_ITEMS);
   const [discoveredRecipeKeys, setDiscoveredRecipeKeys] = useState([]);
   const [canvasItems, setCanvasItems] = useState([]);
@@ -370,8 +373,9 @@ export default function GamePage() {
             <span className="hidden sm:inline">Reset progress</span>
           </button>
           <Link href="/guide" className="lift-control inline-flex min-h-11 items-center rounded-full border border-[var(--lab-line-strong)] bg-[var(--lab-surface)] px-4 text-xs font-black text-[var(--lab-ink)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/25 sm:text-sm">
-            Notebook
+            {tNav('notebook')}
           </Link>
+          <LocaleSwitcher />
         </div>
       </header>
 
