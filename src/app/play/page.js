@@ -1,8 +1,9 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import Link from 'next/link';
-import { BASE_CHARS, RECIPES, getData } from '../data';
+import { BASE_CHARS, RECIPES, getData, getRecipe } from '../data';
+import BrandMark from '../components/BrandMark';
 import PronunciationButton from '../components/PronunciationButton';
 import { usePronunciation } from '../usePronunciation';
 import { useDialogFocus } from '../useDialogFocus';
@@ -15,37 +16,32 @@ const AVAILABLE_CHARACTERS = new Set([
 const COMBINATION_DURATION_MS = 300;
 const REACTION_MESSAGE_DURATION_MS = 1600;
 
-const getRandomHint = () => {
-  const keys = Object.keys(RECIPES);
-  const randomCombo = keys[Math.floor(Math.random() * keys.length)];
-  const char1 = randomCombo[0];
-  const char2 = randomCombo[1];
-  return {
-    name1: getData(char1).name,
-    name2: getData(char2).name
-  };
+const getRandomHint = (library) => {
+  const availableRecipes = Object.values(RECIPES).filter(({ ingredients, result }) =>
+    !library.includes(result) && ingredients.every((ingredient) => library.includes(ingredient))
+  );
+  const candidates = availableRecipes.length > 0 ? availableRecipes : Object.values(RECIPES);
+  const recipe = candidates[Math.floor(Math.random() * candidates.length)];
+  const [first, second] = recipe.ingredients;
+  return { name1: getData(first).name, name2: getData(second).name };
 };
 
 export default function GamePage() {
   const [library, setLibrary] = useState(STARTER_CHARACTERS);
   const [hasLoaded, setHasLoaded] = useState(false);
-  const [activeItems, setActiveItems] = useState([]); 
+  const [activeItems, setActiveItems] = useState([]);
   const [discovery, setDiscovery] = useState(null);
   const [discoveryClosing, setDiscoveryClosing] = useState(false);
   const [isCombining, setIsCombining] = useState(false);
   const [hint, setHint] = useState(null);
   const [reactionMessage, setReactionMessage] = useState(null);
+  const [librarySearch, setLibrarySearch] = useState('');
   const combinationTimerRef = React.useRef(null);
   const reactionMessageTimerRef = React.useRef(null);
   const discoveryCloseTimerRef = React.useRef(null);
-  const {
-    playingCharacter,
-    playPronunciation,
-    pronunciationError,
-  } = usePronunciation();
+  const { playingCharacter, playPronunciation, pronunciationError } = usePronunciation();
 
   React.useEffect(() => {
-    // Load progress from localStorage on mount
     const saved = localStorage.getItem('doujeen_progress');
     let loadedLibrary = [...STARTER_CHARACTERS];
     if (saved) {
@@ -57,28 +53,25 @@ export default function GamePage() {
           );
           loadedLibrary = [...new Set([...STARTER_CHARACTERS, ...validUnlocked])];
         }
-      } catch (e) {
-        console.error('Failed to parse progress:', e);
+      } catch (error) {
+        console.error('Failed to parse progress:', error);
       }
     }
 
-    const timer = setTimeout(() => {
+    const timer = window.setTimeout(() => {
       setLibrary(loadedLibrary);
       setHasLoaded(true);
-      setHint(getRandomHint());
+      setHint(getRandomHint(loadedLibrary));
     }, 0);
-    return () => clearTimeout(timer);
+    return () => window.clearTimeout(timer);
   }, []);
 
   React.useEffect(() => {
     if (!hasLoaded) return;
     try {
-      const progress = {
-        unlocked: library,
-      };
-      localStorage.setItem('doujeen_progress', JSON.stringify(progress));
-    } catch (e) {
-      console.error('Failed to save progress:', e);
+      localStorage.setItem('doujeen_progress', JSON.stringify({ unlocked: library }));
+    } catch (error) {
+      console.error('Failed to save progress:', error);
     }
   }, [library, hasLoaded]);
 
@@ -96,40 +89,36 @@ export default function GamePage() {
 
   const processItems = (newActive) => {
     setActiveItems(newActive);
+    if (newActive.length !== 2) return;
 
-    if (newActive.length === 2) {
-      clearReactionMessage();
-      setIsCombining(true);
-      const combo1 = newActive[0].char + newActive[1].char;
-      const combo2 = newActive[1].char + newActive[0].char;
-      const match = RECIPES[combo1] || RECIPES[combo2];
+    clearReactionMessage();
+    setIsCombining(true);
+    const match = getRecipe(newActive[0].char, newActive[1].char);
 
-      combinationTimerRef.current = window.setTimeout(() => {
-        if (match) {
-          window.clearTimeout(discoveryCloseTimerRef.current);
-          setDiscoveryClosing(false);
-          setDiscovery(match);
-          setLibrary(prev => prev.includes(match.result) ? prev : [...prev, match.result]);
-          setHint(getRandomHint()); // New hint after discovery
-        } else {
-          setReactionMessage('No reaction — try another pair');
-          reactionMessageTimerRef.current = window.setTimeout(() => {
-            setReactionMessage(null);
-            reactionMessageTimerRef.current = null;
-          }, REACTION_MESSAGE_DURATION_MS);
-        }
-        setActiveItems([]);
-        setIsCombining(false);
-        combinationTimerRef.current = null;
-      }, COMBINATION_DURATION_MS);
-    }
+    combinationTimerRef.current = window.setTimeout(() => {
+      if (match) {
+        window.clearTimeout(discoveryCloseTimerRef.current);
+        setDiscoveryClosing(false);
+        setDiscovery(match);
+        const nextLibrary = library.includes(match.result) ? library : [...library, match.result];
+        setLibrary(nextLibrary);
+        setHint(getRandomHint(nextLibrary));
+      } else {
+        setReactionMessage('Those two do not form a word here. Keep the order in mind.');
+        reactionMessageTimerRef.current = window.setTimeout(() => {
+          setReactionMessage(null);
+          reactionMessageTimerRef.current = null;
+        }, REACTION_MESSAGE_DURATION_MS);
+      }
+      setActiveItems([]);
+      setIsCombining(false);
+      combinationTimerRef.current = null;
+    }, COMBINATION_DURATION_MS);
   };
 
   const selectItem = (char) => {
     if (isCombining) return;
-    const newItem = { char, ...getData(char) };
-    const newActive = [...activeItems, newItem].slice(-2);
-    processItems(newActive);
+    processItems([...activeItems, { char, ...getData(char) }].slice(-2));
   };
 
   const closeDiscovery = React.useCallback(() => {
@@ -143,201 +132,161 @@ export default function GamePage() {
     }, reducedMotion ? 0 : 200);
   }, []);
 
-  const handleDragStart = (e, char) => {
-    e.dataTransfer.setData('text/plain', char);
+  const handleDragStart = (event, char) => {
+    event.dataTransfer.setData('text/plain', char);
   };
 
-  const handleDrop = (e) => {
-    e.preventDefault();
-    const char = e.dataTransfer.getData('text/plain');
+  const handleDrop = (event) => {
+    event.preventDefault();
+    const char = event.dataTransfer.getData('text/plain');
     if (!char || isCombining) return;
-
-    const newItem = { char, ...getData(char) };
-    const newActive = [...activeItems, newItem].slice(-2);
-    processItems(newActive);
+    processItems([...activeItems, { char, ...getData(char) }].slice(-2));
   };
 
-  const progressRatio = Math.min(
-    library.length / (Object.keys(RECIPES).length + STARTER_CHARACTERS.length),
-    1
-  );
+  const discoveredWordCount = library.filter((item) => !BASE_CHARS[item]).length;
+  const progressRatio = Math.min(discoveredWordCount / Object.keys(RECIPES).length, 1);
+  const filteredLibrary = useMemo(() => {
+    const query = librarySearch.trim().toLowerCase();
+    if (!query) return library;
+    return library.filter((item) => {
+      const data = getData(item);
+      return item.includes(query) || data.name.toLowerCase().includes(query) || data.pinyin.toLowerCase().includes(query);
+    });
+  }, [library, librarySearch]);
 
   return (
-    <main className="h-screen w-full bg-[var(--lab-cream)] font-sans overflow-hidden flex flex-col lg:flex-row relative">
-      
-      {/* Background Decor: The "Stage" */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--lab-surface)_0%,_transparent_70%)] opacity-40 pointer-events-none"></div>
-      
-      {/* Floating Header HUD */}
-      <nav className="absolute top-0 left-0 right-0 p-4 sm:p-6 flex items-center justify-between z-40 pointer-events-none">
-        <Link 
-          href="/"
-          aria-label="Back to home"
-          title="Back to home"
-          className="pointer-events-auto inline-flex h-12 w-12 items-center justify-center rounded-3xl border-2 border-[var(--lab-line)] bg-[var(--lab-surface)] text-[var(--lab-action)] shadow-[0_6px_0_var(--lab-shadow)] transition-[transform,background-color,box-shadow,border-color] duration-[var(--duration-press)] ease-[var(--ease-out)] hover:translate-y-[2px] hover:shadow-[0_4px_0_var(--lab-shadow)] active:translate-y-[4px] active:shadow-none focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/30"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        </Link>
-      </nav>
-
-      {/* Main Game Stage */}
-      <section className="flex-1 relative flex flex-col items-center justify-center p-4 z-10">
-        
-        {/* The Discovery Pot - Refined Centerpiece */}
-        <div className="relative group">
-          {/* External Glow Rings */}
-          <div className="absolute -inset-20 rounded-full bg-[var(--lab-sky)]/5 blur-3xl transition-colors duration-[var(--duration-ui)] ease-[var(--ease-out)] group-hover:bg-[var(--lab-sky)]/10"></div>
-          
-          <div 
-            onDragOver={(e) => e.preventDefault()}
-            onDrop={handleDrop}
-            className={`
-              relative w-72 h-72 sm:w-[400px] sm:h-[400px] md:w-[500px] md:h-[500px]
-              bg-[var(--lab-surface-40)] backdrop-blur-sm border-[12px] border-dashed border-[var(--lab-peach)] rounded-[100px] md:rounded-[140px]
-              flex items-center justify-center transition-[transform,background-color,box-shadow,border-color] duration-[var(--duration-ui)] ease-[var(--ease-in-out)]
-              ${activeItems.length > 0 ? 'scale-[1.03] border-[var(--lab-sky)] bg-[var(--lab-surface-60)] shadow-[0_30px_100px_rgba(45,120,168,0.16)]' : 'shadow-inner'}
-            `}
-          >
-             {/* Combination Slot Visuals */}
-             <div className={`flex gap-4 md:gap-8 items-center justify-center ${isCombining ? 'animate-fusion' : ''}`}>
-               {activeItems.length === 0 && (
-                 <div className="flex flex-col items-center gap-4">
-                   <div className="w-20 h-20 md:w-32 md:h-32 rounded-full border-8 border-[var(--lab-peach)] flex items-center justify-center text-4xl font-black text-[var(--lab-peach-ink)]">?</div>
-                   <span className="text-[10px] font-black text-[var(--lab-peach-ink)] tracking-[0.5em] uppercase">Combine</span>
-                 </div>
-               )}
-               
-               {activeItems.map((item, i) => (
-                 <button
-                   type="button"
-                   key={i} 
-                   onClick={() => !isCombining && setActiveItems(prev => prev.filter((_, idx) => idx !== i))}
-                   disabled={isCombining}
-                   aria-label={`Remove ${item.char} from combination`}
-                   className={`
-                     w-24 h-24 md:w-40 md:h-40 bg-[var(--lab-surface)] rounded-[40px] md:rounded-[50px]
-                     shadow-[0_12px_0_var(--lab-shadow)] flex flex-col items-center justify-center
-                     animate-ingredient-enter border-4 border-[var(--lab-surface)] ring-8 ring-[var(--lab-surface)]/10
-                     focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)] focus-visible:ring-offset-4
-                     ${!isCombining ? 'cursor-pointer hover:scale-105 active:scale-95 transition-transform duration-[var(--duration-press)] ease-[var(--ease-out)]' : 'cursor-wait'}
-                   `}
-                 >
-                   <span className="text-4xl md:text-6xl mb-1">{item.emoji}</span>
-                   <span className="text-2xl md:text-4xl font-black text-zinc-800">{item.char}</span>
-                   <span className="text-[8px] md:text-xs font-black text-[var(--lab-muted)] uppercase mt-1">{item.pinyin}</span>
-                 </button>
-               ))}
-             </div>
+    <main className="aurora-canvas flex h-[100dvh] min-h-[100dvh] flex-col overflow-hidden">
+      <header className="relative z-40 flex min-h-18 shrink-0 items-center justify-between gap-4 border-b border-[var(--lab-line)] bg-[var(--lab-surface-60)] px-4 sm:px-6">
+        <BrandMark compact />
+        <div className="flex items-center gap-2">
+          <div className="hidden items-center gap-2 rounded-full bg-[var(--lab-mint)] px-4 py-2 text-xs font-black text-[var(--lab-mint-ink)] sm:flex">
+            <span>{discoveredWordCount}/{Object.keys(RECIPES).length}</span>
+            <span className="font-bold opacity-75">words found</span>
           </div>
+          <Link href="/guide" className="lift-control inline-flex min-h-11 items-center rounded-full border border-[var(--lab-line-strong)] bg-[var(--lab-surface)] px-4 text-sm font-black text-[var(--lab-ink)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/25">
+            Answer key
+          </Link>
         </div>
+      </header>
 
-        {/* Floating Hint HUD */}
-        {reactionMessage ? (
+      <div className="grid min-h-0 flex-1 lg:grid-cols-[minmax(0,1fr)_minmax(23rem,29rem)]">
+        <section className="relative flex min-h-0 items-center justify-center p-3 sm:p-5 lg:p-7" aria-labelledby="lab-title">
           <div
-            role="status"
-            aria-live="polite"
-            className="animate-no-reaction absolute bottom-4 rounded-full border-2 border-[var(--lab-peach)] bg-[var(--lab-surface-90)] px-5 py-3 text-center text-xs font-black text-[var(--lab-peach-ink)] shadow-[0_12px_30px_rgba(0,0,0,0.05)] md:bottom-12 md:text-sm"
+            onDragOver={(event) => event.preventDefault()}
+            onDrop={handleDrop}
+            className={`surface-panel relative flex h-full max-h-[42rem] min-h-[17rem] w-full max-w-[48rem] flex-col items-center justify-center overflow-hidden rounded-[2.5rem] p-5 transition-[transform,border-color,background-color] duration-[var(--duration-ui)] ease-[var(--ease-in-out)] sm:rounded-[3.5rem] sm:p-8 ${activeItems.length > 0 ? 'border-[var(--lab-line-strong)] bg-[var(--lab-surface)]' : ''}`}
           >
-            {reactionMessage}
-          </div>
-        ) : hint && (
-          <div className="absolute bottom-4 md:bottom-12 bg-[var(--lab-surface-90)] px-3 py-1.5 md:px-8 md:py-4 rounded-full shadow-[0_12px_30px_rgba(0,0,0,0.05)] border-2 border-[var(--lab-surface)] flex items-center gap-2 md:gap-4">
-            <div className="w-5 h-5 md:w-8 md:h-8 bg-[var(--lab-mint)] rounded-full flex items-center justify-center text-[var(--lab-mint-ink)] text-[8px] md:text-xs font-black">!</div>
-            <p className="text-zinc-600 font-black text-[9px] md:text-sm tracking-tight">
-              TRY: <span className="text-[var(--lab-action)]">{hint.name1}</span> + <span className="text-[var(--lab-action)]">{hint.name2}</span>
-            </p>
-          </div>
-        )}
-      </section>
+            <div className="orbit-line -inset-[18%]" aria-hidden="true" />
+            <div className="orbit-line inset-[8%]" aria-hidden="true" />
 
-      {/* The Journal HUD - Floating Sticker Palette with Breathing Room */}
-      <aside className="h-[45vh] w-full border-t-8 border-[var(--lab-mint)] bg-[var(--lab-surface-90)] shadow-[0_40px_80px_rgba(0,0,0,0.1)] ring-1 ring-[var(--lab-surface)]/50 flex flex-col z-30 overflow-hidden relative lg:my-auto lg:ml-12 lg:mr-4 lg:h-[80vh] lg:w-[440px] lg:rounded-[60px] lg:border-8">
-        <div className="p-6 md:p-10 bg-[var(--lab-surface-20)] border-b-2 border-[var(--lab-mint)]/20 shrink-0">
-          <div className="flex items-center justify-between mb-6">
-            <div className="flex flex-col">
-              <h2 className="text-3xl font-black text-[var(--lab-action)] tracking-tighter leading-none">MY WORDS</h2>
-              <span className="text-[10px] font-black text-[var(--lab-muted)] tracking-[0.2em] uppercase mt-1">Sticker Collection</span>
+            <div className="absolute left-5 top-5 z-10 sm:left-8 sm:top-7">
+              <div className="eyebrow">Ordered reaction</div>
+              <h1 id="lab-title" className="mt-1 text-xl font-black tracking-[-0.035em] text-[var(--lab-ink)] sm:text-2xl">Build a real word</h1>
             </div>
-            <div className="flex flex-col items-end">
-              <span className="text-2xl font-black text-[var(--lab-mint-ink)] leading-none">{library.length}</span>
-              <span className="text-[8px] font-black text-[var(--lab-muted)] uppercase">Found</span>
+
+            <div className={`relative z-10 mt-7 flex items-center justify-center gap-2 sm:gap-5 ${isCombining ? 'animate-fusion' : ''}`}>
+              {[0, 1].map((slotIndex) => {
+                const item = activeItems[slotIndex];
+                if (item) {
+                  return (
+                    <React.Fragment key={slotIndex}>
+                      {slotIndex === 1 && <span className="text-xl font-light text-[var(--lab-muted)]" aria-hidden="true">+</span>}
+                      <button
+                        type="button"
+                        onClick={() => !isCombining && setActiveItems((current) => current.filter((_, index) => index !== slotIndex))}
+                        disabled={isCombining}
+                        aria-label={`Remove ${item.char} from position ${slotIndex + 1}`}
+                        className="animate-ingredient-enter lift-control relative flex h-28 w-28 flex-col items-center justify-center rounded-[2rem] border border-[var(--lab-line-strong)] bg-[var(--lab-surface)] shadow-[0_16px_40px_var(--lab-shadow)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/25 sm:h-40 sm:w-40 sm:rounded-[2.5rem]"
+                      >
+                        <span className="absolute left-3 top-3 text-[10px] font-black text-[var(--lab-muted)]">0{slotIndex + 1}</span>
+                        <span className="text-3xl sm:text-5xl">{item.emoji}</span>
+                        <span className="hanzi-text mt-1 text-3xl font-black text-[var(--lab-ink)] sm:text-4xl" lang="zh-Hans">{item.char}</span>
+                        <span className="mt-1 text-[10px] font-bold text-[var(--lab-muted)] sm:text-xs">{item.pinyin}</span>
+                      </button>
+                    </React.Fragment>
+                  );
+                }
+
+                return (
+                  <React.Fragment key={slotIndex}>
+                    {slotIndex === 1 && <span className="text-xl font-light text-[var(--lab-muted)]" aria-hidden="true">+</span>}
+                    <div className="relative grid h-28 w-28 place-items-center rounded-[2rem] border border-dashed border-[var(--lab-line-strong)] bg-[var(--lab-surface-40)] text-center sm:h-40 sm:w-40 sm:rounded-[2.5rem]">
+                      <span className="absolute left-3 top-3 text-[10px] font-black text-[var(--lab-muted)]">0{slotIndex + 1}</span>
+                      <div>
+                        <span className="hanzi-text block text-3xl font-black text-[var(--lab-line-strong)]" aria-hidden="true">字</span>
+                        <span className="mt-1 block text-[9px] font-black uppercase tracking-[0.12em] text-[var(--lab-muted)]">{slotIndex === 0 ? 'First' : 'Second'}</span>
+                      </div>
+                    </div>
+                  </React.Fragment>
+                );
+              })}
             </div>
-          </div>
-          
-          {/* Progress Bar with Glow */}
-          <div className="relative w-full h-4 bg-[var(--lab-surface-60)] rounded-full overflow-hidden border-2 border-[var(--lab-mint)]/30 shadow-inner">
-            <div
-              className="h-full origin-left bg-gradient-to-r from-[var(--lab-mint)] via-[var(--lab-mint-bright)] to-[var(--lab-mint)] shadow-[0_0_15px_rgba(178,242,187,0.8)] transition-transform duration-[var(--duration-celebration)] ease-[var(--ease-out)]"
-              style={{ transform: `scaleX(${progressRatio})` }}
-            ></div>
-          </div>
-        </div>
-        
-        <div className="custom-scrollbar grid flex-1 grid-cols-3 content-start gap-3 overflow-y-auto p-6 sm:grid-cols-4 md:gap-5 md:p-10 lg:grid-cols-3">
-          {library.map((char, index) => {
-            const data = getData(char);
-            return (
-              <div
-                key={char}
-                draggable
-                onDragStart={(e) => handleDragStart(e, char)}
-                className={`
-                  aspect-square bg-[var(--lab-surface)] rounded-[28px] md:rounded-[36px]
-                  shadow-[0_8px_0_var(--lab-shadow)] hover:shadow-[0_4px_0_var(--lab-shadow)]
-                  hover:scale-105 hover:-translate-y-1 hover:rotate-1 transition-[transform,background-color,box-shadow,border-color] duration-[var(--duration-press)] ease-[var(--ease-out)]
-                  border-[3px] md:border-[5px] ${index % 2 === 0 ? 'border-[var(--lab-sky)]' : 'border-[var(--lab-peach)]'}
-                  group relative p-1 select-none overflow-visible touch-manipulation
-                `}
-              >
-                <button
-                  type="button"
-                  onClick={() => selectItem(char)}
-                  className="relative flex h-full w-full cursor-grab flex-col items-center justify-center rounded-[24px] active:cursor-grabbing focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)] focus-visible:ring-offset-2"
-                  aria-label={`Add ${char} to combination`}
-                >
-                  <span className="pointer-events-none text-2xl md:text-4xl mb-0.5 transition-transform duration-[var(--duration-press)] ease-[var(--ease-out)] group-hover:scale-110">{data.emoji}</span>
-                  <span className="pointer-events-none text-xl md:text-2xl font-black text-zinc-800 leading-tight">{char}</span>
-                  <span className="pointer-events-none text-[7px] md:text-[9px] font-black text-[var(--lab-muted)] uppercase tracking-tighter mt-0.5">{data.pinyin}</span>
-                  <span className="pointer-events-none absolute -right-2 -top-2 hidden h-8 w-8 items-center justify-center rounded-full border-2 border-[var(--lab-surface)] bg-[var(--lab-action)] text-lg font-black text-[var(--lab-surface)] shadow-lg pointer-coarse:flex any-pointer-coarse:flex" aria-hidden="true">+</span>
-                </button>
 
-                <PronunciationButton
-                  character={char}
-                  isPlaying={playingCharacter === char}
-                  onPlay={playPronunciation}
-                  className="absolute -left-2 -top-2 z-20 h-11 w-11"
-                />
-
-                {/* Desktop Hover Tooltip - Meaning */}
-                <div className="hidden md:flex absolute -top-10 left-1/2 -translate-x-1/2 invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-opacity duration-[var(--duration-tooltip)] ease-[var(--ease-out)] bg-zinc-800 text-[var(--lab-surface)] text-[10px] font-black py-1.5 px-3 rounded-xl whitespace-nowrap shadow-xl z-50 items-center justify-center">
-                  {data.name}
-                  <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-zinc-800 rotate-45"></div>
+            <div className="absolute inset-x-4 bottom-4 z-10 flex justify-center sm:bottom-6">
+              {reactionMessage ? (
+                <div role="status" aria-live="polite" className="animate-no-reaction max-w-lg rounded-full border border-[var(--lab-peach)] bg-[var(--lab-surface)] px-5 py-3 text-center text-xs font-black text-[var(--lab-peach-ink)] shadow-[0_10px_30px_var(--lab-shadow)] sm:text-sm">
+                  {reactionMessage}
                 </div>
+              ) : hint && (
+                <div className="flex items-center gap-3 rounded-full border border-[var(--lab-line)] bg-[var(--lab-surface-90)] px-4 py-3 text-xs font-bold text-[var(--lab-muted)] shadow-[0_10px_30px_var(--lab-shadow)] sm:px-6 sm:text-sm">
+                  <span className="inline-grid h-6 w-6 place-items-center rounded-full bg-[var(--lab-mint)] font-black text-[var(--lab-mint-ink)]">?</span>
+                  Try <span className="font-black text-[var(--lab-action)]">{hint.name1}</span><span aria-hidden="true">→</span><span className="font-black text-[var(--lab-action)]">{hint.name2}</span>
+                </div>
+              )}
+            </div>
+          </div>
+        </section>
 
-                {/* Visual Polish: Corner Shine */}
-                <div className="absolute top-2 left-2 w-2 h-2 bg-[var(--lab-surface)] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-[var(--duration-tooltip)] ease-[var(--ease-out)]"></div>
+        <aside className="surface-panel relative z-30 flex h-[46vh] min-h-0 flex-col overflow-hidden rounded-t-[2rem] border-x-0 border-b-0 lg:m-4 lg:ml-0 lg:h-auto lg:rounded-[2.5rem] lg:border">
+          <div className="shrink-0 border-b border-[var(--lab-line)] p-4 sm:p-5 lg:p-6">
+            <div className="flex items-end justify-between gap-4">
+              <div>
+                <div className="eyebrow">Your collection</div>
+                <h2 className="mt-1 text-2xl font-black tracking-[-0.04em] text-[var(--lab-ink)]">Word palette</h2>
               </div>
-            );
-          })}
-        </div>
-      </aside>
+              <div className="text-right sm:hidden">
+                <div className="text-lg font-black text-[var(--lab-mint-ink)]">{discoveredWordCount}/{Object.keys(RECIPES).length}</div>
+                <div className="text-[9px] font-black uppercase tracking-wider text-[var(--lab-muted)]">Found</div>
+              </div>
+            </div>
 
-      {pronunciationError && (
-        <div
-          role="status"
-          className="fixed left-1/2 top-5 z-[70] -translate-x-1/2 rounded-full bg-zinc-800 px-5 py-3 text-center text-xs font-black text-[var(--lab-surface)] shadow-xl"
-        >
-          {pronunciationError}
-        </div>
-      )}
+            <div className="mt-4 h-2 overflow-hidden rounded-full bg-[var(--lab-surface-soft)]" aria-label={`${discoveredWordCount} of ${Object.keys(RECIPES).length} words found`}>
+              <div className="h-full origin-left rounded-full bg-[var(--lab-mint-bright)] transition-transform duration-[var(--duration-celebration)] ease-[var(--ease-out)]" style={{ transform: `scaleX(${progressRatio})` }} />
+            </div>
 
-      <DiscoveryModal
-        discovery={discovery}
-        isClosing={discoveryClosing}
-        onClose={closeDiscovery}
-        onPlay={playPronunciation}
-        playingCharacter={playingCharacter}
-      />
+            <label className="relative mt-4 block">
+              <span className="sr-only">Search your word palette</span>
+              <svg aria-hidden="true" className="absolute left-4 top-1/2 -translate-y-1/2 text-[var(--lab-muted)]" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+              <input value={librarySearch} onChange={(event) => setLibrarySearch(event.target.value)} placeholder="Character, pinyin, or meaning" className="min-h-11 w-full rounded-full border border-[var(--lab-line)] bg-[var(--lab-surface)] py-2 pl-11 pr-4 text-sm font-bold text-[var(--lab-ink)] outline-none placeholder:text-[var(--lab-muted)] focus:border-[var(--lab-action)] focus:ring-4 focus:ring-[var(--lab-action)]/10" />
+            </label>
+          </div>
+
+          <div className="custom-scrollbar grid min-h-0 flex-1 grid-cols-4 content-start gap-3 overflow-y-auto p-4 sm:grid-cols-6 sm:p-5 lg:grid-cols-3 xl:grid-cols-4">
+            {filteredLibrary.map((char, index) => {
+              const data = getData(char);
+              return (
+                <div key={char} draggable onDragStart={(event) => handleDragStart(event, char)} className={`group relative min-h-24 select-none rounded-[1.5rem] border bg-[var(--lab-surface)] p-1 touch-manipulation ${index % 3 === 0 ? 'border-[var(--lab-line-strong)]' : 'border-[var(--lab-line)]'}`}>
+                  <button type="button" onClick={() => selectItem(char)} className="lift-control relative flex h-full min-h-22 w-full cursor-grab flex-col items-center justify-center rounded-[1.25rem] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/25 active:cursor-grabbing" aria-label={`Add ${char}, ${data.name}, to the next position`}>
+                    <span className="pointer-events-none text-xl sm:text-2xl">{data.emoji}</span>
+                    <span className="hanzi-text pointer-events-none mt-0.5 text-xl font-black leading-tight text-[var(--lab-ink)] sm:text-2xl" lang="zh-Hans">{char}</span>
+                    <span className="pointer-events-none mt-0.5 max-w-full truncate px-1 text-[8px] font-bold text-[var(--lab-muted)] sm:text-[9px]">{data.pinyin}</span>
+                    <span className="pointer-events-none absolute right-1.5 top-1.5 hidden h-5 w-5 place-items-center rounded-full bg-[var(--lab-pink)] text-xs font-black text-[var(--lab-action)] pointer-coarse:grid any-pointer-coarse:grid" aria-hidden="true">+</span>
+                  </button>
+                  <PronunciationButton character={char} isPlaying={playingCharacter === char} onPlay={playPronunciation} className="absolute -left-1.5 -top-1.5 z-20 h-11 w-11" />
+                  <div className="pointer-events-none absolute -top-9 left-1/2 z-50 hidden -translate-x-1/2 whitespace-nowrap rounded-full bg-[var(--lab-ink)] px-3 py-1.5 text-[10px] font-black text-[var(--lab-surface)] opacity-0 transition-opacity duration-[var(--duration-tooltip)] group-hover:opacity-100 md:block">{data.name}</div>
+                </div>
+              );
+            })}
+            {filteredLibrary.length === 0 && (
+              <div className="col-span-full py-8 text-center text-sm font-bold text-[var(--lab-muted)]">No matching tiles. Try a shorter search.</div>
+            )}
+          </div>
+        </aside>
+      </div>
+
+      {pronunciationError && <div role="status" className="fixed left-1/2 top-20 z-[70] -translate-x-1/2 rounded-full bg-[var(--lab-ink)] px-5 py-3 text-center text-xs font-black text-[var(--lab-surface)] shadow-xl">{pronunciationError}</div>}
+
+      <DiscoveryModal discovery={discovery} isClosing={discoveryClosing} onClose={closeDiscovery} onPlay={playPronunciation} playingCharacter={playingCharacter} />
     </main>
   );
 }
@@ -355,49 +304,20 @@ function DiscoveryModal({ discovery, isClosing, onClose, onPlay, playingCharacte
 
   if (!discovery) return null;
   return (
-    <div
-      className={`fixed inset-0 z-50 flex items-center justify-center bg-[var(--lab-cream)]/80 p-4 backdrop-blur-md ${isClosing ? 'animate-backdrop-exit pointer-events-none' : 'animate-backdrop-enter'}`}
-      onClick={onClose}
-    >
-      <div
-        ref={dialogRef}
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="discovery-title"
-        tabIndex={-1}
-        onClick={(event) => event.stopPropagation()}
-        className={`bg-[var(--lab-surface)] rounded-[48px] p-8 md:p-14 shadow-[0_50px_100px_rgba(0,0,0,0.1)] border-[10px] border-[var(--lab-mint)] text-center max-w-sm md:max-w-md w-full relative max-h-[calc(100dvh-2rem)] overflow-y-auto ${isClosing ? 'animate-modal-exit' : 'animate-modal-enter'}`}
-      >
-        <div className="animate-celebration-enter text-7xl md:text-9xl mb-6 drop-shadow-xl">{discovery.emoji}</div>
-        <h2 id="discovery-title" className="text-xl md:text-2xl font-black text-[var(--lab-action)] mb-6 uppercase tracking-[0.2em]">New Secret Found!</h2>
-        
-        <div className="bg-[var(--lab-surface-soft)] p-8 rounded-[36px] mb-8 border-4 border-dashed border-[var(--lab-mint)]/50">
-          <p className="text-6xl md:text-8xl font-black text-zinc-800 mb-2">{discovery.result}</p>
-          <p className="text-xl md:text-2xl font-black text-[var(--lab-action)] uppercase tracking-widest">{discovery.pinyin}</p>
-          <PronunciationButton
-            character={discovery.result}
-            isPlaying={playingCharacter === discovery.result}
-            onPlay={onPlay}
-            className="mx-auto mt-5 h-12 w-12"
-          />
-        </div>
-        
-        <div className="mb-8 rounded-[28px] bg-[var(--lab-cream)] p-5 text-left">
-          <p className="text-[10px] font-black uppercase tracking-[0.25em] text-[var(--lab-peach-ink)]">Chinese connection</p>
-          <p className="mt-2 text-sm font-bold leading-6 text-zinc-700">
-            <span lang="zh-CN" className="font-black text-zinc-900">{discovery.result}</span> means <span className="font-black">{discovery.name}</span>. Say <span className="font-black text-[var(--lab-action)]">{discovery.pinyin}</span> aloud, then tap the speaker and repeat.
-          </p>
+    <div className={`fixed inset-0 z-50 flex items-center justify-center bg-[var(--lab-overlay)] p-4 ${isClosing ? 'animate-backdrop-exit pointer-events-none' : 'animate-backdrop-enter'}`} onClick={onClose}>
+      <div ref={dialogRef} role="dialog" aria-modal="true" aria-labelledby="discovery-title" tabIndex={-1} onClick={(event) => event.stopPropagation()} className={`surface-panel relative max-h-[calc(100dvh-2rem)] w-full max-w-md overflow-y-auto rounded-[2.5rem] p-7 text-center sm:p-9 ${isClosing ? 'animate-modal-exit' : 'animate-modal-enter'}`}>
+        <div className="animate-celebration-enter text-6xl sm:text-7xl">{discovery.emoji}</div>
+        <div className="eyebrow mt-5">New word discovered</div>
+        <h2 id="discovery-title" className="hanzi-text mt-2 text-6xl font-black tracking-[-0.05em] text-[var(--lab-ink)] sm:text-7xl" lang="zh-Hans">{discovery.result}</h2>
+        <p className="mt-2 text-xl font-black text-[var(--lab-action)]">{discovery.pinyin}</p>
+        <p className="mt-1 text-lg font-bold text-[var(--lab-muted)]">{discovery.name}</p>
+
+        <div className="mt-6 flex items-center justify-between gap-4 rounded-[1.5rem] bg-[var(--lab-lilac)] p-4 text-left">
+          <p className="text-sm font-bold leading-6 text-[var(--lab-ink-soft)]">Listen once, then repeat the complete word aloud.</p>
+          <PronunciationButton character={discovery.result} isPlaying={playingCharacter === discovery.result} onPlay={onPlay} className="h-12 w-12 shrink-0" />
         </div>
 
-        <p className="text-2xl font-black text-[var(--lab-muted)] mb-8 italic">&ldquo;{discovery.name}&rdquo;</p>
-        
-        <button 
-          ref={closeButtonRef}
-          onClick={onClose}
-          className="w-full bg-[var(--lab-action)] text-[var(--lab-surface)] py-5 rounded-[30px] text-xl font-black shadow-[0_10px_0_var(--lab-action-shadow)] hover:bg-[var(--lab-action-hover)] hover:translate-y-[2px] hover:shadow-[0_8px_0_var(--lab-action-shadow)] active:translate-y-[6px] active:shadow-none transition-[transform,background-color,box-shadow] duration-[var(--duration-press)] ease-[var(--ease-out)] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)] focus-visible:ring-offset-4"
-        >
-          GREAT!
-        </button>
+        <button ref={closeButtonRef} type="button" onClick={onClose} className="lift-control mt-7 min-h-13 w-full rounded-full bg-[var(--lab-action)] px-6 text-lg font-black text-[var(--lab-surface)] shadow-[0_10px_25px_var(--lab-action-shadow)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/25">Keep exploring</button>
       </div>
     </div>
   );

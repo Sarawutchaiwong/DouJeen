@@ -20,7 +20,7 @@ export default function PronunciationButton({
       }}
       onPointerDown={(event) => event.stopPropagation()}
       onDragStart={(event) => event.preventDefault()}
-      className={`inline-flex items-center justify-center rounded-full border-2 border-[var(--lab-surface)] bg-[var(--lab-action)] text-[var(--lab-surface)] shadow-lg transition-[transform,background-color,box-shadow] duration-[var(--duration-press)] ease-[var(--ease-out)] hover:scale-110 hover:bg-[var(--lab-action-hover)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/30 focus-visible:ring-offset-2 active:scale-95 ${className}`}
+      className={`lift-control inline-flex items-center justify-center rounded-full border border-[var(--lab-surface)] bg-[var(--lab-action)] text-[var(--lab-surface)] shadow-[0_7px_18px_var(--lab-action-shadow)] hover:bg-[var(--lab-action-hover)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/25 focus-visible:ring-offset-2 ${className}`}
       aria-label={playbackLabel}
       aria-busy={isPlaying}
       title={playbackLabel}
