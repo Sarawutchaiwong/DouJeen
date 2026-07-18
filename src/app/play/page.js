@@ -80,6 +80,7 @@ export default function GamePage() {
   const [canvasItems, setCanvasItems] = useState([]);
   const [selectedId, setSelectedId] = useState(null);
   const [draggingId, setDraggingId] = useState(null);
+  const [collisionTargetId, setCollisionTargetId] = useState(null);
   const [mobileSelection, setMobileSelection] = useState([]);
   const [discovery, setDiscovery] = useState(null);
   const [resetConfirming, setResetConfirming] = useState(false);
@@ -267,10 +268,19 @@ export default function GamePage() {
     spawnItem(text);
   }, [commitMobileSelection, selectMobileItem, spawnItem]);
 
-  const findCollision = useCallback((itemId) => {
+  const findCollision = useCallback((itemId, currentX, currentY) => {
     const canvas = canvasRef.current;
-    const dragged = canvasItemsRef.current.find(({ id }) => id === itemId);
-    if (!canvas || !dragged) return null;
+    if (!canvas) return null;
+    
+    let draggedX = currentX;
+    let draggedY = currentY;
+    
+    if (draggedX === undefined) {
+      const dragged = canvasItemsRef.current.find(({ id }) => id === itemId);
+      if (!dragged) return null;
+      draggedX = dragged.x;
+      draggedY = dragged.y;
+    }
 
     const rect = canvas.getBoundingClientRect();
     const collisionDistance = clamp(Math.min(rect.width, rect.height) * 0.14, 66, 104);
@@ -280,8 +290,8 @@ export default function GamePage() {
       .map((item) => ({
         id: item.id,
         distance: Math.hypot(
-          ((item.x - dragged.x) / 100) * rect.width,
-          ((item.y - dragged.y) / 100) * rect.height,
+          ((item.x - draggedX) / 100) * rect.width,
+          ((item.y - draggedY) / 100) * rect.height,
         ),
       }))
       .filter(({ distance }) => distance <= collisionDistance)
@@ -300,6 +310,7 @@ export default function GamePage() {
       startX: event.clientX,
       startY: event.clientY,
       moved: false,
+      lastCollisionId: null,
     };
 
     // WHY: raise z-index instead of reordering the array. Moving the captured
@@ -321,8 +332,14 @@ export default function GamePage() {
     const x = clamp(((event.clientX - rect.left) / rect.width) * 100, EDGE_PADDING_PERCENT, 100 - EDGE_PADDING_PERCENT);
     const y = clamp(((event.clientY - rect.top) / rect.height) * 100, EDGE_PADDING_PERCENT, 100 - EDGE_PADDING_PERCENT);
 
+    const collisionId = findCollision(itemId, x, y);
+    if (drag.lastCollisionId !== collisionId) {
+      drag.lastCollisionId = collisionId;
+      setCollisionTargetId(collisionId);
+    }
+
     commitCanvas((current) => current.map((item) => item.id === itemId ? { ...item, x, y } : item));
-  }, [commitCanvas]);
+  }, [commitCanvas, findCollision]);
 
   const handlePointerUp = useCallback((event, itemId) => {
     const drag = dragStateRef.current;
@@ -333,6 +350,7 @@ export default function GamePage() {
     }
     dragStateRef.current = null;
     setDraggingId(null);
+    setCollisionTargetId(null);
 
     if (drag.moved) {
       const collisionId = findCollision(itemId);
@@ -354,6 +372,7 @@ export default function GamePage() {
     }
     dragStateRef.current = null;
     setDraggingId(null);
+    setCollisionTargetId(null);
   }, []);
 
   const handleKeyboardSelect = useCallback((itemId) => {
@@ -504,6 +523,21 @@ export default function GamePage() {
           {canvasItems.map((item) => {
             const data = getData(item.text);
             const isSelected = selectedId === item.id;
+            const isCollisionTarget = collisionTargetId === item.id;
+            const isDragging = draggingId === item.id;
+            
+            let baseClasses = "craft-node animate-bubbly-pop -translate-x-1/2 -translate-y-1/2 absolute z-20 hidden min-h-14 touch-none select-none items-center gap-2 rounded-[1.15rem] border bg-[var(--lab-surface)] px-3 py-2 text-left shadow-[0_10px_24px_var(--lab-shadow)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/25 md:flex transition-transform duration-200 ease-out";
+            
+            if (isCollisionTarget) {
+              baseClasses += " scale-110 border-[var(--lab-action)] ring-4 ring-[var(--lab-action)]/40 shadow-[0_0_20px_var(--lab-action-shadow)]";
+            } else if (isDragging) {
+              baseClasses += " scale-105 rotate-2 border-[var(--lab-line-strong)] shadow-2xl opacity-90";
+            } else if (isSelected) {
+              baseClasses += " border-[var(--lab-action)] ring-4 ring-[var(--lab-action)]/15";
+            } else {
+              baseClasses += " border-[var(--lab-line-strong)]";
+            }
+
             return (
               <button
                 key={item.id}
@@ -515,8 +549,8 @@ export default function GamePage() {
                 onClick={(event) => event.detail === 0 && handleKeyboardSelect(item.id)}
                 aria-label={`${item.text}, ${wordLabel(data)}. Drag to another word or select to combine.`}
                 aria-pressed={isSelected}
-                className={`craft-node absolute z-20 hidden min-h-14 touch-none select-none items-center gap-2 rounded-[1.15rem] border bg-[var(--lab-surface)] px-3 py-2 text-left shadow-[0_10px_24px_var(--lab-shadow)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/25 md:flex ${isSelected ? 'border-[var(--lab-action)] ring-4 ring-[var(--lab-action)]/15' : 'border-[var(--lab-line-strong)]'}`}
-                style={{ left: `${item.x}%`, top: `${item.y}%`, zIndex: draggingId === item.id ? 30 : undefined }}
+                className={baseClasses}
+                style={{ left: `${item.x}%`, top: `${item.y}%`, zIndex: isDragging || isCollisionTarget ? 30 : undefined }}
               >
                 <span className="text-xl" aria-hidden="true"><Glyph data={data} /></span>
                 <span>

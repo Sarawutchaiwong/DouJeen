@@ -221,7 +221,6 @@ input {
 
 .craft-node {
   cursor: grab;
-  transform: translate(-50%, -50%);
   transition:
     border-color var(--duration-press) var(--ease-out),
     box-shadow var(--duration-press) var(--ease-out);
@@ -276,6 +275,12 @@ input {
   to { transform: rotate(360deg); }
 }
 
+@keyframes bubbly-pop {
+  0% { opacity: 0; transform: scale(0.5); box-shadow: 0 0 0 0 var(--lab-pink); }
+  50% { opacity: 1; transform: scale(1.1); box-shadow: 0 0 0 20px oklch(85% 0.105 347 / 0); }
+  100% { opacity: 1; transform: scale(1); box-shadow: 0 0 0 0 oklch(85% 0.105 347 / 0); }
+}
+
 .animate-fusion { animation: fusion var(--duration-celebration) var(--ease-in-out) both; }
 .animate-ingredient-enter { animation: ingredient-enter var(--duration-ui) var(--ease-out) both; }
 .animate-no-reaction { animation: no-reaction var(--duration-ui) var(--ease-in-out) both; }
@@ -286,6 +291,7 @@ input {
 .animate-celebration-enter { animation: celebration-enter var(--duration-celebration) var(--ease-out) both; }
 .animate-hero-reveal { animation: hero-reveal 650ms var(--ease-out) both; }
 .animate-orbit-drift { animation: orbit-drift 24s linear infinite; }
+.animate-bubbly-pop { animation: bubbly-pop var(--duration-celebration) var(--ease-out) both; }
 
 @keyframes sound-wave { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
 .sound-wave-near { animation: sound-wave 800ms linear infinite; }
