@@ -2,10 +2,14 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 import BrandMark from './components/BrandMark';
+import LocaleSwitcher from './components/LocaleSwitcher';
 import { useDialogFocus } from './useDialogFocus';
 
 export default function LandingPage() {
+  const t = useTranslations('Home');
+  const tNav = useTranslations('Nav');
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [settingsExiting, setSettingsExiting] = useState(false);
   const [resetConfirming, setResetConfirming] = useState(false);
@@ -68,16 +72,17 @@ export default function LandingPage() {
         <BrandMark />
         <nav aria-label="Primary navigation" className="flex items-center gap-1 rounded-full border border-[var(--lab-line)] bg-[var(--lab-surface-60)] p-1.5 sm:gap-2">
           <Link href="/guide" className="lift-control hidden min-h-11 items-center rounded-full px-4 text-sm font-bold text-[var(--lab-ink-soft)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/25 sm:inline-flex">
-            Notebook
+            {tNav('notebook')}
           </Link>
+          <LocaleSwitcher />
           <Link href="/play" className="lift-control inline-flex min-h-11 items-center rounded-full bg-[var(--lab-action)] px-5 text-sm font-black text-[var(--lab-surface)] shadow-[0_8px_22px_var(--lab-action-shadow)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/25">
-            Open canvas
+            {tNav('openCanvas')}
           </Link>
           <button
             type="button"
             onClick={openSettings}
             className="lift-control inline-grid h-11 w-11 place-items-center rounded-full text-[var(--lab-muted)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/25"
-            aria-label="Open settings"
+            aria-label={t('openSettings')}
             aria-haspopup="dialog"
             aria-expanded={settingsOpen}
           >
@@ -93,30 +98,30 @@ export default function LandingPage() {
         <div className="relative z-10 max-w-2xl animate-hero-reveal">
           <div className="eyebrow mb-7 flex items-center gap-3">
             <span className="h-2.5 w-2.5 rounded-full bg-[var(--lab-action)] shadow-[0_0_0_6px_var(--lab-pink)]" aria-hidden="true" />
-            Chinese discovery craft
+            {t('eyebrow')}
           </div>
           <h1 className="text-[clamp(3.9rem,11vw,7.8rem)] font-black leading-[0.82]">
             <span className="hanzi-text block text-[0.42em] font-black tracking-[-0.06em] text-[var(--lab-ink)]" lang="zh-Hans">中文合成实验室</span>
             <span className="sticker-wordmark mt-5 block pb-[0.18em]">DouJeen</span>
           </h1>
           <p className="mt-7 max-w-[35rem] text-lg font-medium leading-8 text-[var(--lab-ink-soft)] sm:text-xl">
-            Start with four Chinese words. Combine real-world ideas, discover what they become, and grow a Mandarin vocabulary through curiosity—not memorization.
+            {t('lead')}
           </p>
 
           <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
             <Link href="/play" className="lift-control inline-flex min-h-14 items-center justify-center gap-3 rounded-full bg-[var(--lab-action)] px-8 text-base font-black text-[var(--lab-surface)] shadow-[0_12px_28px_var(--lab-action-shadow)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/25">
-              Start with 4 words
+              {t('ctaStart')}
               <span aria-hidden="true">→</span>
             </Link>
             <Link href="/guide" className="lift-control inline-flex min-h-14 items-center justify-center rounded-full border border-[var(--lab-line-strong)] bg-[var(--lab-surface-60)] px-8 text-base font-black text-[var(--lab-ink)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/25">
-              Open discovery notebook
+              {t('ctaNotebook')}
             </Link>
           </div>
 
           <ul className="mt-8 flex flex-wrap gap-2 text-sm font-bold text-[var(--lab-muted)]" aria-label="Game features">
-            <li className="pastel-pill rounded-full px-4 py-2">4 starter words</li>
-            <li className="pastel-pill rounded-full px-4 py-2">Tap to hear Mandarin</li>
-            <li className="pastel-pill rounded-full px-4 py-2">Discoveries stay hidden</li>
+            <li className="pastel-pill rounded-full px-4 py-2">{t('featStarters')}</li>
+            <li className="pastel-pill rounded-full px-4 py-2">{t('featTap')}</li>
+            <li className="pastel-pill rounded-full px-4 py-2">{t('featHidden')}</li>
           </ul>
         </div>
 
@@ -129,7 +134,7 @@ export default function LandingPage() {
           </div>
 
           <div className="surface-panel absolute inset-[23%_8%] flex flex-col items-center justify-center rounded-[3rem] px-5 text-center sm:inset-[22%_10%]">
-            <span className="eyebrow">Grounded reaction · 01</span>
+            <span className="eyebrow">{t('groundedReaction')}</span>
             <div className="mt-7 flex items-center justify-center gap-3 sm:gap-5">
               <span className="hanzi-text inline-grid h-20 w-20 place-items-center rounded-[1.7rem] border border-[var(--lab-line-strong)] bg-[var(--lab-sky)] text-4xl font-black text-[var(--lab-ink)] shadow-[6px_7px_0_var(--lab-surface-soft)] sm:h-24 sm:w-24 sm:text-5xl" lang="zh-Hans">水</span>
               <span className="text-2xl font-light text-[var(--lab-muted)]" aria-hidden="true">+</span>
@@ -142,8 +147,8 @@ export default function LandingPage() {
             </div>
           </div>
 
-          <span className="absolute right-[2%] top-[20%] rotate-6 rounded-full bg-[var(--lab-sky)] px-4 py-2 text-sm font-black text-[var(--lab-ink)] shadow-[5px_5px_0_var(--lab-surface)]">listen ↗</span>
-          <span className="absolute bottom-[17%] left-[1%] -rotate-6 rounded-full bg-[var(--lab-peach)] px-4 py-2 text-sm font-black text-[var(--lab-peach-ink)] shadow-[5px_5px_0_var(--lab-surface)]">grounded reactions</span>
+          <span className="absolute right-[2%] top-[20%] rotate-6 rounded-full bg-[var(--lab-sky)] px-4 py-2 text-sm font-black text-[var(--lab-ink)] shadow-[5px_5px_0_var(--lab-surface)]">{t('listen')}</span>
+          <span className="absolute bottom-[17%] left-[1%] -rotate-6 rounded-full bg-[var(--lab-peach)] px-4 py-2 text-sm font-black text-[var(--lab-peach-ink)] shadow-[5px_5px_0_var(--lab-surface)]">{t('groundedReactions')}</span>
         </div>
         </section>
       </div>
@@ -163,7 +168,7 @@ export default function LandingPage() {
             className={`surface-panel relative z-10 max-h-[calc(100dvh-2rem)] w-full max-w-md overflow-y-auto rounded-[2rem] p-5 sm:max-h-[calc(100dvh-3rem)] sm:p-7 ${settingsExiting ? 'animate-modal-exit' : 'animate-modal-enter'}`}
             onClick={(event) => event.stopPropagation()}
           >
-            <button ref={settingsCloseRef} type="button" onClick={closeSettings} className="lift-control absolute right-4 top-4 inline-grid h-11 w-11 place-items-center rounded-full bg-[var(--lab-surface-soft)] text-[var(--lab-muted)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/25" aria-label={resetConfirming ? 'Close reset confirmation' : 'Close settings'}>×</button>
+            <button ref={settingsCloseRef} type="button" onClick={closeSettings} className="lift-control absolute right-4 top-4 inline-grid h-11 w-11 place-items-center rounded-full bg-[var(--lab-surface-soft)] text-[var(--lab-muted)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/25" aria-label={resetConfirming ? t('closeReset') : t('closeSettings')}>×</button>
 
             {resetConfirming ? (
               <div>
@@ -175,24 +180,24 @@ export default function LandingPage() {
                     </svg>
                   </span>
                   <div>
-                    <div className="eyebrow">Reset discoveries</div>
-                    <h2 id="settings-title" className="mt-2 text-3xl font-black tracking-[-0.04em] text-[var(--lab-ink)]">Start from four words?</h2>
+                    <div className="eyebrow">{t('resetEyebrow')}</div>
+                    <h2 id="settings-title" className="mt-2 text-3xl font-black tracking-[-0.04em] text-[var(--lab-ink)]">{t('resetTitle')}</h2>
                   </div>
                 </div>
-                <p id="settings-description" className="mt-5 max-w-sm text-base leading-7 text-[var(--lab-muted)]">This permanently removes every unlocked word and notebook recipe from this browser. This action cannot be undone.</p>
+                <p id="settings-description" className="mt-5 max-w-sm text-base leading-7 text-[var(--lab-muted)]">{t('resetDesc')}</p>
                 <div className="mt-7 grid gap-3 sm:grid-cols-2">
-                  <button ref={keepDiscoveriesRef} type="button" onClick={cancelReset} className="lift-control min-h-12 rounded-full border border-[var(--lab-line-strong)] bg-[var(--lab-surface)] px-5 font-black text-[var(--lab-ink)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/25">Keep discoveries</button>
-                  <button type="button" onClick={handleReset} className="lift-control min-h-12 rounded-full bg-[var(--lab-danger)] px-5 font-black text-[var(--lab-surface)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-danger)]/25">Reset everything</button>
+                  <button ref={keepDiscoveriesRef} type="button" onClick={cancelReset} className="lift-control min-h-12 rounded-full border border-[var(--lab-line-strong)] bg-[var(--lab-surface)] px-5 font-black text-[var(--lab-ink)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/25">{t('keepDiscoveries')}</button>
+                  <button type="button" onClick={handleReset} className="lift-control min-h-12 rounded-full bg-[var(--lab-danger)] px-5 font-black text-[var(--lab-surface)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-danger)]/25">{t('resetEverything')}</button>
                 </div>
               </div>
             ) : (
               <div>
-                <div className="eyebrow">Local progress</div>
-                <h2 id="settings-title" className="mt-3 text-3xl font-black tracking-[-0.04em] text-[var(--lab-ink)]">Settings</h2>
-                <p id="settings-description" className="mt-3 max-w-sm text-base leading-7 text-[var(--lab-muted)]">Your discoveries stay in this browser. Reset only when you want a completely fresh laboratory.</p>
+                <div className="eyebrow">{t('localProgress')}</div>
+                <h2 id="settings-title" className="mt-3 text-3xl font-black tracking-[-0.04em] text-[var(--lab-ink)]">{t('settings')}</h2>
+                <p id="settings-description" className="mt-3 max-w-sm text-base leading-7 text-[var(--lab-muted)]">{t('settingsDesc')}</p>
                 <div className="mt-7 grid gap-3 sm:grid-cols-2">
-                  <button type="button" onClick={closeSettings} className="lift-control min-h-12 rounded-full border border-[var(--lab-line-strong)] bg-[var(--lab-surface)] px-5 font-black text-[var(--lab-ink)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/25">Keep progress</button>
-                  <button ref={resetTriggerRef} type="button" onClick={() => setResetConfirming(true)} className="lift-control min-h-12 rounded-full bg-[var(--lab-danger)] px-5 font-black text-[var(--lab-surface)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-danger)]/25">Reset progress</button>
+                  <button type="button" onClick={closeSettings} className="lift-control min-h-12 rounded-full border border-[var(--lab-line-strong)] bg-[var(--lab-surface)] px-5 font-black text-[var(--lab-ink)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/25">{t('keepProgress')}</button>
+                  <button ref={resetTriggerRef} type="button" onClick={() => setResetConfirming(true)} className="lift-control min-h-12 rounded-full bg-[var(--lab-danger)] px-5 font-black text-[var(--lab-surface)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-danger)]/25">{t('resetProgress')}</button>
                 </div>
               </div>
             )}

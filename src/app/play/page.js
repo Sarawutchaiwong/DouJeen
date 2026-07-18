@@ -67,6 +67,7 @@ const scoreItem = (data, char, query) => {
 
 export default function GamePage() {
   const tNav = useTranslations('Nav');
+  const tPlay = useTranslations('Play');
   const tSearch = useTranslations('Search');
   const locale = useLocale();
   const wordLabel = useCallback(
@@ -193,7 +194,7 @@ export default function GamePage() {
   const resolveCombination = useCallback((firstText, secondText, options = {}) => {
     const match = getRecipe(firstText, secondText);
     if (!match) {
-      showReactionMessage(`No real-world connection for ${firstText} + ${secondText} yet.`);
+      showReactionMessage(tPlay('noConnection', { first: firstText, second: secondText }));
       commitSelectedId(null);
       return false;
     }
@@ -230,7 +231,7 @@ export default function GamePage() {
     setDiscovery({ ...match, recipeKey, ingredients: [firstText, secondText], isNewWord });
     commitSelectedId(null);
     return true;
-  }, [commitCanvas, commitSelectedId, createCanvasItem, showReactionMessage]);
+  }, [commitCanvas, commitSelectedId, createCanvasItem, showReactionMessage, tPlay]);
 
   const combineNodes = useCallback((firstId, secondId) => {
     if (!firstId || !secondId || firstId === secondId) return;
@@ -422,15 +423,15 @@ export default function GamePage() {
         <BrandMark compact />
         <div className="flex items-center gap-2">
           <div className="hidden rounded-full bg-[var(--lab-mint)] px-4 py-2 text-xs font-black text-[var(--lab-mint-ink)] sm:block">
-            {discoveredWordCount}/{DISCOVERABLE_ITEMS.length} discoveries
+            {tPlay('discoveries', { count: discoveredWordCount, total: DISCOVERABLE_ITEMS.length })}
           </div>
           <button type="button" onClick={clearCanvas} className="lift-control inline-flex min-h-11 items-center rounded-full px-3 text-xs font-black text-[var(--lab-muted)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/25 sm:px-4">
-            <span className="sm:hidden">Clear</span>
-            <span className="hidden sm:inline">Clear canvas</span>
+            <span className="sm:hidden">{tPlay('clear')}</span>
+            <span className="hidden sm:inline">{tPlay('clearCanvas')}</span>
           </button>
           <button type="button" onClick={() => setResetConfirming(true)} disabled={!hasLoaded} aria-haspopup="dialog" aria-expanded={resetConfirming} className="lift-control inline-flex min-h-11 items-center rounded-full border border-[var(--lab-line-strong)] px-3 text-xs font-black text-[var(--lab-muted)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/25 disabled:cursor-not-allowed disabled:opacity-50 sm:px-4">
-            <span className="sm:hidden">Reset</span>
-            <span className="hidden sm:inline">Reset progress</span>
+            <span className="sm:hidden">{tPlay('reset')}</span>
+            <span className="hidden sm:inline">{tPlay('resetProgress')}</span>
           </button>
           <Link href="/guide" className="lift-control inline-flex min-h-11 items-center rounded-full border border-[var(--lab-line-strong)] bg-[var(--lab-surface)] px-4 text-xs font-black text-[var(--lab-ink)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/25 sm:text-sm">
             {tNav('notebook')}
@@ -444,14 +445,14 @@ export default function GamePage() {
           <div className="orbit-line -left-[15%] top-[7%] h-[70%] w-[75%]" aria-hidden="true" />
 
           <div className="pointer-events-none absolute left-4 top-4 z-10 max-w-[18rem] md:hidden">
-            <div className="eyebrow">Quick tap mode</div>
-            <h1 className="mt-1 text-xl font-black tracking-[-0.04em] text-[var(--lab-ink)]">Tap two words to combine.</h1>
+            <div className="eyebrow">{tPlay('quickTapMode')}</div>
+            <h1 className="mt-1 text-xl font-black tracking-[-0.04em] text-[var(--lab-ink)]">{tPlay('tapTwoWords')}</h1>
           </div>
 
           <div className="pointer-events-none absolute left-6 top-6 z-10 hidden max-w-[17rem] md:block">
-            <div className="eyebrow">Chinese craft canvas</div>
-            <h1 className="mt-1 text-2xl font-black tracking-[-0.04em] text-[var(--lab-ink)]">Make meaning collide.</h1>
-            <p className="mt-1 text-sm font-bold leading-5 text-[var(--lab-muted)]">Tap a word to place it. Drag two words together—or select one, then another—to combine.</p>
+            <div className="eyebrow">{tPlay('craftCanvas')}</div>
+            <h1 className="mt-1 text-2xl font-black tracking-[-0.04em] text-[var(--lab-ink)]">{tPlay('makeMeaningCollide')}</h1>
+            <p className="mt-1 text-sm font-bold leading-5 text-[var(--lab-muted)]">{tPlay('canvasInstructions')}</p>
           </div>
 
           <div className="absolute inset-x-3 bottom-3 top-20 z-10 flex flex-col items-center justify-center md:hidden">
@@ -477,7 +478,7 @@ export default function GamePage() {
                       <div className="grid h-24 w-24 place-items-center rounded-[1.6rem] border border-dashed border-[var(--lab-line-strong)] bg-[var(--lab-surface-60)] text-center">
                         <div>
                           <span className="hanzi-text block text-2xl font-black text-[var(--lab-line-strong)]" aria-hidden="true">字</span>
-                          <span className="mt-1 block text-[9px] font-black uppercase tracking-wider text-[var(--lab-muted)]">{slotIndex === 0 ? 'First' : 'Second'}</span>
+                          <span className="mt-1 block text-[9px] font-black uppercase tracking-wider text-[var(--lab-muted)]">{slotIndex === 0 ? tPlay('first') : tPlay('second')}</span>
                         </div>
                       </div>
                     )}
@@ -486,7 +487,7 @@ export default function GamePage() {
               })}
             </div>
             <p role="status" aria-live="polite" className="mt-3 text-center text-xs font-black text-[var(--lab-muted)]">
-              {mobileSelection.length === 0 ? 'Choose the first word below.' : 'Now tap the second word. Tap the selected word to cancel.'}
+              {mobileSelection.length === 0 ? tPlay('chooseFirst') : tPlay('nowTapSecond')}
             </p>
           </div>
 
@@ -494,8 +495,8 @@ export default function GamePage() {
             <div className="pointer-events-none absolute inset-0 hidden place-items-center px-6 pt-16 text-center md:grid">
               <div className="max-w-xs">
                 <div className="hanzi-text text-6xl font-black text-[var(--lab-line-strong)]" lang="zh-Hans">水 · 火 · 风 · 土</div>
-                <p className="mt-4 text-sm font-black text-[var(--lab-muted)]">Choose a starter word from your collection.</p>
-                <p className="mt-1 text-xs font-bold text-[var(--lab-muted)]">Try water + earth first.</p>
+                <p className="mt-4 text-sm font-black text-[var(--lab-muted)]">{tPlay('chooseStarter')}</p>
+                <p className="mt-1 text-xs font-bold text-[var(--lab-muted)]">{tPlay('tryWaterEarth')}</p>
               </div>
             </div>
           )}
@@ -538,13 +539,17 @@ export default function GamePage() {
           <div className="shrink-0 border-b border-[var(--lab-line)] p-4 sm:p-5">
             <div className="flex items-end justify-between gap-4">
               <div>
-                <div className="eyebrow">Discovered words</div>
-                <h2 id="collection-title" className="mt-1 text-2xl font-black tracking-[-0.04em] text-[var(--lab-ink)]">Your collection</h2>
+                <div className="eyebrow">{tPlay('discoveredWords')}</div>
+                <h2 id="collection-title" className="mt-1 text-2xl font-black tracking-[-0.04em] text-[var(--lab-ink)]">{tPlay('yourCollection')}</h2>
               </div>
               <div className="flex shrink-0 items-center gap-2">
+                {/* Mobile: magnifier opens the spotlight-style search overlay. */}
+                <button type="button" onClick={() => setSearchOpen(true)} aria-label={tSearch('label')} aria-haspopup="dialog" className="lift-control inline-grid h-11 w-11 place-items-center rounded-full border border-[var(--lab-line-strong)] bg-[var(--lab-surface)] text-[var(--lab-muted)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/25 md:hidden">
+                  <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+                </button>
                 <div className="text-right md:hidden">
                   <div className="text-lg font-black text-[var(--lab-mint-ink)]">{discoveredWordCount}/{DISCOVERABLE_ITEMS.length}</div>
-                  <div className="text-[9px] font-black uppercase tracking-wider text-[var(--lab-muted)]">Found</div>
+                  <div className="text-[9px] font-black uppercase tracking-wider text-[var(--lab-muted)]">{tPlay('found')}</div>
                 </div>
                 <LocaleSwitcher />
               </div>
@@ -561,11 +566,6 @@ export default function GamePage() {
               <input value={librarySearch} onChange={(event) => setLibrarySearch(event.target.value)} placeholder={tSearch('placeholder')} className="min-h-11 w-full rounded-full border border-[var(--lab-line)] bg-[var(--lab-surface)] py-2 pl-11 pr-4 text-base font-bold text-[var(--lab-ink)] outline-none placeholder:text-[var(--lab-muted)] focus:border-[var(--lab-action)] focus:ring-4 focus:ring-[var(--lab-action)]/10 sm:text-sm" />
             </label>
 
-            {/* Mobile: icon button opens a full-screen iPhone-style search overlay. */}
-            <button type="button" onClick={() => setSearchOpen(true)} aria-label={tSearch('label')} aria-haspopup="dialog" className="lift-control mt-3 flex min-h-11 w-full items-center gap-3 rounded-full border border-[var(--lab-line)] bg-[var(--lab-surface)] px-4 text-left text-sm font-bold text-[var(--lab-muted)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/25 md:hidden">
-              <svg aria-hidden="true" className="shrink-0 text-[var(--lab-muted)]" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-              <span className="truncate">{librarySearch || tSearch('placeholder')}</span>
-            </button>
           </div>
 
           <div className="custom-scrollbar grid min-h-0 flex-1 grid-cols-2 content-start gap-2 overflow-y-auto p-3 sm:gap-3 sm:p-4 md:grid-cols-1 xl:grid-cols-2">
@@ -594,7 +594,7 @@ export default function GamePage() {
               );
             })}
             {filteredLibrary.length === 0 && (
-              <div className="col-span-full py-8 text-center text-sm font-bold text-[var(--lab-muted)]">No discovered word matches that search.</div>
+              <div className="col-span-full py-8 text-center text-sm font-bold text-[var(--lab-muted)]">{tSearch('empty')}</div>
             )}
           </div>
         </aside>
@@ -643,49 +643,51 @@ function SearchOverlay({ query, onQueryChange, results, wordLabel, onSelect, onC
       aria-modal="true"
       aria-label={t('label')}
       onKeyDown={(event) => { if (event.key === 'Escape') onClose(); }}
-      className="animate-ingredient-enter fixed inset-0 z-[80] flex flex-col bg-[var(--lab-surface)]"
+      onClick={onClose}
+      className="animate-backdrop-enter fixed inset-0 z-[80] flex flex-col items-center bg-[var(--lab-overlay)] px-3 pb-6 pt-[calc(env(safe-area-inset-top)+3rem)] backdrop-blur-xl"
     >
-      <div className="flex items-center gap-2 border-b border-[var(--lab-line)] px-3 pb-3 pt-[calc(env(safe-area-inset-top)+0.75rem)]">
-        <label className="relative min-w-0 flex-1">
-          <span className="sr-only">{t('label')}</span>
-          <svg aria-hidden="true" className="absolute left-4 top-1/2 -translate-y-1/2 text-[var(--lab-muted)]" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      {/* Spotlight-style floating panel */}
+      <div className="animate-modal-enter flex min-h-0 w-full max-w-lg flex-col" onClick={(event) => event.stopPropagation()}>
+        <div className="flex items-center gap-2 rounded-[1.5rem] border border-[var(--lab-line)] bg-[var(--lab-surface)] px-3 py-2 shadow-[0_18px_50px_var(--lab-shadow)]">
+          <svg aria-hidden="true" className="ml-1 shrink-0 text-[var(--lab-muted)]" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
           <input
             ref={inputRef}
             value={query}
             onChange={(event) => onQueryChange(event.target.value)}
             placeholder={t('placeholder')}
             enterKeyHint="search"
-            className="min-h-11 w-full rounded-full border border-[var(--lab-line)] bg-[var(--lab-surface-soft)] py-2 pl-11 pr-4 text-base font-bold text-[var(--lab-ink)] outline-none placeholder:text-[var(--lab-muted)] focus:border-[var(--lab-action)] focus:ring-4 focus:ring-[var(--lab-action)]/10"
+            aria-label={t('label')}
+            className="min-h-11 min-w-0 flex-1 bg-transparent text-lg font-bold text-[var(--lab-ink)] outline-none placeholder:text-[var(--lab-muted)]"
           />
-        </label>
-        <button type="button" onClick={onClose} className="lift-control shrink-0 rounded-full px-3 py-2 text-sm font-black text-[var(--lab-action)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/25">
-          {t('cancel')}
-        </button>
-      </div>
+          <button type="button" onClick={onClose} className="lift-control shrink-0 rounded-full px-3 py-2 text-sm font-black text-[var(--lab-action)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/25">
+            {t('cancel')}
+          </button>
+        </div>
 
-      <div className="custom-scrollbar min-h-0 flex-1 overflow-y-auto p-3">
-        {results.length === 0 ? (
-          <p className="py-10 text-center text-sm font-bold text-[var(--lab-muted)]">{t('empty')}</p>
-        ) : (
-          results.map((text) => {
-            const data = getData(text);
-            return (
-              <button
-                key={text}
-                type="button"
-                onClick={() => onSelect(text)}
-                className="lift-control flex w-full items-center gap-3 rounded-[1.15rem] px-3 py-3 text-left focus:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-[var(--lab-action)]/25"
-              >
-                <span className="text-2xl" aria-hidden="true"><Glyph data={data} /></span>
-                <span className="min-w-0 flex-1">
-                  <span className="hanzi-text block truncate text-lg font-black leading-tight text-[var(--lab-ink)]" lang="zh-Hans">{text}</span>
-                  <span className="block truncate text-[10px] font-black text-[var(--lab-action)]">{data.pinyin}</span>
-                </span>
-                <span className="shrink-0 truncate text-xs font-bold text-[var(--lab-muted)]">{wordLabel(data)}</span>
-              </button>
-            );
-          })
-        )}
+        <div className="custom-scrollbar mt-3 min-h-0 flex-1 overflow-y-auto rounded-[1.5rem] border border-[var(--lab-line)] bg-[var(--lab-surface)] p-2 shadow-[0_18px_50px_var(--lab-shadow)]">
+          {results.length === 0 ? (
+            <p className="py-10 text-center text-sm font-bold text-[var(--lab-muted)]">{t('empty')}</p>
+          ) : (
+            results.map((text) => {
+              const data = getData(text);
+              return (
+                <button
+                  key={text}
+                  type="button"
+                  onClick={() => onSelect(text)}
+                  className="lift-control flex w-full items-center gap-3 rounded-[1.15rem] px-3 py-3 text-left focus:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-[var(--lab-action)]/25"
+                >
+                  <span className="text-2xl" aria-hidden="true"><Glyph data={data} /></span>
+                  <span className="min-w-0 flex-1">
+                    <span className="hanzi-text block truncate text-lg font-black leading-tight text-[var(--lab-ink)]" lang="zh-Hans">{text}</span>
+                    <span className="block truncate text-[10px] font-black text-[var(--lab-action)]">{data.pinyin}</span>
+                  </span>
+                  <span className="shrink-0 truncate text-xs font-bold text-[var(--lab-muted)]">{wordLabel(data)}</span>
+                </button>
+              );
+            })
+          )}
+        </div>
       </div>
     </div>
   );
@@ -745,6 +747,7 @@ function ModalShell({ labelledBy, describedBy, dialogRef, closing, onClose, maxW
 
 function DiscoveryModal({ discovery, playingCharacter, onPlay, onClose }) {
   const primaryActionRef = useRef(null);
+  const t = useTranslations('Play');
   const locale = useLocale();
   const discoveryName = locale === 'th' && discovery.nameTh ? discovery.nameTh : discovery.name;
   const { closing, dialogRef, requestClose } = useModalController({ initialFocusRef: primaryActionRef, onClose });
@@ -765,7 +768,7 @@ function DiscoveryModal({ discovery, playingCharacter, onPlay, onClose }) {
             type="button"
             onClick={() => requestClose()}
             className="lift-control absolute right-3 top-3 grid h-11 w-11 place-items-center rounded-full text-xl font-black text-[var(--lab-muted)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/25 sm:right-5 sm:top-5"
-            aria-label="Close discovery"
+            aria-label={t('closeDiscovery')}
           >
             ×
           </button>
@@ -774,7 +777,7 @@ function DiscoveryModal({ discovery, playingCharacter, onPlay, onClose }) {
             <div className="mx-auto grid h-20 w-20 place-items-center rounded-[1.7rem] bg-[var(--lab-mint)] text-4xl shadow-[0_10px_0_var(--lab-lilac)] sm:h-24 sm:w-24 sm:text-5xl" aria-hidden="true">
               <Glyph data={discovery} />
             </div>
-            <div className="eyebrow mt-6">{discovery.isNewWord ? 'New word discovered' : 'Crafted again'}</div>
+            <div className="eyebrow mt-6">{discovery.isNewWord ? t('newWord') : t('craftedAgain')}</div>
             <h2 id="discovery-title" className="hanzi-text mt-2 text-5xl font-black tracking-[-0.06em] text-[var(--lab-ink)] sm:text-6xl" lang="zh-Hans">
               {discovery.result}
             </h2>
@@ -809,7 +812,7 @@ function DiscoveryModal({ discovery, playingCharacter, onPlay, onClose }) {
               onClick={() => requestClose()}
               className="lift-control min-h-13 flex-1 rounded-full bg-[var(--lab-action)] px-6 py-3 text-sm font-black text-white shadow-[0_7px_0_var(--lab-action-depth)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/30"
             >
-              Keep exploring
+              {t('keepExploring')}
             </button>
           </div>
       </>
@@ -819,6 +822,7 @@ function DiscoveryModal({ discovery, playingCharacter, onPlay, onClose }) {
 
 function ResetProgressModal({ onClose, onConfirm }) {
   const cancelButtonRef = useRef(null);
+  const t = useTranslations('Play');
   const { closing, dialogRef, requestClose } = useModalController({ initialFocusRef: cancelButtonRef, onClose });
 
   return (
@@ -835,12 +839,12 @@ function ResetProgressModal({ onClose, onConfirm }) {
             ↺
           </div>
           <div className="mt-6 text-center">
-            <div className="eyebrow">Reset progress</div>
+            <div className="eyebrow">{t('resetEyebrow')}</div>
             <h2 id="reset-title" className="mt-2 text-3xl font-black tracking-[-0.04em] text-[var(--lab-ink)]">
-              Start from four words?
+              {t('resetTitle')}
             </h2>
             <p id="reset-description" className="mt-3 text-sm font-bold leading-6 text-[var(--lab-muted)]">
-              This permanently removes every discovered word and recipe saved on this device. Your four starter words will stay.
+              {t('resetDesc')}
             </p>
           </div>
 
@@ -851,14 +855,14 @@ function ResetProgressModal({ onClose, onConfirm }) {
               onClick={() => requestClose()}
               className="lift-control min-h-13 flex-1 rounded-full border border-[var(--lab-line-strong)] bg-[var(--lab-surface)] px-5 py-3 text-sm font-black text-[var(--lab-ink)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/25"
             >
-              Keep discoveries
+              {t('keepDiscoveries')}
             </button>
             <button
               type="button"
               onClick={() => requestClose(onConfirm)}
               className="lift-control min-h-13 flex-1 rounded-full bg-[var(--lab-danger)] px-5 py-3 text-sm font-black text-white focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-danger)]/25"
             >
-              Reset everything
+              {t('resetEverything')}
             </button>
           </div>
       </>

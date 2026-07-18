@@ -1,6 +1,7 @@
 'use client';
 
 import { useTransition } from 'react';
+import { Globe } from 'lucide-react';
 import { useLocale, useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
 import { setLocaleCookie } from '../../i18n/locale';
@@ -27,8 +28,9 @@ export default function LocaleSwitcher({ className = '' }) {
       onClick={toggle}
       disabled={pending}
       aria-label={t('label')}
-      className={`lift-control inline-flex min-h-11 items-center rounded-full border border-[var(--lab-line-strong)] bg-[var(--lab-surface)] px-3 text-xs font-black text-[var(--lab-ink)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/25 disabled:opacity-50 sm:px-4 ${className}`}
+      className={`lift-control inline-flex min-h-11 items-center gap-1.5 rounded-full border border-[var(--lab-line-strong)] bg-[var(--lab-surface)] px-3 text-xs font-black text-[var(--lab-ink)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/25 disabled:opacity-50 sm:px-4 ${className}`}
     >
+      <Globe aria-hidden="true" strokeWidth={2.5} className="h-4 w-4 text-[var(--lab-action)]" />
       {t('switchTo')}
     </button>
   );
