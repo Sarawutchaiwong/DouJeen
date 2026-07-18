@@ -322,6 +322,17 @@ export default function GamePage() {
     setReactionMessage(null);
   }, [commitCanvas, commitMobileSelection, commitSelectedId]);
 
+  const resetProgress = useCallback(() => {
+    // WHY: reset wipes discovered words permanently — confirm before destroying progress.
+    if (!window.confirm('Reset all progress? Your discovered words will be cleared. This cannot be undone.')) return;
+    libraryRef.current = STARTER_ITEMS;
+    setLibrary(STARTER_ITEMS);
+    setDiscoveredRecipeKeys([]);
+    clearCanvas();
+    setLibrarySearch('');
+    // The persistence effect rewrites localStorage with the cleared state.
+  }, [clearCanvas]);
+
   const discoveredWordCount = library.length - STARTER_ITEMS.length;
   const progressRatio = DISCOVERABLE_ITEMS.length === 0 ? 0 : discoveredWordCount / DISCOVERABLE_ITEMS.length;
 
@@ -347,6 +358,10 @@ export default function GamePage() {
           <button type="button" onClick={clearCanvas} className="lift-control inline-flex min-h-11 items-center rounded-full px-3 text-xs font-black text-[var(--lab-muted)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/25 sm:px-4">
             <span className="sm:hidden">Clear</span>
             <span className="hidden sm:inline">Clear canvas</span>
+          </button>
+          <button type="button" onClick={resetProgress} disabled={!hasLoaded} className="lift-control inline-flex min-h-11 items-center rounded-full border border-[var(--lab-line-strong)] px-3 text-xs font-black text-[var(--lab-muted)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/25 disabled:cursor-not-allowed disabled:opacity-50 sm:px-4">
+            <span className="sm:hidden">Reset</span>
+            <span className="hidden sm:inline">Reset progress</span>
           </button>
           <Link href="/guide" className="lift-control inline-flex min-h-11 items-center rounded-full border border-[var(--lab-line-strong)] bg-[var(--lab-surface)] px-4 text-xs font-black text-[var(--lab-ink)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/25 sm:text-sm">
             Notebook
