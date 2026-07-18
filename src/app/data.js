@@ -207,6 +207,15 @@ export const RECIPE_CATEGORIES = Object.freeze([
   'Home & Places',
   'Travel & Technology',
   'Time & Routine',
+  'Nature & Plants',
+  'Animals',
+  'Body & Senses',
+  'Feelings',
+  'Colors',
+  'Sky & Space',
+  'Food & Cooking',
+  'City & Market',
+  'Culture & Arts',
 ]);
 
 export const RECIPES = Object.freeze(Object.fromEntries(

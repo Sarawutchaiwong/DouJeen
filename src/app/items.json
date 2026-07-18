@@ -1001,5 +1001,933 @@
     "sourceDefinition": "year",
     "emoji": "🎊",
     "hskLevel": "HSK 1"
+  },
+  {
+    "char": "草",
+    "sourcePinyin": "cao3",
+    "name": "Grass",
+    "nameTh": "หญ้า",
+    "sourceDefinition": "grass",
+    "emoji": "🌿"
+  },
+  {
+    "char": "叶子",
+    "sourcePinyin": "ye4 zi5",
+    "name": "Leaf",
+    "nameTh": "ใบไม้",
+    "sourceDefinition": "leaf; foliage",
+    "icon": "leaf"
+  },
+  {
+    "char": "种子",
+    "sourcePinyin": "zhong3 zi5",
+    "name": "Seed",
+    "nameTh": "เมล็ด",
+    "sourceDefinition": "seed",
+    "emoji": "🌰"
+  },
+  {
+    "char": "田",
+    "sourcePinyin": "tian2",
+    "name": "Field",
+    "nameTh": "ทุ่งนา",
+    "sourceDefinition": "field; farmland",
+    "emoji": "🌾"
+  },
+  {
+    "char": "稻",
+    "sourcePinyin": "dao4",
+    "name": "Rice Plant",
+    "nameTh": "ต้นข้าว",
+    "sourceDefinition": "rice (plant); paddy",
+    "emoji": "🌾"
+  },
+  {
+    "char": "果园",
+    "sourcePinyin": "guo3 yuan2",
+    "name": "Orchard",
+    "nameTh": "สวนผลไม้",
+    "sourceDefinition": "orchard",
+    "emoji": "🍎"
+  },
+  {
+    "char": "花园",
+    "sourcePinyin": "hua1 yuan2",
+    "name": "Garden",
+    "nameTh": "สวน",
+    "sourceDefinition": "garden",
+    "emoji": "🌷"
+  },
+  {
+    "char": "蜂蜜",
+    "sourcePinyin": "feng1 mi4",
+    "name": "Honey",
+    "nameTh": "น้ำผึ้ง",
+    "sourceDefinition": "honey",
+    "emoji": "🍯"
+  },
+  {
+    "char": "木头",
+    "sourcePinyin": "mu4 tou5",
+    "name": "Wood",
+    "nameTh": "ไม้",
+    "sourceDefinition": "wood; timber",
+    "emoji": "🪵"
+  },
+  {
+    "char": "草地",
+    "sourcePinyin": "cao3 di4",
+    "name": "Meadow",
+    "nameTh": "ทุ่งหญ้า",
+    "sourceDefinition": "lawn; meadow",
+    "emoji": "🌱"
+  },
+  {
+    "char": "鸟",
+    "sourcePinyin": "niao3",
+    "name": "Bird",
+    "nameTh": "นก",
+    "sourceDefinition": "bird",
+    "emoji": "🐦"
+  },
+  {
+    "char": "鱼",
+    "sourcePinyin": "yu2",
+    "name": "Fish",
+    "nameTh": "ปลา",
+    "sourceDefinition": "fish",
+    "emoji": "🐟"
+  },
+  {
+    "char": "虫",
+    "sourcePinyin": "chong2",
+    "name": "Insect",
+    "nameTh": "แมลง",
+    "sourceDefinition": "insect; worm",
+    "emoji": "🐛"
+  },
+  {
+    "char": "蜜蜂",
+    "sourcePinyin": "mi4 feng1",
+    "name": "Bee",
+    "nameTh": "ผึ้ง",
+    "sourceDefinition": "bee",
+    "emoji": "🐝"
+  },
+  {
+    "char": "蝴蝶",
+    "sourcePinyin": "hu2 die2",
+    "name": "Butterfly",
+    "nameTh": "ผีเสื้อ",
+    "sourceDefinition": "butterfly",
+    "emoji": "🦋"
+  },
+  {
+    "char": "马",
+    "sourcePinyin": "ma3",
+    "name": "Horse",
+    "nameTh": "ม้า",
+    "sourceDefinition": "horse",
+    "emoji": "🐴"
+  },
+  {
+    "char": "牛",
+    "sourcePinyin": "niu2",
+    "name": "Cow",
+    "nameTh": "วัว",
+    "sourceDefinition": "cow; ox",
+    "emoji": "🐮"
+  },
+  {
+    "char": "羊",
+    "sourcePinyin": "yang2",
+    "name": "Sheep",
+    "nameTh": "แกะ",
+    "sourceDefinition": "sheep; goat",
+    "emoji": "🐑"
+  },
+  {
+    "char": "猪",
+    "sourcePinyin": "zhu1",
+    "name": "Pig",
+    "nameTh": "หมู",
+    "sourceDefinition": "pig",
+    "emoji": "🐷"
+  },
+  {
+    "char": "鸡",
+    "sourcePinyin": "ji1",
+    "name": "Chicken",
+    "nameTh": "ไก่",
+    "sourceDefinition": "chicken",
+    "emoji": "🐔"
+  },
+  {
+    "char": "鸭",
+    "sourcePinyin": "ya1",
+    "name": "Duck",
+    "nameTh": "เป็ด",
+    "sourceDefinition": "duck",
+    "emoji": "🦆"
+  },
+  {
+    "char": "猫",
+    "sourcePinyin": "mao1",
+    "name": "Cat",
+    "nameTh": "แมว",
+    "sourceDefinition": "cat",
+    "emoji": "🐱"
+  },
+  {
+    "char": "狗",
+    "sourcePinyin": "gou3",
+    "name": "Dog",
+    "nameTh": "หมา",
+    "sourceDefinition": "dog",
+    "emoji": "🐶"
+  },
+  {
+    "char": "兔子",
+    "sourcePinyin": "tu4 zi5",
+    "name": "Rabbit",
+    "nameTh": "กระต่าย",
+    "sourceDefinition": "rabbit; hare",
+    "emoji": "🐰"
+  },
+  {
+    "char": "熊",
+    "sourcePinyin": "xiong2",
+    "name": "Bear",
+    "nameTh": "หมี",
+    "sourceDefinition": "bear",
+    "emoji": "🐻"
+  },
+  {
+    "char": "龙",
+    "sourcePinyin": "long2",
+    "name": "Dragon",
+    "nameTh": "มังกร",
+    "sourceDefinition": "dragon",
+    "emoji": "🐉"
+  },
+  {
+    "char": "蛇",
+    "sourcePinyin": "she2",
+    "name": "Snake",
+    "nameTh": "งู",
+    "sourceDefinition": "snake",
+    "emoji": "🐍"
+  },
+  {
+    "char": "蜘蛛",
+    "sourcePinyin": "zhi1 zhu1",
+    "name": "Spider",
+    "nameTh": "แมงมุม",
+    "sourceDefinition": "spider",
+    "emoji": "🕷️"
+  },
+  {
+    "char": "青蛙",
+    "sourcePinyin": "qing1 wa1",
+    "name": "Frog",
+    "nameTh": "กบ",
+    "sourceDefinition": "frog",
+    "emoji": "🐸"
+  },
+  {
+    "char": "鲸",
+    "sourcePinyin": "jing1",
+    "name": "Whale",
+    "nameTh": "วาฬ",
+    "sourceDefinition": "whale",
+    "emoji": "🐋"
+  },
+  {
+    "char": "手",
+    "sourcePinyin": "shou3",
+    "name": "Hand",
+    "nameTh": "มือ",
+    "sourceDefinition": "hand",
+    "icon": "hand"
+  },
+  {
+    "char": "脚",
+    "sourcePinyin": "jiao3",
+    "name": "Foot",
+    "nameTh": "เท้า",
+    "sourceDefinition": "foot; leg",
+    "emoji": "🦶"
+  },
+  {
+    "char": "头",
+    "sourcePinyin": "tou2",
+    "name": "Head",
+    "nameTh": "หัว",
+    "sourceDefinition": "head",
+    "emoji": "🧠"
+  },
+  {
+    "char": "眼睛",
+    "sourcePinyin": "yan3 jing5",
+    "name": "Eye",
+    "nameTh": "ตา",
+    "sourceDefinition": "eye",
+    "icon": "eye"
+  },
+  {
+    "char": "耳朵",
+    "sourcePinyin": "er3 duo5",
+    "name": "Ear",
+    "nameTh": "หู",
+    "sourceDefinition": "ear",
+    "icon": "ear"
+  },
+  {
+    "char": "嘴",
+    "sourcePinyin": "zui3",
+    "name": "Mouth",
+    "nameTh": "ปาก",
+    "sourceDefinition": "mouth",
+    "emoji": "👄"
+  },
+  {
+    "char": "心",
+    "sourcePinyin": "xin1",
+    "name": "Heart",
+    "nameTh": "หัวใจ",
+    "sourceDefinition": "heart; mind",
+    "icon": "heart"
+  },
+  {
+    "char": "血",
+    "sourcePinyin": "xie3",
+    "name": "Blood",
+    "nameTh": "เลือด",
+    "sourceDefinition": "blood",
+    "emoji": "🩸"
+  },
+  {
+    "char": "声音",
+    "sourcePinyin": "sheng1 yin1",
+    "name": "Sound",
+    "nameTh": "เสียง",
+    "sourceDefinition": "sound; voice",
+    "icon": "music"
+  },
+  {
+    "char": "牙",
+    "sourcePinyin": "ya2",
+    "name": "Tooth",
+    "nameTh": "ฟัน",
+    "sourceDefinition": "tooth",
+    "emoji": "🦷"
+  },
+  {
+    "char": "想",
+    "sourcePinyin": "xiang3",
+    "name": "Think",
+    "nameTh": "คิด",
+    "sourceDefinition": "to think; to want",
+    "icon": "brain"
+  },
+  {
+    "char": "爱",
+    "sourcePinyin": "ai4",
+    "name": "Love",
+    "nameTh": "รัก",
+    "sourceDefinition": "to love; love",
+    "icon": "heart"
+  },
+  {
+    "char": "高兴",
+    "sourcePinyin": "gao1 xing4",
+    "name": "Happy",
+    "nameTh": "ดีใจ",
+    "sourceDefinition": "happy; glad",
+    "icon": "smile"
+  },
+  {
+    "char": "生气",
+    "sourcePinyin": "sheng1 qi4",
+    "name": "Angry",
+    "nameTh": "โกรธ",
+    "sourceDefinition": "angry",
+    "emoji": "😠"
+  },
+  {
+    "char": "伤心",
+    "sourcePinyin": "shang1 xin1",
+    "name": "Sad",
+    "nameTh": "เศร้า",
+    "sourceDefinition": "sad; grieved",
+    "emoji": "😢"
+  },
+  {
+    "char": "累",
+    "sourcePinyin": "lei4",
+    "name": "Tired",
+    "nameTh": "เหนื่อย",
+    "sourceDefinition": "tired; weary",
+    "emoji": "😩"
+  },
+  {
+    "char": "怕",
+    "sourcePinyin": "pa4",
+    "name": "Afraid",
+    "nameTh": "กลัว",
+    "sourceDefinition": "to fear; afraid",
+    "emoji": "😨"
+  },
+  {
+    "char": "梦",
+    "sourcePinyin": "meng4",
+    "name": "Dream",
+    "nameTh": "ความฝัน",
+    "sourceDefinition": "dream",
+    "emoji": "💭"
+  },
+  {
+    "char": "笑",
+    "sourcePinyin": "xiao4",
+    "name": "Laugh",
+    "nameTh": "หัวเราะ",
+    "sourceDefinition": "to laugh; to smile",
+    "icon": "smile"
+  },
+  {
+    "char": "主意",
+    "sourcePinyin": "zhu3 yi5",
+    "name": "Idea",
+    "nameTh": "ไอเดีย",
+    "sourceDefinition": "idea; plan",
+    "icon": "lightbulb"
+  },
+  {
+    "char": "颜色",
+    "sourcePinyin": "yan2 se4",
+    "name": "Color",
+    "nameTh": "สี",
+    "sourceDefinition": "color",
+    "emoji": "🎨"
+  },
+  {
+    "char": "红",
+    "sourcePinyin": "hong2",
+    "name": "Red",
+    "nameTh": "สีแดง",
+    "sourceDefinition": "red",
+    "emoji": "🔴"
+  },
+  {
+    "char": "黄",
+    "sourcePinyin": "huang2",
+    "name": "Yellow",
+    "nameTh": "สีเหลือง",
+    "sourceDefinition": "yellow",
+    "emoji": "🟡"
+  },
+  {
+    "char": "蓝",
+    "sourcePinyin": "lan2",
+    "name": "Blue",
+    "nameTh": "สีน้ำเงิน",
+    "sourceDefinition": "blue",
+    "emoji": "🔵"
+  },
+  {
+    "char": "绿",
+    "sourcePinyin": "lu:4",
+    "name": "Green",
+    "nameTh": "สีเขียว",
+    "sourceDefinition": "green",
+    "emoji": "🟢"
+  },
+  {
+    "char": "白",
+    "sourcePinyin": "bai2",
+    "name": "White",
+    "nameTh": "สีขาว",
+    "sourceDefinition": "white",
+    "emoji": "⚪"
+  },
+  {
+    "char": "黑",
+    "sourcePinyin": "hei1",
+    "name": "Black",
+    "nameTh": "สีดำ",
+    "sourceDefinition": "black; dark",
+    "emoji": "⚫"
+  },
+  {
+    "char": "彩虹",
+    "sourcePinyin": "cai3 hong2",
+    "name": "Rainbow",
+    "nameTh": "รุ้ง",
+    "sourceDefinition": "rainbow",
+    "emoji": "🌈"
+  },
+  {
+    "char": "星星",
+    "sourcePinyin": "xing1 xing5",
+    "name": "Star",
+    "nameTh": "ดาว",
+    "sourceDefinition": "star",
+    "icon": "star"
+  },
+  {
+    "char": "地球",
+    "sourcePinyin": "di4 qiu2",
+    "name": "Earth (Planet)",
+    "nameTh": "โลก",
+    "sourceDefinition": "the Earth; the globe",
+    "emoji": "🌍"
+  },
+  {
+    "char": "宇宙",
+    "sourcePinyin": "yu3 zhou4",
+    "name": "Universe",
+    "nameTh": "จักรวาล",
+    "sourceDefinition": "universe; cosmos",
+    "emoji": "🌌"
+  },
+  {
+    "char": "流星",
+    "sourcePinyin": "liu2 xing1",
+    "name": "Meteor",
+    "nameTh": "ดาวตก",
+    "sourceDefinition": "meteor; shooting star",
+    "emoji": "☄️"
+  },
+  {
+    "char": "影子",
+    "sourcePinyin": "ying3 zi5",
+    "name": "Shadow",
+    "nameTh": "เงา",
+    "sourceDefinition": "shadow",
+    "emoji": "🌑"
+  },
+  {
+    "char": "肉",
+    "sourcePinyin": "rou4",
+    "name": "Meat",
+    "nameTh": "เนื้อ",
+    "sourceDefinition": "meat; flesh",
+    "emoji": "🍖"
+  },
+  {
+    "char": "鸡蛋",
+    "sourcePinyin": "ji1 dan4",
+    "name": "Egg",
+    "nameTh": "ไข่",
+    "sourceDefinition": "egg",
+    "emoji": "🥚"
+  },
+  {
+    "char": "牛奶",
+    "sourcePinyin": "niu2 nai3",
+    "name": "Milk",
+    "nameTh": "นม",
+    "sourceDefinition": "milk",
+    "emoji": "🥛"
+  },
+  {
+    "char": "面包",
+    "sourcePinyin": "mian4 bao1",
+    "name": "Bread",
+    "nameTh": "ขนมปัง",
+    "sourceDefinition": "bread",
+    "emoji": "🍞"
+  },
+  {
+    "char": "面条",
+    "sourcePinyin": "mian4 tiao2",
+    "name": "Noodles",
+    "nameTh": "ก๋วยเตี๋ยว",
+    "sourceDefinition": "noodles",
+    "emoji": "🍜"
+  },
+  {
+    "char": "汤",
+    "sourcePinyin": "tang1",
+    "name": "Soup",
+    "nameTh": "ซุป",
+    "sourceDefinition": "soup; broth",
+    "emoji": "🍲"
+  },
+  {
+    "char": "糖",
+    "sourcePinyin": "tang2",
+    "name": "Sugar",
+    "nameTh": "น้ำตาล",
+    "sourceDefinition": "sugar; candy",
+    "emoji": "🍬"
+  },
+  {
+    "char": "盐",
+    "sourcePinyin": "yan2",
+    "name": "Salt",
+    "nameTh": "เกลือ",
+    "sourceDefinition": "salt",
+    "emoji": "🧂"
+  },
+  {
+    "char": "冰",
+    "sourcePinyin": "bing1",
+    "name": "Ice",
+    "nameTh": "น้ำแข็ง",
+    "sourceDefinition": "ice",
+    "emoji": "🧊"
+  },
+  {
+    "char": "冰淇淋",
+    "sourcePinyin": "bing1 qi2 lin2",
+    "name": "Ice Cream",
+    "nameTh": "ไอศกรีม",
+    "sourceDefinition": "ice cream",
+    "emoji": "🍦"
+  },
+  {
+    "char": "咖啡",
+    "sourcePinyin": "ka1 fei1",
+    "name": "Coffee",
+    "nameTh": "กาแฟ",
+    "sourceDefinition": "coffee",
+    "emoji": "☕"
+  },
+  {
+    "char": "蛋糕",
+    "sourcePinyin": "dan4 gao1",
+    "name": "Cake",
+    "nameTh": "เค้ก",
+    "sourceDefinition": "cake",
+    "emoji": "🍰"
+  },
+  {
+    "char": "酒",
+    "sourcePinyin": "jiu3",
+    "name": "Alcohol",
+    "nameTh": "เหล้า",
+    "sourceDefinition": "wine; liquor; alcohol",
+    "emoji": "🍶"
+  },
+  {
+    "char": "钱",
+    "sourcePinyin": "qian2",
+    "name": "Money",
+    "nameTh": "เงิน",
+    "sourceDefinition": "money; coin",
+    "emoji": "💰"
+  },
+  {
+    "char": "市场",
+    "sourcePinyin": "shi4 chang3",
+    "name": "Market",
+    "nameTh": "ตลาด",
+    "sourceDefinition": "market; marketplace",
+    "emoji": "🏬"
+  },
+  {
+    "char": "商店",
+    "sourcePinyin": "shang1 dian4",
+    "name": "Shop",
+    "nameTh": "ร้านค้า",
+    "sourceDefinition": "store; shop",
+    "emoji": "🏪"
+  },
+  {
+    "char": "买",
+    "sourcePinyin": "mai3",
+    "name": "Buy",
+    "nameTh": "ซื้อ",
+    "sourceDefinition": "to buy",
+    "emoji": "🛒"
+  },
+  {
+    "char": "卖",
+    "sourcePinyin": "mai4",
+    "name": "Sell",
+    "nameTh": "ขาย",
+    "sourceDefinition": "to sell",
+    "emoji": "🏷️"
+  },
+  {
+    "char": "医院",
+    "sourcePinyin": "yi1 yuan4",
+    "name": "Hospital",
+    "nameTh": "โรงพยาบาล",
+    "sourceDefinition": "hospital",
+    "emoji": "🏥"
+  },
+  {
+    "char": "医生",
+    "sourcePinyin": "yi1 sheng1",
+    "name": "Doctor",
+    "nameTh": "หมอ",
+    "sourceDefinition": "doctor",
+    "emoji": "🩺"
+  },
+  {
+    "char": "药",
+    "sourcePinyin": "yao4",
+    "name": "Medicine",
+    "nameTh": "ยา",
+    "sourceDefinition": "medicine; drug",
+    "emoji": "💊"
+  },
+  {
+    "char": "病",
+    "sourcePinyin": "bing4",
+    "name": "Illness",
+    "nameTh": "ป่วย",
+    "sourceDefinition": "illness; disease",
+    "emoji": "🤒"
+  },
+  {
+    "char": "公园",
+    "sourcePinyin": "gong1 yuan2",
+    "name": "Park",
+    "nameTh": "สวนสาธารณะ",
+    "sourceDefinition": "park",
+    "emoji": "🏞️"
+  },
+  {
+    "char": "桥",
+    "sourcePinyin": "qiao2",
+    "name": "Bridge",
+    "nameTh": "สะพาน",
+    "sourceDefinition": "bridge",
+    "emoji": "🌉"
+  },
+  {
+    "char": "塔",
+    "sourcePinyin": "ta3",
+    "name": "Tower",
+    "nameTh": "หอคอย",
+    "sourceDefinition": "tower; pagoda",
+    "emoji": "🗼"
+  },
+  {
+    "char": "灯",
+    "sourcePinyin": "deng1",
+    "name": "Lamp",
+    "nameTh": "โคมไฟ",
+    "sourceDefinition": "lamp; light",
+    "icon": "lightbulb"
+  },
+  {
+    "char": "钟",
+    "sourcePinyin": "zhong1",
+    "name": "Clock",
+    "nameTh": "นาฬิกา",
+    "sourceDefinition": "clock; bell",
+    "icon": "clock"
+  },
+  {
+    "char": "地图",
+    "sourcePinyin": "di4 tu2",
+    "name": "Map",
+    "nameTh": "แผนที่",
+    "sourceDefinition": "map",
+    "icon": "map"
+  },
+  {
+    "char": "音乐",
+    "sourcePinyin": "yin1 yue4",
+    "name": "Music",
+    "nameTh": "ดนตรี",
+    "sourceDefinition": "music",
+    "icon": "music"
+  },
+  {
+    "char": "歌",
+    "sourcePinyin": "ge1",
+    "name": "Song",
+    "nameTh": "เพลง",
+    "sourceDefinition": "song",
+    "emoji": "🎵"
+  },
+  {
+    "char": "画",
+    "sourcePinyin": "hua4",
+    "name": "Painting",
+    "nameTh": "ภาพวาด",
+    "sourceDefinition": "painting; drawing",
+    "emoji": "🖼️"
+  },
+  {
+    "char": "舞",
+    "sourcePinyin": "wu3",
+    "name": "Dance",
+    "nameTh": "เต้นรำ",
+    "sourceDefinition": "dance",
+    "emoji": "💃"
+  },
+  {
+    "char": "故事",
+    "sourcePinyin": "gu4 shi5",
+    "name": "Story",
+    "nameTh": "เรื่องราว",
+    "sourceDefinition": "story; tale",
+    "emoji": "📖"
+  },
+  {
+    "char": "诗",
+    "sourcePinyin": "shi1",
+    "name": "Poem",
+    "nameTh": "บทกวี",
+    "sourceDefinition": "poem; poetry",
+    "emoji": "📜"
+  },
+  {
+    "char": "节日",
+    "sourcePinyin": "jie2 ri4",
+    "name": "Festival",
+    "nameTh": "เทศกาล",
+    "sourceDefinition": "festival; holiday",
+    "emoji": "🎉"
+  },
+  {
+    "char": "游戏",
+    "sourcePinyin": "you2 xi4",
+    "name": "Game",
+    "nameTh": "เกม",
+    "sourceDefinition": "game",
+    "emoji": "🎮"
+  },
+  {
+    "char": "灯笼",
+    "sourcePinyin": "deng1 long5",
+    "name": "Lantern",
+    "nameTh": "โคมไฟ",
+    "sourceDefinition": "lantern",
+    "emoji": "🏮"
+  },
+  {
+    "char": "照片",
+    "sourcePinyin": "zhao4 pian4",
+    "name": "Photograph",
+    "nameTh": "รูปถ่าย",
+    "sourceDefinition": "photograph",
+    "emoji": "📷"
+  },
+  {
+    "char": "刀",
+    "sourcePinyin": "dao1",
+    "name": "Knife",
+    "nameTh": "มีด",
+    "sourceDefinition": "knife; blade",
+    "emoji": "🔪"
+  },
+  {
+    "char": "轮子",
+    "sourcePinyin": "lun2 zi5",
+    "name": "Wheel",
+    "nameTh": "ล้อ",
+    "sourceDefinition": "wheel",
+    "emoji": "🛞"
+  },
+  {
+    "char": "钢",
+    "sourcePinyin": "gang1",
+    "name": "Steel",
+    "nameTh": "เหล็กกล้า",
+    "sourceDefinition": "steel",
+    "emoji": "🔩"
+  },
+  {
+    "char": "机器",
+    "sourcePinyin": "ji1 qi4",
+    "name": "Machine",
+    "nameTh": "เครื่องจักร",
+    "sourceDefinition": "machine",
+    "emoji": "⚙️"
+  },
+  {
+    "char": "机器人",
+    "sourcePinyin": "ji1 qi4 ren2",
+    "name": "Robot",
+    "nameTh": "หุ่นยนต์",
+    "sourceDefinition": "robot",
+    "emoji": "🤖"
+  },
+  {
+    "char": "船坞",
+    "sourcePinyin": "chuan2 wu4",
+    "name": "Shipyard",
+    "nameTh": "อู่เรือ",
+    "sourceDefinition": "dock; shipyard",
+    "emoji": "🛳️"
+  },
+  {
+    "char": "农场",
+    "sourcePinyin": "nong2 chang3",
+    "name": "Farm",
+    "nameTh": "ฟาร์ม",
+    "sourceDefinition": "farm",
+    "emoji": "🚜"
+  },
+  {
+    "char": "井",
+    "sourcePinyin": "jing3",
+    "name": "Well",
+    "nameTh": "บ่อน้ำ",
+    "sourceDefinition": "water well",
+    "emoji": "⛲"
+  },
+  {
+    "char": "火把",
+    "sourcePinyin": "huo3 ba3",
+    "name": "Torch",
+    "nameTh": "คบเพลิง",
+    "sourceDefinition": "torch",
+    "emoji": "🔦"
+  },
+  {
+    "char": "烟",
+    "sourcePinyin": "yan1",
+    "name": "Smoke",
+    "nameTh": "ควัน",
+    "sourceDefinition": "smoke",
+    "emoji": "💨"
+  },
+  {
+    "char": "雾",
+    "sourcePinyin": "wu4",
+    "name": "Fog",
+    "nameTh": "หมอก",
+    "sourceDefinition": "fog; mist",
+    "emoji": "🌫️"
+  },
+  {
+    "char": "霜",
+    "sourcePinyin": "shuang1",
+    "name": "Frost",
+    "nameTh": "น้ำค้างแข็ง",
+    "sourceDefinition": "frost",
+    "emoji": "❄️"
+  },
+  {
+    "char": "冰川",
+    "sourcePinyin": "bing1 chuan1",
+    "name": "Glacier",
+    "nameTh": "ธารน้ำแข็ง",
+    "sourceDefinition": "glacier",
+    "emoji": "🧊"
+  },
+  {
+    "char": "风暴",
+    "sourcePinyin": "feng1 bao4",
+    "name": "Storm",
+    "nameTh": "พายุ",
+    "sourceDefinition": "storm; tempest",
+    "emoji": "🌪️"
+  },
+  {
+    "char": "露水",
+    "sourcePinyin": "lu4 shui3",
+    "name": "Dew",
+    "nameTh": "น้ำค้าง",
+    "sourceDefinition": "dew",
+    "emoji": "💧"
   }
 ]

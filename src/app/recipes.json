@@ -1058,5 +1058,1049 @@
     "result": "年",
     "category": "Time & Routine",
     "explanation": "A tree records seasonal growth over the course of a year."
+  },
+  {
+    "ingredients": [
+      "土",
+      "雨"
+    ],
+    "result": "草",
+    "category": "Nature & Plants",
+    "explanation": "Soil and rain let grass sprout."
+  },
+  {
+    "ingredients": [
+      "树",
+      "风"
+    ],
+    "result": "叶子",
+    "category": "Nature & Plants",
+    "explanation": "Leaves grow on trees and flutter in the wind."
+  },
+  {
+    "ingredients": [
+      "花",
+      "土"
+    ],
+    "result": "种子",
+    "category": "Nature & Plants",
+    "explanation": "Flowers make seeds that fall to the soil."
+  },
+  {
+    "ingredients": [
+      "土",
+      "草"
+    ],
+    "result": "田",
+    "category": "Nature & Plants",
+    "explanation": "Worked soil covered with plants becomes a field."
+  },
+  {
+    "ingredients": [
+      "田",
+      "水"
+    ],
+    "result": "稻",
+    "category": "Nature & Plants",
+    "explanation": "Rice grows in flooded fields."
+  },
+  {
+    "ingredients": [
+      "苹果",
+      "树"
+    ],
+    "result": "果园",
+    "category": "Nature & Plants",
+    "explanation": "Many apple trees together form an orchard."
+  },
+  {
+    "ingredients": [
+      "花",
+      "家"
+    ],
+    "result": "花园",
+    "category": "Nature & Plants",
+    "explanation": "Flowers tended by a home make a garden."
+  },
+  {
+    "ingredients": [
+      "花",
+      "蜜蜂"
+    ],
+    "result": "蜂蜜",
+    "category": "Nature & Plants",
+    "explanation": "Bees turn flower nectar into honey."
+  },
+  {
+    "ingredients": [
+      "树",
+      "工人"
+    ],
+    "result": "木头",
+    "category": "Nature & Plants",
+    "explanation": "A worker cuts a tree into wood."
+  },
+  {
+    "ingredients": [
+      "草",
+      "草"
+    ],
+    "result": "草地",
+    "category": "Nature & Plants",
+    "explanation": "A wide spread of grass is a meadow."
+  },
+  {
+    "ingredients": [
+      "树",
+      "天空"
+    ],
+    "result": "鸟",
+    "category": "Animals",
+    "explanation": "Birds nest in trees and fly in the sky."
+  },
+  {
+    "ingredients": [
+      "河",
+      "海洋"
+    ],
+    "result": "鱼",
+    "category": "Animals",
+    "explanation": "Fish live in rivers and the ocean."
+  },
+  {
+    "ingredients": [
+      "土",
+      "叶子"
+    ],
+    "result": "虫",
+    "category": "Animals",
+    "explanation": "Insects crawl in soil and on leaves."
+  },
+  {
+    "ingredients": [
+      "虫",
+      "花"
+    ],
+    "result": "蜜蜂",
+    "category": "Animals",
+    "explanation": "A bee is an insect that visits flowers."
+  },
+  {
+    "ingredients": [
+      "虫",
+      "花园"
+    ],
+    "result": "蝴蝶",
+    "category": "Animals",
+    "explanation": "A butterfly flits among garden flowers."
+  },
+  {
+    "ingredients": [
+      "草地",
+      "路"
+    ],
+    "result": "马",
+    "category": "Animals",
+    "explanation": "Horses graze meadows and travel roads."
+  },
+  {
+    "ingredients": [
+      "草",
+      "田"
+    ],
+    "result": "牛",
+    "category": "Animals",
+    "explanation": "Cattle graze on grass in the fields."
+  },
+  {
+    "ingredients": [
+      "草地",
+      "山"
+    ],
+    "result": "羊",
+    "category": "Animals",
+    "explanation": "Sheep graze grassy hillsides."
+  },
+  {
+    "ingredients": [
+      "泥",
+      "食物"
+    ],
+    "result": "猪",
+    "category": "Animals",
+    "explanation": "Pigs root in mud for food."
+  },
+  {
+    "ingredients": [
+      "鸟",
+      "家"
+    ],
+    "result": "鸡",
+    "category": "Animals",
+    "explanation": "A chicken is a bird kept around the home."
+  },
+  {
+    "ingredients": [
+      "鸟",
+      "水"
+    ],
+    "result": "鸭",
+    "category": "Animals",
+    "explanation": "A duck is a bird that swims."
+  },
+  {
+    "ingredients": [
+      "鱼",
+      "家"
+    ],
+    "result": "猫",
+    "category": "Animals",
+    "explanation": "A cat lives at home and loves fish."
+  },
+  {
+    "ingredients": [
+      "朋友",
+      "家"
+    ],
+    "result": "狗",
+    "category": "Animals",
+    "explanation": "A dog is a friend at home."
+  },
+  {
+    "ingredients": [
+      "草",
+      "月亮"
+    ],
+    "result": "兔子",
+    "category": "Animals",
+    "explanation": "A rabbit nibbles grass; folklore places one on the moon."
+  },
+  {
+    "ingredients": [
+      "森林",
+      "山"
+    ],
+    "result": "熊",
+    "category": "Animals",
+    "explanation": "Bears roam mountain forests."
+  },
+  {
+    "ingredients": [
+      "蛇",
+      "云"
+    ],
+    "result": "龙",
+    "category": "Animals",
+    "explanation": "The mythical dragon is a serpent that rides clouds."
+  },
+  {
+    "ingredients": [
+      "虫",
+      "森林"
+    ],
+    "result": "蛇",
+    "category": "Animals",
+    "explanation": "A snake slithers through the forest."
+  },
+  {
+    "ingredients": [
+      "虫",
+      "字"
+    ],
+    "result": "蜘蛛",
+    "category": "Animals",
+    "explanation": "A spider spins a web of fine threads."
+  },
+  {
+    "ingredients": [
+      "虫",
+      "雨天"
+    ],
+    "result": "青蛙",
+    "category": "Animals",
+    "explanation": "Frogs come out to feed on rainy days."
+  },
+  {
+    "ingredients": [
+      "鱼",
+      "海洋"
+    ],
+    "result": "鲸",
+    "category": "Animals",
+    "explanation": "The whale is the giant of the ocean."
+  },
+  {
+    "ingredients": [
+      "人",
+      "工作"
+    ],
+    "result": "手",
+    "category": "Body & Senses",
+    "explanation": "People work with their hands."
+  },
+  {
+    "ingredients": [
+      "人",
+      "旅游"
+    ],
+    "result": "脚",
+    "category": "Body & Senses",
+    "explanation": "People travel the road on their feet."
+  },
+  {
+    "ingredients": [
+      "人",
+      "想"
+    ],
+    "result": "头",
+    "category": "Body & Senses",
+    "explanation": "Thinking happens in the head."
+  },
+  {
+    "ingredients": [
+      "看",
+      "光"
+    ],
+    "result": "眼睛",
+    "category": "Body & Senses",
+    "explanation": "Eyes see by light."
+  },
+  {
+    "ingredients": [
+      "听",
+      "声音"
+    ],
+    "result": "耳朵",
+    "category": "Body & Senses",
+    "explanation": "Ears catch sound."
+  },
+  {
+    "ingredients": [
+      "说话",
+      "吃"
+    ],
+    "result": "嘴",
+    "category": "Body & Senses",
+    "explanation": "The mouth speaks and eats."
+  },
+  {
+    "ingredients": [
+      "人",
+      "血"
+    ],
+    "result": "心",
+    "category": "Body & Senses",
+    "explanation": "The heart pumps blood through the body."
+  },
+  {
+    "ingredients": [
+      "人",
+      "红"
+    ],
+    "result": "血",
+    "category": "Body & Senses",
+    "explanation": "Blood is the red fluid of the body."
+  },
+  {
+    "ingredients": [
+      "说话",
+      "空气"
+    ],
+    "result": "声音",
+    "category": "Body & Senses",
+    "explanation": "Sound travels as vibration through air."
+  },
+  {
+    "ingredients": [
+      "嘴",
+      "吃"
+    ],
+    "result": "牙",
+    "category": "Body & Senses",
+    "explanation": "Teeth in the mouth chew food."
+  },
+  {
+    "ingredients": [
+      "书",
+      "心"
+    ],
+    "result": "想",
+    "category": "Feelings",
+    "explanation": "Reading with the heart makes you think."
+  },
+  {
+    "ingredients": [
+      "人",
+      "家人"
+    ],
+    "result": "爱",
+    "category": "Feelings",
+    "explanation": "People love their family."
+  },
+  {
+    "ingredients": [
+      "朋友",
+      "晴"
+    ],
+    "result": "高兴",
+    "category": "Feelings",
+    "explanation": "Friends and sunshine bring happiness."
+  },
+  {
+    "ingredients": [
+      "火",
+      "心"
+    ],
+    "result": "生气",
+    "category": "Feelings",
+    "explanation": "Anger feels like fire in the heart."
+  },
+  {
+    "ingredients": [
+      "雨",
+      "心"
+    ],
+    "result": "伤心",
+    "category": "Feelings",
+    "explanation": "Sadness feels like rain on the heart."
+  },
+  {
+    "ingredients": [
+      "工作",
+      "工作"
+    ],
+    "result": "累",
+    "category": "Feelings",
+    "explanation": "Too much work makes you tired."
+  },
+  {
+    "ingredients": [
+      "雷",
+      "心"
+    ],
+    "result": "怕",
+    "category": "Feelings",
+    "explanation": "Thunder can make the heart afraid."
+  },
+  {
+    "ingredients": [
+      "晚上",
+      "想"
+    ],
+    "result": "梦",
+    "category": "Feelings",
+    "explanation": "At night the sleeping mind dreams."
+  },
+  {
+    "ingredients": [
+      "高兴",
+      "嘴"
+    ],
+    "result": "笑",
+    "category": "Feelings",
+    "explanation": "Happiness brings a laugh to the mouth."
+  },
+  {
+    "ingredients": [
+      "想",
+      "光"
+    ],
+    "result": "主意",
+    "category": "Feelings",
+    "explanation": "An idea is a spark of light in the mind."
+  },
+  {
+    "ingredients": [
+      "光",
+      "花"
+    ],
+    "result": "颜色",
+    "category": "Colors",
+    "explanation": "Light and flowers reveal color."
+  },
+  {
+    "ingredients": [
+      "颜色",
+      "火"
+    ],
+    "result": "红",
+    "category": "Colors",
+    "explanation": "Fire is red."
+  },
+  {
+    "ingredients": [
+      "颜色",
+      "太阳"
+    ],
+    "result": "黄",
+    "category": "Colors",
+    "explanation": "The sun is yellow."
+  },
+  {
+    "ingredients": [
+      "颜色",
+      "天空"
+    ],
+    "result": "蓝",
+    "category": "Colors",
+    "explanation": "The sky is blue."
+  },
+  {
+    "ingredients": [
+      "颜色",
+      "草"
+    ],
+    "result": "绿",
+    "category": "Colors",
+    "explanation": "Grass is green."
+  },
+  {
+    "ingredients": [
+      "颜色",
+      "雪"
+    ],
+    "result": "白",
+    "category": "Colors",
+    "explanation": "Snow is white."
+  },
+  {
+    "ingredients": [
+      "颜色",
+      "晚上"
+    ],
+    "result": "黑",
+    "category": "Colors",
+    "explanation": "Night is black."
+  },
+  {
+    "ingredients": [
+      "雨",
+      "太阳"
+    ],
+    "result": "彩虹",
+    "category": "Colors",
+    "explanation": "Sun through rain makes a rainbow."
+  },
+  {
+    "ingredients": [
+      "天空",
+      "晚上"
+    ],
+    "result": "星星",
+    "category": "Sky & Space",
+    "explanation": "Stars appear in the night sky."
+  },
+  {
+    "ingredients": [
+      "土",
+      "海洋"
+    ],
+    "result": "地球",
+    "category": "Sky & Space",
+    "explanation": "Land and ocean form the planet Earth."
+  },
+  {
+    "ingredients": [
+      "星星",
+      "天空"
+    ],
+    "result": "宇宙",
+    "category": "Sky & Space",
+    "explanation": "All the stars and space form the universe."
+  },
+  {
+    "ingredients": [
+      "星星",
+      "光"
+    ],
+    "result": "流星",
+    "category": "Sky & Space",
+    "explanation": "A streak of light across the sky is a meteor."
+  },
+  {
+    "ingredients": [
+      "光",
+      "墙"
+    ],
+    "result": "影子",
+    "category": "Sky & Space",
+    "explanation": "Light blocked by a wall casts a shadow."
+  },
+  {
+    "ingredients": [
+      "牛",
+      "食物"
+    ],
+    "result": "肉",
+    "category": "Food & Cooking",
+    "explanation": "Meat is food from animals."
+  },
+  {
+    "ingredients": [
+      "鸡",
+      "食物"
+    ],
+    "result": "鸡蛋",
+    "category": "Food & Cooking",
+    "explanation": "A chicken lays an egg."
+  },
+  {
+    "ingredients": [
+      "牛",
+      "水"
+    ],
+    "result": "牛奶",
+    "category": "Food & Cooking",
+    "explanation": "Milk comes from a cow."
+  },
+  {
+    "ingredients": [
+      "稻",
+      "火"
+    ],
+    "result": "面包",
+    "category": "Food & Cooking",
+    "explanation": "Grain baked with heat becomes bread."
+  },
+  {
+    "ingredients": [
+      "面包",
+      "水"
+    ],
+    "result": "面条",
+    "category": "Food & Cooking",
+    "explanation": "Wheat dough drawn into strands makes noodles."
+  },
+  {
+    "ingredients": [
+      "水",
+      "菜"
+    ],
+    "result": "汤",
+    "category": "Food & Cooking",
+    "explanation": "Vegetables boiled in water make soup."
+  },
+  {
+    "ingredients": [
+      "草",
+      "火"
+    ],
+    "result": "糖",
+    "category": "Food & Cooking",
+    "explanation": "Sugar is refined from cane grass with heat."
+  },
+  {
+    "ingredients": [
+      "海水",
+      "太阳"
+    ],
+    "result": "盐",
+    "category": "Food & Cooking",
+    "explanation": "Evaporated seawater leaves salt."
+  },
+  {
+    "ingredients": [
+      "水",
+      "雪"
+    ],
+    "result": "冰",
+    "category": "Food & Cooking",
+    "explanation": "Water frozen solid is ice."
+  },
+  {
+    "ingredients": [
+      "冰",
+      "牛奶"
+    ],
+    "result": "冰淇淋",
+    "category": "Food & Cooking",
+    "explanation": "Frozen sweetened milk is ice cream."
+  },
+  {
+    "ingredients": [
+      "水",
+      "种子"
+    ],
+    "result": "咖啡",
+    "category": "Food & Cooking",
+    "explanation": "Coffee is brewed from roasted beans."
+  },
+  {
+    "ingredients": [
+      "鸡蛋",
+      "糖"
+    ],
+    "result": "蛋糕",
+    "category": "Food & Cooking",
+    "explanation": "Eggs and sugar bake into cake."
+  },
+  {
+    "ingredients": [
+      "水果",
+      "时间"
+    ],
+    "result": "酒",
+    "category": "Food & Cooking",
+    "explanation": "Fruit left to ferment over time makes wine."
+  },
+  {
+    "ingredients": [
+      "城市",
+      "工作"
+    ],
+    "result": "钱",
+    "category": "City & Market",
+    "explanation": "City work earns money."
+  },
+  {
+    "ingredients": [
+      "城市",
+      "食物"
+    ],
+    "result": "市场",
+    "category": "City & Market",
+    "explanation": "A city place to buy food is a market."
+  },
+  {
+    "ingredients": [
+      "房子",
+      "钱"
+    ],
+    "result": "商店",
+    "category": "City & Market",
+    "explanation": "A building where money buys goods is a shop."
+  },
+  {
+    "ingredients": [
+      "钱",
+      "市场"
+    ],
+    "result": "买",
+    "category": "City & Market",
+    "explanation": "You spend money at the market to buy."
+  },
+  {
+    "ingredients": [
+      "商店",
+      "工人"
+    ],
+    "result": "卖",
+    "category": "City & Market",
+    "explanation": "A shopkeeper sells goods."
+  },
+  {
+    "ingredients": [
+      "房子",
+      "医生"
+    ],
+    "result": "医院",
+    "category": "City & Market",
+    "explanation": "A building where doctors work is a hospital."
+  },
+  {
+    "ingredients": [
+      "人",
+      "药"
+    ],
+    "result": "医生",
+    "category": "City & Market",
+    "explanation": "A person who gives medicine is a doctor."
+  },
+  {
+    "ingredients": [
+      "植物",
+      "病"
+    ],
+    "result": "药",
+    "category": "City & Market",
+    "explanation": "Plants prepared to treat illness are medicine."
+  },
+  {
+    "ingredients": [
+      "人",
+      "虫"
+    ],
+    "result": "病",
+    "category": "City & Market",
+    "explanation": "Germs can make a person ill."
+  },
+  {
+    "ingredients": [
+      "城市",
+      "花园"
+    ],
+    "result": "公园",
+    "category": "City & Market",
+    "explanation": "A public garden in the city is a park."
+  },
+  {
+    "ingredients": [
+      "路",
+      "河"
+    ],
+    "result": "桥",
+    "category": "City & Market",
+    "explanation": "A road crossing a river is a bridge."
+  },
+  {
+    "ingredients": [
+      "砖",
+      "天空"
+    ],
+    "result": "塔",
+    "category": "City & Market",
+    "explanation": "Bricks stacked toward the sky make a tower."
+  },
+  {
+    "ingredients": [
+      "电",
+      "晚上"
+    ],
+    "result": "灯",
+    "category": "City & Market",
+    "explanation": "An electric lamp lights the night."
+  },
+  {
+    "ingredients": [
+      "时间",
+      "电"
+    ],
+    "result": "钟",
+    "category": "City & Market",
+    "explanation": "A clock shows the time."
+  },
+  {
+    "ingredients": [
+      "纸",
+      "城市"
+    ],
+    "result": "地图",
+    "category": "City & Market",
+    "explanation": "A drawing of places on paper is a map."
+  },
+  {
+    "ingredients": [
+      "声音",
+      "心"
+    ],
+    "result": "音乐",
+    "category": "Culture & Arts",
+    "explanation": "Ordered sound from the heart is music."
+  },
+  {
+    "ingredients": [
+      "音乐",
+      "说话"
+    ],
+    "result": "歌",
+    "category": "Culture & Arts",
+    "explanation": "Words set to music make a song."
+  },
+  {
+    "ingredients": [
+      "颜色",
+      "纸"
+    ],
+    "result": "画",
+    "category": "Culture & Arts",
+    "explanation": "Color on paper makes a painting."
+  },
+  {
+    "ingredients": [
+      "音乐",
+      "脚"
+    ],
+    "result": "舞",
+    "category": "Culture & Arts",
+    "explanation": "Moving the feet to music is dance."
+  },
+  {
+    "ingredients": [
+      "书",
+      "说话"
+    ],
+    "result": "故事",
+    "category": "Culture & Arts",
+    "explanation": "Words that recount events make a story."
+  },
+  {
+    "ingredients": [
+      "字",
+      "心"
+    ],
+    "result": "诗",
+    "category": "Culture & Arts",
+    "explanation": "Heartfelt words shaped with care make a poem."
+  },
+  {
+    "ingredients": [
+      "社区",
+      "音乐"
+    ],
+    "result": "节日",
+    "category": "Culture & Arts",
+    "explanation": "A community celebration is a festival."
+  },
+  {
+    "ingredients": [
+      "朋友",
+      "高兴"
+    ],
+    "result": "游戏",
+    "category": "Culture & Arts",
+    "explanation": "Friends playing for fun make a game."
+  },
+  {
+    "ingredients": [
+      "灯",
+      "节日"
+    ],
+    "result": "灯笼",
+    "category": "Culture & Arts",
+    "explanation": "Festivals are lit with lanterns."
+  },
+  {
+    "ingredients": [
+      "光",
+      "纸"
+    ],
+    "result": "照片",
+    "category": "Culture & Arts",
+    "explanation": "Light fixed onto paper makes a photograph."
+  },
+  {
+    "ingredients": [
+      "岩石",
+      "工人"
+    ],
+    "result": "刀",
+    "category": "Human World",
+    "explanation": "A worker sharpens stone or metal into a blade."
+  },
+  {
+    "ingredients": [
+      "木头",
+      "路"
+    ],
+    "result": "轮子",
+    "category": "Human World",
+    "explanation": "Wood shaped to roll on roads is a wheel."
+  },
+  {
+    "ingredients": [
+      "岩石",
+      "火山"
+    ],
+    "result": "钢",
+    "category": "Human World",
+    "explanation": "Metal from rock, refined with intense heat, becomes steel."
+  },
+  {
+    "ingredients": [
+      "钢",
+      "电"
+    ],
+    "result": "机器",
+    "category": "Human World",
+    "explanation": "Steel parts driven by power make a machine."
+  },
+  {
+    "ingredients": [
+      "机器",
+      "电脑"
+    ],
+    "result": "机器人",
+    "category": "Human World",
+    "explanation": "A machine run by a computer is a robot."
+  },
+  {
+    "ingredients": [
+      "港口",
+      "工人"
+    ],
+    "result": "船坞",
+    "category": "Human World",
+    "explanation": "Workers build ships at a shipyard by the port."
+  },
+  {
+    "ingredients": [
+      "田",
+      "牛"
+    ],
+    "result": "农场",
+    "category": "Human World",
+    "explanation": "Fields and livestock together make a farm."
+  },
+  {
+    "ingredients": [
+      "砖",
+      "水"
+    ],
+    "result": "井",
+    "category": "Human World",
+    "explanation": "A hole lined with brick to reach groundwater is a well."
+  },
+  {
+    "ingredients": [
+      "木头",
+      "火"
+    ],
+    "result": "火把",
+    "category": "Human World",
+    "explanation": "Burning wood on a stick is a torch."
+  },
+  {
+    "ingredients": [
+      "火把",
+      "空气"
+    ],
+    "result": "烟",
+    "category": "Human World",
+    "explanation": "A burning torch gives off smoke into the air."
+  },
+  {
+    "ingredients": [
+      "云",
+      "土"
+    ],
+    "result": "雾",
+    "category": "Weather Cycle",
+    "explanation": "A cloud at ground level is fog."
+  },
+  {
+    "ingredients": [
+      "雾",
+      "冰"
+    ],
+    "result": "霜",
+    "category": "Weather Cycle",
+    "explanation": "Freezing mist settles as frost."
+  },
+  {
+    "ingredients": [
+      "冰",
+      "山"
+    ],
+    "result": "冰川",
+    "category": "Weather Cycle",
+    "explanation": "Ice built up on mountains forms a glacier."
+  },
+  {
+    "ingredients": [
+      "风",
+      "暴风雨"
+    ],
+    "result": "风暴",
+    "category": "Weather Cycle",
+    "explanation": "Violent wind and rain make a storm."
+  },
+  {
+    "ingredients": [
+      "雾",
+      "草"
+    ],
+    "result": "露水",
+    "category": "Weather Cycle",
+    "explanation": "Morning mist leaves dew on the grass."
   }
 ]
