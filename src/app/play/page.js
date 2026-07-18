@@ -12,6 +12,7 @@ import {
 } from '../data';
 import BrandMark from '../components/BrandMark';
 import PronunciationButton from '../components/PronunciationButton';
+import { useDialogFocus } from '../useDialogFocus';
 import { usePronunciation } from '../usePronunciation';
 
 const PROGRESS_KEY = 'doujeen_progress_v2';
@@ -34,6 +35,7 @@ export default function GamePage() {
   const [selectedId, setSelectedId] = useState(null);
   const [mobileSelection, setMobileSelection] = useState([]);
   const [discovery, setDiscovery] = useState(null);
+  const [resetConfirming, setResetConfirming] = useState(false);
   const [reactionMessage, setReactionMessage] = useState(null);
   const [librarySearch, setLibrarySearch] = useState('');
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -323,15 +325,17 @@ export default function GamePage() {
   }, [commitCanvas, commitMobileSelection, commitSelectedId]);
 
   const resetProgress = useCallback(() => {
-    // WHY: reset wipes discovered words permanently — confirm before destroying progress.
-    if (!window.confirm('Reset all progress? Your discovered words will be cleared. This cannot be undone.')) return;
     libraryRef.current = STARTER_ITEMS;
     setLibrary(STARTER_ITEMS);
     setDiscoveredRecipeKeys([]);
     clearCanvas();
     setLibrarySearch('');
+    setResetConfirming(false);
     // The persistence effect rewrites localStorage with the cleared state.
   }, [clearCanvas]);
+
+  const closeDiscovery = useCallback(() => setDiscovery(null), []);
+  const closeResetConfirmation = useCallback(() => setResetConfirming(false), []);
 
   const discoveredWordCount = library.length - STARTER_ITEMS.length;
   const progressRatio = DISCOVERABLE_ITEMS.length === 0 ? 0 : discoveredWordCount / DISCOVERABLE_ITEMS.length;
@@ -347,9 +351,11 @@ export default function GamePage() {
     });
   }, [library, librarySearch]);
 
+  const hasOpenModal = Boolean(discovery) || resetConfirming;
+
   return (
     <main className="aurora-canvas flex h-[100dvh] min-h-[100dvh] flex-col overflow-hidden">
-      <header className="relative z-40 flex min-h-17 shrink-0 items-center justify-between gap-3 border-b border-[var(--lab-line)] bg-[var(--lab-surface-90)] px-3 sm:px-5">
+      <header inert={hasOpenModal ? true : undefined} aria-hidden={hasOpenModal ? 'true' : undefined} className="relative z-40 flex min-h-17 shrink-0 items-center justify-between gap-3 border-b border-[var(--lab-line)] bg-[var(--lab-surface-90)] px-3 sm:px-5">
         <BrandMark compact />
         <div className="flex items-center gap-2">
           <div className="hidden rounded-full bg-[var(--lab-mint)] px-4 py-2 text-xs font-black text-[var(--lab-mint-ink)] sm:block">
@@ -359,7 +365,7 @@ export default function GamePage() {
             <span className="sm:hidden">Clear</span>
             <span className="hidden sm:inline">Clear canvas</span>
           </button>
-          <button type="button" onClick={resetProgress} disabled={!hasLoaded} className="lift-control inline-flex min-h-11 items-center rounded-full border border-[var(--lab-line-strong)] px-3 text-xs font-black text-[var(--lab-muted)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/25 disabled:cursor-not-allowed disabled:opacity-50 sm:px-4">
+          <button type="button" onClick={() => setResetConfirming(true)} disabled={!hasLoaded} aria-haspopup="dialog" aria-expanded={resetConfirming} className="lift-control inline-flex min-h-11 items-center rounded-full border border-[var(--lab-line-strong)] px-3 text-xs font-black text-[var(--lab-muted)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/25 disabled:cursor-not-allowed disabled:opacity-50 sm:px-4">
             <span className="sm:hidden">Reset</span>
             <span className="hidden sm:inline">Reset progress</span>
           </button>
@@ -369,7 +375,7 @@ export default function GamePage() {
         </div>
       </header>
 
-      <div className="grid min-h-0 flex-1 grid-rows-[minmax(16rem,1fr)_minmax(0,43vh)] md:grid-cols-[minmax(0,1fr)_20rem] md:grid-rows-none xl:grid-cols-[minmax(0,1fr)_25rem]">
+      <div inert={hasOpenModal ? true : undefined} aria-hidden={hasOpenModal ? 'true' : undefined} className="grid min-h-0 flex-1 grid-rows-[minmax(16rem,1fr)_minmax(0,43vh)] md:grid-cols-[minmax(0,1fr)_20rem] md:grid-rows-none xl:grid-cols-[minmax(0,1fr)_25rem]">
         <section ref={canvasRef} className="relative min-h-0 overflow-hidden border-b border-[var(--lab-line)] md:border-b-0 md:border-r" aria-label="Chinese craft canvas">
           <div className="soft-grid absolute inset-0 opacity-35" aria-hidden="true" />
           <div className="orbit-line -left-[15%] top-[7%] h-[70%] w-[75%]" aria-hidden="true" />
@@ -463,14 +469,6 @@ export default function GamePage() {
             </div>
           )}
 
-          {discovery && (
-            <DiscoveryCard
-              discovery={discovery}
-              playingCharacter={playingCharacter}
-              onPlay={playPronunciation}
-              onClose={() => setDiscovery(null)}
-            />
-          )}
         </section>
 
         <aside className="surface-panel relative z-30 flex h-full min-h-0 flex-col overflow-hidden rounded-t-[1.8rem] border-x-0 border-b-0 md:h-auto md:rounded-none md:border-0" aria-labelledby="collection-title">
@@ -530,34 +528,193 @@ export default function GamePage() {
       </div>
 
       {pronunciationError && <div role="status" className="fixed left-1/2 top-20 z-[70] -translate-x-1/2 rounded-full bg-[var(--lab-ink)] px-5 py-3 text-center text-xs font-black text-[var(--lab-surface)] shadow-xl">{pronunciationError}</div>}
+      {discovery && (
+        <DiscoveryModal
+          discovery={discovery}
+          playingCharacter={playingCharacter}
+          onPlay={playPronunciation}
+          onClose={closeDiscovery}
+        />
+      )}
+      {resetConfirming && (
+        <ResetProgressModal
+          onClose={closeResetConfirmation}
+          onConfirm={resetProgress}
+        />
+      )}
     </main>
   );
 }
 
-function DiscoveryCard({ discovery, playingCharacter, onPlay, onClose }) {
+function useModalController({ initialFocusRef, onClose }) {
+  const [closing, setClosing] = useState(false);
+  const dialogRef = useRef(null);
+  const closingRef = useRef(false);
+  const closeTimerRef = useRef(null);
+
+  const requestClose = useCallback((afterClose) => {
+    if (closingRef.current) return;
+
+    closingRef.current = true;
+    setClosing(true);
+    const completion = typeof afterClose === 'function' ? afterClose : onClose;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    closeTimerRef.current = window.setTimeout(completion, prefersReducedMotion ? 0 : 240);
+  }, [onClose]);
+
+  const closeModal = useCallback(() => requestClose(), [requestClose]);
+
+  React.useEffect(() => () => window.clearTimeout(closeTimerRef.current), []);
+
+  useDialogFocus({
+    isOpen: true,
+    dialogRef,
+    initialFocusRef,
+    onClose: closeModal,
+  });
+
+  return { closing, dialogRef, requestClose };
+}
+
+function ModalShell({ labelledBy, describedBy, dialogRef, closing, onClose, maxWidth = 'max-w-lg', children }) {
+  return (
+    <div
+      className={`fixed inset-0 z-[80] flex items-center justify-center overflow-y-auto bg-[var(--lab-overlay)] p-4 backdrop-blur-[6px] sm:p-6 ${closing ? 'pointer-events-none animate-backdrop-exit' : 'animate-backdrop-enter'}`}
+      onClick={() => onClose()}
+    >
+      <div
+        ref={dialogRef}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby={labelledBy}
+        aria-describedby={describedBy}
+        tabIndex={-1}
+        onClick={(event) => event.stopPropagation()}
+        className={`surface-panel relative max-h-[calc(100dvh-2rem)] w-full ${maxWidth} overflow-y-auto rounded-[2.25rem] p-5 shadow-[0_28px_90px_var(--lab-shadow)] sm:max-h-[calc(100dvh-3rem)] sm:rounded-[2.75rem] sm:p-8 ${closing ? 'animate-modal-exit' : 'animate-modal-enter'}`}
+      >
+        {children}
+      </div>
+    </div>
+  );
+}
+
+function DiscoveryModal({ discovery, playingCharacter, onPlay, onClose }) {
+  const primaryActionRef = useRef(null);
+  const { closing, dialogRef, requestClose } = useModalController({ initialFocusRef: primaryActionRef, onClose });
   const [first, second] = discovery.ingredients;
   const firstData = getData(first);
   const secondData = getData(second);
 
   return (
-    <section aria-label={`Discovered ${discovery.result}`} aria-live="polite" className="animate-ingredient-enter surface-panel absolute inset-x-3 bottom-3 z-40 mx-auto max-w-xl rounded-[1.6rem] p-3 shadow-[0_18px_50px_var(--lab-shadow)] sm:inset-x-6 sm:bottom-6 sm:p-4">
-      <button type="button" onClick={onClose} className="lift-control absolute right-2 top-2 grid h-11 w-11 place-items-center rounded-full text-lg font-black text-[var(--lab-muted)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/25" aria-label="Close discovery card">×</button>
-      <div className="flex items-center gap-3 pr-11">
-        <span className="grid h-14 w-14 shrink-0 place-items-center rounded-[1rem] bg-[var(--lab-mint)] text-3xl" aria-hidden="true">{discovery.emoji}</span>
-        <div className="min-w-0">
-          <div className="eyebrow">{discovery.isNewWord ? 'New word discovered' : 'Crafted again'}</div>
-          <div className="mt-1 flex flex-wrap items-baseline gap-x-2">
-            <h2 className="hanzi-text text-3xl font-black tracking-[-0.04em] text-[var(--lab-ink)]" lang="zh-Hans">{discovery.result}</h2>
-            <span className="text-sm font-black text-[var(--lab-action)]">{discovery.pinyin}</span>
-            <span className="text-sm font-bold text-[var(--lab-muted)]">{discovery.name}{discovery.hskLevel ? ` · ${discovery.hskLevel}` : ''}</span>
+    <ModalShell
+      labelledBy="discovery-title"
+      describedBy="discovery-description"
+      dialogRef={dialogRef}
+      closing={closing}
+      onClose={requestClose}
+    >
+      <>
+          <button
+            type="button"
+            onClick={() => requestClose()}
+            className="lift-control absolute right-3 top-3 grid h-11 w-11 place-items-center rounded-full text-xl font-black text-[var(--lab-muted)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/25 sm:right-5 sm:top-5"
+            aria-label="Close discovery"
+          >
+            ×
+          </button>
+
+          <div className="pr-10 text-center sm:pr-0">
+            <div className="mx-auto grid h-20 w-20 place-items-center rounded-[1.7rem] bg-[var(--lab-mint)] text-4xl shadow-[0_10px_0_var(--lab-lilac)] sm:h-24 sm:w-24 sm:text-5xl" aria-hidden="true">
+              {discovery.emoji}
+            </div>
+            <div className="eyebrow mt-6">{discovery.isNewWord ? 'New word discovered' : 'Crafted again'}</div>
+            <h2 id="discovery-title" className="hanzi-text mt-2 text-5xl font-black tracking-[-0.06em] text-[var(--lab-ink)] sm:text-6xl" lang="zh-Hans">
+              {discovery.result}
+            </h2>
+            <p className="mt-1 text-lg font-black text-[var(--lab-action)]">{discovery.pinyin}</p>
+            <p className="mt-1 text-sm font-bold text-[var(--lab-muted)]">
+              {discovery.name}{discovery.hskLevel ? ` · ${discovery.hskLevel}` : ''}
+            </p>
           </div>
-        </div>
-        <PronunciationButton character={discovery.result} isPlaying={playingCharacter === discovery.result} onPlay={onPlay} className="h-12 w-12 shrink-0" />
-      </div>
-      <div className="mt-3 flex flex-wrap items-center gap-2 rounded-[1rem] bg-[var(--lab-lilac)] px-3 py-2 text-xs font-black text-[var(--lab-ink-soft)]">
-        <span lang="zh-Hans">{firstData.emoji} {first}</span><span aria-hidden="true">+</span><span lang="zh-Hans">{secondData.emoji} {second}</span><span aria-hidden="true">→</span><span lang="zh-Hans">{discovery.emoji} {discovery.result}</span>
-      </div>
-      <p className="mt-2 text-xs font-bold leading-5 text-[var(--lab-muted)]">{discovery.explanation}</p>
-    </section>
+
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-2 rounded-[1.35rem] bg-[var(--lab-lilac)] px-3 py-3 text-sm font-black text-[var(--lab-ink-soft)] sm:px-5">
+            <span lang="zh-Hans">{firstData.emoji} {first}</span>
+            <span aria-hidden="true">+</span>
+            <span lang="zh-Hans">{secondData.emoji} {second}</span>
+            <span aria-hidden="true">→</span>
+            <span lang="zh-Hans">{discovery.emoji} {discovery.result}</span>
+          </div>
+
+          <p id="discovery-description" className="mt-4 text-center text-sm font-bold leading-6 text-[var(--lab-muted)]">
+            {discovery.explanation}
+          </p>
+
+          <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+            <PronunciationButton
+              character={discovery.result}
+              isPlaying={playingCharacter === discovery.result}
+              onPlay={onPlay}
+              className="h-13 w-full shrink-0 rounded-full sm:w-14"
+            />
+            <button
+              ref={primaryActionRef}
+              type="button"
+              onClick={() => requestClose()}
+              className="lift-control min-h-13 flex-1 rounded-full bg-[var(--lab-action)] px-6 py-3 text-sm font-black text-white shadow-[0_7px_0_var(--lab-action-depth)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/30"
+            >
+              Keep exploring
+            </button>
+          </div>
+      </>
+    </ModalShell>
+  );
+}
+
+function ResetProgressModal({ onClose, onConfirm }) {
+  const cancelButtonRef = useRef(null);
+  const { closing, dialogRef, requestClose } = useModalController({ initialFocusRef: cancelButtonRef, onClose });
+
+  return (
+    <ModalShell
+      labelledBy="reset-title"
+      describedBy="reset-description"
+      dialogRef={dialogRef}
+      closing={closing}
+      onClose={requestClose}
+      maxWidth="max-w-md"
+    >
+      <>
+          <div className="mx-auto grid h-20 w-20 place-items-center rounded-[1.7rem] bg-[var(--lab-peach)] text-4xl shadow-[0_10px_0_var(--lab-lilac)]" aria-hidden="true">
+            ↺
+          </div>
+          <div className="mt-6 text-center">
+            <div className="eyebrow">Reset progress</div>
+            <h2 id="reset-title" className="mt-2 text-3xl font-black tracking-[-0.04em] text-[var(--lab-ink)]">
+              Start from four words?
+            </h2>
+            <p id="reset-description" className="mt-3 text-sm font-bold leading-6 text-[var(--lab-muted)]">
+              This permanently removes every discovered word and recipe saved on this device. Your four starter words will stay.
+            </p>
+          </div>
+
+          <div className="mt-7 flex flex-col-reverse gap-3 sm:flex-row">
+            <button
+              ref={cancelButtonRef}
+              type="button"
+              onClick={() => requestClose()}
+              className="lift-control min-h-13 flex-1 rounded-full border border-[var(--lab-line-strong)] bg-[var(--lab-surface)] px-5 py-3 text-sm font-black text-[var(--lab-ink)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/25"
+            >
+              Keep discoveries
+            </button>
+            <button
+              type="button"
+              onClick={() => requestClose(onConfirm)}
+              className="lift-control min-h-13 flex-1 rounded-full bg-[var(--lab-danger)] px-5 py-3 text-sm font-black text-white focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-danger)]/25"
+            >
+              Reset everything
+            </button>
+          </div>
+      </>
+    </ModalShell>
   );
 }
