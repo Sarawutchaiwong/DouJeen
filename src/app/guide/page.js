@@ -2,7 +2,23 @@
 
 import { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
-import { BASE_CHARS, RECIPES, getData } from '../data';
+import BrandMark from '../components/BrandMark';
+import {
+  BASE_CHARS,
+  BIBLIOGRAPHY,
+  RECIPES,
+  RECIPE_CATEGORIES,
+  getData,
+  getRecipe,
+  getRecipeIngredients,
+} from '../data';
+
+const CATEGORY_ICONS = {
+  'Nature & Weather': '🌦️',
+  'People & Places': '🧑‍🤝‍🧑',
+  Learning: '📚',
+  'Technology & Transport': '🚆',
+};
 
 export default function GuidePage() {
   const [search, setSearch] = useState('');
@@ -60,9 +76,7 @@ export default function GuidePage() {
       return;
     }
 
-    const combo1 = newItems[0] + newItems[1];
-    const combo2 = newItems[1] + newItems[0];
-    const match = RECIPES[combo1] || RECIPES[combo2];
+    const match = getRecipe(newItems[0], newItems[1]);
     setSandboxResult(match || { result: '?', emoji: '🧪', name: 'No reaction' });
   };
 
@@ -76,86 +90,80 @@ export default function GuidePage() {
     if (!search) return entries;
     const q = search.toLowerCase();
     return entries.filter(([key, recipe]) => {
-      const char1 = key[0];
-      const char2 = key.length > 2 ? key.slice(1) : key[1];
-      const d1 = getData(char1);
-      const d2 = getData(char2);
+      const [first, second] = getRecipeIngredients(key);
+      const d1 = getData(first);
+      const d2 = getData(second);
       return (
         recipe.result.includes(search) ||
         recipe.pinyin.toLowerCase().includes(q) ||
         recipe.name.toLowerCase().includes(q) ||
         recipe.category.toLowerCase().includes(q) ||
-        recipe.note.toLowerCase().includes(q) ||
+        recipe.sourceDefinition.toLowerCase().includes(q) ||
         d1.name.toLowerCase().includes(q) ||
         d2.name.toLowerCase().includes(q)
       );
     });
   }, [search]);
 
-  const categories = ['States of Matter', 'Materials', 'Physical Mixes & Biology'];
-
   return (
     <main className="min-h-screen bg-graph-paper font-sans relative pb-20">
       
-      {/* Scientist Header */}
-      <header className="sticky top-0 z-40 bg-[var(--lab-surface-90)] backdrop-blur-md border-b-4 border-[var(--lab-sky)]/20 shadow-sm">
-        <div className="max-w-4xl mx-auto flex items-center justify-between gap-2 px-3 py-3 sm:px-6 sm:py-4">
-          <div className="flex min-w-0 items-center gap-2 sm:gap-4">
-            <Link
-              href="/"
-              aria-label="Back to home"
-              title="Back to home"
-              className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border-2 border-[var(--lab-line)] bg-[var(--lab-surface)] text-[var(--lab-action)] shadow-[0_4px_0_var(--lab-shadow)] transition-[transform,background-color,box-shadow,border-color] duration-[var(--duration-press)] ease-[var(--ease-out)] hover:translate-y-[2px] active:translate-y-[4px] active:shadow-none focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/30"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <header className="sticky top-0 z-40 border-b border-[var(--lab-line)] bg-[var(--lab-surface-90)]">
+        <div className="mx-auto flex min-h-18 max-w-6xl items-center justify-between gap-3 px-4 sm:px-6">
+          <BrandMark compact />
+          <div className="flex items-center gap-2">
+            <span className="hidden rounded-full bg-[var(--lab-lilac)] px-4 py-2 text-xs font-black text-[var(--lab-ink)] sm:inline-flex">46 sourced words</span>
+            <Link href="/play" className="lift-control inline-flex min-h-11 shrink-0 items-center justify-center rounded-full bg-[var(--lab-action)] px-5 text-sm font-black text-[var(--lab-surface)] shadow-[0_8px_22px_var(--lab-action-shadow)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/25">
+              Open lab
             </Link>
-            <div className="min-w-0">
-              <h1 className="flex items-center gap-1 truncate text-base font-black tracking-tight text-zinc-800 sm:gap-2 sm:text-xl">
-                Scientist&apos;s Log <span aria-hidden="true">🔬</span>
-              </h1>
-              <p className="hidden text-[10px] font-black text-[var(--lab-muted)] uppercase tracking-widest min-[360px]:block">Research & Discovery Manual</p>
-            </div>
           </div>
-
-          <Link
-            href="/play"
-            className="inline-flex min-h-11 shrink-0 items-center justify-center rounded-2xl bg-[var(--lab-action)] px-4 py-3 text-xs font-black text-[var(--lab-surface)] shadow-[0_4px_0_var(--lab-action-shadow)] transition-[transform,background-color,box-shadow] duration-[var(--duration-press)] ease-[var(--ease-out)] hover:translate-y-[2px] hover:bg-[var(--lab-action-hover)] active:translate-y-[4px] active:shadow-none focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/30 sm:px-6 sm:text-sm"
-          >
-            <span className="sm:hidden">LAB</span>
-            <span className="hidden sm:inline">LABORATORY</span>
-          </Link>
         </div>
       </header>
 
-      <div className="max-w-4xl mx-auto px-3 py-8 sm:px-6">
-        
-        
+      <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-14">
+        <section className="mb-10 grid items-end gap-6 md:grid-cols-[1fr_auto]">
+          <div>
+            <div className="eyebrow">Dictionary-backed answer key</div>
+            <h1 className="mt-3 max-w-3xl text-[clamp(2.8rem,7vw,5.8rem)] font-black leading-[0.9] tracking-[-0.065em] text-[var(--lab-ink)]">The word <span className="text-[var(--lab-action)]">atlas.</span></h1>
+            <p className="mt-5 max-w-2xl text-lg font-medium leading-8 text-[var(--lab-ink-soft)]">Explore every valid reaction, reveal definitions at your pace, and verify pronunciation against the cited dictionary source.</p>
+          </div>
+          <div className="flex gap-2 md:pb-2" aria-label="Answer key summary">
+            <span className="pastel-pill rounded-full px-4 py-2 text-sm font-black">4 collections</span>
+            <span className="rounded-full bg-[var(--lab-mint)] px-4 py-2 text-sm font-black text-[var(--lab-mint-ink)]">CC-CEDICT</span>
+          </div>
+        </section>
 
         {/* Base Elements - The Selection Palette */}
-        <section className="mb-12">
-          <h2 className="text-xs font-black text-[var(--lab-muted)] uppercase tracking-[0.3em] mb-6 px-2 flex items-center gap-3">
-            <span className="w-8 h-[2px] bg-zinc-200"></span>
-            Primary Reagents
-            <span className="w-8 h-[2px] bg-zinc-200"></span>
-          </h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <details className="surface-panel group mb-10 overflow-hidden rounded-[2rem]">
+          <summary className="lift-control flex min-h-20 cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 focus:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-[var(--lab-action)]/25 sm:px-7">
+            <span>
+              <span className="eyebrow block">Practice sandbox</span>
+              <span className="mt-1 block text-xl font-black tracking-[-0.03em] text-[var(--lab-ink)]">Open the 40-character bank</span>
+            </span>
+            <span className="inline-grid h-10 w-10 shrink-0 place-items-center rounded-full bg-[var(--lab-lilac)] text-xl font-black text-[var(--lab-ink)] transition-transform duration-[var(--duration-ui)] ease-[var(--ease-out)] group-open:rotate-45" aria-hidden="true">+</span>
+          </summary>
+          <div className="border-t border-[var(--lab-line)] p-4 sm:p-7">
+          <p className="mb-5 text-sm font-bold text-[var(--lab-muted)]">
+            Combine in the shown order: the first character or word goes on the left.
+          </p>
+          <div className="grid grid-cols-4 gap-3 sm:grid-cols-6 md:grid-cols-8">
             {Object.values(BASE_CHARS).map((item) => (
               <button
                 key={item.char}
                 type="button"
                 onClick={() => addToSandbox(item.char)}
-                className="bg-[var(--lab-surface)] rounded-3xl p-5 shadow-[0_6px_0_var(--lab-shadow)] border-2 border-transparent hover:border-[var(--lab-action)] flex flex-col items-center gap-2 transition-[transform,background-color,box-shadow,border-color] duration-[var(--duration-press)] ease-[var(--ease-out)] hover:-translate-y-1 active:translate-y-1 active:shadow-none group focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/30"
+                className="lift-control group flex min-h-24 flex-col items-center justify-center gap-1 rounded-[1.4rem] border border-[var(--lab-line)] bg-[var(--lab-surface)] p-2 focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/25"
                 aria-label={`Add ${item.char}, ${item.name}, to the reagent sandbox`}
               >
-                <span className="text-4xl transition-transform duration-[var(--duration-press)] ease-[var(--ease-out)] group-hover:scale-110">{item.emoji}</span>
-                <span className="text-2xl font-black text-zinc-800">{item.char}</span>
-                <span className="text-[10px] font-black text-[var(--lab-action)] uppercase tracking-widest">{item.pinyin}</span>
+                <span className="text-2xl transition-transform duration-[var(--duration-press)] ease-[var(--ease-out)] group-hover:scale-110">{item.emoji}</span>
+                <span className="hanzi-text text-xl font-black text-[var(--lab-ink)]" lang="zh-Hans">{item.char}</span>
+                <span className="text-[9px] font-black text-[var(--lab-action)]">{item.pinyin}</span>
               </button>
             ))}
           </div>
 
           <div
-            className="mt-6 min-h-32 rounded-[32px] border-4 border-dashed border-[var(--lab-sky)]/40 bg-[var(--lab-surface-90)] p-6 text-center shadow-sm"
+            className="mt-6 min-h-32 rounded-[1.7rem] border border-dashed border-[var(--lab-line-strong)] bg-[var(--lab-lilac)]/40 p-6 text-center"
             role="status"
             aria-live="polite"
             aria-atomic="true"
@@ -166,14 +174,14 @@ export default function GuidePage() {
 
             {sandboxItems.length === 1 && (
               <div className="space-y-2">
-                <p className="text-4xl font-black text-zinc-800">{sandboxItems[0]}</p>
+                <p className="hanzi-text text-4xl font-black text-[var(--lab-ink)]" lang="zh-Hans">{sandboxItems[0]}</p>
                 <p className="font-black text-[var(--lab-muted)]">Choose one more reagent.</p>
               </div>
             )}
 
             {sandboxItems.length === 2 && sandboxResult && (
               <div className="space-y-3">
-                <p className="flex items-center justify-center gap-3 text-2xl font-black text-zinc-800">
+                <p className="hanzi-text flex flex-wrap items-center justify-center gap-3 text-2xl font-black text-[var(--lab-ink)]" lang="zh-Hans">
                   <span>{sandboxItems[0]}</span>
                   <span aria-hidden="true">+</span>
                   <span>{sandboxItems[1]}</span>
@@ -183,7 +191,7 @@ export default function GuidePage() {
                 {sandboxResult.result === '?' ? (
                   <p className="font-black text-[var(--lab-danger)]">No reaction. Try another pair.</p>
                 ) : (
-                  <p className="font-bold text-zinc-700">
+                  <p className="font-bold text-[var(--lab-ink-soft)]">
                     Chinese connection: <span lang="zh-Hans" className="font-black">{sandboxResult.result}</span> means {sandboxResult.name}. Say <span className="font-black text-[var(--lab-action)]">{sandboxResult.pinyin}</span> aloud.
                   </p>
                 )}
@@ -194,17 +202,18 @@ export default function GuidePage() {
               <button
                 type="button"
                 onClick={clearSandbox}
-                className="mt-5 min-h-11 rounded-2xl border-2 border-[var(--lab-line)] bg-[var(--lab-surface)] px-5 py-2 text-xs font-black text-zinc-700 transition-colors duration-[var(--duration-press)] ease-[var(--ease-out)] hover:bg-[var(--lab-surface-soft)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/30"
+                className="lift-control mt-5 min-h-11 rounded-full border border-[var(--lab-line-strong)] bg-[var(--lab-surface)] px-5 py-2 text-xs font-black text-[var(--lab-ink)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/25"
               >
                 CLEAR SANDBOX
               </button>
             )}
           </div>
-        </section>
+          </div>
+        </details>
 
         {/* Controls & Filter */}
-        <section className="mb-12 sticky top-20 z-30 sm:top-24">
-          <div className="flex flex-col sm:flex-row gap-4">
+        <section className="sticky top-20 z-30 mb-12 rounded-[1.7rem] border border-[var(--lab-line)] bg-[var(--lab-surface-90)] p-2 shadow-[0_14px_40px_var(--lab-shadow)]">
+          <div className="flex flex-col gap-2 sm:flex-row">
             <div className="flex-1 relative group">
               <label htmlFor="recipe-search" className="sr-only">Search recipes</label>
               <input
@@ -213,37 +222,36 @@ export default function GuidePage() {
                 type="text"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                placeholder="Search by element, pinyin, or logic..."
-                className="w-full bg-[var(--lab-surface)] rounded-3xl px-6 py-4 pl-14 text-sm font-bold text-zinc-700 placeholder:text-[var(--lab-muted)] border-4 border-transparent shadow-[0_8px_30px_rgba(0,0,0,0.04)] focus:outline-none focus:border-[var(--lab-action)]/50 transition-[border-color,box-shadow] duration-[var(--duration-ui)] ease-[var(--ease-out)]"
+                placeholder="Search by word, pinyin, meaning, or category..."
+                className="min-h-12 w-full rounded-[1.25rem] border border-transparent bg-[var(--lab-surface)] px-5 py-3 pl-12 text-sm font-bold text-[var(--lab-ink)] outline-none placeholder:text-[var(--lab-muted)] focus:border-[var(--lab-action)] focus:ring-4 focus:ring-[var(--lab-action)]/10"
               />
-              <svg aria-hidden="true" className="absolute left-6 top-1/2 -translate-y-1/2 text-[var(--lab-muted)] group-focus-within:text-[var(--lab-action)] transition-colors duration-[var(--duration-ui)] ease-[var(--ease-out)]" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+              <svg aria-hidden="true" className="absolute left-4 top-1/2 -translate-y-1/2 text-[var(--lab-muted)] group-focus-within:text-[var(--lab-action)]" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
             </div>
             <div className="flex gap-2">
-              <button type="button" onClick={revealAll} className="min-h-11 bg-zinc-800 text-[var(--lab-surface)] px-6 py-3 rounded-2xl text-xs font-black hover:bg-zinc-700 transition-colors duration-[var(--duration-press)] ease-[var(--ease-out)] shadow-lg focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/30">SHOW ALL</button>
-              <button type="button" onClick={hideAll} className="min-h-11 bg-[var(--lab-surface)] text-[var(--lab-muted)] border-2 border-[var(--lab-line)] px-6 py-3 rounded-2xl text-xs font-black hover:bg-[var(--lab-surface-soft)] transition-colors duration-[var(--duration-press)] ease-[var(--ease-out)] shadow-sm focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/30">RESET</button>
+              <button type="button" onClick={revealAll} className="lift-control min-h-12 rounded-[1.25rem] bg-[var(--lab-ink)] px-5 py-3 text-xs font-black text-[var(--lab-surface)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/25">Reveal all</button>
+              <button type="button" onClick={hideAll} className="lift-control min-h-12 rounded-[1.25rem] border border-[var(--lab-line)] bg-[var(--lab-surface)] px-5 py-3 text-xs font-black text-[var(--lab-muted)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/25">Reset</button>
             </div>
           </div>
         </section>
 
         {/* Categorized Recipes */}
-        {categories.map(category => {
+        {RECIPE_CATEGORIES.map(category => {
           const catRecipes = filteredRecipes.filter(([_, r]) => r.category === category);
           if (catRecipes.length === 0) return null;
           
           return (
             <section key={category} className="mb-12">
-              <h3 className="mb-6 flex flex-wrap items-center gap-2 text-lg font-black text-zinc-800 sm:gap-3">
-                {category === 'States of Matter' ? '🧪' : category === 'Materials' ? '🔬' : '🌱'}
+              <h3 className="mb-5 flex flex-wrap items-center gap-3 text-xl font-black tracking-[-0.035em] text-[var(--lab-ink)]">
+                <span className="inline-grid h-10 w-10 place-items-center rounded-[1rem] bg-[var(--lab-lilac)] text-lg" aria-hidden="true">{CATEGORY_ICONS[category]}</span>
                 {category}
-                <span className="text-[10px] text-[var(--lab-muted)] uppercase tracking-widest font-black ml-auto">{catRecipes.length} Discoveries</span>
+                <span className="ml-auto rounded-full border border-[var(--lab-line)] bg-[var(--lab-surface-60)] px-3 py-1 text-[10px] font-black uppercase tracking-widest text-[var(--lab-muted)]">{catRecipes.length} words</span>
               </h3>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                 {catRecipes.map(([key, recipe]) => {
-                  const char1 = key[0];
-                  const char2 = key.length > 2 ? key.slice(1) : key[1];
-                  const d1 = getData(char1);
-                  const d2 = getData(char2);
+                  const [first, second] = getRecipeIngredients(key);
+                  const d1 = getData(first);
+                  const d2 = getData(second);
                   const isFound = progress.includes(recipe.result);
                   const isRevealed = revealed[key] ?? isFound;
 
@@ -254,28 +262,27 @@ export default function GuidePage() {
                       onClick={() => toggleReveal(key, isFound)}
                       aria-expanded={isRevealed}
                       className={`
-                        w-full bg-[var(--lab-surface)] rounded-[32px] p-4 sm:p-6 shadow-[0_8px_0_var(--lab-shadow)] border-4 border-transparent
-                        hover:border-[var(--lab-peach)]/50 transition-[transform,background-color,box-shadow,border-color] duration-[var(--duration-press)] ease-[var(--ease-out)] text-left cursor-pointer relative group
-                        focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/30
-                        ${isFound ? 'ring-2 ring-[var(--lab-mint)]/50' : ''}
+                        lift-control surface-panel group relative w-full cursor-pointer rounded-[1.8rem] p-4 text-left sm:p-5
+                        focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/25
+                        ${isFound ? 'border-[var(--lab-mint-bright)]' : ''}
                       `}
                     >
                       {isFound && (
-                        <div className="absolute -top-3 -right-3 w-10 h-10 bg-[var(--lab-surface)] rounded-full shadow-lg flex items-center justify-center text-xl border-2 border-[var(--lab-mint)] z-10">
-                          ⭐
+                        <div className="absolute -right-2 -top-2 z-10 inline-flex h-9 items-center gap-1 rounded-full border border-[var(--lab-mint-bright)] bg-[var(--lab-mint)] px-3 text-[10px] font-black uppercase tracking-wider text-[var(--lab-mint-ink)]">
+                          <span aria-hidden="true">✓</span> found
                         </div>
                       )}
 
                       {/* Formula */}
-                      <div className="mb-4 flex flex-wrap items-center gap-2 sm:gap-4">
-                        <div className="flex items-center gap-1.5 bg-zinc-50 px-3 py-2 rounded-2xl border-2 border-zinc-100">
+                      <div className="mb-4 flex flex-wrap items-center gap-2">
+                        <div className="flex items-center gap-1.5 rounded-[1rem] border border-[var(--lab-line)] bg-[var(--lab-peach)] px-3 py-2">
                           <span className="text-xl">{d1.emoji}</span>
-                          <span className="text-xl font-black text-zinc-800">{char1}</span>
+                          <span className="hanzi-text text-xl font-black text-[var(--lab-ink)]" lang="zh-Hans">{first}</span>
                         </div>
                         <span className="text-[var(--lab-muted)] font-black">+</span>
-                        <div className="flex items-center gap-1.5 bg-zinc-50 px-3 py-2 rounded-2xl border-2 border-zinc-100">
+                        <div className="flex items-center gap-1.5 rounded-[1rem] border border-[var(--lab-line)] bg-[var(--lab-mint)] px-3 py-2">
                           <span className="text-xl">{d2.emoji}</span>
-                          <span className="text-xl font-black text-zinc-800">{char2}</span>
+                          <span className="hanzi-text text-xl font-black text-[var(--lab-ink)]" lang="zh-Hans">{second}</span>
                         </div>
                         <span className="text-[var(--lab-muted)] font-black">=</span>
 
@@ -285,18 +292,18 @@ export default function GuidePage() {
                             className={`col-start-1 row-start-1 flex items-center gap-2 transition-[transform,opacity] duration-[var(--duration-ui)] ease-[var(--ease-out)] ${isRevealed ? 'translate-y-0 opacity-100' : 'pointer-events-none translate-y-1 opacity-0'}`}
                           >
                             <span className="text-2xl">{recipe.emoji}</span>
-                            <span className="text-2xl font-black text-[var(--lab-action)]">{recipe.result}</span>
+                            <span className="hanzi-text text-2xl font-black text-[var(--lab-action)]" lang="zh-Hans">{recipe.result}</span>
                           </div>
                           <div
                             aria-hidden={isRevealed}
-                            className={`col-start-1 row-start-1 justify-self-start rounded-2xl border-2 border-dashed border-[var(--lab-peach)] bg-[var(--lab-peach)]/35 px-4 py-2 text-[10px] font-black uppercase tracking-widest text-[var(--lab-peach-ink)] transition-[transform,opacity,background-color] duration-[var(--duration-ui)] ease-[var(--ease-out)] group-hover:bg-[var(--lab-peach)]/50 ${isRevealed ? 'pointer-events-none -translate-y-1 opacity-0' : 'translate-y-0 opacity-100'}`}
+                            className={`col-start-1 row-start-1 justify-self-start rounded-full border border-[var(--lab-line-strong)] bg-[var(--lab-lilac)] px-4 py-2 text-[10px] font-black uppercase tracking-widest text-[var(--lab-ink)] transition-[transform,opacity] duration-[var(--duration-ui)] ease-[var(--ease-out)] ${isRevealed ? 'pointer-events-none -translate-y-1 opacity-0' : 'translate-y-0 opacity-100'}`}
                           >
-                            Reveal Logic
+                            Reveal Word
                           </div>
                         </div>
                       </div>
 
-                      {/* Scientific Data */}
+                      {/* Dictionary data */}
                       <div
                         aria-hidden={!isRevealed}
                         className={`grid transition-[grid-template-rows,opacity] duration-[var(--duration-ui)] ease-[var(--ease-out)] ${isRevealed ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}
@@ -305,11 +312,11 @@ export default function GuidePage() {
                           <div className="space-y-3">
                           <div className="flex items-center gap-3">
                             <span className="text-xs font-black text-[var(--lab-action)] uppercase tracking-widest">{recipe.pinyin}</span>
-                            <span className="w-1 h-1 bg-zinc-200 rounded-full"></span>
-                            <span className="text-xs font-black text-zinc-500 uppercase tracking-widest">{recipe.name}</span>
+                            <span className="h-1 w-1 rounded-full bg-[var(--lab-line-strong)]"></span>
+                            <span className="text-xs font-black uppercase tracking-widest text-[var(--lab-muted)]">{recipe.name}</span>
                           </div>
-                          <p className="text-[11px] leading-relaxed text-[var(--lab-muted)] font-bold bg-zinc-50/50 p-3 rounded-xl border border-zinc-100 italic">
-                            &ldquo;{recipe.note}&rdquo;
+                          <p className="rounded-[1rem] border border-[var(--lab-line)] bg-[var(--lab-surface-soft)] p-3 text-[11px] font-bold leading-relaxed text-[var(--lab-muted)]">
+                            CC-CEDICT definition: &ldquo;{recipe.sourceDefinition}&rdquo; <span className="not-italic">[1]</span>
                           </p>
                           </div>
                         </div>
@@ -323,11 +330,41 @@ export default function GuidePage() {
         })}
 
         {filteredRecipes.length === 0 && (
-          <div className="bg-[var(--lab-surface-40)] border-4 border-dashed border-zinc-100 rounded-[40px] p-20 text-center">
+          <div className="surface-panel rounded-[2rem] border-dashed p-16 text-center">
             <span className="text-6xl mb-6 block opacity-20">🧪</span>
             <p className="text-[var(--lab-muted)] font-black uppercase tracking-widest">No matching research entries found.</p>
           </div>
         )}
+
+        <section aria-labelledby="bibliography-title" className="surface-panel mt-16 rounded-[2rem] p-6 sm:p-8">
+          <div className="eyebrow">Source note · 01</div>
+          <h2 id="bibliography-title" className="mt-2 text-2xl font-black tracking-[-0.035em] text-[var(--lab-ink)]">Bibliography</h2>
+          <p className="mt-2 text-sm font-bold leading-relaxed text-[var(--lab-muted)]">
+            Every Chinese headword, pinyin reading, and English definition in this answer key is sourced from the bibliography below. Tone marks are generated directly from CC-CEDICT&apos;s numbered pinyin.
+          </p>
+          <ol className="mt-5 space-y-4">
+            {BIBLIOGRAPHY.map((source, index) => (
+              <li key={source.id} className="rounded-[1.3rem] bg-[var(--lab-lilac)] p-4 text-sm leading-relaxed text-[var(--lab-ink-soft)]">
+                <span className="font-black">[{index + 1}] {source.citation}</span>{' '}
+                <a
+                  href={source.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex min-h-11 items-center px-1 font-black text-[var(--lab-action)] underline decoration-2 underline-offset-4 focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/30"
+                >
+                  Source
+                </a>
+                <span className="block text-[var(--lab-muted)]">{source.scope}</span>
+                <span className="block text-[var(--lab-muted)]">
+                  License:{' '}
+                  <a href={source.licenseUrl} target="_blank" rel="noreferrer" className="inline-flex min-h-11 items-center align-middle underline underline-offset-2 focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/30">
+                    {source.license}
+                  </a>
+                </span>
+              </li>
+            ))}
+          </ol>
+        </section>
       </div>
     </main>
   );

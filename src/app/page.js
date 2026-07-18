@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+import BrandMark from './components/BrandMark';
 import { useDialogFocus } from './useDialogFocus';
 
 export default function LandingPage() {
@@ -38,119 +39,122 @@ export default function LandingPage() {
   });
 
   const handleReset = () => {
-    const confirmation = window.confirm(
-      'This action will permanently erase your saved progress. Do you wish to proceed?'
-    );
+    const confirmation = window.confirm('Erase every discovered word and start again?');
     if (!confirmation) return;
     localStorage.removeItem('doujeen_progress');
     window.location.reload();
   };
 
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center bg-[var(--lab-cream)] p-4 sm:p-8 font-sans overflow-x-hidden relative">
-      <div aria-hidden="true" className="absolute -left-24 top-1/4 h-72 w-72 rounded-full border-[28px] border-[var(--lab-mint)]/30"></div>
-      <div aria-hidden="true" className="absolute -right-16 bottom-16 h-48 w-48 rotate-12 rounded-[56px] border-[20px] border-[var(--lab-peach)]/25"></div>
-
-      <button
-        onClick={openSettings}
-        className="group fixed right-4 top-4 z-30 inline-flex h-12 w-12 items-center justify-center rounded-full bg-[var(--lab-surface-60)] text-[var(--lab-mint-ink)] transition-[transform,background-color,box-shadow] duration-[var(--duration-press)] ease-[var(--ease-out)] hover:-translate-y-0.5 hover:scale-[1.02] hover:bg-[var(--lab-surface)] hover:shadow-[0_12px_30px_rgba(15,23,42,0.12)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)] focus-visible:ring-offset-2 active:scale-95 sm:right-6 sm:top-6"
-        aria-label="Open settings"
-        aria-haspopup="dialog"
-        aria-expanded={settingsOpen}
-      >
-        <span className="flex h-9 w-9 items-center justify-center rounded-full text-xl transition-transform duration-[var(--duration-press)] ease-[var(--ease-out)] group-hover:rotate-45">
-          ⚙️
-        </span>
-      </button>
-
-      <div className="flex flex-col items-center text-center max-w-2xl relative z-10">
-        <div aria-hidden="true" className="animate-genz-float absolute -left-24 -top-24 select-none text-7xl opacity-20 drop-shadow-lg pointer-events-none md:-left-40 md:-top-32 md:text-9xl">🔥</div>
-
-        {settingsOpen && (
-          <div
-            className={`fixed inset-0 z-[60] flex items-center justify-center bg-black/20 p-3 sm:p-4 backdrop-blur-sm touch-manipulation ${settingsExiting ? 'animate-backdrop-exit pointer-events-none' : 'animate-backdrop-enter'}`}
-            onClick={closeSettings}
+    <main className="aurora-canvas min-h-screen overflow-hidden px-4 pb-8 sm:px-7 lg:px-10">
+      <header className="relative z-30 mx-auto flex min-h-20 max-w-7xl items-center justify-between gap-4">
+        <BrandMark />
+        <nav aria-label="Primary navigation" className="flex items-center gap-1 rounded-full border border-[var(--lab-line)] bg-[var(--lab-surface-60)] p-1.5 sm:gap-2">
+          <Link href="/guide" className="lift-control hidden min-h-11 items-center rounded-full px-4 text-sm font-bold text-[var(--lab-ink-soft)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/25 sm:inline-flex">
+            Answer key
+          </Link>
+          <Link href="/play" className="lift-control inline-flex min-h-11 items-center rounded-full bg-[var(--lab-action)] px-5 text-sm font-black text-[var(--lab-surface)] shadow-[0_8px_22px_var(--lab-action-shadow)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/25">
+            Open lab
+          </Link>
+          <button
+            type="button"
+            onClick={openSettings}
+            className="lift-control inline-grid h-11 w-11 place-items-center rounded-full text-[var(--lab-muted)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/25"
+            aria-label="Open settings"
+            aria-haspopup="dialog"
+            aria-expanded={settingsOpen}
           >
-            <div
-              ref={settingsDialogRef}
-              role="dialog"
-              aria-modal="true"
-              aria-labelledby="settings-title"
-              tabIndex={-1}
-              className={`relative z-10 w-full max-w-lg max-h-[calc(100dvh-2rem)] overflow-y-auto rounded-[36px] border border-[var(--lab-line)] bg-[var(--lab-surface)] p-6 shadow-[0_30px_80px_rgba(15,23,42,0.18)] ${settingsExiting ? 'animate-modal-exit' : 'animate-modal-enter'}`}
-              onClick={(event) => event.stopPropagation()}
-            >
-              <button
-                ref={settingsCloseRef}
-                onClick={closeSettings}
-                className="absolute right-4 top-4 inline-flex h-11 w-11 items-center justify-center rounded-full bg-[var(--lab-surface-soft)] text-zinc-600 transition-colors duration-[var(--duration-press)] ease-[var(--ease-out)] hover:bg-[var(--lab-line)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/30"
-                aria-label="Close settings"
-              >
-                ✕
-              </button>
-              <div className="mb-4 text-xs font-black uppercase tracking-[0.35em] text-zinc-500">Application Settings</div>
-              <h2 id="settings-title" className="text-2xl font-black text-zinc-900">Settings</h2>
-              <p className="mt-2 text-sm leading-6 text-zinc-500">
-                Manage your saved progress and application state from here.
-              </p>
-              <div className="mt-6 space-y-4">
-                <button
-                  onClick={handleReset}
-                  className="w-full rounded-[28px] bg-[var(--lab-danger)] px-5 py-3 text-sm font-black uppercase tracking-[0.35em] text-[var(--lab-surface)] transition-[transform,background-color] duration-[var(--duration-press)] ease-[var(--ease-out)] hover:bg-[var(--lab-danger-hover)] active:scale-[0.98] touch-manipulation"
-                >
-                  Reset Data
-                </button>
-                <button
-                  onClick={closeSettings}
-                  className="w-full rounded-[28px] border border-[var(--lab-line)] bg-[var(--lab-surface)] px-5 py-3 text-sm font-black uppercase tracking-[0.35em] text-zinc-700 transition-[transform,background-color] duration-[var(--duration-press)] ease-[var(--ease-out)] hover:bg-[var(--lab-surface-soft)] active:scale-[0.98] touch-manipulation"
-                >
-                  Exit Settings
-                </button>
-              </div>
-            </div>
+            <svg aria-hidden="true" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z" />
+              <path d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06-2.86 2.86-.06-.06A1.7 1.7 0 0 0 15 19.4a1.7 1.7 0 0 0-1 .6 1.7 1.7 0 0 0-.4 1.1V21H9.55v-.1A1.7 1.7 0 0 0 8.45 19.4a1.7 1.7 0 0 0-1.88.34l-.06.06-2.86-2.86.06-.06A1.7 1.7 0 0 0 4.05 15a1.7 1.7 0 0 0-.6-1 1.7 1.7 0 0 0-1.1-.4H2.2V9.55h.15A1.7 1.7 0 0 0 4.05 8a1.7 1.7 0 0 0-.34-1.88l-.06-.06L6.51 3.2l.06.06A1.7 1.7 0 0 0 8.45 3.6a1.7 1.7 0 0 0 1-.6 1.7 1.7 0 0 0 .4-1.1V1.8h4.05v.1A1.7 1.7 0 0 0 15 3.6a1.7 1.7 0 0 0 1.88-.34l.06-.06 2.86 2.86-.06.06A1.7 1.7 0 0 0 19.4 8a1.7 1.7 0 0 0 .6 1 1.7 1.7 0 0 0 1.1.4h.1v4.05h-.1A1.7 1.7 0 0 0 19.4 15Z" />
+            </svg>
+          </button>
+        </nav>
+      </header>
+
+      <section className="relative mx-auto grid min-h-[calc(100vh-8rem)] max-w-7xl items-center gap-12 py-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-8 lg:py-14">
+        <div className="relative z-10 max-w-2xl animate-hero-reveal">
+          <div className="eyebrow mb-7 flex items-center gap-3">
+            <span className="h-2.5 w-2.5 rounded-full bg-[var(--lab-action)] shadow-[0_0_0_6px_var(--lab-pink)]" aria-hidden="true" />
+            Mandarin discovery game
           </div>
-        )}
+          <h1 className="text-[clamp(3.9rem,11vw,7.8rem)] font-black leading-[0.82]">
+            <span className="hanzi-text block text-[0.42em] font-black tracking-[-0.06em] text-[var(--lab-ink)]" lang="zh-Hans">汉字实验室</span>
+            <span className="sticker-wordmark mt-5 block pb-[0.18em]">DouJeen</span>
+          </h1>
+          <p className="mt-7 max-w-[35rem] text-lg font-medium leading-8 text-[var(--lab-ink-soft)] sm:text-xl">
+            Build real Chinese words by combining characters. Hear every discovery, follow the clues, and grow a vocabulary that sticks.
+          </p>
 
+          <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <Link href="/play" className="lift-control inline-flex min-h-14 items-center justify-center gap-3 rounded-full bg-[var(--lab-action)] px-8 text-base font-black text-[var(--lab-surface)] shadow-[0_12px_28px_var(--lab-action-shadow)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/25">
+              Start combining
+              <span aria-hidden="true">→</span>
+            </Link>
+            <Link href="/guide" className="lift-control inline-flex min-h-14 items-center justify-center rounded-full border border-[var(--lab-line-strong)] bg-[var(--lab-surface-60)] px-8 text-base font-black text-[var(--lab-ink)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/25">
+              Browse 46 words
+            </Link>
+          </div>
 
-
-        <h1 className="text-[clamp(4rem,20vw,7.5rem)] font-black text-[var(--lab-action)] leading-[0.9] mb-8 tracking-tighter drop-shadow-[0_10px_0_var(--lab-action-depth)]">
-          汉字<br />
-          <span className="text-[var(--lab-mint-ink)] drop-shadow-[0_10px_0_var(--lab-peach)]">DouJeen</span>
-        </h1>
-
-        <p className="text-2xl md:text-3xl text-zinc-600 mb-10 font-bold max-w-lg leading-tight">
-          Mix characters. Enhance Your Imagination.<br />
-          <span className="underline decoration-[var(--lab-mint)] decoration-8 underline-offset-4">Learn Chinese the vibe way.</span>
-        </p>
-
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-4 mb-8">
-          <Link
-            href="/play"
-            className="group relative inline-flex w-full sm:w-auto items-center justify-center px-10 py-4 sm:px-14 sm:py-7 text-xl sm:text-3xl font-black text-[var(--lab-surface)] transition-[transform,background-color,box-shadow] duration-[var(--duration-press)] ease-[var(--ease-out)] bg-[var(--lab-action)] rounded-[40px] hover:bg-[var(--lab-action-hover)] hover:scale-105 active:scale-95 shadow-[0_16px_0_var(--lab-action-shadow)] hover:shadow-[0_8px_0_var(--lab-action-shadow)] hover:translate-y-[8px] active:translate-y-[16px] active:shadow-none focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)] focus-visible:ring-offset-4"
-          >
-            <span className="relative flex items-center gap-3">
-              LET&apos;S GO
-              <span className="text-3xl group-hover:rotate-12 transition-transform duration-[var(--duration-press)] ease-[var(--ease-out)]">🚀</span>
-            </span>
-          </Link>
-          <Link
-            href="/guide"
-            className="inline-flex w-full sm:w-auto items-center justify-center px-8 py-3 sm:px-10 sm:py-6 text-lg sm:text-2xl font-black text-[var(--lab-mint-ink)] transition-[transform,background-color,box-shadow,border-color] duration-[var(--duration-press)] ease-[var(--ease-out)] bg-[var(--lab-surface)] rounded-[36px] hover:bg-[var(--lab-surface-soft)] hover:scale-105 active:scale-95 shadow-[0_12px_0_var(--lab-shadow)] hover:shadow-[0_6px_0_var(--lab-shadow)] hover:translate-y-[6px] active:translate-y-[12px] active:shadow-none border-2 border-[var(--lab-mint)]/50 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)] focus-visible:ring-offset-4"
-          >
-            ANSWER KEY
-          </Link>
+          <ul className="mt-8 flex flex-wrap gap-2 text-sm font-bold text-[var(--lab-muted)]" aria-label="Game features">
+            <li className="pastel-pill rounded-full px-4 py-2">40 character tiles</li>
+            <li className="pastel-pill rounded-full px-4 py-2">Tap to hear Mandarin</li>
+            <li className="pastel-pill rounded-full px-4 py-2">CC-CEDICT sourced</li>
+          </ul>
         </div>
 
-        <p className="text-sm md:text-base font-black uppercase tracking-[0.25em] text-[var(--lab-muted)] mb-6">
-          Dictionary of words and combination clues
-        </p>
-      </div>
+        <div className="relative mx-auto aspect-square w-full max-w-[38rem] animate-hero-reveal [animation-delay:120ms]" aria-label="Example: fire plus mountain makes volcano">
+          <div className="orbit-line inset-[4%] animate-orbit-drift" aria-hidden="true">
+            <span className="absolute left-[13%] top-[4%] h-3 w-3 rounded-full bg-[var(--lab-action)] shadow-[0_0_0_7px_var(--lab-pink)]" />
+          </div>
+          <div className="orbit-line inset-[17%] [animation:orbit-drift_32s_linear_infinite_reverse]" aria-hidden="true">
+            <span className="absolute bottom-[5%] right-[12%] h-2.5 w-2.5 rounded-full bg-[var(--lab-mint-ink)] shadow-[0_0_0_7px_var(--lab-mint)]" />
+          </div>
 
-      <div className="mt-16 flex flex-wrap justify-center gap-x-8 gap-y-3 text-lg font-black text-[var(--lab-muted)] uppercase tracking-tighter sm:mt-24">
-        <span className="hover:text-[var(--lab-action)] transition-colors duration-[var(--duration-press)] ease-[var(--ease-out)] cursor-default">No Exams</span>
-        <span className="hover:text-[var(--lab-mint-ink)] transition-colors duration-[var(--duration-press)] ease-[var(--ease-out)] cursor-default">No Stress</span>
-        <span className="hover:text-[var(--lab-peach-ink)] transition-colors duration-[var(--duration-press)] ease-[var(--ease-out)] cursor-default">Just Vibes</span>
-      </div>
+          <div className="surface-panel absolute inset-[23%_8%] flex flex-col items-center justify-center rounded-[3rem] px-5 text-center sm:inset-[22%_10%]">
+            <span className="eyebrow">Word reaction · 01</span>
+            <div className="mt-7 flex items-center justify-center gap-3 sm:gap-5">
+              <span className="hanzi-text inline-grid h-20 w-20 place-items-center rounded-[1.7rem] border border-[var(--lab-line-strong)] bg-[var(--lab-peach)] text-4xl font-black text-[var(--lab-peach-ink)] shadow-[6px_7px_0_var(--lab-surface-soft)] sm:h-24 sm:w-24 sm:text-5xl" lang="zh-Hans">火</span>
+              <span className="text-2xl font-light text-[var(--lab-muted)]" aria-hidden="true">+</span>
+              <span className="hanzi-text inline-grid h-20 w-20 place-items-center rounded-[1.7rem] border border-[var(--lab-line-strong)] bg-[var(--lab-mint)] text-4xl font-black text-[var(--lab-mint-ink)] shadow-[6px_7px_0_var(--lab-surface-soft)] sm:h-24 sm:w-24 sm:text-5xl" lang="zh-Hans">山</span>
+            </div>
+            <div className="mt-6 flex items-center gap-3 rounded-full bg-[var(--lab-lilac)] px-5 py-3 text-[var(--lab-ink)]">
+              <span className="hanzi-text text-2xl font-black" lang="zh-Hans">火山</span>
+              <span className="h-5 w-px bg-[var(--lab-line-strong)]" aria-hidden="true" />
+              <span className="text-sm font-black">huǒ shān · volcano</span>
+            </div>
+          </div>
+
+          <span className="absolute right-[2%] top-[20%] rotate-6 rounded-full bg-[var(--lab-sky)] px-4 py-2 text-sm font-black text-[var(--lab-ink)] shadow-[5px_5px_0_var(--lab-surface)]">listen ↗</span>
+          <span className="absolute bottom-[17%] left-[1%] -rotate-6 rounded-full bg-[var(--lab-peach)] px-4 py-2 text-sm font-black text-[var(--lab-peach-ink)] shadow-[5px_5px_0_var(--lab-surface)]">real words only</span>
+        </div>
+      </section>
+
+      {settingsOpen && (
+        <div
+          className={`fixed inset-0 z-[60] flex items-center justify-center bg-[var(--lab-overlay)] p-4 ${settingsExiting ? 'animate-backdrop-exit pointer-events-none' : 'animate-backdrop-enter'}`}
+          onClick={closeSettings}
+        >
+          <div
+            ref={settingsDialogRef}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="settings-title"
+            tabIndex={-1}
+            className={`surface-panel relative z-10 w-full max-w-md rounded-[2rem] p-7 ${settingsExiting ? 'animate-modal-exit' : 'animate-modal-enter'}`}
+            onClick={(event) => event.stopPropagation()}
+          >
+            <button ref={settingsCloseRef} type="button" onClick={closeSettings} className="lift-control absolute right-4 top-4 inline-grid h-11 w-11 place-items-center rounded-full bg-[var(--lab-surface-soft)] text-[var(--lab-muted)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/25" aria-label="Close settings">×</button>
+            <div className="eyebrow">Local progress</div>
+            <h2 id="settings-title" className="mt-3 text-3xl font-black tracking-[-0.04em] text-[var(--lab-ink)]">Settings</h2>
+            <p className="mt-3 max-w-sm text-base leading-7 text-[var(--lab-muted)]">Your discoveries stay in this browser. Reset only when you want a completely fresh laboratory.</p>
+            <div className="mt-7 grid gap-3 sm:grid-cols-2">
+              <button type="button" onClick={closeSettings} className="lift-control min-h-12 rounded-full border border-[var(--lab-line-strong)] bg-[var(--lab-surface)] px-5 font-black text-[var(--lab-ink)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/25">Keep progress</button>
+              <button type="button" onClick={handleReset} className="lift-control min-h-12 rounded-full bg-[var(--lab-danger)] px-5 font-black text-[var(--lab-surface)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-danger)]/25">Reset progress</button>
+            </div>
+          </div>
+        </div>
+      )}
     </main>
   );
 }
