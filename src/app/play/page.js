@@ -2,7 +2,7 @@
 
 import React, { useCallback, useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import {
   DISCOVERABLE_ITEMS,
   RECIPES,
@@ -30,8 +30,49 @@ const SPAWN_POINTS = [
 
 const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
 
+// Recipe adjacency: two words are "related" if a recipe links them as
+// co-ingredients or as ingredient/result. Used to surface related words in search.
+const RELATED = (() => {
+  const map = new Map();
+  const link = (a, b) => {
+    if (a === b) return;
+    if (!map.has(a)) map.set(a, new Set());
+    map.get(a).add(b);
+  };
+  for (const recipe of Object.values(RECIPES)) {
+    const [a, b] = recipe.ingredients;
+    const r = recipe.result;
+    link(a, b); link(b, a);
+    link(a, r); link(r, a);
+    link(b, r); link(r, b);
+  }
+  return map;
+})();
+
+// Text-match score: exact=3, prefix=2, substring=1, none=0. Matches char,
+// pinyin, English name, and Thai name so search works in any of them.
+const scoreItem = (data, char, query) => {
+  const fields = [char, data.pinyin, data.name, data.nameTh]
+    .filter(Boolean)
+    .map((value) => value.toLowerCase());
+  let best = 0;
+  for (const field of fields) {
+    if (field === query) best = Math.max(best, 3);
+    else if (field.startsWith(query)) best = Math.max(best, 2);
+    else if (field.includes(query)) best = Math.max(best, 1);
+  }
+  return best;
+};
+
 export default function GamePage() {
   const tNav = useTranslations('Nav');
+  const tSearch = useTranslations('Search');
+  const locale = useLocale();
+  const wordLabel = useCallback(
+    (data) => (locale === 'th' && data.nameTh ? data.nameTh : data.name),
+    [locale],
+  );
+  const [searchOpen, setSearchOpen] = useState(false);
   const [library, setLibrary] = useState(STARTER_ITEMS);
   const [discoveredRecipeKeys, setDiscoveredRecipeKeys] = useState([]);
   const [canvasItems, setCanvasItems] = useState([]);
@@ -346,12 +387,27 @@ export default function GamePage() {
   const filteredLibrary = useMemo(() => {
     const query = librarySearch.trim().toLowerCase();
     if (!query) return library;
-    return library.filter((item) => {
-      const data = getData(item);
-      return item.includes(query)
-        || data.name.toLowerCase().includes(query)
-        || data.pinyin.toLowerCase().includes(query);
-    });
+
+    const inLibrary = new Set(library);
+    const directHits = new Set();
+    const scored = [];
+    for (const char of library) {
+      const score = scoreItem(getData(char), char, query);
+      if (score > 0) {
+        scored.push([char, score]);
+        directHits.add(char);
+      }
+    }
+    // Related = recipe-neighbors of direct hits, still in the library, not already matched.
+    const related = new Set();
+    for (const char of directHits) {
+      for (const neighbor of RELATED.get(char) ?? []) {
+        if (inLibrary.has(neighbor) && !directHits.has(neighbor)) related.add(neighbor);
+      }
+    }
+
+    scored.sort((a, b) => b[1] - a[1]);
+    return [...scored.map(([char]) => char), ...related];
   }, [library, librarySearch]);
 
   const hasOpenModal = Boolean(discovery) || resetConfirming;
@@ -375,7 +431,6 @@ export default function GamePage() {
           <Link href="/guide" className="lift-control inline-flex min-h-11 items-center rounded-full border border-[var(--lab-line-strong)] bg-[var(--lab-surface)] px-4 text-xs font-black text-[var(--lab-ink)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/25 sm:text-sm">
             {tNav('notebook')}
           </Link>
-          <LocaleSwitcher />
         </div>
       </header>
 
@@ -482,9 +537,12 @@ export default function GamePage() {
                 <div className="eyebrow">Discovered words</div>
                 <h2 id="collection-title" className="mt-1 text-2xl font-black tracking-[-0.04em] text-[var(--lab-ink)]">Your collection</h2>
               </div>
-              <div className="text-right md:hidden">
-                <div className="text-lg font-black text-[var(--lab-mint-ink)]">{discoveredWordCount}/{DISCOVERABLE_ITEMS.length}</div>
-                <div className="text-[9px] font-black uppercase tracking-wider text-[var(--lab-muted)]">Found</div>
+              <div className="flex shrink-0 items-center gap-2">
+                <div className="text-right md:hidden">
+                  <div className="text-lg font-black text-[var(--lab-mint-ink)]">{discoveredWordCount}/{DISCOVERABLE_ITEMS.length}</div>
+                  <div className="text-[9px] font-black uppercase tracking-wider text-[var(--lab-muted)]">Found</div>
+                </div>
+                <LocaleSwitcher />
               </div>
             </div>
 
@@ -492,11 +550,18 @@ export default function GamePage() {
               <div className="h-full origin-left rounded-full bg-[var(--lab-mint-bright)] transition-transform duration-[var(--duration-celebration)] ease-[var(--ease-out)]" style={{ transform: `scaleX(${progressRatio})` }} />
             </div>
 
-            <label className="relative mt-3 block">
-              <span className="sr-only">Search discovered words</span>
+            {/* Desktop: inline search field. */}
+            <label className="relative mt-3 hidden md:block">
+              <span className="sr-only">{tSearch('label')}</span>
               <svg aria-hidden="true" className="absolute left-4 top-1/2 -translate-y-1/2 text-[var(--lab-muted)]" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-              <input value={librarySearch} onChange={(event) => setLibrarySearch(event.target.value)} placeholder="Chinese, pinyin, or meaning" className="min-h-11 w-full rounded-full border border-[var(--lab-line)] bg-[var(--lab-surface)] py-2 pl-11 pr-4 text-base font-bold text-[var(--lab-ink)] outline-none placeholder:text-[var(--lab-muted)] focus:border-[var(--lab-action)] focus:ring-4 focus:ring-[var(--lab-action)]/10 sm:text-sm" />
+              <input value={librarySearch} onChange={(event) => setLibrarySearch(event.target.value)} placeholder={tSearch('placeholder')} className="min-h-11 w-full rounded-full border border-[var(--lab-line)] bg-[var(--lab-surface)] py-2 pl-11 pr-4 text-base font-bold text-[var(--lab-ink)] outline-none placeholder:text-[var(--lab-muted)] focus:border-[var(--lab-action)] focus:ring-4 focus:ring-[var(--lab-action)]/10 sm:text-sm" />
             </label>
+
+            {/* Mobile: icon button opens a full-screen iPhone-style search overlay. */}
+            <button type="button" onClick={() => setSearchOpen(true)} aria-label={tSearch('label')} aria-haspopup="dialog" className="lift-control mt-3 flex min-h-11 w-full items-center gap-3 rounded-full border border-[var(--lab-line)] bg-[var(--lab-surface)] px-4 text-left text-sm font-bold text-[var(--lab-muted)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/25 md:hidden">
+              <svg aria-hidden="true" className="shrink-0 text-[var(--lab-muted)]" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+              <span className="truncate">{librarySearch || tSearch('placeholder')}</span>
+            </button>
           </div>
 
           <div className="custom-scrollbar grid min-h-0 flex-1 grid-cols-2 content-start gap-2 overflow-y-auto p-3 sm:gap-3 sm:p-4 md:grid-cols-1 xl:grid-cols-2">
@@ -508,7 +573,7 @@ export default function GamePage() {
                   <button
                     type="button"
                     onClick={() => handleLibrarySelect(text)}
-                    aria-label={`Select ${text}, ${data.name}, for crafting`}
+                    aria-label={`Select ${text}, ${wordLabel(data)}, for crafting`}
                     aria-pressed={mobileSelection[0] === text ? true : undefined}
                     className={`lift-control flex min-w-0 flex-1 items-center gap-2 px-3 py-2 text-left focus:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-[var(--lab-action)]/25 ${mobileSelection[0] === text ? 'bg-[var(--lab-sky)] ring-2 ring-inset ring-[var(--lab-action)]/25 md:bg-transparent md:ring-0' : ''}`}
                   >
@@ -516,7 +581,7 @@ export default function GamePage() {
                     <span className="min-w-0">
                       <span className="hanzi-text block truncate text-lg font-black leading-tight text-[var(--lab-ink)]" lang="zh-Hans">{text}</span>
                       <span className="block truncate text-[9px] font-black text-[var(--lab-action)]">{data.pinyin}</span>
-                      <span className="block truncate text-[9px] font-bold text-[var(--lab-muted)]">{data.name}{data.hskLevel ? ` · ${data.hskLevel}` : ''}</span>
+                      <span className="block truncate text-[9px] font-bold text-[var(--lab-muted)]">{wordLabel(data)}{data.hskLevel ? ` · ${data.hskLevel}` : ''}</span>
                     </span>
                     {isStarter && <span className="sr-only">Starter word</span>}
                   </button>
@@ -546,7 +611,79 @@ export default function GamePage() {
           onConfirm={resetProgress}
         />
       )}
+      {searchOpen && (
+        <SearchOverlay
+          query={librarySearch}
+          onQueryChange={setLibrarySearch}
+          results={filteredLibrary}
+          wordLabel={wordLabel}
+          onSelect={(text) => { handleLibrarySelect(text); setSearchOpen(false); }}
+          onClose={() => setSearchOpen(false)}
+          t={tSearch}
+        />
+      )}
     </main>
+  );
+}
+
+function SearchOverlay({ query, onQueryChange, results, wordLabel, onSelect, onClose, t }) {
+  const inputRef = useRef(null);
+
+  React.useEffect(() => {
+    inputRef.current?.focus();
+  }, []);
+
+  return (
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-label={t('label')}
+      onKeyDown={(event) => { if (event.key === 'Escape') onClose(); }}
+      className="animate-ingredient-enter fixed inset-0 z-[80] flex flex-col bg-[var(--lab-surface)]"
+    >
+      <div className="flex items-center gap-2 border-b border-[var(--lab-line)] px-3 pb-3 pt-[calc(env(safe-area-inset-top)+0.75rem)]">
+        <label className="relative min-w-0 flex-1">
+          <span className="sr-only">{t('label')}</span>
+          <svg aria-hidden="true" className="absolute left-4 top-1/2 -translate-y-1/2 text-[var(--lab-muted)]" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input
+            ref={inputRef}
+            value={query}
+            onChange={(event) => onQueryChange(event.target.value)}
+            placeholder={t('placeholder')}
+            enterKeyHint="search"
+            className="min-h-11 w-full rounded-full border border-[var(--lab-line)] bg-[var(--lab-surface-soft)] py-2 pl-11 pr-4 text-base font-bold text-[var(--lab-ink)] outline-none placeholder:text-[var(--lab-muted)] focus:border-[var(--lab-action)] focus:ring-4 focus:ring-[var(--lab-action)]/10"
+          />
+        </label>
+        <button type="button" onClick={onClose} className="lift-control shrink-0 rounded-full px-3 py-2 text-sm font-black text-[var(--lab-action)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/25">
+          {t('cancel')}
+        </button>
+      </div>
+
+      <div className="custom-scrollbar min-h-0 flex-1 overflow-y-auto p-3">
+        {results.length === 0 ? (
+          <p className="py-10 text-center text-sm font-bold text-[var(--lab-muted)]">{t('empty')}</p>
+        ) : (
+          results.map((text) => {
+            const data = getData(text);
+            return (
+              <button
+                key={text}
+                type="button"
+                onClick={() => onSelect(text)}
+                className="lift-control flex w-full items-center gap-3 rounded-[1.15rem] px-3 py-3 text-left focus:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-[var(--lab-action)]/25"
+              >
+                <span className="text-2xl" aria-hidden="true">{data.emoji}</span>
+                <span className="min-w-0 flex-1">
+                  <span className="hanzi-text block truncate text-lg font-black leading-tight text-[var(--lab-ink)]" lang="zh-Hans">{text}</span>
+                  <span className="block truncate text-[10px] font-black text-[var(--lab-action)]">{data.pinyin}</span>
+                </span>
+                <span className="shrink-0 truncate text-xs font-bold text-[var(--lab-muted)]">{wordLabel(data)}</span>
+              </button>
+            );
+          })
+        )}
+      </div>
+    </div>
   );
 }
 
@@ -604,6 +741,8 @@ function ModalShell({ labelledBy, describedBy, dialogRef, closing, onClose, maxW
 
 function DiscoveryModal({ discovery, playingCharacter, onPlay, onClose }) {
   const primaryActionRef = useRef(null);
+  const locale = useLocale();
+  const discoveryName = locale === 'th' && discovery.nameTh ? discovery.nameTh : discovery.name;
   const { closing, dialogRef, requestClose } = useModalController({ initialFocusRef: primaryActionRef, onClose });
   const [first, second] = discovery.ingredients;
   const firstData = getData(first);
@@ -637,7 +776,7 @@ function DiscoveryModal({ discovery, playingCharacter, onPlay, onClose }) {
             </h2>
             <p className="mt-1 text-lg font-black text-[var(--lab-action)]">{discovery.pinyin}</p>
             <p className="mt-1 text-sm font-bold text-[var(--lab-muted)]">
-              {discovery.name}{discovery.hskLevel ? ` · ${discovery.hskLevel}` : ''}
+              {discoveryName}{discovery.hskLevel ? ` · ${discovery.hskLevel}` : ''}
             </p>
           </div>
 

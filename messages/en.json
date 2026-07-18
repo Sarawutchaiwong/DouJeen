@@ -5,5 +5,13 @@
   },
   "Nav": {
     "notebook": "Notebook"
+  },
+  "Search": {
+    "label": "Search discovered words",
+    "placeholder": "Chinese, pinyin, Thai, or meaning",
+    "open": "Search",
+    "cancel": "Cancel",
+    "empty": "No discovered word matches that search.",
+    "relatedHeading": "Related"
   }
 }
