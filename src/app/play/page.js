@@ -12,6 +12,7 @@ import {
   makeRecipeKey,
 } from '../data';
 import BrandMark from '../components/BrandMark';
+import Glyph from '../components/Glyph';
 import LocaleSwitcher from '../components/LocaleSwitcher';
 import PronunciationButton from '../components/PronunciationButton';
 import { useDialogFocus } from '../useDialogFocus';
@@ -465,7 +466,7 @@ export default function GamePage() {
                         className="animate-ingredient-enter lift-control flex h-24 w-24 flex-col items-center justify-center rounded-[1.6rem] border border-[var(--lab-action)] bg-[var(--lab-surface)] shadow-[0_12px_30px_var(--lab-shadow)] ring-4 ring-[var(--lab-action)]/15 focus:outline-none focus-visible:ring-[6px] focus-visible:ring-[var(--lab-action)]/25"
                         aria-label={`Remove ${text} from the first quick combination slot`}
                       >
-                        <span className="text-2xl" aria-hidden="true">{data.emoji}</span>
+                        <span className="text-2xl" aria-hidden="true"><Glyph data={data} /></span>
                         <span className="hanzi-text mt-1 text-2xl font-black leading-none text-[var(--lab-ink)]" lang="zh-Hans">{text}</span>
                         <span className="mt-1 max-w-20 truncate text-[9px] font-black text-[var(--lab-action)]">{data.pinyin}</span>
                       </button>
@@ -513,7 +514,7 @@ export default function GamePage() {
                 className={`craft-node absolute z-20 hidden min-h-14 touch-none select-none items-center gap-2 rounded-[1.15rem] border bg-[var(--lab-surface)] px-3 py-2 text-left shadow-[0_10px_24px_var(--lab-shadow)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/25 md:flex ${isSelected ? 'border-[var(--lab-action)] ring-4 ring-[var(--lab-action)]/15' : 'border-[var(--lab-line-strong)]'}`}
                 style={{ left: `${item.x}%`, top: `${item.y}%` }}
               >
-                <span className="text-xl" aria-hidden="true">{data.emoji}</span>
+                <span className="text-xl" aria-hidden="true"><Glyph data={data} /></span>
                 <span>
                   <span className="hanzi-text block text-xl font-black leading-none text-[var(--lab-ink)]" lang="zh-Hans">{item.text}</span>
                   <span className="mt-1 block text-[9px] font-black leading-none text-[var(--lab-action)]">{data.pinyin}</span>
@@ -577,7 +578,7 @@ export default function GamePage() {
                     aria-pressed={mobileSelection[0] === text ? true : undefined}
                     className={`lift-control flex min-w-0 flex-1 items-center gap-2 px-3 py-2 text-left focus:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-[var(--lab-action)]/25 ${mobileSelection[0] === text ? 'bg-[var(--lab-sky)] ring-2 ring-inset ring-[var(--lab-action)]/25 md:bg-transparent md:ring-0' : ''}`}
                   >
-                    <span className="text-xl sm:text-2xl" aria-hidden="true">{data.emoji}</span>
+                    <span className="text-xl sm:text-2xl" aria-hidden="true"><Glyph data={data} /></span>
                     <span className="min-w-0">
                       <span className="hanzi-text block truncate text-lg font-black leading-tight text-[var(--lab-ink)]" lang="zh-Hans">{text}</span>
                       <span className="block truncate text-[9px] font-black text-[var(--lab-action)]">{data.pinyin}</span>
@@ -672,7 +673,7 @@ function SearchOverlay({ query, onQueryChange, results, wordLabel, onSelect, onC
                 onClick={() => onSelect(text)}
                 className="lift-control flex w-full items-center gap-3 rounded-[1.15rem] px-3 py-3 text-left focus:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-[var(--lab-action)]/25"
               >
-                <span className="text-2xl" aria-hidden="true">{data.emoji}</span>
+                <span className="text-2xl" aria-hidden="true"><Glyph data={data} /></span>
                 <span className="min-w-0 flex-1">
                   <span className="hanzi-text block truncate text-lg font-black leading-tight text-[var(--lab-ink)]" lang="zh-Hans">{text}</span>
                   <span className="block truncate text-[10px] font-black text-[var(--lab-action)]">{data.pinyin}</span>
@@ -768,7 +769,7 @@ function DiscoveryModal({ discovery, playingCharacter, onPlay, onClose }) {
 
           <div className="pr-10 text-center sm:pr-0">
             <div className="mx-auto grid h-20 w-20 place-items-center rounded-[1.7rem] bg-[var(--lab-mint)] text-4xl shadow-[0_10px_0_var(--lab-lilac)] sm:h-24 sm:w-24 sm:text-5xl" aria-hidden="true">
-              {discovery.emoji}
+              <Glyph data={discovery} />
             </div>
             <div className="eyebrow mt-6">{discovery.isNewWord ? 'New word discovered' : 'Crafted again'}</div>
             <h2 id="discovery-title" className="hanzi-text mt-2 text-5xl font-black tracking-[-0.06em] text-[var(--lab-ink)] sm:text-6xl" lang="zh-Hans">
@@ -781,11 +782,11 @@ function DiscoveryModal({ discovery, playingCharacter, onPlay, onClose }) {
           </div>
 
           <div className="mt-6 flex flex-wrap items-center justify-center gap-2 rounded-[1.35rem] bg-[var(--lab-lilac)] px-3 py-3 text-sm font-black text-[var(--lab-ink-soft)] sm:px-5">
-            <span lang="zh-Hans">{firstData.emoji} {first}</span>
+            <span lang="zh-Hans"><Glyph data={firstData} /> {first}</span>
             <span aria-hidden="true">+</span>
-            <span lang="zh-Hans">{secondData.emoji} {second}</span>
+            <span lang="zh-Hans"><Glyph data={secondData} /> {second}</span>
             <span aria-hidden="true">→</span>
-            <span lang="zh-Hans">{discovery.emoji} {discovery.result}</span>
+            <span lang="zh-Hans"><Glyph data={discovery} /> {discovery.result}</span>
           </div>
 
           <p id="discovery-description" className="mt-4 text-center text-sm font-bold leading-6 text-[var(--lab-muted)]">

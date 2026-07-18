@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import BrandMark from '../components/BrandMark';
+import Glyph from '../components/Glyph';
 import PronunciationButton from '../components/PronunciationButton';
 import {
   BIBLIOGRAPHY,
@@ -125,7 +126,7 @@ export default function GuidePage() {
               const item = getData(text);
               return (
                 <div key={text} className="relative flex min-h-24 items-center gap-3 rounded-[1.4rem] bg-[var(--lab-lilac)] p-4">
-                  <span className="text-3xl" aria-hidden="true">{item.emoji}</span>
+                  <span className="text-3xl" aria-hidden="true"><Glyph data={item} /></span>
                   <span>
                     <span className="hanzi-text block text-2xl font-black text-[var(--lab-ink)]" lang="zh-Hans">{text}</span>
                     <span className="block text-[10px] font-black text-[var(--lab-action)]">{item.pinyin}</span>
@@ -184,14 +185,14 @@ export default function GuidePage() {
                   return (
                     <article key={key} className="surface-panel rounded-[1.8rem] p-5">
                       <div className="flex flex-wrap items-center gap-2 text-sm font-black text-[var(--lab-ink)]">
-                        <span className="rounded-full bg-[var(--lab-peach)] px-3 py-2" lang="zh-Hans">{firstData.emoji} {first}</span>
+                        <span className="rounded-full bg-[var(--lab-peach)] px-3 py-2" lang="zh-Hans"><Glyph data={firstData} /> {first}</span>
                         <span aria-hidden="true">+</span>
-                        <span className="rounded-full bg-[var(--lab-sky)] px-3 py-2" lang="zh-Hans">{secondData.emoji} {second}</span>
+                        <span className="rounded-full bg-[var(--lab-sky)] px-3 py-2" lang="zh-Hans"><Glyph data={secondData} /> {second}</span>
                         <span aria-hidden="true">→</span>
                       </div>
 
                       <div className="mt-4 flex items-center gap-3">
-                        <span className="grid h-14 w-14 shrink-0 place-items-center rounded-[1rem] bg-[var(--lab-mint)] text-3xl" aria-hidden="true">{recipe.emoji}</span>
+                        <span className="grid h-14 w-14 shrink-0 place-items-center rounded-[1rem] bg-[var(--lab-mint)] text-3xl" aria-hidden="true"><Glyph data={recipe} /></span>
                         <div className="min-w-0 flex-1">
                           <h3 className="hanzi-text text-3xl font-black tracking-[-0.04em] text-[var(--lab-ink)]" lang="zh-Hans">{recipe.result}</h3>
                           <p className="text-sm font-black text-[var(--lab-action)]">{recipe.pinyin}</p>
