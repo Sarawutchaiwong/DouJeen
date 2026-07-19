@@ -808,8 +808,11 @@ function DiscoveryModal({ discovery, playingCharacter, onPlay, onClose }) {
           </button>
 
           <div className="pr-10 text-center sm:pr-0">
-            <div className="mx-auto grid h-20 w-20 place-items-center rounded-[1.7rem] bg-[var(--lab-mint)] text-4xl shadow-[0_10px_0_var(--lab-lilac)] sm:h-24 sm:w-24 sm:text-5xl" aria-hidden="true">
-              <Glyph data={discovery} />
+            <div className="relative mx-auto h-20 w-20 sm:h-24 sm:w-24" aria-hidden="true">
+              <div className="animate-vortex absolute -inset-7 rounded-full blur-[3px]" />
+              <div className="animate-emerge relative grid h-full w-full place-items-center rounded-[1.7rem] bg-[var(--lab-mint)] text-4xl shadow-[0_10px_0_var(--lab-lilac)] [animation-delay:130ms] sm:text-5xl">
+                <Glyph data={discovery} />
+              </div>
             </div>
             <div className="eyebrow mt-6">{discovery.isNewWord ? t('newWord') : t('craftedAgain')}</div>
             <h2 id="discovery-title" className="hanzi-text mt-2 text-5xl font-black tracking-[-0.06em] text-[var(--lab-ink)] sm:text-6xl" lang="zh-Hans">

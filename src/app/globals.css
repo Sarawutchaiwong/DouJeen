@@ -281,6 +281,18 @@ input {
   100% { opacity: 1; transform: scale(1); box-shadow: 0 0 0 0 oklch(85% 0.105 347 / 0); }
 }
 
+/* Space-hole: a swirling ring collapses, then the result emerges from it. */
+@keyframes vortex-spin {
+  0% { opacity: 0; transform: rotate(0deg) scale(1.7); }
+  35% { opacity: 1; }
+  100% { opacity: 0; transform: rotate(340deg) scale(0.35); }
+}
+@keyframes emerge {
+  0% { opacity: 0; transform: scale(0.15) rotate(-35deg); }
+  55% { opacity: 1; transform: scale(1.14) rotate(6deg); }
+  100% { opacity: 1; transform: scale(1) rotate(0deg); }
+}
+
 .animate-fusion { animation: fusion var(--duration-celebration) var(--ease-in-out) both; }
 .animate-ingredient-enter { animation: ingredient-enter var(--duration-ui) var(--ease-out) both; }
 .animate-no-reaction { animation: no-reaction var(--duration-ui) var(--ease-in-out) both; }
@@ -292,6 +304,8 @@ input {
 .animate-hero-reveal { animation: hero-reveal 650ms var(--ease-out) both; }
 .animate-orbit-drift { animation: orbit-drift 24s linear infinite; }
 .animate-bubbly-pop { animation: bubbly-pop var(--duration-celebration) var(--ease-out) both; }
+.animate-vortex { animation: vortex-spin 700ms var(--ease-out) both; background: conic-gradient(from 0deg, transparent 0deg, var(--lab-action) 70deg, transparent 150deg, var(--lab-lilac) 250deg, transparent 330deg); }
+.animate-emerge { animation: emerge 700ms var(--ease-out) both; }
 
 @keyframes sound-wave { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
 .sound-wave-near { animation: sound-wave 800ms linear infinite; }
