@@ -833,7 +833,7 @@ function DiscoveryModal({ discovery, playingCharacter, onPlay, onClose }) {
           </div>
 
           <p id="discovery-description" className="mt-4 text-center text-sm font-bold leading-6 text-[var(--lab-muted)]">
-            {discovery.explanation}
+            {locale === 'th' && discovery.explanationTh ? discovery.explanationTh : discovery.explanation}
           </p>
 
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">

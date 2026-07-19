@@ -209,8 +209,8 @@ export default function GuidePage() {
                         <PronunciationButton character={recipe.result} isPlaying={playingCharacter === recipe.result} onPlay={playPronunciation} className="h-12 w-12 shrink-0" />
                       </div>
 
-                      <p className="mt-4 text-sm font-bold leading-6 text-[var(--lab-ink-soft)]">{recipe.explanation}</p>
-                      <p className="mt-3 text-xs leading-5 text-[var(--lab-muted)]">{t('dictionary', { def: recipe.sourceDefinition })}</p>
+                      <p className="mt-4 text-sm font-bold leading-6 text-[var(--lab-ink-soft)]">{locale === 'th' && recipe.explanationTh ? recipe.explanationTh : recipe.explanation}</p>
+                      <p className="mt-3 text-xs leading-5 text-[var(--lab-muted)]">{t('dictionary', { def: locale === 'th' && recipe.defTh ? recipe.defTh : recipe.sourceDefinition })}</p>
                       {factSource && (
                         <a href={factSource.url} target="_blank" rel="noreferrer" className="lift-control mt-3 inline-flex min-h-11 items-center rounded-full px-3 text-xs font-black text-[var(--lab-action)] underline decoration-2 underline-offset-4 focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/25">
                           {t('whyGrounded')}

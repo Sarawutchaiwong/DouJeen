@@ -7,7 +7,8 @@
     "result": "黏土",
     "category": "First Reactions",
     "factSourceId": "usgs-clay",
-    "explanation": "Water makes clay-rich earth sticky and workable."
+    "explanation": "Water makes clay-rich earth sticky and workable.",
+    "explanationTh": "น้ำทำให้ดินที่มีดินเหนียวปนอยู่เหนียวและปั้นได้"
   },
   {
     "ingredients": [
@@ -17,7 +18,8 @@
     "result": "蒸汽",
     "category": "First Reactions",
     "factSourceId": "noaa-clouds",
-    "explanation": "Heat changes liquid water into water vapor."
+    "explanation": "Heat changes liquid water into water vapor.",
+    "explanationTh": "ความร้อนเปลี่ยนน้ำที่เป็นของเหลวให้กลายเป็นไอน้ำ"
   },
   {
     "ingredients": [
@@ -27,7 +29,8 @@
     "result": "波浪",
     "category": "First Reactions",
     "factSourceId": "noaa-waves",
-    "explanation": "Wind transfers energy to surface water and creates waves."
+    "explanation": "Wind transfers energy to surface water and creates waves.",
+    "explanationTh": "ลมถ่ายเทพลังงานสู่ผิวน้ำและทำให้เกิดคลื่น"
   },
   {
     "ingredients": [
@@ -37,7 +40,8 @@
     "result": "沙尘",
     "category": "First Reactions",
     "factSourceId": "usgs-wind-erosion",
-    "explanation": "Wind erosion lifts fine soil into airborne dust."
+    "explanation": "Wind erosion lifts fine soil into airborne dust.",
+    "explanationTh": "การกัดเซาะของลมพัดพาดินละเอียดขึ้นเป็นฝุ่นในอากาศ"
   },
   {
     "ingredients": [
@@ -47,7 +51,8 @@
     "result": "熔岩",
     "category": "First Reactions",
     "factSourceId": "usgs-rock-cycle",
-    "explanation": "Enough heat melts rock; molten rock at the surface is lava."
+    "explanation": "Enough heat melts rock; molten rock at the surface is lava.",
+    "explanationTh": "ความร้อนที่มากพอหลอมหินให้ละลาย หินหลอมเหลวที่ผิวโลกคือลาวา"
   },
   {
     "ingredients": [
@@ -56,7 +61,8 @@
     ],
     "result": "河",
     "category": "First Reactions",
-    "explanation": "Flowing water gathers into a larger body: a river."
+    "explanation": "Flowing water gathers into a larger body: a river.",
+    "explanationTh": "น้ำที่ไหลมารวมกันเป็นแหล่งน้ำขนาดใหญ่กลายเป็นแม่น้ำ"
   },
   {
     "ingredients": [
@@ -66,7 +72,8 @@
     "result": "砖",
     "category": "Earth & Materials",
     "factSourceId": "brick-manufacturing",
-    "explanation": "Clay is shaped, dried, and fired into durable brick."
+    "explanation": "Clay is shaped, dried, and fired into durable brick.",
+    "explanationTh": "ดินเหนียวถูกขึ้นรูป ตากแห้ง แล้วเผาจนกลายเป็นอิฐที่ทนทาน"
   },
   {
     "ingredients": [
@@ -76,7 +83,8 @@
     "result": "泥",
     "category": "Earth & Materials",
     "factSourceId": "usgs-clay",
-    "explanation": "Adding water to clay-rich earth produces mud."
+    "explanation": "Adding water to clay-rich earth produces mud.",
+    "explanationTh": "การเติมน้ำลงในดินที่มีดินเหนียวปนอยู่ทำให้เกิดโคลน"
   },
   {
     "ingredients": [
@@ -86,7 +94,8 @@
     "result": "云",
     "category": "Weather Cycle",
     "factSourceId": "noaa-clouds",
-    "explanation": "Water vapor condenses on tiny dust particles to form cloud droplets."
+    "explanation": "Water vapor condenses on tiny dust particles to form cloud droplets.",
+    "explanationTh": "ไอน้ำควบแน่นบนอนุภาคฝุ่นเล็กๆ จนกลายเป็นละอองเมฆ"
   },
   {
     "ingredients": [
@@ -96,7 +105,8 @@
     "result": "雨",
     "category": "Weather Cycle",
     "factSourceId": "noaa-precipitation",
-    "explanation": "Cloud droplets grow until they are heavy enough to fall as rain."
+    "explanation": "Cloud droplets grow until they are heavy enough to fall as rain.",
+    "explanationTh": "ละอองเมฆเติบโตขึ้นจนหนักพอจะตกลงมาเป็นฝน"
   },
   {
     "ingredients": [
@@ -106,7 +116,8 @@
     "result": "暴风雨",
     "category": "Weather Cycle",
     "factSourceId": "noaa-precipitation",
-    "explanation": "Strong wind and heavy rain come together in a rainstorm."
+    "explanation": "Strong wind and heavy rain come together in a rainstorm.",
+    "explanationTh": "ลมแรงและฝนหนักมารวมกันกลายเป็นพายุฝน"
   },
   {
     "ingredients": [
@@ -116,7 +127,8 @@
     "result": "天气",
     "category": "Weather Cycle",
     "factSourceId": "noaa-clouds",
-    "explanation": "Wind moves moisture and helps shape changing weather."
+    "explanation": "Wind moves moisture and helps shape changing weather.",
+    "explanationTh": "ลมพัดพาความชื้นและช่วยกำหนดรูปแบบสภาพอากาศที่เปลี่ยนแปลง"
   },
   {
     "ingredients": [
@@ -126,7 +138,8 @@
     "result": "雨天",
     "category": "Weather Cycle",
     "factSourceId": "noaa-precipitation",
-    "explanation": "Rain turns the day into rainy weather."
+    "explanation": "Rain turns the day into rainy weather.",
+    "explanationTh": "ฝนทำให้วันนั้นกลายเป็นวันที่อากาศฝนตก"
   },
   {
     "ingredients": [
@@ -136,7 +149,8 @@
     "result": "岩石",
     "category": "Earth & Materials",
     "factSourceId": "usgs-lava-cooling",
-    "explanation": "Water removes heat from lava, helping it solidify into rock."
+    "explanation": "Water removes heat from lava, helping it solidify into rock.",
+    "explanationTh": "น้ำดึงความร้อนออกจากลาวา ช่วยให้มันแข็งตัวกลายเป็นหิน"
   },
   {
     "ingredients": [
@@ -146,7 +160,8 @@
     "result": "沙",
     "category": "Earth & Materials",
     "factSourceId": "usgs-weathering",
-    "explanation": "Wind and weathering break rock down into sediment such as sand."
+    "explanation": "Wind and weathering break rock down into sediment such as sand.",
+    "explanationTh": "ลมและการผุกร่อนสลายหินจนกลายเป็นตะกอนอย่างทราย"
   },
   {
     "ingredients": [
@@ -156,7 +171,8 @@
     "result": "玻璃",
     "category": "Earth & Materials",
     "factSourceId": "corning-glass",
-    "explanation": "Glass begins with sand melted at very high temperature."
+    "explanation": "Glass begins with sand melted at very high temperature.",
+    "explanationTh": "กระจกเริ่มจากทรายที่ถูกหลอมด้วยอุณหภูมิสูงมาก"
   },
   {
     "ingredients": [
@@ -166,7 +182,8 @@
     "result": "沙滩",
     "category": "Earth & Materials",
     "factSourceId": "usgs-weathering",
-    "explanation": "Deposited sand and water meet at a beach."
+    "explanation": "Deposited sand and water meet at a beach.",
+    "explanationTh": "ทรายที่ทับถมกันพบกับน้ำกลายเป็นชายหาด"
   },
   {
     "ingredients": [
@@ -176,7 +193,8 @@
     "result": "海岸",
     "category": "Earth & Materials",
     "factSourceId": "noaa-waves",
-    "explanation": "Waves shape the boundary where land meets water: the coast."
+    "explanation": "Waves shape the boundary where land meets water: the coast.",
+    "explanationTh": "คลื่นปั้นแต่งเส้นแบ่งที่แผ่นดินพบกับน้ำ กลายเป็นชายฝั่ง"
   },
   {
     "ingredients": [
@@ -185,7 +203,8 @@
     ],
     "result": "河岸",
     "category": "Earth & Materials",
-    "explanation": "Earth beside a river forms its bank."
+    "explanation": "Earth beside a river forms its bank.",
+    "explanationTh": "ดินริมแม่น้ำกลายเป็นตลิ่ง"
   },
   {
     "ingredients": [
@@ -194,7 +213,8 @@
     ],
     "result": "海洋",
     "category": "Earth & Materials",
-    "explanation": "Many rivers ultimately feed the ocean."
+    "explanation": "Many rivers ultimately feed the ocean.",
+    "explanationTh": "แม่น้ำหลายสายในที่สุดก็ไหลลงสู่มหาสมุทร"
   },
   {
     "ingredients": [
@@ -204,7 +224,8 @@
     "result": "陶器",
     "category": "Earth & Materials",
     "factSourceId": "usgs-clay",
-    "explanation": "Clay-rich mud can be shaped and fired as pottery."
+    "explanation": "Clay-rich mud can be shaped and fired as pottery.",
+    "explanationTh": "โคลนที่มีดินเหนียวปนอยู่สามารถขึ้นรูปและเผาเป็นเครื่องปั้นดินเผาได้"
   },
   {
     "ingredients": [
@@ -213,7 +234,8 @@
     ],
     "result": "墙",
     "category": "Human World",
-    "explanation": "Bricks are assembled into a wall."
+    "explanation": "Bricks are assembled into a wall.",
+    "explanationTh": "อิฐถูกนำมาก่อเรียงกันเป็นกำแพง"
   },
   {
     "ingredients": [
@@ -222,7 +244,8 @@
     ],
     "result": "窗",
     "category": "Human World",
-    "explanation": "Glass set into a wall creates a window."
+    "explanation": "Glass set into a wall creates a window.",
+    "explanationTh": "กระจกที่ติดตั้งในกำแพงทำให้เกิดหน้าต่าง"
   },
   {
     "ingredients": [
@@ -231,7 +254,8 @@
     ],
     "result": "房子",
     "category": "Human World",
-    "explanation": "Walls and windows form the shell of a house."
+    "explanation": "Walls and windows form the shell of a house.",
+    "explanationTh": "กำแพงและหน้าต่างประกอบกันเป็นโครงของบ้าน"
   },
   {
     "ingredients": [
@@ -240,7 +264,8 @@
     ],
     "result": "壁炉",
     "category": "Human World",
-    "explanation": "Brick safely contains a household fire in a fireplace."
+    "explanation": "Brick safely contains a household fire in a fireplace.",
+    "explanationTh": "อิฐกักเก็บไฟในบ้านอย่างปลอดภัยจนกลายเป็นเตาผิง"
   },
   {
     "ingredients": [
@@ -249,7 +274,8 @@
     ],
     "result": "村庄",
     "category": "Human World",
-    "explanation": "A group of houses forms a village."
+    "explanation": "A group of houses forms a village.",
+    "explanationTh": "กลุ่มบ้านหลายหลังรวมกันเป็นหมู่บ้าน"
   },
   {
     "ingredients": [
@@ -258,7 +284,8 @@
     ],
     "result": "城市",
     "category": "Human World",
-    "explanation": "As settlements grow together, they become a city."
+    "explanation": "As settlements grow together, they become a city.",
+    "explanationTh": "เมื่อชุมชนเติบโตรวมกัน มันจะกลายเป็นเมือง"
   },
   {
     "ingredients": [
@@ -267,7 +294,8 @@
     ],
     "result": "港口",
     "category": "Human World",
-    "explanation": "A city connected to navigable water can form a port."
+    "explanation": "A city connected to navigable water can form a port.",
+    "explanationTh": "เมืองที่เชื่อมกับแหล่งน้ำที่เดินเรือได้สามารถกลายเป็นท่าเรือ"
   },
   {
     "ingredients": [
@@ -276,7 +304,8 @@
     ],
     "result": "船",
     "category": "Human World",
-    "explanation": "A port and open water imply a boat."
+    "explanation": "A port and open water imply a boat.",
+    "explanationTh": "ท่าเรือและผืนน้ำเปิดบ่งบอกถึงการมีเรือ"
   },
   {
     "ingredients": [
@@ -285,7 +314,8 @@
     ],
     "result": "帆船",
     "category": "Human World",
-    "explanation": "Wind powers a sailboat through its sails."
+    "explanation": "Wind powers a sailboat through its sails.",
+    "explanationTh": "ลมขับเคลื่อนเรือใบผ่านทางใบเรือ"
   },
   {
     "ingredients": [
@@ -294,7 +324,8 @@
     ],
     "result": "家",
     "category": "Human World",
-    "explanation": "A warm, lived-in house becomes a home."
+    "explanation": "A warm, lived-in house becomes a home.",
+    "explanationTh": "บ้านที่อบอุ่นและมีคนอยู่อาศัยกลายเป็นบ้านในความหมายของครอบครัว"
   },
   {
     "ingredients": [
@@ -303,7 +334,8 @@
     ],
     "result": "社区",
     "category": "Human World",
-    "explanation": "Homes together form a community."
+    "explanation": "Homes together form a community.",
+    "explanationTh": "บ้านหลายหลังรวมกันเป็นชุมชน"
   },
   {
     "ingredients": [
@@ -312,7 +344,8 @@
     ],
     "result": "海",
     "category": "Sea Connections",
-    "explanation": "A coast borders a large body of seawater: the sea."
+    "explanation": "A coast borders a large body of seawater: the sea.",
+    "explanationTh": "ชายฝั่งอยู่ติดกับผืนน้ำทะเลขนาดใหญ่ กลายเป็นทะเล"
   },
   {
     "ingredients": [
@@ -322,7 +355,8 @@
     "result": "海风",
     "category": "Sea Connections",
     "factSourceId": "noaa-waves",
-    "explanation": "Air moving from the sea is a sea breeze."
+    "explanation": "Air moving from the sea is a sea breeze.",
+    "explanationTh": "อากาศที่พัดมาจากทะเลคือลมทะเล"
   },
   {
     "ingredients": [
@@ -331,7 +365,8 @@
     ],
     "result": "海水",
     "category": "Sea Connections",
-    "explanation": "Water in the sea is seawater."
+    "explanation": "Water in the sea is seawater.",
+    "explanationTh": "น้ำในทะเลคือน้ำทะเล"
   },
   {
     "ingredients": [
@@ -341,7 +376,8 @@
     "result": "山",
     "category": "Earth & Materials",
     "factSourceId": "usgs-mountains",
-    "explanation": "Mountains expose uplifted rock and develop soil through weathering."
+    "explanation": "Mountains expose uplifted rock and develop soil through weathering.",
+    "explanationTh": "ภูเขาเผยให้เห็นหินที่ถูกดันขึ้นมาและเกิดดินจากการผุกร่อน"
   },
   {
     "ingredients": [
@@ -350,7 +386,8 @@
     ],
     "result": "火山",
     "category": "Earth & Materials",
-    "explanation": "火 (fire) and 山 (mountain) form the real Chinese word 火山: volcano."
+    "explanation": "火 (fire) and 山 (mountain) form the real Chinese word 火山: volcano.",
+    "explanationTh": "火 (ไฟ) และ 山 (ภูเขา) รวมกันเป็นคำจีนจริง 火山 แปลว่าภูเขาไฟ"
   },
   {
     "ingredients": [
@@ -359,7 +396,8 @@
     ],
     "result": "光",
     "category": "Living World",
-    "explanation": "A bright fire gives off visible light."
+    "explanation": "A bright fire gives off visible light.",
+    "explanationTh": "ไฟที่ลุกโชนให้แสงสว่างที่มองเห็นได้"
   },
   {
     "ingredients": [
@@ -368,7 +406,8 @@
     ],
     "result": "空气",
     "category": "Weather Cycle",
-    "explanation": "Wind is moving air, so repeated wind points back to air itself."
+    "explanation": "Wind is moving air, so repeated wind points back to air itself.",
+    "explanationTh": "ลมคืออากาศที่เคลื่อนที่ ดังนั้นลมซ้ำๆ จึงย้อนกลับไปหมายถึงอากาศเอง"
   },
   {
     "ingredients": [
@@ -377,7 +416,8 @@
     ],
     "result": "天空",
     "category": "Weather Cycle",
-    "explanation": "Clouds and daylight are both seen across the sky."
+    "explanation": "Clouds and daylight are both seen across the sky.",
+    "explanationTh": "เมฆและแสงกลางวันต่างก็มองเห็นได้ทั่วท้องฟ้า"
   },
   {
     "ingredients": [
@@ -387,7 +427,8 @@
     "result": "太阳",
     "category": "Weather Cycle",
     "factSourceId": "nasa-sun",
-    "explanation": "Sunlight supplies energy that drives much of Earth’s weather."
+    "explanation": "Sunlight supplies energy that drives much of Earth’s weather.",
+    "explanationTh": "แสงแดดให้พลังงานที่ขับเคลื่อนสภาพอากาศส่วนใหญ่ของโลก"
   },
   {
     "ingredients": [
@@ -397,7 +438,8 @@
     "result": "月亮",
     "category": "Weather Cycle",
     "factSourceId": "noaa-tides",
-    "explanation": "The Moon in the sky exerts a major influence on ocean tides."
+    "explanation": "The Moon in the sky exerts a major influence on ocean tides.",
+    "explanationTh": "ดวงจันทร์บนท้องฟ้ามีอิทธิพลสำคัญต่อกระแสน้ำขึ้นน้ำลงในมหาสมุทร"
   },
   {
     "ingredients": [
@@ -407,7 +449,8 @@
     "result": "雪",
     "category": "Weather Cycle",
     "factSourceId": "noaa-precipitation-forms",
-    "explanation": "When atmospheric conditions are cold enough, precipitation falls as snow instead of rain."
+    "explanation": "When atmospheric conditions are cold enough, precipitation falls as snow instead of rain.",
+    "explanationTh": "เมื่อสภาพอากาศหนาวเย็นพอ หยาดน้ำฟ้าจะตกลงมาเป็นหิมะแทนที่จะเป็นฝน"
   },
   {
     "ingredients": [
@@ -417,7 +460,8 @@
     "result": "晴",
     "category": "Weather Cycle",
     "factSourceId": "nasa-sun",
-    "explanation": "Clear weather lets direct sunshine reach the ground."
+    "explanation": "Clear weather lets direct sunshine reach the ground.",
+    "explanationTh": "อากาศแจ่มใสทำให้แสงแดดส่องถึงพื้นดินโดยตรง"
   },
   {
     "ingredients": [
@@ -427,7 +471,8 @@
     "result": "下雨",
     "category": "Weather Cycle",
     "factSourceId": "noaa-precipitation-forms",
-    "explanation": "Rain falling from the sky gives the everyday action 下雨: to rain."
+    "explanation": "Rain falling from the sky gives the everyday action 下雨: to rain.",
+    "explanationTh": "ฝนที่ตกลงมาจากท้องฟ้าให้กำเนิดคำกริยาในชีวิตประจำวัน 下雨 แปลว่าฝนตก"
   },
   {
     "ingredients": [
@@ -437,7 +482,8 @@
     "result": "闪电",
     "category": "Weather Cycle",
     "factSourceId": "noaa-lightning",
-    "explanation": "Lightning is the bright electrical discharge seen in a storm."
+    "explanation": "Lightning is the bright electrical discharge seen in a storm.",
+    "explanationTh": "ฟ้าแลบคือการปล่อยประจุไฟฟ้าที่สว่างจ้าซึ่งพบเห็นได้ในพายุ"
   },
   {
     "ingredients": [
@@ -447,7 +493,8 @@
     "result": "雷",
     "category": "Weather Cycle",
     "factSourceId": "noaa-lightning",
-    "explanation": "Lightning rapidly heats the surrounding air, producing thunder."
+    "explanation": "Lightning rapidly heats the surrounding air, producing thunder.",
+    "explanationTh": "ฟ้าแลบทำให้อากาศโดยรอบร้อนขึ้นอย่างรวดเร็ว จนเกิดเสียงฟ้าร้อง"
   },
   {
     "ingredients": [
@@ -457,7 +504,8 @@
     "result": "植物",
     "category": "Living World",
     "factSourceId": "usda-plant-growth",
-    "explanation": "Plants need soil and water to establish and grow."
+    "explanation": "Plants need soil and water to establish and grow.",
+    "explanationTh": "พืชต้องการดินและน้ำเพื่อหยั่งรากและเติบโต"
   },
   {
     "ingredients": [
@@ -467,7 +515,8 @@
     "result": "树",
     "category": "Living World",
     "factSourceId": "usda-plant-growth",
-    "explanation": "A tree is a plant rooted in soil."
+    "explanation": "A tree is a plant rooted in soil.",
+    "explanationTh": "ต้นไม้คือพืชที่หยั่งรากอยู่ในดิน"
   },
   {
     "ingredients": [
@@ -477,7 +526,8 @@
     "result": "花",
     "category": "Living World",
     "factSourceId": "usda-plant-growth",
-    "explanation": "Light supports plant growth, including flowering."
+    "explanation": "Light supports plant growth, including flowering.",
+    "explanationTh": "แสงช่วยส่งเสริมการเติบโตของพืช รวมถึงการออกดอก"
   },
   {
     "ingredients": [
@@ -486,7 +536,8 @@
     ],
     "result": "森林",
     "category": "Living World",
-    "explanation": "A large area covered mainly with trees is a forest."
+    "explanation": "A large area covered mainly with trees is a forest.",
+    "explanationTh": "พื้นที่กว้างใหญ่ที่ปกคลุมด้วยต้นไม้เป็นหลักคือป่า"
   },
   {
     "ingredients": [
@@ -496,7 +547,8 @@
     "result": "水果",
     "category": "Living World",
     "factSourceId": "usda-plant-growth",
-    "explanation": "After flowering, many cultivated trees develop fruit."
+    "explanation": "After flowering, many cultivated trees develop fruit.",
+    "explanationTh": "หลังออกดอก ต้นไม้ที่ปลูกไว้หลายชนิดจะออกผล"
   },
   {
     "ingredients": [
@@ -505,7 +557,8 @@
     ],
     "result": "苹果",
     "category": "Living World",
-    "explanation": "An apple is a familiar fruit that grows on a tree."
+    "explanation": "An apple is a familiar fruit that grows on a tree.",
+    "explanationTh": "แอปเปิลคือผลไม้ที่คุ้นเคยซึ่งเติบโตบนต้นไม้"
   },
   {
     "ingredients": [
@@ -514,7 +567,8 @@
     ],
     "result": "人",
     "category": "People & Learning",
-    "explanation": "Homes and communities exist because people live in them."
+    "explanation": "Homes and communities exist because people live in them.",
+    "explanationTh": "บ้านและชุมชนมีอยู่ได้เพราะผู้คนอาศัยอยู่ในนั้น"
   },
   {
     "ingredients": [
@@ -524,7 +578,8 @@
     "result": "食物",
     "category": "Food & Daily Life",
     "factSourceId": "usda-plant-growth",
-    "explanation": "People cultivate plants as an important source of food."
+    "explanation": "People cultivate plants as an important source of food.",
+    "explanationTh": "ผู้คนเพาะปลูกพืชเป็นแหล่งอาหารที่สำคัญ"
   },
   {
     "ingredients": [
@@ -533,7 +588,8 @@
     ],
     "result": "菜",
     "category": "Food & Daily Life",
-    "explanation": "Cooking edible plants produces a vegetable dish: 菜."
+    "explanation": "Cooking edible plants produces a vegetable dish: 菜.",
+    "explanationTh": "การปรุงพืชที่กินได้ทำให้เกิดกับข้าวผัก 菜"
   },
   {
     "ingredients": [
@@ -542,7 +598,8 @@
     ],
     "result": "茶",
     "category": "Food & Daily Life",
-    "explanation": "Tea is prepared by infusing tea leaves in water."
+    "explanation": "Tea is prepared by infusing tea leaves in water.",
+    "explanationTh": "ชาถูกชงโดยแช่ใบชาลงในน้ำ"
   },
   {
     "ingredients": [
@@ -551,7 +608,8 @@
     ],
     "result": "杯子",
     "category": "Food & Daily Life",
-    "explanation": "A ceramic cup is a common vessel for drinking water."
+    "explanation": "A ceramic cup is a common vessel for drinking water.",
+    "explanationTh": "ถ้วยเซรามิกเป็นภาชนะทั่วไปสำหรับดื่มน้ำ"
   },
   {
     "ingredients": [
@@ -560,7 +618,8 @@
     ],
     "result": "吃",
     "category": "Food & Daily Life",
-    "explanation": "People consume food: 吃 means to eat."
+    "explanation": "People consume food: 吃 means to eat.",
+    "explanationTh": "ผู้คนบริโภคอาหาร 吃 แปลว่ากิน"
   },
   {
     "ingredients": [
@@ -569,7 +628,8 @@
     ],
     "result": "喝",
     "category": "Food & Daily Life",
-    "explanation": "People drink water: 喝 means to drink."
+    "explanation": "People drink water: 喝 means to drink.",
+    "explanationTh": "ผู้คนดื่มน้ำ 喝 แปลว่าดื่ม"
   },
   {
     "ingredients": [
@@ -578,7 +638,8 @@
     ],
     "result": "米饭",
     "category": "Food & Daily Life",
-    "explanation": "Cooking rice with heat produces 米饭, cooked rice."
+    "explanation": "Cooking rice with heat produces 米饭, cooked rice.",
+    "explanationTh": "การหุงข้าวด้วยความร้อนทำให้เกิด 米饭 คือข้าวสวย"
   },
   {
     "ingredients": [
@@ -587,7 +648,8 @@
     ],
     "result": "饭馆",
     "category": "Food & Daily Life",
-    "explanation": "A place that prepares and serves meals is a restaurant: 饭馆."
+    "explanation": "A place that prepares and serves meals is a restaurant: 饭馆.",
+    "explanationTh": "สถานที่ที่ปรุงและเสิร์ฟอาหารคือร้านอาหาร 饭馆"
   },
   {
     "ingredients": [
@@ -596,7 +658,8 @@
     ],
     "result": "朋友",
     "category": "People & Learning",
-    "explanation": "A friendly relationship between people gives 朋友: friend."
+    "explanation": "A friendly relationship between people gives 朋友: friend.",
+    "explanationTh": "ความสัมพันธ์ฉันมิตรระหว่างผู้คนก่อให้เกิด 朋友 คือเพื่อน"
   },
   {
     "ingredients": [
@@ -605,7 +668,8 @@
     ],
     "result": "家人",
     "category": "People & Learning",
-    "explanation": "A person who belongs to one’s family is 家人."
+    "explanation": "A person who belongs to one’s family is 家人.",
+    "explanationTh": "คนที่เป็นสมาชิกในครอบครัวของตนคือ 家人"
   },
   {
     "ingredients": [
@@ -614,7 +678,8 @@
     ],
     "result": "邻居",
     "category": "People & Learning",
-    "explanation": "A person living nearby in the same community is a neighbor."
+    "explanation": "A person living nearby in the same community is a neighbor.",
+    "explanationTh": "คนที่อาศัยอยู่ใกล้เคียงในชุมชนเดียวกันคือเพื่อนบ้าน"
   },
   {
     "ingredients": [
@@ -623,7 +688,8 @@
     ],
     "result": "工作",
     "category": "People & Learning",
-    "explanation": "People carry out jobs and tasks across a city: 工作 means work."
+    "explanation": "People carry out jobs and tasks across a city: 工作 means work.",
+    "explanationTh": "ผู้คนทำงานและภารกิจต่างๆ ทั่วเมือง 工作 แปลว่างาน"
   },
   {
     "ingredients": [
@@ -632,7 +698,8 @@
     ],
     "result": "工人",
     "category": "People & Learning",
-    "explanation": "A person who performs construction work, such as building a wall, is a worker."
+    "explanation": "A person who performs construction work, such as building a wall, is a worker.",
+    "explanationTh": "คนที่ทำงานก่อสร้าง เช่น การสร้างกำแพง คือคนงาน"
   },
   {
     "ingredients": [
@@ -642,7 +709,8 @@
     "result": "纸",
     "category": "People & Learning",
     "factSourceId": "epa-papermaking",
-    "explanation": "Papermaking turns wood fiber and water into a sheet of paper."
+    "explanation": "Papermaking turns wood fiber and water into a sheet of paper.",
+    "explanationTh": "การทำกระดาษเปลี่ยนเส้นใยไม้และน้ำให้กลายเป็นแผ่นกระดาษ"
   },
   {
     "ingredients": [
@@ -651,7 +719,8 @@
     ],
     "result": "说话",
     "category": "People & Learning",
-    "explanation": "People move air through the vocal tract when they speak."
+    "explanation": "People move air through the vocal tract when they speak.",
+    "explanationTh": "ผู้คนขับอากาศผ่านลำคอเมื่อพูด"
   },
   {
     "ingredients": [
@@ -660,7 +729,8 @@
     ],
     "result": "听",
     "category": "People & Learning",
-    "explanation": "Sound reaches a listener through vibrations traveling in air."
+    "explanation": "Sound reaches a listener through vibrations traveling in air.",
+    "explanationTh": "เสียงไปถึงผู้ฟังผ่านการสั่นสะเทือนที่เดินทางในอากาศ"
   },
   {
     "ingredients": [
@@ -669,7 +739,8 @@
     ],
     "result": "看",
     "category": "People & Learning",
-    "explanation": "Light enables a person to see: 看 means to look or see."
+    "explanation": "Light enables a person to see: 看 means to look or see.",
+    "explanationTh": "แสงทำให้คนมองเห็นได้ 看 แปลว่ามองหรือเห็น"
   },
   {
     "ingredients": [
@@ -678,7 +749,8 @@
     ],
     "result": "字",
     "category": "People & Learning",
-    "explanation": "Spoken language can be represented on paper with written characters."
+    "explanation": "Spoken language can be represented on paper with written characters.",
+    "explanationTh": "ภาษาพูดสามารถแทนบนกระดาษด้วยตัวอักษรที่เขียนขึ้น"
   },
   {
     "ingredients": [
@@ -687,7 +759,8 @@
     ],
     "result": "书",
     "category": "People & Learning",
-    "explanation": "Written characters arranged on paper form a book."
+    "explanation": "Written characters arranged on paper form a book.",
+    "explanationTh": "ตัวอักษรที่เรียงกันบนกระดาษประกอบกันเป็นหนังสือ"
   },
   {
     "ingredients": [
@@ -696,7 +769,8 @@
     ],
     "result": "学习",
     "category": "People & Learning",
-    "explanation": "A person uses books to learn and study: 学习."
+    "explanation": "A person uses books to learn and study: 学习.",
+    "explanationTh": "คนใช้หนังสือเพื่อเรียนรู้และศึกษา 学习"
   },
   {
     "ingredients": [
@@ -705,7 +779,8 @@
     ],
     "result": "学校",
     "category": "People & Learning",
-    "explanation": "A place organized for learning is a school."
+    "explanation": "A place organized for learning is a school.",
+    "explanationTh": "สถานที่ที่จัดขึ้นเพื่อการเรียนรู้คือโรงเรียน"
   },
   {
     "ingredients": [
@@ -714,7 +789,8 @@
     ],
     "result": "学生",
     "category": "People & Learning",
-    "explanation": "A person who studies at school is a student."
+    "explanation": "A person who studies at school is a student.",
+    "explanationTh": "คนที่เรียนอยู่ในโรงเรียนคือนักเรียน"
   },
   {
     "ingredients": [
@@ -723,7 +799,8 @@
     ],
     "result": "老师",
     "category": "People & Learning",
-    "explanation": "A person whose work at a school is teaching is a teacher."
+    "explanation": "A person whose work at a school is teaching is a teacher.",
+    "explanationTh": "คนที่ทำงานสอนอยู่ในโรงเรียนคือครู"
   },
   {
     "ingredients": [
@@ -732,7 +809,8 @@
     ],
     "result": "同学",
     "category": "People & Learning",
-    "explanation": "Students who study together at the same school are classmates."
+    "explanation": "Students who study together at the same school are classmates.",
+    "explanationTh": "นักเรียนที่เรียนด้วยกันในโรงเรียนเดียวกันคือเพื่อนร่วมชั้น"
   },
   {
     "ingredients": [
@@ -741,7 +819,8 @@
     ],
     "result": "门",
     "category": "Home & Places",
-    "explanation": "A wooden opening set into a wall becomes a door."
+    "explanation": "A wooden opening set into a wall becomes a door.",
+    "explanationTh": "ช่องไม้ที่ติดตั้งในกำแพงกลายเป็นประตู"
   },
   {
     "ingredients": [
@@ -750,7 +829,8 @@
     ],
     "result": "房间",
     "category": "Home & Places",
-    "explanation": "Walls and a door enclose an interior room."
+    "explanation": "Walls and a door enclose an interior room.",
+    "explanationTh": "กำแพงและประตูล้อมรอบเป็นห้องภายใน"
   },
   {
     "ingredients": [
@@ -759,7 +839,8 @@
     ],
     "result": "教室",
     "category": "Home & Places",
-    "explanation": "A room used for teaching and learning in a school is a classroom."
+    "explanation": "A room used for teaching and learning in a school is a classroom.",
+    "explanationTh": "ห้องที่ใช้สอนและเรียนในโรงเรียนคือห้องเรียน"
   },
   {
     "ingredients": [
@@ -768,7 +849,8 @@
     ],
     "result": "桌子",
     "category": "Home & Places",
-    "explanation": "A table or desk provides a surface for work in a room."
+    "explanation": "A table or desk provides a surface for work in a room.",
+    "explanationTh": "โต๊ะให้พื้นผิวสำหรับทำงานในห้อง"
   },
   {
     "ingredients": [
@@ -777,7 +859,8 @@
     ],
     "result": "椅子",
     "category": "Home & Places",
-    "explanation": "A chair gives a person a place to sit in a room."
+    "explanation": "A chair gives a person a place to sit in a room.",
+    "explanationTh": "เก้าอี้ให้ที่นั่งแก่คนในห้อง"
   },
   {
     "ingredients": [
@@ -786,7 +869,8 @@
     ],
     "result": "读",
     "category": "People & Learning",
-    "explanation": "Reading a book is a basic way to study: 读 means to read."
+    "explanation": "Reading a book is a basic way to study: 读 means to read.",
+    "explanationTh": "การอ่านหนังสือเป็นวิธีพื้นฐานในการศึกษา 读 แปลว่าอ่าน"
   },
   {
     "ingredients": [
@@ -795,7 +879,8 @@
     ],
     "result": "写",
     "category": "People & Learning",
-    "explanation": "Learning to form characters is writing: 写."
+    "explanation": "Learning to form characters is writing: 写.",
+    "explanationTh": "การเรียนเขียนตัวอักษรคือการเขียน 写"
   },
   {
     "ingredients": [
@@ -804,7 +889,8 @@
     ],
     "result": "路",
     "category": "Travel & Technology",
-    "explanation": "A prepared route across land connects places in a city: 路."
+    "explanation": "A prepared route across land connects places in a city: 路.",
+    "explanationTh": "เส้นทางที่จัดทำขึ้นบนพื้นดินเชื่อมสถานที่ต่างๆ ในเมือง 路"
   },
   {
     "ingredients": [
@@ -813,7 +899,8 @@
     ],
     "result": "车",
     "category": "Travel & Technology",
-    "explanation": "People use vehicles to travel along roads."
+    "explanation": "People use vehicles to travel along roads.",
+    "explanationTh": "ผู้คนใช้ยานพาหนะเดินทางไปตามถนน"
   },
   {
     "ingredients": [
@@ -822,7 +909,8 @@
     ],
     "result": "火车",
     "category": "Travel & Technology",
-    "explanation": "火 (fire) and 车 (vehicle) form the real Chinese word 火车: train."
+    "explanation": "火 (fire) and 车 (vehicle) form the real Chinese word 火车: train.",
+    "explanationTh": "火 (ไฟ) และ 车 (ยานพาหนะ) รวมกันเป็นคำจีนจริง 火车 แปลว่ารถไฟ"
   },
   {
     "ingredients": [
@@ -831,7 +919,8 @@
     ],
     "result": "火车站",
     "category": "Travel & Technology",
-    "explanation": "A city stop where passengers board trains is a train station."
+    "explanation": "A city stop where passengers board trains is a train station.",
+    "explanationTh": "จุดจอดในเมืองที่ผู้โดยสารขึ้นรถไฟคือสถานีรถไฟ"
   },
   {
     "ingredients": [
@@ -840,7 +929,8 @@
     ],
     "result": "公共汽车",
     "category": "Travel & Technology",
-    "explanation": "A shared public vehicle serving a community is a bus."
+    "explanation": "A shared public vehicle serving a community is a bus.",
+    "explanationTh": "ยานพาหนะสาธารณะที่ให้บริการชุมชนคือรถเมล์"
   },
   {
     "ingredients": [
@@ -849,7 +939,8 @@
     ],
     "result": "自行车",
     "category": "Travel & Technology",
-    "explanation": "A person powers a bicycle as an individual road vehicle."
+    "explanation": "A person powers a bicycle as an individual road vehicle.",
+    "explanationTh": "คนขับเคลื่อนจักรยานด้วยแรงตัวเองในฐานะยานพาหนะส่วนบุคคล"
   },
   {
     "ingredients": [
@@ -858,7 +949,8 @@
     ],
     "result": "飞机",
     "category": "Travel & Technology",
-    "explanation": "A vehicle designed to travel through the sky is an airplane."
+    "explanation": "A vehicle designed to travel through the sky is an airplane.",
+    "explanationTh": "ยานพาหนะที่ออกแบบมาเพื่อเดินทางผ่านท้องฟ้าคือเครื่องบิน"
   },
   {
     "ingredients": [
@@ -867,7 +959,8 @@
     ],
     "result": "机场",
     "category": "Travel & Technology",
-    "explanation": "The place where aircraft arrive and depart near a city is an airport."
+    "explanation": "The place where aircraft arrive and depart near a city is an airport.",
+    "explanationTh": "สถานที่ที่เครื่องบินมาถึงและออกเดินทางใกล้เมืองคือสนามบิน"
   },
   {
     "ingredients": [
@@ -876,7 +969,8 @@
     ],
     "result": "交通",
     "category": "Travel & Technology",
-    "explanation": "Roads and vehicles moving through a city form its transportation system."
+    "explanation": "Roads and vehicles moving through a city form its transportation system.",
+    "explanationTh": "ถนนและยานพาหนะที่เคลื่อนผ่านเมืองประกอบกันเป็นระบบการขนส่ง"
   },
   {
     "ingredients": [
@@ -885,7 +979,8 @@
     ],
     "result": "旅游",
     "category": "Travel & Technology",
-    "explanation": "People use transportation to take trips and travel."
+    "explanation": "People use transportation to take trips and travel.",
+    "explanationTh": "ผู้คนใช้การขนส่งเพื่อเดินทางและท่องเที่ยว"
   },
   {
     "ingredients": [
@@ -895,7 +990,8 @@
     "result": "电",
     "category": "Travel & Technology",
     "factSourceId": "noaa-lightning",
-    "explanation": "Lightning is an electrical discharge; 电 means electricity as well as lightning."
+    "explanation": "Lightning is an electrical discharge; 电 means electricity as well as lightning.",
+    "explanationTh": "ฟ้าแลบคือการปล่อยประจุไฟฟ้า 电 จึงแปลว่าไฟฟ้าและฟ้าแลบด้วย"
   },
   {
     "ingredients": [
@@ -904,7 +1000,8 @@
     ],
     "result": "电灯",
     "category": "Travel & Technology",
-    "explanation": "Electricity powers an electric light: 电灯."
+    "explanation": "Electricity powers an electric light: 电灯.",
+    "explanationTh": "ไฟฟ้าจ่ายพลังงานให้ไฟฟ้าส่องสว่าง 电灯"
   },
   {
     "ingredients": [
@@ -913,7 +1010,8 @@
     ],
     "result": "电话",
     "category": "Travel & Technology",
-    "explanation": "A telephone carries spoken communication using electrical technology."
+    "explanation": "A telephone carries spoken communication using electrical technology.",
+    "explanationTh": "โทรศัพท์ส่งสารการพูดโดยใช้เทคโนโลยีไฟฟ้า"
   },
   {
     "ingredients": [
@@ -922,7 +1020,8 @@
     ],
     "result": "手机",
     "category": "Travel & Technology",
-    "explanation": "A personal telephone carried by hand is a mobile phone: 手机."
+    "explanation": "A personal telephone carried by hand is a mobile phone: 手机.",
+    "explanationTh": "โทรศัพท์ส่วนตัวที่พกด้วยมือคือโทรศัพท์มือถือ 手机"
   },
   {
     "ingredients": [
@@ -931,7 +1030,8 @@
     ],
     "result": "电脑",
     "category": "Travel & Technology",
-    "explanation": "A computer is an electronic tool widely used for learning."
+    "explanation": "A computer is an electronic tool widely used for learning.",
+    "explanationTh": "คอมพิวเตอร์คือเครื่องมืออิเล็กทรอนิกส์ที่ใช้กันอย่างแพร่หลายในการเรียนรู้"
   },
   {
     "ingredients": [
@@ -940,7 +1040,8 @@
     ],
     "result": "电视",
     "category": "Travel & Technology",
-    "explanation": "Television is an electronic medium people watch."
+    "explanation": "Television is an electronic medium people watch.",
+    "explanationTh": "โทรทัศน์คือสื่ออิเล็กทรอนิกส์ที่ผู้คนรับชม"
   },
   {
     "ingredients": [
@@ -949,7 +1050,8 @@
     ],
     "result": "时间",
     "category": "Time & Routine",
-    "explanation": "The apparent cycles of the Sun and Moon are traditional ways to mark time."
+    "explanation": "The apparent cycles of the Sun and Moon are traditional ways to mark time.",
+    "explanationTh": "วัฏจักรที่มองเห็นได้ของดวงอาทิตย์และดวงจันทร์เป็นวิธีดั้งเดิมในการนับเวลา"
   },
   {
     "ingredients": [
@@ -958,7 +1060,8 @@
     ],
     "result": "现在",
     "category": "Time & Routine",
-    "explanation": "The point in time a person is experiencing is now: 现在."
+    "explanation": "The point in time a person is experiencing is now: 现在.",
+    "explanationTh": "ช่วงเวลาที่คนกำลังประสบอยู่คือตอนนี้ 现在"
   },
   {
     "ingredients": [
@@ -967,7 +1070,8 @@
     ],
     "result": "今天",
     "category": "Time & Routine",
-    "explanation": "The current day under the Sun is today: 今天."
+    "explanation": "The current day under the Sun is today: 今天.",
+    "explanationTh": "วันปัจจุบันภายใต้ดวงอาทิตย์คือวันนี้ 今天"
   },
   {
     "ingredients": [
@@ -976,7 +1080,8 @@
     ],
     "result": "明天",
     "category": "Time & Routine",
-    "explanation": "After the current day passes through night, the next day is tomorrow."
+    "explanation": "After the current day passes through night, the next day is tomorrow.",
+    "explanationTh": "หลังจากวันปัจจุบันผ่านค่ำคืนไป วันถัดไปคือพรุ่งนี้"
   },
   {
     "ingredients": [
@@ -985,7 +1090,8 @@
     ],
     "result": "昨天",
     "category": "Time & Routine",
-    "explanation": "The day immediately before today is yesterday."
+    "explanation": "The day immediately before today is yesterday.",
+    "explanationTh": "วันก่อนวันนี้ทันทีคือเมื่อวาน"
   },
   {
     "ingredients": [
@@ -994,7 +1100,8 @@
     ],
     "result": "上午",
     "category": "Time & Routine",
-    "explanation": "The earlier daylight portion of today is the morning."
+    "explanation": "The earlier daylight portion of today is the morning.",
+    "explanationTh": "ช่วงกลางวันแรกของวันนี้คือตอนเช้า"
   },
   {
     "ingredients": [
@@ -1003,7 +1110,8 @@
     ],
     "result": "中午",
     "category": "Time & Routine",
-    "explanation": "When the morning reaches its midpoint around midday, it is noon."
+    "explanation": "When the morning reaches its midpoint around midday, it is noon.",
+    "explanationTh": "เมื่อตอนเช้าถึงจุดกึ่งกลางราวเที่ยงวัน คือเที่ยง"
   },
   {
     "ingredients": [
@@ -1012,7 +1120,8 @@
     ],
     "result": "下午",
     "category": "Time & Routine",
-    "explanation": "The part of the day after noon is the afternoon."
+    "explanation": "The part of the day after noon is the afternoon.",
+    "explanationTh": "ช่วงของวันหลังเที่ยงคือตอนบ่าย"
   },
   {
     "ingredients": [
@@ -1021,7 +1130,8 @@
     ],
     "result": "晚上",
     "category": "Time & Routine",
-    "explanation": "After afternoon, the Moon becomes associated with evening and night."
+    "explanation": "After afternoon, the Moon becomes associated with evening and night.",
+    "explanationTh": "หลังตอนบ่าย ดวงจันทร์เริ่มเชื่อมโยงกับตอนเย็นและกลางคืน"
   },
   {
     "ingredients": [
@@ -1030,7 +1140,8 @@
     ],
     "result": "日",
     "category": "Time & Routine",
-    "explanation": "日 means both the Sun and a calendar day."
+    "explanation": "日 means both the Sun and a calendar day.",
+    "explanationTh": "日 หมายถึงทั้งดวงอาทิตย์และวันในปฏิทิน"
   },
   {
     "ingredients": [
@@ -1039,7 +1150,8 @@
     ],
     "result": "月",
     "category": "Time & Routine",
-    "explanation": "月 means both the Moon and a calendar month."
+    "explanation": "月 means both the Moon and a calendar month.",
+    "explanationTh": "月 หมายถึงทั้งดวงจันทร์และเดือนในปฏิทิน"
   },
   {
     "ingredients": [
@@ -1048,7 +1160,8 @@
     ],
     "result": "星期",
     "category": "Time & Routine",
-    "explanation": "Calendar days are organized into a week: 星期."
+    "explanation": "Calendar days are organized into a week: 星期.",
+    "explanationTh": "วันในปฏิทินถูกจัดเป็นสัปดาห์ 星期"
   },
   {
     "ingredients": [
@@ -1057,7 +1170,8 @@
     ],
     "result": "年",
     "category": "Time & Routine",
-    "explanation": "A tree records seasonal growth over the course of a year."
+    "explanation": "A tree records seasonal growth over the course of a year.",
+    "explanationTh": "ต้นไม้บันทึกการเติบโตตามฤดูกาลตลอดหนึ่งปี"
   },
   {
     "ingredients": [
@@ -1066,7 +1180,8 @@
     ],
     "result": "草",
     "category": "Nature & Plants",
-    "explanation": "Soil and rain let grass sprout."
+    "explanation": "Soil and rain let grass sprout.",
+    "explanationTh": "ดินและฝนทำให้หญ้างอกขึ้น"
   },
   {
     "ingredients": [
@@ -1075,7 +1190,8 @@
     ],
     "result": "叶子",
     "category": "Nature & Plants",
-    "explanation": "Leaves grow on trees and flutter in the wind."
+    "explanation": "Leaves grow on trees and flutter in the wind.",
+    "explanationTh": "ใบไม้เติบโตบนต้นไม้และสะบัดพลิ้วในสายลม"
   },
   {
     "ingredients": [
@@ -1084,7 +1200,8 @@
     ],
     "result": "种子",
     "category": "Nature & Plants",
-    "explanation": "Flowers make seeds that fall to the soil."
+    "explanation": "Flowers make seeds that fall to the soil.",
+    "explanationTh": "ดอกไม้สร้างเมล็ดที่ร่วงลงสู่ดิน"
   },
   {
     "ingredients": [
@@ -1093,7 +1210,8 @@
     ],
     "result": "田",
     "category": "Nature & Plants",
-    "explanation": "Worked soil covered with plants becomes a field."
+    "explanation": "Worked soil covered with plants becomes a field.",
+    "explanationTh": "ดินที่ไถพรวนและปกคลุมด้วยพืชกลายเป็นทุ่งนา"
   },
   {
     "ingredients": [
@@ -1102,7 +1220,8 @@
     ],
     "result": "稻",
     "category": "Nature & Plants",
-    "explanation": "Rice grows in flooded fields."
+    "explanation": "Rice grows in flooded fields.",
+    "explanationTh": "ข้าวเติบโตในทุ่งนาที่มีน้ำท่วมขัง"
   },
   {
     "ingredients": [
@@ -1111,7 +1230,8 @@
     ],
     "result": "果园",
     "category": "Nature & Plants",
-    "explanation": "Many apple trees together form an orchard."
+    "explanation": "Many apple trees together form an orchard.",
+    "explanationTh": "ต้นแอปเปิลหลายต้นรวมกันเป็นสวนผลไม้"
   },
   {
     "ingredients": [
@@ -1120,7 +1240,8 @@
     ],
     "result": "花园",
     "category": "Nature & Plants",
-    "explanation": "Flowers tended by a home make a garden."
+    "explanation": "Flowers tended by a home make a garden.",
+    "explanationTh": "ดอกไม้ที่บ้านดูแลอยู่กลายเป็นสวน"
   },
   {
     "ingredients": [
@@ -1129,7 +1250,8 @@
     ],
     "result": "蜂蜜",
     "category": "Nature & Plants",
-    "explanation": "Bees turn flower nectar into honey."
+    "explanation": "Bees turn flower nectar into honey.",
+    "explanationTh": "ผึ้งเปลี่ยนน้ำหวานจากดอกไม้ให้กลายเป็นน้ำผึ้ง"
   },
   {
     "ingredients": [
@@ -1138,7 +1260,8 @@
     ],
     "result": "木头",
     "category": "Nature & Plants",
-    "explanation": "A worker cuts a tree into wood."
+    "explanation": "A worker cuts a tree into wood.",
+    "explanationTh": "คนงานตัดต้นไม้ให้กลายเป็นไม้"
   },
   {
     "ingredients": [
@@ -1147,7 +1270,8 @@
     ],
     "result": "草地",
     "category": "Nature & Plants",
-    "explanation": "A wide spread of grass is a meadow."
+    "explanation": "A wide spread of grass is a meadow.",
+    "explanationTh": "พื้นที่หญ้ากว้างใหญ่คือทุ่งหญ้า"
   },
   {
     "ingredients": [
@@ -1156,7 +1280,8 @@
     ],
     "result": "鸟",
     "category": "Animals",
-    "explanation": "Birds nest in trees and fly in the sky."
+    "explanation": "Birds nest in trees and fly in the sky.",
+    "explanationTh": "นกทำรังบนต้นไม้และบินอยู่บนท้องฟ้า"
   },
   {
     "ingredients": [
@@ -1165,7 +1290,8 @@
     ],
     "result": "鱼",
     "category": "Animals",
-    "explanation": "Fish live in rivers and the ocean."
+    "explanation": "Fish live in rivers and the ocean.",
+    "explanationTh": "ปลาอาศัยอยู่ในแม่น้ำและมหาสมุทร"
   },
   {
     "ingredients": [
@@ -1174,7 +1300,8 @@
     ],
     "result": "虫",
     "category": "Animals",
-    "explanation": "Insects crawl in soil and on leaves."
+    "explanation": "Insects crawl in soil and on leaves.",
+    "explanationTh": "แมลงคลานอยู่ในดินและบนใบไม้"
   },
   {
     "ingredients": [
@@ -1183,7 +1310,8 @@
     ],
     "result": "蜜蜂",
     "category": "Animals",
-    "explanation": "A bee is an insect that visits flowers."
+    "explanation": "A bee is an insect that visits flowers.",
+    "explanationTh": "ผึ้งคือแมลงที่ไปเยือนดอกไม้"
   },
   {
     "ingredients": [
@@ -1192,7 +1320,8 @@
     ],
     "result": "蝴蝶",
     "category": "Animals",
-    "explanation": "A butterfly flits among garden flowers."
+    "explanation": "A butterfly flits among garden flowers.",
+    "explanationTh": "ผีเสื้อบินโฉบไปมาท่ามกลางดอกไม้ในสวน"
   },
   {
     "ingredients": [
@@ -1201,7 +1330,8 @@
     ],
     "result": "马",
     "category": "Animals",
-    "explanation": "Horses graze meadows and travel roads."
+    "explanation": "Horses graze meadows and travel roads.",
+    "explanationTh": "ม้ากินหญ้าในทุ่งหญ้าและเดินทางไปตามถนน"
   },
   {
     "ingredients": [
@@ -1210,7 +1340,8 @@
     ],
     "result": "牛",
     "category": "Animals",
-    "explanation": "Cattle graze on grass in the fields."
+    "explanation": "Cattle graze on grass in the fields.",
+    "explanationTh": "วัวกินหญ้าในทุ่งนา"
   },
   {
     "ingredients": [
@@ -1219,7 +1350,8 @@
     ],
     "result": "羊",
     "category": "Animals",
-    "explanation": "Sheep graze grassy hillsides."
+    "explanation": "Sheep graze grassy hillsides.",
+    "explanationTh": "แกะกินหญ้าบนเนินเขาที่ปกคลุมด้วยหญ้า"
   },
   {
     "ingredients": [
@@ -1228,7 +1360,8 @@
     ],
     "result": "猪",
     "category": "Animals",
-    "explanation": "Pigs root in mud for food."
+    "explanation": "Pigs root in mud for food.",
+    "explanationTh": "หมูคุ้ยหาอาหารในโคลน"
   },
   {
     "ingredients": [
@@ -1237,7 +1370,8 @@
     ],
     "result": "鸡",
     "category": "Animals",
-    "explanation": "A chicken is a bird kept around the home."
+    "explanation": "A chicken is a bird kept around the home.",
+    "explanationTh": "ไก่คือนกที่เลี้ยงไว้รอบบ้าน"
   },
   {
     "ingredients": [
@@ -1246,7 +1380,8 @@
     ],
     "result": "鸭",
     "category": "Animals",
-    "explanation": "A duck is a bird that swims."
+    "explanation": "A duck is a bird that swims.",
+    "explanationTh": "เป็ดคือนกที่ว่ายน้ำได้"
   },
   {
     "ingredients": [
@@ -1255,7 +1390,8 @@
     ],
     "result": "猫",
     "category": "Animals",
-    "explanation": "A cat lives at home and loves fish."
+    "explanation": "A cat lives at home and loves fish.",
+    "explanationTh": "แมวอาศัยอยู่ที่บ้านและชอบกินปลา"
   },
   {
     "ingredients": [
@@ -1264,7 +1400,8 @@
     ],
     "result": "狗",
     "category": "Animals",
-    "explanation": "A dog is a friend at home."
+    "explanation": "A dog is a friend at home.",
+    "explanationTh": "หมาคือเพื่อนที่บ้าน"
   },
   {
     "ingredients": [
@@ -1273,7 +1410,8 @@
     ],
     "result": "兔子",
     "category": "Animals",
-    "explanation": "A rabbit nibbles grass; folklore places one on the moon."
+    "explanation": "A rabbit nibbles grass; folklore places one on the moon.",
+    "explanationTh": "กระต่ายแทะหญ้ากิน ตำนานเล่าว่ามีกระต่ายอยู่บนดวงจันทร์"
   },
   {
     "ingredients": [
@@ -1282,7 +1420,8 @@
     ],
     "result": "熊",
     "category": "Animals",
-    "explanation": "Bears roam mountain forests."
+    "explanation": "Bears roam mountain forests.",
+    "explanationTh": "หมีเดินเพ่นพ่านอยู่ในป่าบนภูเขา"
   },
   {
     "ingredients": [
@@ -1291,7 +1430,8 @@
     ],
     "result": "龙",
     "category": "Animals",
-    "explanation": "The mythical dragon is a serpent that rides clouds."
+    "explanation": "The mythical dragon is a serpent that rides clouds.",
+    "explanationTh": "มังกรในตำนานคืองูที่ทะยานไปกับก้อนเมฆ"
   },
   {
     "ingredients": [
@@ -1300,7 +1440,8 @@
     ],
     "result": "蛇",
     "category": "Animals",
-    "explanation": "A snake slithers through the forest."
+    "explanation": "A snake slithers through the forest.",
+    "explanationTh": "งูเลื้อยผ่านป่า"
   },
   {
     "ingredients": [
@@ -1309,7 +1450,8 @@
     ],
     "result": "蜘蛛",
     "category": "Animals",
-    "explanation": "A spider spins a web of fine threads."
+    "explanation": "A spider spins a web of fine threads.",
+    "explanationTh": "แมงมุมชักใยจากเส้นด้ายบางๆ"
   },
   {
     "ingredients": [
@@ -1318,7 +1460,8 @@
     ],
     "result": "青蛙",
     "category": "Animals",
-    "explanation": "Frogs come out to feed on rainy days."
+    "explanation": "Frogs come out to feed on rainy days.",
+    "explanationTh": "กบออกมาหากินในวันที่ฝนตก"
   },
   {
     "ingredients": [
@@ -1327,7 +1470,8 @@
     ],
     "result": "鲸",
     "category": "Animals",
-    "explanation": "The whale is the giant of the ocean."
+    "explanation": "The whale is the giant of the ocean.",
+    "explanationTh": "วาฬคือยักษ์ใหญ่แห่งมหาสมุทร"
   },
   {
     "ingredients": [
@@ -1336,7 +1480,8 @@
     ],
     "result": "手",
     "category": "Body & Senses",
-    "explanation": "People work with their hands."
+    "explanation": "People work with their hands.",
+    "explanationTh": "ผู้คนทำงานด้วยมือของตน"
   },
   {
     "ingredients": [
@@ -1345,7 +1490,8 @@
     ],
     "result": "脚",
     "category": "Body & Senses",
-    "explanation": "People travel the road on their feet."
+    "explanation": "People travel the road on their feet.",
+    "explanationTh": "ผู้คนเดินทางไปตามถนนด้วยเท้า"
   },
   {
     "ingredients": [
@@ -1354,7 +1500,8 @@
     ],
     "result": "头",
     "category": "Body & Senses",
-    "explanation": "Thinking happens in the head."
+    "explanation": "Thinking happens in the head.",
+    "explanationTh": "การคิดเกิดขึ้นในหัว"
   },
   {
     "ingredients": [
@@ -1363,7 +1510,8 @@
     ],
     "result": "眼睛",
     "category": "Body & Senses",
-    "explanation": "Eyes see by light."
+    "explanation": "Eyes see by light.",
+    "explanationTh": "ดวงตามองเห็นได้ด้วยแสง"
   },
   {
     "ingredients": [
@@ -1372,7 +1520,8 @@
     ],
     "result": "耳朵",
     "category": "Body & Senses",
-    "explanation": "Ears catch sound."
+    "explanation": "Ears catch sound.",
+    "explanationTh": "หูรับฟังเสียง"
   },
   {
     "ingredients": [
@@ -1381,7 +1530,8 @@
     ],
     "result": "嘴",
     "category": "Body & Senses",
-    "explanation": "The mouth speaks and eats."
+    "explanation": "The mouth speaks and eats.",
+    "explanationTh": "ปากพูดและกิน"
   },
   {
     "ingredients": [
@@ -1390,7 +1540,8 @@
     ],
     "result": "心",
     "category": "Body & Senses",
-    "explanation": "The heart pumps blood through the body."
+    "explanation": "The heart pumps blood through the body.",
+    "explanationTh": "หัวใจสูบฉีดเลือดไปทั่วร่างกาย"
   },
   {
     "ingredients": [
@@ -1399,7 +1550,8 @@
     ],
     "result": "血",
     "category": "Body & Senses",
-    "explanation": "Blood is the red fluid of the body."
+    "explanation": "Blood is the red fluid of the body.",
+    "explanationTh": "เลือดคือของเหลวสีแดงในร่างกาย"
   },
   {
     "ingredients": [
@@ -1408,7 +1560,8 @@
     ],
     "result": "声音",
     "category": "Body & Senses",
-    "explanation": "Sound travels as vibration through air."
+    "explanation": "Sound travels as vibration through air.",
+    "explanationTh": "เสียงเดินทางเป็นการสั่นสะเทือนผ่านอากาศ"
   },
   {
     "ingredients": [
@@ -1417,7 +1570,8 @@
     ],
     "result": "牙",
     "category": "Body & Senses",
-    "explanation": "Teeth in the mouth chew food."
+    "explanation": "Teeth in the mouth chew food.",
+    "explanationTh": "ฟันในปากเคี้ยวอาหาร"
   },
   {
     "ingredients": [
@@ -1426,7 +1580,8 @@
     ],
     "result": "想",
     "category": "Feelings",
-    "explanation": "Reading with the heart makes you think."
+    "explanation": "Reading with the heart makes you think.",
+    "explanationTh": "การอ่านด้วยใจทำให้คุณคิด"
   },
   {
     "ingredients": [
@@ -1435,7 +1590,8 @@
     ],
     "result": "爱",
     "category": "Feelings",
-    "explanation": "People love their family."
+    "explanation": "People love their family.",
+    "explanationTh": "ผู้คนรักครอบครัวของตน"
   },
   {
     "ingredients": [
@@ -1444,7 +1600,8 @@
     ],
     "result": "高兴",
     "category": "Feelings",
-    "explanation": "Friends and sunshine bring happiness."
+    "explanation": "Friends and sunshine bring happiness.",
+    "explanationTh": "เพื่อนและแสงแดดนำมาซึ่งความสุข"
   },
   {
     "ingredients": [
@@ -1453,7 +1610,8 @@
     ],
     "result": "生气",
     "category": "Feelings",
-    "explanation": "Anger feels like fire in the heart."
+    "explanation": "Anger feels like fire in the heart.",
+    "explanationTh": "ความโกรธรู้สึกเหมือนไฟในหัวใจ"
   },
   {
     "ingredients": [
@@ -1462,7 +1620,8 @@
     ],
     "result": "伤心",
     "category": "Feelings",
-    "explanation": "Sadness feels like rain on the heart."
+    "explanation": "Sadness feels like rain on the heart.",
+    "explanationTh": "ความเศร้ารู้สึกเหมือนสายฝนที่ตกลงบนหัวใจ"
   },
   {
     "ingredients": [
@@ -1471,7 +1630,8 @@
     ],
     "result": "累",
     "category": "Feelings",
-    "explanation": "Too much work makes you tired."
+    "explanation": "Too much work makes you tired.",
+    "explanationTh": "งานที่มากเกินไปทำให้คุณเหนื่อย"
   },
   {
     "ingredients": [
@@ -1480,7 +1640,8 @@
     ],
     "result": "怕",
     "category": "Feelings",
-    "explanation": "Thunder can make the heart afraid."
+    "explanation": "Thunder can make the heart afraid.",
+    "explanationTh": "เสียงฟ้าร้องทำให้หัวใจหวาดกลัวได้"
   },
   {
     "ingredients": [
@@ -1489,7 +1650,8 @@
     ],
     "result": "梦",
     "category": "Feelings",
-    "explanation": "At night the sleeping mind dreams."
+    "explanation": "At night the sleeping mind dreams.",
+    "explanationTh": "ในยามค่ำคืน จิตใจที่หลับใหลจะฝัน"
   },
   {
     "ingredients": [
@@ -1498,7 +1660,8 @@
     ],
     "result": "笑",
     "category": "Feelings",
-    "explanation": "Happiness brings a laugh to the mouth."
+    "explanation": "Happiness brings a laugh to the mouth.",
+    "explanationTh": "ความสุขทำให้ปากยิ้มและหัวเราะ"
   },
   {
     "ingredients": [
@@ -1507,7 +1670,8 @@
     ],
     "result": "主意",
     "category": "Feelings",
-    "explanation": "An idea is a spark of light in the mind."
+    "explanation": "An idea is a spark of light in the mind.",
+    "explanationTh": "ไอเดียคือประกายแสงในความคิด"
   },
   {
     "ingredients": [
@@ -1516,7 +1680,8 @@
     ],
     "result": "颜色",
     "category": "Colors",
-    "explanation": "Light and flowers reveal color."
+    "explanation": "Light and flowers reveal color.",
+    "explanationTh": "แสงและดอกไม้เผยให้เห็นสีสัน"
   },
   {
     "ingredients": [
@@ -1525,7 +1690,8 @@
     ],
     "result": "红",
     "category": "Colors",
-    "explanation": "Fire is red."
+    "explanation": "Fire is red.",
+    "explanationTh": "ไฟมีสีแดง"
   },
   {
     "ingredients": [
@@ -1534,7 +1700,8 @@
     ],
     "result": "黄",
     "category": "Colors",
-    "explanation": "The sun is yellow."
+    "explanation": "The sun is yellow.",
+    "explanationTh": "ดวงอาทิตย์มีสีเหลือง"
   },
   {
     "ingredients": [
@@ -1543,7 +1710,8 @@
     ],
     "result": "蓝",
     "category": "Colors",
-    "explanation": "The sky is blue."
+    "explanation": "The sky is blue.",
+    "explanationTh": "ท้องฟ้ามีสีน้ำเงิน"
   },
   {
     "ingredients": [
@@ -1552,7 +1720,8 @@
     ],
     "result": "绿",
     "category": "Colors",
-    "explanation": "Grass is green."
+    "explanation": "Grass is green.",
+    "explanationTh": "หญ้ามีสีเขียว"
   },
   {
     "ingredients": [
@@ -1561,7 +1730,8 @@
     ],
     "result": "白",
     "category": "Colors",
-    "explanation": "Snow is white."
+    "explanation": "Snow is white.",
+    "explanationTh": "หิมะมีสีขาว"
   },
   {
     "ingredients": [
@@ -1570,7 +1740,8 @@
     ],
     "result": "黑",
     "category": "Colors",
-    "explanation": "Night is black."
+    "explanation": "Night is black.",
+    "explanationTh": "กลางคืนมีสีดำ"
   },
   {
     "ingredients": [
@@ -1579,7 +1750,8 @@
     ],
     "result": "彩虹",
     "category": "Colors",
-    "explanation": "Sun through rain makes a rainbow."
+    "explanation": "Sun through rain makes a rainbow.",
+    "explanationTh": "แสงแดดที่ลอดผ่านสายฝนทำให้เกิดรุ้งกินน้ำ"
   },
   {
     "ingredients": [
@@ -1588,7 +1760,8 @@
     ],
     "result": "星星",
     "category": "Sky & Space",
-    "explanation": "Stars appear in the night sky."
+    "explanation": "Stars appear in the night sky.",
+    "explanationTh": "ดวงดาวปรากฏบนท้องฟ้ายามค่ำคืน"
   },
   {
     "ingredients": [
@@ -1597,7 +1770,8 @@
     ],
     "result": "地球",
     "category": "Sky & Space",
-    "explanation": "Land and ocean form the planet Earth."
+    "explanation": "Land and ocean form the planet Earth.",
+    "explanationTh": "แผ่นดินและมหาสมุทรประกอบกันเป็นดาวเคราะห์โลก"
   },
   {
     "ingredients": [
@@ -1606,7 +1780,8 @@
     ],
     "result": "宇宙",
     "category": "Sky & Space",
-    "explanation": "All the stars and space form the universe."
+    "explanation": "All the stars and space form the universe.",
+    "explanationTh": "ดวงดาวทั้งหมดและอวกาศประกอบกันเป็นจักรวาล"
   },
   {
     "ingredients": [
@@ -1615,7 +1790,8 @@
     ],
     "result": "流星",
     "category": "Sky & Space",
-    "explanation": "A streak of light across the sky is a meteor."
+    "explanation": "A streak of light across the sky is a meteor.",
+    "explanationTh": "ลำแสงที่พาดผ่านท้องฟ้าคือดาวตก"
   },
   {
     "ingredients": [
@@ -1624,7 +1800,8 @@
     ],
     "result": "影子",
     "category": "Sky & Space",
-    "explanation": "Light blocked by a wall casts a shadow."
+    "explanation": "Light blocked by a wall casts a shadow.",
+    "explanationTh": "แสงที่ถูกกำแพงบังทำให้เกิดเงา"
   },
   {
     "ingredients": [
@@ -1633,7 +1810,8 @@
     ],
     "result": "肉",
     "category": "Food & Cooking",
-    "explanation": "Meat is food from animals."
+    "explanation": "Meat is food from animals.",
+    "explanationTh": "เนื้อคืออาหารที่ได้จากสัตว์"
   },
   {
     "ingredients": [
@@ -1642,7 +1820,8 @@
     ],
     "result": "鸡蛋",
     "category": "Food & Cooking",
-    "explanation": "A chicken lays an egg."
+    "explanation": "A chicken lays an egg.",
+    "explanationTh": "ไก่ออกไข่"
   },
   {
     "ingredients": [
@@ -1651,7 +1830,8 @@
     ],
     "result": "牛奶",
     "category": "Food & Cooking",
-    "explanation": "Milk comes from a cow."
+    "explanation": "Milk comes from a cow.",
+    "explanationTh": "นมได้มาจากวัว"
   },
   {
     "ingredients": [
@@ -1660,7 +1840,8 @@
     ],
     "result": "面包",
     "category": "Food & Cooking",
-    "explanation": "Grain baked with heat becomes bread."
+    "explanation": "Grain baked with heat becomes bread.",
+    "explanationTh": "ธัญพืชที่อบด้วยความร้อนกลายเป็นขนมปัง"
   },
   {
     "ingredients": [
@@ -1669,7 +1850,8 @@
     ],
     "result": "面条",
     "category": "Food & Cooking",
-    "explanation": "Wheat dough drawn into strands makes noodles."
+    "explanation": "Wheat dough drawn into strands makes noodles.",
+    "explanationTh": "แป้งสาลีที่ดึงเป็นเส้นทำให้เกิดก๋วยเตี๋ยว"
   },
   {
     "ingredients": [
@@ -1678,7 +1860,8 @@
     ],
     "result": "汤",
     "category": "Food & Cooking",
-    "explanation": "Vegetables boiled in water make soup."
+    "explanation": "Vegetables boiled in water make soup.",
+    "explanationTh": "ผักที่ต้มในน้ำทำให้เกิดซุป"
   },
   {
     "ingredients": [
@@ -1687,7 +1870,8 @@
     ],
     "result": "糖",
     "category": "Food & Cooking",
-    "explanation": "Sugar is refined from cane grass with heat."
+    "explanation": "Sugar is refined from cane grass with heat.",
+    "explanationTh": "น้ำตาลถูกกลั่นจากอ้อยด้วยความร้อน"
   },
   {
     "ingredients": [
@@ -1696,7 +1880,8 @@
     ],
     "result": "盐",
     "category": "Food & Cooking",
-    "explanation": "Evaporated seawater leaves salt."
+    "explanation": "Evaporated seawater leaves salt.",
+    "explanationTh": "น้ำทะเลที่ระเหยไปทิ้งเกลือไว้"
   },
   {
     "ingredients": [
@@ -1705,7 +1890,8 @@
     ],
     "result": "冰",
     "category": "Food & Cooking",
-    "explanation": "Water frozen solid is ice."
+    "explanation": "Water frozen solid is ice.",
+    "explanationTh": "น้ำที่แข็งตัวสนิทคือน้ำแข็ง"
   },
   {
     "ingredients": [
@@ -1714,7 +1900,8 @@
     ],
     "result": "冰淇淋",
     "category": "Food & Cooking",
-    "explanation": "Frozen sweetened milk is ice cream."
+    "explanation": "Frozen sweetened milk is ice cream.",
+    "explanationTh": "นมหวานที่แช่แข็งคือไอศกรีม"
   },
   {
     "ingredients": [
@@ -1723,7 +1910,8 @@
     ],
     "result": "咖啡",
     "category": "Food & Cooking",
-    "explanation": "Coffee is brewed from roasted beans."
+    "explanation": "Coffee is brewed from roasted beans.",
+    "explanationTh": "กาแฟถูกชงจากเมล็ดที่คั่วแล้ว"
   },
   {
     "ingredients": [
@@ -1732,7 +1920,8 @@
     ],
     "result": "蛋糕",
     "category": "Food & Cooking",
-    "explanation": "Eggs and sugar bake into cake."
+    "explanation": "Eggs and sugar bake into cake.",
+    "explanationTh": "ไข่และน้ำตาลอบรวมกันเป็นเค้ก"
   },
   {
     "ingredients": [
@@ -1741,7 +1930,8 @@
     ],
     "result": "酒",
     "category": "Food & Cooking",
-    "explanation": "Fruit left to ferment over time makes wine."
+    "explanation": "Fruit left to ferment over time makes wine.",
+    "explanationTh": "ผลไม้ที่ทิ้งไว้ให้หมักตามเวลาทำให้เกิดไวน์"
   },
   {
     "ingredients": [
@@ -1750,7 +1940,8 @@
     ],
     "result": "钱",
     "category": "City & Market",
-    "explanation": "City work earns money."
+    "explanation": "City work earns money.",
+    "explanationTh": "การทำงานในเมืองทำให้ได้เงิน"
   },
   {
     "ingredients": [
@@ -1759,7 +1950,8 @@
     ],
     "result": "市场",
     "category": "City & Market",
-    "explanation": "A city place to buy food is a market."
+    "explanation": "A city place to buy food is a market.",
+    "explanationTh": "สถานที่ในเมืองสำหรับซื้ออาหารคือตลาด"
   },
   {
     "ingredients": [
@@ -1768,7 +1960,8 @@
     ],
     "result": "商店",
     "category": "City & Market",
-    "explanation": "A building where money buys goods is a shop."
+    "explanation": "A building where money buys goods is a shop.",
+    "explanationTh": "อาคารที่ใช้เงินซื้อสินค้าคือร้านค้า"
   },
   {
     "ingredients": [
@@ -1777,7 +1970,8 @@
     ],
     "result": "买",
     "category": "City & Market",
-    "explanation": "You spend money at the market to buy."
+    "explanation": "You spend money at the market to buy.",
+    "explanationTh": "คุณใช้เงินที่ตลาดเพื่อซื้อของ"
   },
   {
     "ingredients": [
@@ -1786,7 +1980,8 @@
     ],
     "result": "卖",
     "category": "City & Market",
-    "explanation": "A shopkeeper sells goods."
+    "explanation": "A shopkeeper sells goods.",
+    "explanationTh": "เจ้าของร้านขายสินค้า"
   },
   {
     "ingredients": [
@@ -1795,7 +1990,8 @@
     ],
     "result": "医院",
     "category": "City & Market",
-    "explanation": "A building where doctors work is a hospital."
+    "explanation": "A building where doctors work is a hospital.",
+    "explanationTh": "อาคารที่หมอทำงานอยู่คือโรงพยาบาล"
   },
   {
     "ingredients": [
@@ -1804,7 +2000,8 @@
     ],
     "result": "医生",
     "category": "City & Market",
-    "explanation": "A person who gives medicine is a doctor."
+    "explanation": "A person who gives medicine is a doctor.",
+    "explanationTh": "คนที่ให้ยารักษาคือหมอ"
   },
   {
     "ingredients": [
@@ -1813,7 +2010,8 @@
     ],
     "result": "药",
     "category": "City & Market",
-    "explanation": "Plants prepared to treat illness are medicine."
+    "explanation": "Plants prepared to treat illness are medicine.",
+    "explanationTh": "พืชที่เตรียมไว้เพื่อรักษาโรคคือยา"
   },
   {
     "ingredients": [
@@ -1822,7 +2020,8 @@
     ],
     "result": "病",
     "category": "City & Market",
-    "explanation": "Germs can make a person ill."
+    "explanation": "Germs can make a person ill.",
+    "explanationTh": "เชื้อโรคทำให้คนป่วยได้"
   },
   {
     "ingredients": [
@@ -1831,7 +2030,8 @@
     ],
     "result": "公园",
     "category": "City & Market",
-    "explanation": "A public garden in the city is a park."
+    "explanation": "A public garden in the city is a park.",
+    "explanationTh": "สวนที่เปิดให้คนทั่วไปใช้ในเมืองคือสวนสาธารณะ"
   },
   {
     "ingredients": [
@@ -1840,7 +2040,8 @@
     ],
     "result": "桥",
     "category": "City & Market",
-    "explanation": "A road crossing a river is a bridge."
+    "explanation": "A road crossing a river is a bridge.",
+    "explanationTh": "ถนนที่ข้ามแม่น้ำคือสะพาน"
   },
   {
     "ingredients": [
@@ -1849,7 +2050,8 @@
     ],
     "result": "塔",
     "category": "City & Market",
-    "explanation": "Bricks stacked toward the sky make a tower."
+    "explanation": "Bricks stacked toward the sky make a tower.",
+    "explanationTh": "อิฐที่ก่อซ้อนขึ้นสู่ท้องฟ้าทำให้เกิดหอคอย"
   },
   {
     "ingredients": [
@@ -1858,7 +2060,8 @@
     ],
     "result": "灯",
     "category": "City & Market",
-    "explanation": "An electric lamp lights the night."
+    "explanation": "An electric lamp lights the night.",
+    "explanationTh": "โคมไฟฟ้าให้แสงสว่างยามค่ำคืน"
   },
   {
     "ingredients": [
@@ -1867,7 +2070,8 @@
     ],
     "result": "钟",
     "category": "City & Market",
-    "explanation": "A clock shows the time."
+    "explanation": "A clock shows the time.",
+    "explanationTh": "นาฬิกาบอกเวลา"
   },
   {
     "ingredients": [
@@ -1876,7 +2080,8 @@
     ],
     "result": "地图",
     "category": "City & Market",
-    "explanation": "A drawing of places on paper is a map."
+    "explanation": "A drawing of places on paper is a map.",
+    "explanationTh": "ภาพวาดสถานที่บนกระดาษคือแผนที่"
   },
   {
     "ingredients": [
@@ -1885,7 +2090,8 @@
     ],
     "result": "音乐",
     "category": "Culture & Arts",
-    "explanation": "Ordered sound from the heart is music."
+    "explanation": "Ordered sound from the heart is music.",
+    "explanationTh": "เสียงที่จัดเรียงอย่างมีระเบียบจากหัวใจคือดนตรี"
   },
   {
     "ingredients": [
@@ -1894,7 +2100,8 @@
     ],
     "result": "歌",
     "category": "Culture & Arts",
-    "explanation": "Words set to music make a song."
+    "explanation": "Words set to music make a song.",
+    "explanationTh": "คำที่ประกอบกับดนตรีทำให้เกิดเพลง"
   },
   {
     "ingredients": [
@@ -1903,7 +2110,8 @@
     ],
     "result": "画",
     "category": "Culture & Arts",
-    "explanation": "Color on paper makes a painting."
+    "explanation": "Color on paper makes a painting.",
+    "explanationTh": "สีบนกระดาษทำให้เกิดภาพวาด"
   },
   {
     "ingredients": [
@@ -1912,7 +2120,8 @@
     ],
     "result": "舞",
     "category": "Culture & Arts",
-    "explanation": "Moving the feet to music is dance."
+    "explanation": "Moving the feet to music is dance.",
+    "explanationTh": "การขยับเท้าตามจังหวะดนตรีคือการเต้นรำ"
   },
   {
     "ingredients": [
@@ -1921,7 +2130,8 @@
     ],
     "result": "故事",
     "category": "Culture & Arts",
-    "explanation": "Words that recount events make a story."
+    "explanation": "Words that recount events make a story.",
+    "explanationTh": "คำที่เล่าเหตุการณ์ต่างๆ ทำให้เกิดเรื่องราว"
   },
   {
     "ingredients": [
@@ -1930,7 +2140,8 @@
     ],
     "result": "诗",
     "category": "Culture & Arts",
-    "explanation": "Heartfelt words shaped with care make a poem."
+    "explanation": "Heartfelt words shaped with care make a poem.",
+    "explanationTh": "คำที่มาจากใจและเรียบเรียงอย่างพิถีพิถันทำให้เกิดบทกวี"
   },
   {
     "ingredients": [
@@ -1939,7 +2150,8 @@
     ],
     "result": "节日",
     "category": "Culture & Arts",
-    "explanation": "A community celebration is a festival."
+    "explanation": "A community celebration is a festival.",
+    "explanationTh": "การเฉลิมฉลองของชุมชนคือเทศกาล"
   },
   {
     "ingredients": [
@@ -1948,7 +2160,8 @@
     ],
     "result": "游戏",
     "category": "Culture & Arts",
-    "explanation": "Friends playing for fun make a game."
+    "explanation": "Friends playing for fun make a game.",
+    "explanationTh": "เพื่อนที่เล่นเพื่อความสนุกทำให้เกิดเกม"
   },
   {
     "ingredients": [
@@ -1957,7 +2170,8 @@
     ],
     "result": "灯笼",
     "category": "Culture & Arts",
-    "explanation": "Festivals are lit with lanterns."
+    "explanation": "Festivals are lit with lanterns.",
+    "explanationTh": "เทศกาลต่างๆ ถูกประดับด้วยแสงจากโคมไฟ"
   },
   {
     "ingredients": [
@@ -1966,7 +2180,8 @@
     ],
     "result": "照片",
     "category": "Culture & Arts",
-    "explanation": "Light fixed onto paper makes a photograph."
+    "explanation": "Light fixed onto paper makes a photograph.",
+    "explanationTh": "แสงที่ถูกบันทึกลงบนกระดาษทำให้เกิดรูปถ่าย"
   },
   {
     "ingredients": [
@@ -1975,7 +2190,8 @@
     ],
     "result": "刀",
     "category": "Human World",
-    "explanation": "A worker sharpens stone or metal into a blade."
+    "explanation": "A worker sharpens stone or metal into a blade.",
+    "explanationTh": "คนงานลับหินหรือโลหะให้กลายเป็นใบมีด"
   },
   {
     "ingredients": [
@@ -1984,7 +2200,8 @@
     ],
     "result": "轮子",
     "category": "Human World",
-    "explanation": "Wood shaped to roll on roads is a wheel."
+    "explanation": "Wood shaped to roll on roads is a wheel.",
+    "explanationTh": "ไม้ที่ขึ้นรูปให้กลิ้งไปบนถนนคือล้อ"
   },
   {
     "ingredients": [
@@ -1993,7 +2210,8 @@
     ],
     "result": "钢",
     "category": "Human World",
-    "explanation": "Metal from rock, refined with intense heat, becomes steel."
+    "explanation": "Metal from rock, refined with intense heat, becomes steel.",
+    "explanationTh": "โลหะจากหินที่ถูกกลั่นด้วยความร้อนสูงกลายเป็นเหล็กกล้า"
   },
   {
     "ingredients": [
@@ -2002,7 +2220,8 @@
     ],
     "result": "机器",
     "category": "Human World",
-    "explanation": "Steel parts driven by power make a machine."
+    "explanation": "Steel parts driven by power make a machine.",
+    "explanationTh": "ชิ้นส่วนเหล็กกล้าที่ขับเคลื่อนด้วยพลังงานประกอบกันเป็นเครื่องจักร"
   },
   {
     "ingredients": [
@@ -2011,7 +2230,8 @@
     ],
     "result": "机器人",
     "category": "Human World",
-    "explanation": "A machine run by a computer is a robot."
+    "explanation": "A machine run by a computer is a robot.",
+    "explanationTh": "เครื่องจักรที่ควบคุมด้วยคอมพิวเตอร์คือหุ่นยนต์"
   },
   {
     "ingredients": [
@@ -2020,7 +2240,8 @@
     ],
     "result": "船坞",
     "category": "Human World",
-    "explanation": "Workers build ships at a shipyard by the port."
+    "explanation": "Workers build ships at a shipyard by the port.",
+    "explanationTh": "คนงานสร้างเรือที่อู่เรือใกล้ท่าเรือ"
   },
   {
     "ingredients": [
@@ -2029,7 +2250,8 @@
     ],
     "result": "农场",
     "category": "Human World",
-    "explanation": "Fields and livestock together make a farm."
+    "explanation": "Fields and livestock together make a farm.",
+    "explanationTh": "ทุ่งนาและปศุสัตว์รวมกันเป็นฟาร์ม"
   },
   {
     "ingredients": [
@@ -2038,7 +2260,8 @@
     ],
     "result": "井",
     "category": "Human World",
-    "explanation": "A hole lined with brick to reach groundwater is a well."
+    "explanation": "A hole lined with brick to reach groundwater is a well.",
+    "explanationTh": "หลุมที่บุด้วยอิฐเพื่อเข้าถึงน้ำใต้ดินคือบ่อน้ำ"
   },
   {
     "ingredients": [
@@ -2047,7 +2270,8 @@
     ],
     "result": "火把",
     "category": "Human World",
-    "explanation": "Burning wood on a stick is a torch."
+    "explanation": "Burning wood on a stick is a torch.",
+    "explanationTh": "ไม้ที่ลุกไหม้ติดอยู่บนด้ามคือคบเพลิง"
   },
   {
     "ingredients": [
@@ -2056,7 +2280,8 @@
     ],
     "result": "烟",
     "category": "Human World",
-    "explanation": "A burning torch gives off smoke into the air."
+    "explanation": "A burning torch gives off smoke into the air.",
+    "explanationTh": "คบเพลิงที่ลุกไหม้ปล่อยควันสู่อากาศ"
   },
   {
     "ingredients": [
@@ -2065,7 +2290,8 @@
     ],
     "result": "雾",
     "category": "Weather Cycle",
-    "explanation": "A cloud at ground level is fog."
+    "explanation": "A cloud at ground level is fog.",
+    "explanationTh": "เมฆที่ระดับพื้นดินคือหมอก"
   },
   {
     "ingredients": [
@@ -2074,7 +2300,8 @@
     ],
     "result": "霜",
     "category": "Weather Cycle",
-    "explanation": "Freezing mist settles as frost."
+    "explanation": "Freezing mist settles as frost.",
+    "explanationTh": "ละอองน้ำที่แข็งตัวจับตัวเป็นน้ำค้างแข็ง"
   },
   {
     "ingredients": [
@@ -2083,7 +2310,8 @@
     ],
     "result": "冰川",
     "category": "Weather Cycle",
-    "explanation": "Ice built up on mountains forms a glacier."
+    "explanation": "Ice built up on mountains forms a glacier.",
+    "explanationTh": "น้ำแข็งที่สะสมอยู่บนภูเขาก่อตัวเป็นธารน้ำแข็ง"
   },
   {
     "ingredients": [
@@ -2092,7 +2320,8 @@
     ],
     "result": "风暴",
     "category": "Weather Cycle",
-    "explanation": "Violent wind and rain make a storm."
+    "explanation": "Violent wind and rain make a storm.",
+    "explanationTh": "ลมและฝนที่รุนแรงรวมกันเป็นพายุ"
   },
   {
     "ingredients": [
@@ -2101,6 +2330,7 @@
     ],
     "result": "露水",
     "category": "Weather Cycle",
-    "explanation": "Morning mist leaves dew on the grass."
+    "explanation": "Morning mist leaves dew on the grass.",
+    "explanationTh": "ละอองหมอกยามเช้าทิ้งหยดน้ำค้างไว้บนหญ้า"
   }
 ]
