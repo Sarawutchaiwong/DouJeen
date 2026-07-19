@@ -810,7 +810,7 @@ function DiscoveryModal({ discovery, playingCharacter, onPlay, onClose }) {
           <div className="text-center">
             <div className="relative mx-auto h-20 w-20 sm:h-24 sm:w-24" aria-hidden="true">
               <div className="animate-vortex absolute -inset-7 rounded-full blur-[3px]" />
-              <div className="animate-emerge relative grid h-full w-full place-items-center rounded-[1.7rem] bg-[var(--lab-mint)] text-4xl shadow-[0_10px_0_var(--lab-lilac)] [animation-delay:450ms] sm:text-5xl">
+              <div className="animate-emerge relative grid h-full w-full place-items-center rounded-[1.7rem] bg-[var(--lab-mint)] text-4xl shadow-[0_10px_0_var(--lab-lilac)] sm:text-5xl" style={{ animationDelay: '1050ms' }}>
                 <Glyph data={discovery} />
               </div>
             </div>
