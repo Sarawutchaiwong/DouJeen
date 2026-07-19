@@ -155,7 +155,7 @@ export default function LandingPage() {
 
       {settingsOpen && (
         <div
-          className={`fixed inset-0 z-[60] flex items-center justify-center overflow-y-auto bg-[var(--lab-overlay)] p-4 backdrop-blur-[6px] sm:p-6 ${settingsExiting ? 'animate-backdrop-exit pointer-events-none' : 'animate-backdrop-enter'}`}
+          className={`fixed inset-x-0 top-0 z-[60] flex h-[100dvh] items-center justify-center overflow-y-auto bg-[var(--lab-overlay)] p-4 backdrop-blur-[6px] sm:p-6 ${settingsExiting ? 'animate-backdrop-exit pointer-events-none' : 'animate-backdrop-enter'}`}
           onClick={closeSettings}
         >
           <div

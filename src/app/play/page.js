@@ -760,7 +760,7 @@ function useModalController({ initialFocusRef, onClose }) {
 function ModalShell({ labelledBy, describedBy, dialogRef, closing, onClose, maxWidth = 'max-w-lg', children }) {
   return (
     <div
-      className={`fixed inset-0 z-[80] flex items-center justify-center overflow-y-auto bg-[var(--lab-overlay)] p-4 backdrop-blur-[6px] sm:p-6 ${closing ? 'pointer-events-none animate-backdrop-exit' : 'animate-backdrop-enter'}`}
+      className={`fixed inset-x-0 top-0 z-[80] flex h-[100dvh] items-center justify-center overflow-y-auto bg-[var(--lab-overlay)] p-4 backdrop-blur-[6px] sm:p-6 ${closing ? 'pointer-events-none animate-backdrop-exit' : 'animate-backdrop-enter'}`}
       onClick={() => onClose()}
     >
       <div
