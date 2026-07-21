@@ -31,6 +31,12 @@ const SPAWN_POINTS = [
 
 const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
 
+// Minimum on-screen gap between two node centers, in pixels. Shared by drag-combine
+// detection and overlap avoidance so "close enough to combine" and "too close, not
+// allowed to rest there" are the same threshold.
+const getMinNodeGapPx = (rect) => clamp(Math.min(rect.width, rect.height) * 0.14, 66, 104);
+const RING_TRY_ANGLES = 10;
+
 // Once the canvas has used up the hand-placed SPAWN_POINTS, later spawns fall
 // back to a golden-angle spiral: each step turns by the same irrational angle
 // and grows its radius, so no two spiral points ever land near each other
@@ -215,16 +221,54 @@ export default function GamePage() {
     y,
   }), []);
 
+  // Finds a spot that doesn't overlap any existing node (excludeIds skips the node's own
+  // former slot, e.g. a node being repositioned). Tries the given preferred points first,
+  // then rings outward around the first preferred point, then falls back to the golden-angle
+  // spiral used for board-filling spawns. WHY: a plain "next slot by item count" (the old
+  // approach) breaks the moment items are removed by combining, since a later spawn can land
+  // on a slot a surviving node already occupies.
+  const findFreeSpot = useCallback((preferredPoints, excludeIds = []) => {
+    const canvas = canvasRef.current;
+    const rect = canvas?.getBoundingClientRect();
+    const exclude = new Set(excludeIds);
+    const others = canvasItemsRef.current.filter(({ id }) => !exclude.has(id));
+    const minGap = rect ? getMinNodeGapPx(rect) : 0;
+    const fits = (x, y) => !rect || others.every((item) => Math.hypot(
+      ((item.x - x) / 100) * rect.width,
+      ((item.y - y) / 100) * rect.height,
+    ) >= minGap);
+
+    for (const point of preferredPoints) {
+      if (fits(...point)) return point;
+    }
+
+    const [baseX, baseY] = preferredPoints[0] ?? [50, 44];
+    if (rect) {
+      for (let ring = 1; ring <= 3; ring++) {
+        const radiusPercent = (minGap * ring * 1.1 / Math.min(rect.width, rect.height)) * 100;
+        for (let a = 0; a < RING_TRY_ANGLES; a++) {
+          const angle = (a / RING_TRY_ANGLES) * Math.PI * 2;
+          const x = clamp(baseX + radiusPercent * Math.cos(angle), EDGE_PADDING_PERCENT, 100 - EDGE_PADDING_PERCENT);
+          const y = clamp(baseY + radiusPercent * Math.sin(angle), EDGE_PADDING_PERCENT, 100 - EDGE_PADDING_PERCENT);
+          if (fits(x, y)) return [x, y];
+        }
+      }
+    }
+
+    for (let i = 0; i < MAX_CANVAS_ITEMS * 4; i++) {
+      const point = spiralSpawnPoint(i);
+      if (fits(...point)) return point;
+    }
+    return [baseX, baseY];
+  }, []);
+
   const spawnItem = useCallback((text) => {
-    const index = canvasItemsRef.current.length;
-    const [x, y] = index < SPAWN_POINTS.length
-      ? SPAWN_POINTS[index]
-      : spiralSpawnPoint(index - SPAWN_POINTS.length);
+    const [x, y] = findFreeSpot(SPAWN_POINTS);
     const item = createCanvasItem(text, x, y);
 
     commitCanvas((current) => [...current, item].slice(-MAX_CANVAS_ITEMS));
     commitSelectedId(null);
-  }, [commitCanvas, commitSelectedId, createCanvasItem]);
+  }, [commitCanvas, commitSelectedId, createCanvasItem, findFreeSpot]);
 
   const resolveCombination = useCallback((firstText, secondText, options = {}) => {
     const match = getRecipe(firstText, secondText);
@@ -253,11 +297,12 @@ export default function GamePage() {
 
     if (placeResult) {
       const consumedIdSet = new Set(consumedIds);
-      const resultNode = createCanvasItem(
-        match.result,
+      const preferredSpot = [
         clamp(resultX, EDGE_PADDING_PERCENT, 100 - EDGE_PADDING_PERCENT),
         clamp(resultY, EDGE_PADDING_PERCENT, 100 - EDGE_PADDING_PERCENT),
-      );
+      ];
+      const [x, y] = findFreeSpot([preferredSpot], consumedIds);
+      const resultNode = createCanvasItem(match.result, x, y);
       commitCanvas((current) => [
         ...current.filter(({ id }) => !consumedIdSet.has(id)),
         resultNode,
@@ -274,16 +319,16 @@ export default function GamePage() {
     setDiscovery({ ...match, recipeKey, ingredients: [firstText, secondText], isNewWord });
     commitSelectedId(null);
     return true;
-  }, [commitCanvas, commitSelectedId, createCanvasItem, showReactionMessage, tPlay]);
+  }, [commitCanvas, commitSelectedId, createCanvasItem, findFreeSpot, showReactionMessage, tPlay]);
 
   const combineNodes = useCallback((firstId, secondId) => {
-    if (!firstId || !secondId || firstId === secondId) return;
+    if (!firstId || !secondId || firstId === secondId) return false;
     const currentItems = canvasItemsRef.current;
     const first = currentItems.find(({ id }) => id === firstId);
     const second = currentItems.find(({ id }) => id === secondId);
-    if (!first || !second) return;
+    if (!first || !second) return false;
 
-    resolveCombination(first.text, second.text, {
+    return resolveCombination(first.text, second.text, {
       consumedIds: [firstId, secondId],
       resultX: (first.x + second.x) / 2,
       resultY: (first.y + second.y) / 2,
@@ -325,7 +370,7 @@ export default function GamePage() {
     }
 
     const rect = canvas.getBoundingClientRect();
-    const collisionDistance = clamp(Math.min(rect.width, rect.height) * 0.14, 66, 104);
+    const collisionDistance = getMinNodeGapPx(rect);
 
     return canvasItemsRef.current
       .filter(({ id }) => id !== itemId)
@@ -339,6 +384,16 @@ export default function GamePage() {
       .filter(({ distance }) => distance <= collisionDistance)
       .sort((a, b) => a.distance - b.distance)[0]?.id ?? null;
   }, []);
+
+  // A drag that ends on top of another node but doesn't yield a valid recipe would
+  // otherwise leave the two nodes visually stacked. Push the dropped node to the
+  // nearest open spot instead.
+  const separateFromCollision = useCallback((itemId) => {
+    const dragged = canvasItemsRef.current.find(({ id }) => id === itemId);
+    if (!dragged) return;
+    const [x, y] = findFreeSpot([[dragged.x, dragged.y]], [itemId]);
+    commitCanvas((current) => current.map((item) => item.id === itemId ? { ...item, x, y } : item));
+  }, [commitCanvas, findFreeSpot]);
 
   const handlePointerDown = useCallback((event, itemId) => {
     if (event.button !== 0) return;
@@ -396,7 +451,9 @@ export default function GamePage() {
 
     if (drag.moved) {
       const collisionId = findCollision(itemId);
-      if (collisionId) combineNodes(itemId, collisionId);
+      if (collisionId && !combineNodes(itemId, collisionId)) {
+        separateFromCollision(itemId);
+      }
       return;
     }
 
@@ -406,7 +463,7 @@ export default function GamePage() {
     } else {
       commitSelectedId(previousSelectedId === itemId ? null : itemId);
     }
-  }, [combineNodes, commitSelectedId, findCollision]);
+  }, [combineNodes, commitSelectedId, findCollision, separateFromCollision]);
 
   const handlePointerCancel = useCallback((event) => {
     if (event.currentTarget.hasPointerCapture?.(event.pointerId)) {

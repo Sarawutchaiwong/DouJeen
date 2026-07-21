@@ -45,6 +45,7 @@ export default function GuidePage() {
   const [search, setSearch] = useState('');
   const [unlocked, setUnlocked] = useState(STARTER_ITEMS);
   const [discoveredRecipeKeys, setDiscoveredRecipeKeys] = useState([]);
+  const [showAnswers, setShowAnswers] = useState(false);
   const { playingCharacter, playPronunciation, pronunciationError } = usePronunciation();
 
   useEffect(() => {
@@ -92,6 +93,13 @@ export default function GuidePage() {
 
   const discoveredWordCount = unlocked.filter((item) => !STARTER_ITEMS.includes(item)).length;
   const lockedWordCount = Math.max(DISCOVERABLE_ITEMS.length - discoveredWordCount, 0);
+
+  const discoveredSet = new Set(discoveredRecipeKeys);
+  const lockedRecipes = useMemo(
+    () => Object.entries(RECIPES).filter(([key]) => !discoveredSet.has(key)),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [discoveredRecipeKeys],
+  );
 
   return (
     <main className="relative min-h-screen bg-graph-paper pb-20 font-sans">
@@ -241,7 +249,35 @@ export default function GuidePage() {
             ))}
           </ol>
         </section>
+
+        {showAnswers && (
+          <section className="surface-panel mt-10 rounded-[2rem] border-dashed p-6 sm:p-8" aria-labelledby="cheat-title">
+            <div className="eyebrow">{t('cheatEyebrow')}</div>
+            <h2 id="cheat-title" className="mt-1 text-2xl font-black tracking-[-0.035em] text-[var(--lab-ink)]">{t('cheatTitle')}</h2>
+            {lockedRecipes.length === 0 ? (
+              <p className="mt-3 text-sm font-bold text-[var(--lab-muted)]">{t('cheatDone')}</p>
+            ) : (
+              <ul className="mt-4 grid gap-2 sm:grid-cols-2">
+                {lockedRecipes.map(([key, recipe]) => {
+                  const [first, second] = getRecipeIngredients(key);
+                  return (
+                    <li key={key} className="flex items-center gap-2 rounded-[1rem] bg-[var(--lab-lilac)] px-4 py-3 text-sm font-black text-[var(--lab-ink)]" lang="zh-Hans">
+                      <span>{first}</span><span aria-hidden="true" className="text-[var(--lab-muted)]">+</span><span>{second}</span><span aria-hidden="true" className="text-[var(--lab-muted)]">→</span><span className="text-[var(--lab-action)]">{recipe.result}</span>
+                    </li>
+                  );
+                })}
+              </ul>
+            )}
+          </section>
+        )}
       </div>
+
+      <button
+        type="button"
+        onClick={() => setShowAnswers((value) => !value)}
+        aria-label={t('cheatToggle')}
+        className="fixed bottom-3 right-3 z-30 h-4 w-4 rounded-full opacity-0 hover:opacity-10 focus:opacity-10 focus:outline-none"
+      />
 
       {pronunciationError && <div role="status" className="fixed left-1/2 top-20 z-[70] -translate-x-1/2 rounded-full bg-[var(--lab-ink)] px-5 py-3 text-center text-xs font-black text-[var(--lab-surface)] shadow-xl">{pronunciationError}</div>}
     </main>

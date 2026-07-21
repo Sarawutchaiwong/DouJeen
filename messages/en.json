@@ -96,7 +96,11 @@
     "bibliography": "Bibliography",
     "bibDesc": "CC-CEDICT supplies every Chinese headword, reading, and definition. The official HSK list marks essential beginner words. Scientific references explain physical transformations; Infinite Craft is cited only for the interaction model.",
     "openSource": "Open source ↗",
-    "license": "License:"
+    "license": "License:",
+    "cheatToggle": "Reveal answers",
+    "cheatEyebrow": "Secret · not for the faint of heart",
+    "cheatTitle": "Every remaining recipe",
+    "cheatDone": "Nothing left to reveal — you found them all."
   },
   "Categories": {
     "First Reactions": "First Reactions",
