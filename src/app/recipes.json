@@ -2332,5 +2332,2675 @@
     "category": "Weather Cycle",
     "explanation": "Morning mist leaves dew on the grass.",
     "explanationTh": "ละอองหมอกยามเช้าทิ้งหยดน้ำค้างไว้บนหญ้า"
+  },
+  {
+    "ingredients": [
+      "猫",
+      "森林"
+    ],
+    "result": "老虎",
+    "category": "Animals",
+    "explanation": "A big striped cat that prowls the forest is a tiger.",
+    "explanationTh": "แมวลายทางตัวใหญ่ที่ท่องป่าคือเสือ"
+  },
+  {
+    "ingredients": [
+      "猫",
+      "草地"
+    ],
+    "result": "狮子",
+    "category": "Animals",
+    "explanation": "A big cat that rules the grassy plains is a lion.",
+    "explanationTh": "แมวตัวใหญ่ที่ครองทุ่งหญ้าคือสิงโต"
+  },
+  {
+    "ingredients": [
+      "森林",
+      "鼻子"
+    ],
+    "result": "大象",
+    "category": "Animals",
+    "explanation": "A huge forest animal with a long nose is an elephant.",
+    "explanationTh": "สัตว์ป่าตัวใหญ่ที่มีจมูกยาวคือช้าง"
+  },
+  {
+    "ingredients": [
+      "树",
+      "手"
+    ],
+    "result": "猴子",
+    "category": "Animals",
+    "explanation": "An animal that climbs trees using hand-like paws is a monkey.",
+    "explanationTh": "สัตว์ที่ปีนต้นไม้ด้วยมือคือลิง"
+  },
+  {
+    "ingredients": [
+      "森林",
+      "草"
+    ],
+    "result": "鹿",
+    "category": "Animals",
+    "explanation": "A gentle grass-eating animal of the forest is a deer.",
+    "explanationTh": "สัตว์กินหญ้านิสัยอ่อนโยนในป่าคือกวาง"
+  },
+  {
+    "ingredients": [
+      "狗",
+      "森林"
+    ],
+    "result": "狼",
+    "category": "Animals",
+    "explanation": "A wild forest relative of the dog is a wolf.",
+    "explanationTh": "ญาติป่าของหมาคือหมาป่า"
+  },
+  {
+    "ingredients": [
+      "狗",
+      "山"
+    ],
+    "result": "狐狸",
+    "category": "Animals",
+    "explanation": "A clever red-coated forest animal is a fox.",
+    "explanationTh": "สัตว์ป่าขนสีแดงแสนฉลาดคือจิ้งจอก"
+  },
+  {
+    "ingredients": [
+      "马",
+      "黑"
+    ],
+    "result": "斑马",
+    "category": "Animals",
+    "explanation": "A horse marked with black and white stripes is a zebra.",
+    "explanationTh": "ม้าที่มีลายสีดำขาวคือม้าลาย"
+  },
+  {
+    "ingredients": [
+      "鹿",
+      "树"
+    ],
+    "result": "长颈鹿",
+    "category": "Animals",
+    "explanation": "A long-necked animal that reaches high into trees is a giraffe.",
+    "explanationTh": "สัตว์คอยาวที่เอื้อมกินยอดไม้สูงคือยีราฟ"
+  },
+  {
+    "ingredients": [
+      "鸟",
+      "冰川"
+    ],
+    "result": "企鹅",
+    "category": "Animals",
+    "explanation": "A flightless bird at home on the ice is a penguin.",
+    "explanationTh": "นกที่บินไม่ได้และอาศัยอยู่บนน้ำแข็งคือเพนกวิน"
+  },
+  {
+    "ingredients": [
+      "鸟",
+      "晚上"
+    ],
+    "result": "猫头鹰",
+    "category": "Animals",
+    "explanation": "A bird that hunts quietly at night is an owl.",
+    "explanationTh": "นกที่ล่าเหยื่ออย่างเงียบยามค่ำคืนคือนกฮูก"
+  },
+  {
+    "ingredients": [
+      "鸟",
+      "山"
+    ],
+    "result": "鹰",
+    "category": "Animals",
+    "explanation": "A powerful bird that soars above mountains is an eagle.",
+    "explanationTh": "นกที่บินร่อนเหนือภูเขาอย่างสง่างามคือนกอินทรี"
+  },
+  {
+    "ingredients": [
+      "鱼",
+      "牙"
+    ],
+    "result": "鲨鱼",
+    "category": "Animals",
+    "explanation": "A large predatory fish of the open ocean is a shark.",
+    "explanationTh": "ปลานักล่าตัวใหญ่กลางมหาสมุทรคือฉลาม"
+  },
+  {
+    "ingredients": [
+      "鱼",
+      "海水"
+    ],
+    "result": "章鱼",
+    "category": "Animals",
+    "explanation": "A soft eight-armed sea creature is an octopus.",
+    "explanationTh": "สัตว์ทะเลลำตัวนิ่มแปดแขนคือปลาหมึก"
+  },
+  {
+    "ingredients": [
+      "沙滩",
+      "虫"
+    ],
+    "result": "螃蟹",
+    "category": "Animals",
+    "explanation": "A hard-shelled creature that sidesteps across the beach is a crab.",
+    "explanationTh": "สัตว์เปลือกแข็งที่เดินตะแคงบนชายหาดคือปู"
+  },
+  {
+    "ingredients": [
+      "海水",
+      "虫"
+    ],
+    "result": "虾",
+    "category": "Animals",
+    "explanation": "A small curved shellfish living in the sea is a shrimp.",
+    "explanationTh": "สัตว์เปลือกแข็งตัวเล็กโค้งในทะเลคือกุ้ง"
+  },
+  {
+    "ingredients": [
+      "河",
+      "岩石"
+    ],
+    "result": "乌龟",
+    "category": "Animals",
+    "explanation": "A slow reptile carrying a rock-hard shell is a turtle.",
+    "explanationTh": "สัตว์เลื้อยคลานเชื่องช้าที่มีกระดองแข็งคือเต่า"
+  },
+  {
+    "ingredients": [
+      "树",
+      "种子"
+    ],
+    "result": "松鼠",
+    "category": "Animals",
+    "explanation": "A small animal that gathers seeds up in trees is a squirrel.",
+    "explanationTh": "สัตว์ตัวเล็กที่เก็บเมล็ดพืชบนต้นไม้คือกระรอก"
+  },
+  {
+    "ingredients": [
+      "狗",
+      "身体"
+    ],
+    "result": "尾巴",
+    "category": "Animals",
+    "explanation": "The trailing part behind an animal’s body is its tail.",
+    "explanationTh": "ส่วนที่ห้อยอยู่ท้ายลำตัวสัตว์คือหาง"
+  },
+  {
+    "ingredients": [
+      "头",
+      "手"
+    ],
+    "result": "身体",
+    "category": "Body & Senses",
+    "explanation": "Head and hands together are parts of the whole body.",
+    "explanationTh": "หัวและมือรวมกันเป็นส่วนหนึ่งของร่างกายทั้งหมด"
+  },
+  {
+    "ingredients": [
+      "脸",
+      "空气"
+    ],
+    "result": "鼻子",
+    "category": "Body & Senses",
+    "explanation": "The part of the face that breathes in air is the nose.",
+    "explanationTh": "ส่วนของใบหน้าที่หายใจเอาอากาศเข้าคือจมูก"
+  },
+  {
+    "ingredients": [
+      "头",
+      "眼睛"
+    ],
+    "result": "脸",
+    "category": "Body & Senses",
+    "explanation": "The front of the head holding the eyes is the face.",
+    "explanationTh": "ด้านหน้าของหัวที่มีดวงตาคือใบหน้า"
+  },
+  {
+    "ingredients": [
+      "脚",
+      "路"
+    ],
+    "result": "走",
+    "category": "Body & Senses",
+    "explanation": "Moving the feet along a road is to walk.",
+    "explanationTh": "การขยับเท้าไปตามถนนคือการเดิน"
+  },
+  {
+    "ingredients": [
+      "走",
+      "快"
+    ],
+    "result": "跑",
+    "category": "Body & Senses",
+    "explanation": "Walking done quickly becomes running.",
+    "explanationTh": "การเดินที่ทำอย่างรวดเร็วกลายเป็นการวิ่ง"
+  },
+  {
+    "ingredients": [
+      "脚",
+      "空气"
+    ],
+    "result": "跳",
+    "category": "Body & Senses",
+    "explanation": "Pushing off the ground into the air with the feet is to jump.",
+    "explanationTh": "การใช้เท้าถีบตัวลอยขึ้นไปในอากาศคือการกระโดด"
+  },
+  {
+    "ingredients": [
+      "床",
+      "晚上"
+    ],
+    "result": "睡觉",
+    "category": "Body & Senses",
+    "explanation": "Resting the body in bed at night is to sleep.",
+    "explanationTh": "การพักร่างกายบนเตียงยามค่ำคืนคือการนอนหลับ"
+  },
+  {
+    "ingredients": [
+      "睡觉",
+      "上午"
+    ],
+    "result": "醒",
+    "category": "Body & Senses",
+    "explanation": "Ending sleep in the morning is to wake up.",
+    "explanationTh": "การหยุดนอนหลับในตอนเช้าคือการตื่น"
+  },
+  {
+    "ingredients": [
+      "手",
+      "花"
+    ],
+    "result": "摸",
+    "category": "Body & Senses",
+    "explanation": "Feeling something with the hand is to touch.",
+    "explanationTh": "การรับรู้สิ่งของด้วยมือคือการสัมผัส"
+  },
+  {
+    "ingredients": [
+      "病",
+      "人"
+    ],
+    "result": "病人",
+    "category": "Body & Senses",
+    "explanation": "A person suffering from illness is a patient.",
+    "explanationTh": "คนที่ป่วยเป็นโรคคือผู้ป่วย"
+  },
+  {
+    "ingredients": [
+      "身体",
+      "强"
+    ],
+    "result": "健康",
+    "category": "Body & Senses",
+    "explanation": "A strong body free of illness is healthy.",
+    "explanationTh": "ร่างกายที่แข็งแรงปราศจากโรคคือสุขภาพดี"
+  },
+  {
+    "ingredients": [
+      "身体",
+      "工作"
+    ],
+    "result": "强",
+    "category": "Feelings",
+    "explanation": "A body built up by work and exercise becomes strong.",
+    "explanationTh": "ร่างกายที่ผ่านการทำงานหนักจนแข็งแรง"
+  },
+  {
+    "ingredients": [
+      "累",
+      "病"
+    ],
+    "result": "弱",
+    "category": "Feelings",
+    "explanation": "A body worn down by tiredness and illness is weak.",
+    "explanationTh": "ร่างกายที่อ่อนล้าและป่วยไข้คืออ่อนแอ"
+  },
+  {
+    "ingredients": [
+      "山",
+      "身体"
+    ],
+    "result": "高",
+    "category": "Feelings",
+    "explanation": "Reaching upward like a mountain describes tall.",
+    "explanationTh": "การเอื้อมสูงขึ้นเหมือนภูเขาคือคำว่าสูง"
+  },
+  {
+    "ingredients": [
+      "椅子",
+      "身体"
+    ],
+    "result": "矮",
+    "category": "Feelings",
+    "explanation": "A body closer to a low chair’s height is short.",
+    "explanationTh": "ร่างกายที่เตี้ยพอๆ กับเก้าอี้คือเตี้ย"
+  },
+  {
+    "ingredients": [
+      "食物",
+      "身体"
+    ],
+    "result": "胖",
+    "category": "Feelings",
+    "explanation": "A body that has eaten plenty of food becomes plump.",
+    "explanationTh": "ร่างกายที่กินอาหารมากจนอ้วน"
+  },
+  {
+    "ingredients": [
+      "累",
+      "工作"
+    ],
+    "result": "瘦",
+    "category": "Feelings",
+    "explanation": "A body worn thin by hard work is slim.",
+    "explanationTh": "ร่างกายที่ผอมลงเพราะทำงานหนักคือผอม"
+  },
+  {
+    "ingredients": [
+      "山",
+      "城市"
+    ],
+    "result": "大",
+    "category": "Feelings",
+    "explanation": "Something as vast as a mountain or city is big.",
+    "explanationTh": "สิ่งที่กว้างใหญ่เหมือนภูเขาหรือเมืองคือใหญ่"
+  },
+  {
+    "ingredients": [
+      "种子",
+      "虫"
+    ],
+    "result": "小",
+    "category": "Feelings",
+    "explanation": "Something as tiny as a seed or insect is small.",
+    "explanationTh": "สิ่งที่เล็กจิ๋วเหมือนเมล็ดพืชหรือแมลงคือเล็ก"
+  },
+  {
+    "ingredients": [
+      "风",
+      "车"
+    ],
+    "result": "快",
+    "category": "Feelings",
+    "explanation": "Moving with the speed of wind or a vehicle is fast.",
+    "explanationTh": "การเคลื่อนไหวรวดเร็วเหมือนลมหรือรถคือเร็ว"
+  },
+  {
+    "ingredients": [
+      "乌龟",
+      "路"
+    ],
+    "result": "慢",
+    "category": "Feelings",
+    "explanation": "Moving along a road no faster than a turtle is slow.",
+    "explanationTh": "การเคลื่อนไหวช้าเหมือนเต่าเดินบนถนนคือช้า"
+  },
+  {
+    "ingredients": [
+      "光",
+      "商店"
+    ],
+    "result": "新",
+    "category": "Feelings",
+    "explanation": "Something fresh from the shop, still shining, is new.",
+    "explanationTh": "สิ่งที่เพิ่งออกจากร้านค้ายังแวววาวคือใหม่"
+  },
+  {
+    "ingredients": [
+      "时间",
+      "房子"
+    ],
+    "result": "旧",
+    "category": "Feelings",
+    "explanation": "A house worn down by time becomes old.",
+    "explanationTh": "บ้านที่ผ่านกาลเวลามานานจนเก่า"
+  },
+  {
+    "ingredients": [
+      "钱",
+      "商店"
+    ],
+    "result": "贵",
+    "category": "City & Market",
+    "explanation": "Something priced with a lot of money at the shop is expensive.",
+    "explanationTh": "สิ่งที่ตั้งราคาด้วยเงินจำนวนมากในร้านคือแพง"
+  },
+  {
+    "ingredients": [
+      "钱",
+      "小"
+    ],
+    "result": "便宜",
+    "category": "City & Market",
+    "explanation": "Something that costs little money at the market is cheap.",
+    "explanationTh": "สิ่งที่ใช้เงินน้อยในตลาดคือถูก"
+  },
+  {
+    "ingredients": [
+      "花",
+      "颜色"
+    ],
+    "result": "漂亮",
+    "category": "Feelings",
+    "explanation": "Flowers full of color are called beautiful.",
+    "explanationTh": "ดอกไม้ที่เต็มไปด้วยสีสันเรียกว่าสวย"
+  },
+  {
+    "ingredients": [
+      "泥",
+      "虫"
+    ],
+    "result": "丑",
+    "category": "Feelings",
+    "explanation": "Something as unpleasant to look at as mud and worms is ugly.",
+    "explanationTh": "สิ่งที่มองแล้วไม่น่ามองเหมือนโคลนและหนอนคือขี้เหร่"
+  },
+  {
+    "ingredients": [
+      "水",
+      "房间"
+    ],
+    "result": "干净",
+    "category": "Feelings",
+    "explanation": "A room washed with water becomes clean.",
+    "explanationTh": "ห้องที่ล้างด้วยน้ำจนสะอาด"
+  },
+  {
+    "ingredients": [
+      "泥",
+      "房间"
+    ],
+    "result": "脏",
+    "category": "Feelings",
+    "explanation": "A room covered in mud is dirty.",
+    "explanationTh": "ห้องที่เปื้อนโคลนคือสกปรก"
+  },
+  {
+    "ingredients": [
+      "房间",
+      "睡觉"
+    ],
+    "result": "安静",
+    "category": "Feelings",
+    "explanation": "A room kept still for sleeping is quiet.",
+    "explanationTh": "ห้องที่สงบเพื่อการนอนหลับคือเงียบ"
+  },
+  {
+    "ingredients": [
+      "声音",
+      "城市"
+    ],
+    "result": "吵",
+    "category": "Feelings",
+    "explanation": "A city full of sound is loud.",
+    "explanationTh": "เมืองที่เต็มไปด้วยเสียงคือเสียงดัง"
+  },
+  {
+    "ingredients": [
+      "杯子",
+      "房间"
+    ],
+    "result": "空",
+    "category": "Feelings",
+    "explanation": "A cup or room holding nothing is empty.",
+    "explanationTh": "ถ้วยหรือห้องที่ไม่มีอะไรอยู่ข้างในคือว่างเปล่า"
+  },
+  {
+    "ingredients": [
+      "杯子",
+      "水"
+    ],
+    "result": "满",
+    "category": "Feelings",
+    "explanation": "A cup filled to the top with water is full.",
+    "explanationTh": "ถ้วยที่มีน้ำเต็มถึงขอบคือเต็ม"
+  },
+  {
+    "ingredients": [
+      "家",
+      "门"
+    ],
+    "result": "安全",
+    "category": "Feelings",
+    "explanation": "A home protected behind a closed door is safe.",
+    "explanationTh": "บ้านที่ปลอดภัยหลังประตูที่ปิดสนิทคือปลอดภัย"
+  },
+  {
+    "ingredients": [
+      "蛇",
+      "火"
+    ],
+    "result": "危险",
+    "category": "Feelings",
+    "explanation": "Fire near a volcano is dangerous.",
+    "explanationTh": "ไฟใกล้ภูเขาไฟคืออันตราย"
+  },
+  {
+    "ingredients": [
+      "学生",
+      "高兴"
+    ],
+    "result": "容易",
+    "category": "Feelings",
+    "explanation": "Studying from a clear book feels easy.",
+    "explanationTh": "การเรียนจากหนังสือที่เข้าใจง่ายรู้สึกว่าง่าย"
+  },
+  {
+    "ingredients": [
+      "学习",
+      "山"
+    ],
+    "result": "难",
+    "category": "Feelings",
+    "explanation": "Studying something as tough as climbing a mountain is difficult.",
+    "explanationTh": "การเรียนที่ยากเหมือนปีนภูเขาคือยาก"
+  },
+  {
+    "ingredients": [
+      "字",
+      "老师"
+    ],
+    "result": "对",
+    "category": "Feelings",
+    "explanation": "A teacher confirming a written answer marks it correct.",
+    "explanationTh": "ครูตรวจตัวอักษรที่เขียนแล้วบอกว่าถูกต้อง"
+  },
+  {
+    "ingredients": [
+      "字",
+      "想"
+    ],
+    "result": "错",
+    "category": "Feelings",
+    "explanation": "A character written without careful thought turns out wrong.",
+    "explanationTh": "ตัวอักษรที่เขียนโดยไม่คิดให้ดีจะกลายเป็นผิด"
+  },
+  {
+    "ingredients": [
+      "家人",
+      "工作"
+    ],
+    "result": "爸爸",
+    "category": "People & Learning",
+    "explanation": "The working family member who is a dad is 爸爸.",
+    "explanationTh": "สมาชิกครอบครัวที่ทำงานและเป็นพ่อคือ 爸爸"
+  },
+  {
+    "ingredients": [
+      "家人",
+      "爱"
+    ],
+    "result": "妈妈",
+    "category": "People & Learning",
+    "explanation": "The loving family member who is a mom is 妈妈.",
+    "explanationTh": "สมาชิกครอบครัวผู้เปี่ยมด้วยความรักคือแม่ 妈妈"
+  },
+  {
+    "ingredients": [
+      "爸爸",
+      "男孩"
+    ],
+    "result": "儿子",
+    "category": "People & Learning",
+    "explanation": "A father’s boy child is his son.",
+    "explanationTh": "ลูกชายของพ่อคือ 儿子"
+  },
+  {
+    "ingredients": [
+      "妈妈",
+      "女孩"
+    ],
+    "result": "女儿",
+    "category": "People & Learning",
+    "explanation": "A mother’s girl child is her daughter.",
+    "explanationTh": "ลูกสาวของแม่คือ 女儿"
+  },
+  {
+    "ingredients": [
+      "人",
+      "学生"
+    ],
+    "result": "男孩",
+    "category": "People & Learning",
+    "explanation": "A young male person, often a student, is a boy.",
+    "explanationTh": "บุคคลชายวัยเยาว์ มักเป็นนักเรียน คือเด็กผู้ชาย"
+  },
+  {
+    "ingredients": [
+      "人",
+      "花"
+    ],
+    "result": "女孩",
+    "category": "People & Learning",
+    "explanation": "A young female person, delicate like a flower, is a girl.",
+    "explanationTh": "บุคคลหญิงวัยเยาว์ อ่อนโยนดั่งดอกไม้ คือเด็กผู้หญิง"
+  },
+  {
+    "ingredients": [
+      "爸爸",
+      "时间"
+    ],
+    "result": "爷爷",
+    "category": "People & Learning",
+    "explanation": "A father grown old over time becomes a grandfather.",
+    "explanationTh": "พ่อที่มีอายุมากขึ้นตามกาลเวลากลายเป็นปู่"
+  },
+  {
+    "ingredients": [
+      "妈妈",
+      "时间"
+    ],
+    "result": "奶奶",
+    "category": "People & Learning",
+    "explanation": "A mother grown old over time becomes a grandmother.",
+    "explanationTh": "แม่ที่มีอายุมากขึ้นตามกาลเวลากลายเป็นย่า"
+  },
+  {
+    "ingredients": [
+      "儿子",
+      "朋友"
+    ],
+    "result": "哥哥",
+    "category": "People & Learning",
+    "explanation": "An older son who is also a close friend is an older brother.",
+    "explanationTh": "ลูกชายคนโตที่สนิทเหมือนเพื่อนคือพี่ชาย"
+  },
+  {
+    "ingredients": [
+      "家人",
+      "床"
+    ],
+    "result": "婴儿",
+    "category": "People & Learning",
+    "explanation": "The newest, smallest family member sleeping in a crib is a baby.",
+    "explanationTh": "สมาชิกครอบครัวคนล่าสุดตัวเล็กที่นอนบนเปลคือทารก"
+  },
+  {
+    "ingredients": [
+      "城市",
+      "强"
+    ],
+    "result": "国王",
+    "category": "People & Learning",
+    "explanation": "The person whose job is ruling a city and its land is a king.",
+    "explanationTh": "ผู้ที่มีหน้าที่ปกครองเมืองและแผ่นดินคือราชา"
+  },
+  {
+    "ingredients": [
+      "工人",
+      "安全"
+    ],
+    "result": "警察",
+    "category": "People & Learning",
+    "explanation": "A worker whose job keeps the city safe is a police officer.",
+    "explanationTh": "คนงานที่ทำหน้าที่รักษาความปลอดภัยของเมืองคือตำรวจ"
+  },
+  {
+    "ingredients": [
+      "工人",
+      "火"
+    ],
+    "result": "消防员",
+    "category": "People & Learning",
+    "explanation": "A worker whose job is fighting fires is a firefighter.",
+    "explanationTh": "คนงานที่ทำหน้าที่ดับไฟคือนักดับเพลิง"
+  },
+  {
+    "ingredients": [
+      "农场",
+      "工人"
+    ],
+    "result": "农民",
+    "category": "People & Learning",
+    "explanation": "A worker who tends a farm is a farmer.",
+    "explanationTh": "คนงานที่ดูแลฟาร์มคือชาวนา"
+  },
+  {
+    "ingredients": [
+      "船",
+      "鱼"
+    ],
+    "result": "渔民",
+    "category": "People & Learning",
+    "explanation": "A person who catches fish from a boat is a fisherman.",
+    "explanationTh": "คนที่จับปลาจากเรือคือชาวประมง"
+  },
+  {
+    "ingredients": [
+      "歌",
+      "人"
+    ],
+    "result": "歌手",
+    "category": "Culture & Arts",
+    "explanation": "A person whose voice performs songs is a singer.",
+    "explanationTh": "คนที่ใช้เสียงร้องเพลงคือนักร้อง"
+  },
+  {
+    "ingredients": [
+      "画",
+      "人"
+    ],
+    "result": "画家",
+    "category": "Culture & Arts",
+    "explanation": "A person who creates paintings is a painter.",
+    "explanationTh": "คนที่สร้างสรรค์ภาพวาดคือจิตรกร"
+  },
+  {
+    "ingredients": [
+      "故事",
+      "人"
+    ],
+    "result": "作家",
+    "category": "Culture & Arts",
+    "explanation": "A person who writes stories is a writer.",
+    "explanationTh": "คนที่เขียนเรื่องราวคือนักเขียน"
+  },
+  {
+    "ingredients": [
+      "稻",
+      "石"
+    ],
+    "result": "面粉",
+    "category": "Food & Cooking",
+    "explanation": "Grain ground fine between stones becomes flour.",
+    "explanationTh": "ธัญพืชที่บดละเอียดระหว่างก้อนหินกลายเป็นแป้ง"
+  },
+  {
+    "ingredients": [
+      "岩石",
+      "手"
+    ],
+    "result": "石",
+    "category": "Earth & Materials",
+    "explanation": "A hand-sized piece broken from rock is a stone.",
+    "explanationTh": "ชิ้นส่วนขนาดพอเหมาะมือที่แตกจากหินคือก้อนหิน"
+  },
+  {
+    "ingredients": [
+      "牛奶",
+      "黄"
+    ],
+    "result": "黄油",
+    "category": "Food & Cooking",
+    "explanation": "Milk churned until yellow and solid becomes butter.",
+    "explanationTh": "นมที่ปั่นจนข้นและเป็นสีเหลืองกลายเป็นเนย"
+  },
+  {
+    "ingredients": [
+      "牛奶",
+      "时间"
+    ],
+    "result": "奶酪",
+    "category": "Food & Cooking",
+    "explanation": "Milk aged over time becomes cheese.",
+    "explanationTh": "นมที่บ่มตามกาลเวลากลายเป็นชีส"
+  },
+  {
+    "ingredients": [
+      "牛奶",
+      "虫"
+    ],
+    "result": "酸奶",
+    "category": "Food & Cooking",
+    "explanation": "Milk cultured by microbes becomes yogurt.",
+    "explanationTh": "นมที่หมักด้วยจุลินทรีย์กลายเป็นโยเกิร์ต"
+  },
+  {
+    "ingredients": [
+      "水果",
+      "黄"
+    ],
+    "result": "香蕉",
+    "category": "Food & Cooking",
+    "explanation": "A yellow curved fruit is a banana.",
+    "explanationTh": "ผลไม้สีเหลืองรูปโค้งคือกล้วย"
+  },
+  {
+    "ingredients": [
+      "水果",
+      "水"
+    ],
+    "result": "西瓜",
+    "category": "Food & Cooking",
+    "explanation": "A large juicy fruit full of water is a watermelon.",
+    "explanationTh": "ผลไม้ลูกใหญ่ฉ่ำน้ำคือแตงโม"
+  },
+  {
+    "ingredients": [
+      "水果",
+      "太阳"
+    ],
+    "result": "橙子",
+    "category": "Food & Cooking",
+    "explanation": "A round sun-colored citrus fruit is an orange.",
+    "explanationTh": "ผลไม้ทรงกลมสีเดียวกับดวงอาทิตย์คือส้ม"
+  },
+  {
+    "ingredients": [
+      "橙子",
+      "小"
+    ],
+    "result": "柠檬",
+    "category": "Food & Cooking",
+    "explanation": "A sour yellow citrus fruit is a lemon.",
+    "explanationTh": "ผลไม้เปรี้ยวสีเหลืองคือมะนาว"
+  },
+  {
+    "ingredients": [
+      "水果",
+      "酒"
+    ],
+    "result": "葡萄",
+    "category": "Food & Cooking",
+    "explanation": "The small fruit pressed to make wine is the grape.",
+    "explanationTh": "ผลไม้ลูกเล็กที่คั้นทำไวน์คือองุ่น"
+  },
+  {
+    "ingredients": [
+      "水果",
+      "红"
+    ],
+    "result": "草莓",
+    "category": "Food & Cooking",
+    "explanation": "A small red fruit grown low near grass is a strawberry.",
+    "explanationTh": "ผลไม้ลูกเล็กสีแดงที่ปลูกใกล้พื้นหญ้าคือสตรอว์เบอร์รี"
+  },
+  {
+    "ingredients": [
+      "土",
+      "农场"
+    ],
+    "result": "土豆",
+    "category": "Food & Cooking",
+    "explanation": "A root vegetable grown under the soil is a potato.",
+    "explanationTh": "พืชหัวที่เติบโตใต้ดินคือมันฝรั่ง"
+  },
+  {
+    "ingredients": [
+      "土豆",
+      "橙子"
+    ],
+    "result": "胡萝卜",
+    "category": "Food & Cooking",
+    "explanation": "An orange root vegetable like a potato is a carrot.",
+    "explanationTh": "พืชหัวสีส้มคล้ายมันฝรั่งคือแครอต"
+  },
+  {
+    "ingredients": [
+      "土",
+      "菜"
+    ],
+    "result": "洋葱",
+    "category": "Food & Cooking",
+    "explanation": "A layered bulb vegetable grown in soil is an onion.",
+    "explanationTh": "พืชหัวที่มีชั้นซ้อนกันปลูกในดินคือหัวหอม"
+  },
+  {
+    "ingredients": [
+      "洋葱",
+      "小"
+    ],
+    "result": "大蒜",
+    "category": "Food & Cooking",
+    "explanation": "A small pungent bulb related to the onion is garlic.",
+    "explanationTh": "พืชหัวขนาดเล็กกลิ่นฉุนคล้ายหัวหอมคือกระเทียม"
+  },
+  {
+    "ingredients": [
+      "菜",
+      "红"
+    ],
+    "result": "辣椒",
+    "category": "Food & Cooking",
+    "explanation": "A small red vegetable that burns the tongue is a chili pepper.",
+    "explanationTh": "ผักลูกเล็กสีแดงที่เผ็ดร้อนลิ้นคือพริก"
+  },
+  {
+    "ingredients": [
+      "森林",
+      "雨"
+    ],
+    "result": "蘑菇",
+    "category": "Food & Cooking",
+    "explanation": "A fungus that sprouts in damp forest ground is a mushroom.",
+    "explanationTh": "เชื้อราที่งอกในดินป่าชื้นคือเห็ด"
+  },
+  {
+    "ingredients": [
+      "糖",
+      "咖啡"
+    ],
+    "result": "巧克力",
+    "category": "Food & Cooking",
+    "explanation": "Roasted beans sweetened with sugar make chocolate.",
+    "explanationTh": "เมล็ดคั่วที่ผสมน้ำตาลจนหวานกลายเป็นช็อกโกแลต"
+  },
+  {
+    "ingredients": [
+      "面粉",
+      "糖"
+    ],
+    "result": "饼干",
+    "category": "Food & Cooking",
+    "explanation": "Flour baked with sugar makes a cookie.",
+    "explanationTh": "แป้งที่อบกับน้ำตาลกลายเป็นคุกกี้"
+  },
+  {
+    "ingredients": [
+      "水果",
+      "杯子"
+    ],
+    "result": "果汁",
+    "category": "Food & Cooking",
+    "explanation": "Fruit pressed with water makes juice.",
+    "explanationTh": "ผลไม้ที่คั้นผสมน้ำกลายเป็นน้ำผลไม้"
+  },
+  {
+    "ingredients": [
+      "上午",
+      "食物"
+    ],
+    "result": "早饭",
+    "category": "Food & Cooking",
+    "explanation": "The meal eaten in the morning is breakfast.",
+    "explanationTh": "มื้ออาหารที่กินในตอนเช้าคืออาหารเช้า"
+  },
+  {
+    "ingredients": [
+      "晚上",
+      "食物"
+    ],
+    "result": "晚饭",
+    "category": "Food & Cooking",
+    "explanation": "The meal eaten in the evening is dinner.",
+    "explanationTh": "มื้ออาหารที่กินในตอนเย็นคืออาหารเย็น"
+  },
+  {
+    "ingredients": [
+      "纸",
+      "人"
+    ],
+    "result": "衣服",
+    "category": "Human World",
+    "explanation": "Woven material a person wears is clothes.",
+    "explanationTh": "ผืนผ้าที่คนสวมใส่คือเสื้อผ้า"
+  },
+  {
+    "ingredients": [
+      "衣服",
+      "工作"
+    ],
+    "result": "衬衫",
+    "category": "Human World",
+    "explanation": "Clothing worn on the upper body for work is a shirt.",
+    "explanationTh": "เสื้อผ้าท่อนบนที่ใส่ไปทำงานคือเสื้อเชิ้ต"
+  },
+  {
+    "ingredients": [
+      "衣服",
+      "脚"
+    ],
+    "result": "裤子",
+    "category": "Human World",
+    "explanation": "Clothing that covers the legs is pants.",
+    "explanationTh": "เสื้อผ้าที่คลุมขาคือกางเกง"
+  },
+  {
+    "ingredients": [
+      "脚",
+      "商店"
+    ],
+    "result": "鞋子",
+    "category": "Human World",
+    "explanation": "Footwear protecting the feet for the road is shoes.",
+    "explanationTh": "สิ่งสวมป้องกันเท้าเวลาเดินถนนคือรองเท้า"
+  },
+  {
+    "ingredients": [
+      "头",
+      "太阳"
+    ],
+    "result": "帽子",
+    "category": "Human World",
+    "explanation": "A covering worn on the head to block the sun is a hat.",
+    "explanationTh": "สิ่งที่สวมบนหัวเพื่อบังแดดคือหมวก"
+  },
+  {
+    "ingredients": [
+      "衣服",
+      "女孩"
+    ],
+    "result": "裙子",
+    "category": "Human World",
+    "explanation": "Clothing often worn by girls, flowing from the waist, is a skirt.",
+    "explanationTh": "เสื้อผ้าที่มักสวมโดยเด็กผู้หญิงคือกระโปรง"
+  },
+  {
+    "ingredients": [
+      "脚",
+      "鞋子"
+    ],
+    "result": "袜子",
+    "category": "Human World",
+    "explanation": "Soft coverings worn on the feet under shoes are socks.",
+    "explanationTh": "สิ่งนุ่มที่สวมที่เท้าก่อนใส่รองเท้าคือถุงเท้า"
+  },
+  {
+    "ingredients": [
+      "眼睛",
+      "玻璃"
+    ],
+    "result": "眼镜",
+    "category": "Human World",
+    "explanation": "Glass lenses worn to help the eyes see are glasses.",
+    "explanationTh": "เลนส์แก้วที่สวมช่วยให้ดวงตามองเห็นคือแว่นตา"
+  },
+  {
+    "ingredients": [
+      "雨",
+      "手"
+    ],
+    "result": "雨伞",
+    "category": "Human World",
+    "explanation": "A hand-held cover that shields from rain is an umbrella.",
+    "explanationTh": "ของที่ถือกันฝนคือร่ม"
+  },
+  {
+    "ingredients": [
+      "手",
+      "钟"
+    ],
+    "result": "手表",
+    "category": "Human World",
+    "explanation": "A small clock worn on the hand is a wristwatch.",
+    "explanationTh": "นาฬิกาเรือนเล็กที่สวมที่มือคือนาฬิกาข้อมือ"
+  },
+  {
+    "ingredients": [
+      "钱",
+      "衣服"
+    ],
+    "result": "项链",
+    "category": "Human World",
+    "explanation": "A chain of value worn around the neck is a necklace.",
+    "explanationTh": "สร้อยมีค่าที่สวมรอบคอคือสร้อยคอ"
+  },
+  {
+    "ingredients": [
+      "纸",
+      "学生"
+    ],
+    "result": "包",
+    "category": "Human World",
+    "explanation": "A carrying case a student uses for books is a bag.",
+    "explanationTh": "สิ่งที่นักเรียนใช้ใส่หนังสือพกพาคือกระเป๋า"
+  },
+  {
+    "ingredients": [
+      "房间",
+      "木头"
+    ],
+    "result": "床",
+    "category": "Home & Places",
+    "explanation": "A wooden frame for sleeping in a room is a bed.",
+    "explanationTh": "โครงไม้สำหรับนอนในห้องคือเตียง"
+  },
+  {
+    "ingredients": [
+      "床",
+      "头"
+    ],
+    "result": "枕头",
+    "category": "Home & Places",
+    "explanation": "A soft rest for the head on a bed is a pillow.",
+    "explanationTh": "ของนุ่มรองศีรษะบนเตียงคือหมอน"
+  },
+  {
+    "ingredients": [
+      "床",
+      "衣服"
+    ],
+    "result": "毯子",
+    "category": "Home & Places",
+    "explanation": "Woven cloth spread over a bed for warmth is a blanket.",
+    "explanationTh": "ผืนผ้าที่คลุมเตียงเพื่อความอบอุ่นคือผ้าห่ม"
+  },
+  {
+    "ingredients": [
+      "玻璃",
+      "光"
+    ],
+    "result": "镜子",
+    "category": "Home & Places",
+    "explanation": "Glass that reflects light back is a mirror.",
+    "explanationTh": "กระจกที่สะท้อนแสงกลับมาคือกระจกเงา"
+  },
+  {
+    "ingredients": [
+      "椅子",
+      "房间"
+    ],
+    "result": "沙发",
+    "category": "Home & Places",
+    "explanation": "A wide soft chair for a living room is a sofa.",
+    "explanationTh": "เก้าอี้นุ่มตัวใหญ่ในห้องนั่งเล่นคือโซฟา"
+  },
+  {
+    "ingredients": [
+      "冰",
+      "电"
+    ],
+    "result": "冰箱",
+    "category": "Home & Places",
+    "explanation": "An electric box that keeps food as cold as ice is a refrigerator.",
+    "explanationTh": "ตู้ไฟฟ้าที่ทำให้อาหารเย็นเหมือนน้ำแข็งคือตู้เย็น"
+  },
+  {
+    "ingredients": [
+      "火",
+      "厨房"
+    ],
+    "result": "炉子",
+    "category": "Home & Places",
+    "explanation": "A fire source built into the kitchen is a stove.",
+    "explanationTh": "แหล่งไฟที่ติดตั้งในครัวคือเตา"
+  },
+  {
+    "ingredients": [
+      "房间",
+      "食物"
+    ],
+    "result": "厨房",
+    "category": "Home & Places",
+    "explanation": "A room set aside for cooking food is a kitchen.",
+    "explanationTh": "ห้องที่จัดไว้สำหรับปรุงอาหารคือครัว"
+  },
+  {
+    "ingredients": [
+      "房间",
+      "肥皂"
+    ],
+    "result": "浴室",
+    "category": "Home & Places",
+    "explanation": "A room set aside for washing with water is a bathroom.",
+    "explanationTh": "ห้องที่จัดไว้สำหรับอาบน้ำคือห้องน้ำ"
+  },
+  {
+    "ingredients": [
+      "房子",
+      "天空"
+    ],
+    "result": "屋顶",
+    "category": "Home & Places",
+    "explanation": "The top of a house facing the sky is the roof.",
+    "explanationTh": "ส่วนบนสุดของบ้านที่หันสู่ท้องฟ้าคือหลังคา"
+  },
+  {
+    "ingredients": [
+      "木头",
+      "房子"
+    ],
+    "result": "地板",
+    "category": "Home & Places",
+    "explanation": "The wooden surface underfoot in a room is the floor.",
+    "explanationTh": "พื้นผิวไม้ใต้เท้าในห้องคือพื้น"
+  },
+  {
+    "ingredients": [
+      "门",
+      "钢"
+    ],
+    "result": "钥匙",
+    "category": "Home & Places",
+    "explanation": "A small piece of steel that opens a door is a key.",
+    "explanationTh": "ชิ้นเหล็กกล้าเล็กๆ ที่ใช้เปิดประตูคือกุญแจ"
+  },
+  {
+    "ingredients": [
+      "门",
+      "钥匙"
+    ],
+    "result": "锁",
+    "category": "Home & Places",
+    "explanation": "A device on a door that only a key can open is a lock.",
+    "explanationTh": "อุปกรณ์บนประตูที่เปิดได้ด้วยกุญแจเท่านั้นคือแม่กุญแจ"
+  },
+  {
+    "ingredients": [
+      "木头",
+      "书"
+    ],
+    "result": "架子",
+    "category": "Home & Places",
+    "explanation": "A wooden ledge for holding books is a shelf.",
+    "explanationTh": "แผ่นไม้ที่ใช้วางหนังสือคือชั้นวาง"
+  },
+  {
+    "ingredients": [
+      "窗",
+      "衣服"
+    ],
+    "result": "窗帘",
+    "category": "Home & Places",
+    "explanation": "Cloth hung over a window is a curtain.",
+    "explanationTh": "ผ้าที่แขวนปิดหน้าต่างคือผ้าม่าน"
+  },
+  {
+    "ingredients": [
+      "食物",
+      "纸"
+    ],
+    "result": "垃圾",
+    "category": "Home & Places",
+    "explanation": "Leftover food and paper thrown away become trash.",
+    "explanationTh": "เศษอาหารและกระดาษที่ทิ้งแล้วกลายเป็นขยะ"
+  },
+  {
+    "ingredients": [
+      "水",
+      "干净"
+    ],
+    "result": "肥皂",
+    "category": "Home & Places",
+    "explanation": "Something used with water to get clean is soap.",
+    "explanationTh": "ของที่ใช้ร่วมกับน้ำเพื่อความสะอาดคือสบู่"
+  },
+  {
+    "ingredients": [
+      "牙",
+      "干净"
+    ],
+    "result": "牙刷",
+    "category": "Home & Places",
+    "explanation": "A small brush used to keep teeth clean is a toothbrush.",
+    "explanationTh": "แปรงเล็กที่ใช้ทำความสะอาดฟันคือแปรงสีฟัน"
+  },
+  {
+    "ingredients": [
+      "沙",
+      "太阳"
+    ],
+    "result": "沙漠",
+    "category": "Nature & Plants",
+    "explanation": "A vast sun-baked stretch of sand is a desert.",
+    "explanationTh": "ผืนทรายกว้างใหญ่ที่ถูกแดดแผดเผาคือทะเลทราย"
+  },
+  {
+    "ingredients": [
+      "土",
+      "海水"
+    ],
+    "result": "岛",
+    "category": "Nature & Plants",
+    "explanation": "Land surrounded on all sides by ocean is an island.",
+    "explanationTh": "แผ่นดินที่ล้อมรอบด้วยมหาสมุทรคือเกาะ"
+  },
+  {
+    "ingredients": [
+      "山",
+      "河"
+    ],
+    "result": "山谷",
+    "category": "Nature & Plants",
+    "explanation": "Low land carved between mountains by a river is a valley.",
+    "explanationTh": "พื้นที่ต่ำระหว่างภูเขาที่แม่น้ำกัดเซาะคือหุบเขา"
+  },
+  {
+    "ingredients": [
+      "山",
+      "熊"
+    ],
+    "result": "洞",
+    "category": "Nature & Plants",
+    "explanation": "A hollow in a mountain where bears shelter is a cave.",
+    "explanationTh": "ช่องกลวงในภูเขาที่หมีใช้หลบภัยคือถ้ำ"
+  },
+  {
+    "ingredients": [
+      "河",
+      "悬崖"
+    ],
+    "result": "瀑布",
+    "category": "Nature & Plants",
+    "explanation": "A river falling steeply down a mountain is a waterfall.",
+    "explanationTh": "แม่น้ำที่ไหลตกลงจากภูเขาอย่างรวดเร็วคือน้ำตก"
+  },
+  {
+    "ingredients": [
+      "河",
+      "山谷"
+    ],
+    "result": "湖",
+    "category": "Nature & Plants",
+    "explanation": "River water gathered in a land basin is a lake.",
+    "explanationTh": "น้ำจากแม่น้ำที่ขังอยู่ในแอ่งดินคือทะเลสาบ"
+  },
+  {
+    "ingredients": [
+      "湖",
+      "小"
+    ],
+    "result": "池塘",
+    "category": "Nature & Plants",
+    "explanation": "A small lake, often home to frogs, is a pond.",
+    "explanationTh": "ทะเลสาบขนาดเล็ก มักเป็นที่อยู่ของกบ คือบ่อน้ำ"
+  },
+  {
+    "ingredients": [
+      "海洋",
+      "石"
+    ],
+    "result": "珊瑚",
+    "category": "Nature & Plants",
+    "explanation": "Stone-like living structures under the ocean are coral.",
+    "explanationTh": "สิ่งมีชีวิตคล้ายหินใต้มหาสมุทรคือปะการัง"
+  },
+  {
+    "ingredients": [
+      "海水",
+      "植物"
+    ],
+    "result": "海藻",
+    "category": "Nature & Plants",
+    "explanation": "A plant that grows in the sea is seaweed.",
+    "explanationTh": "พืชที่เติบโตอยู่ในทะเลคือสาหร่ายทะเล"
+  },
+  {
+    "ingredients": [
+      "山",
+      "海岸"
+    ],
+    "result": "悬崖",
+    "category": "Nature & Plants",
+    "explanation": "A steep rock face where mountain meets coast is a cliff.",
+    "explanationTh": "หน้าหินสูงชันที่ภูเขาบรรจบกับชายฝั่งคือหน้าผา"
+  },
+  {
+    "ingredients": [
+      "草地",
+      "马"
+    ],
+    "result": "草原",
+    "category": "Nature & Plants",
+    "explanation": "An open grassy plain where horses roam is a prairie.",
+    "explanationTh": "ที่ราบหญ้ากว้างที่ม้าเดินเพ่นพ่านคือทุ่งหญ้าสเตปป์"
+  },
+  {
+    "ingredients": [
+      "泥",
+      "植物"
+    ],
+    "result": "沼泽",
+    "category": "Nature & Plants",
+    "explanation": "Wet muddy ground thick with plants is a swamp.",
+    "explanationTh": "พื้นดินโคลนเปียกที่รกด้วยพืชคือบึง"
+  },
+  {
+    "ingredients": [
+      "电脑",
+      "世界"
+    ],
+    "result": "网络",
+    "category": "Human World",
+    "explanation": "Computers connected across the world form the internet.",
+    "explanationTh": "คอมพิวเตอร์ที่เชื่อมต่อกันทั่วโลกกลายเป็นอินเทอร์เน็ต"
+  },
+  {
+    "ingredients": [
+      "地球",
+      "人"
+    ],
+    "result": "世界",
+    "category": "Sky & Space",
+    "explanation": "The planet Earth full of people is the world.",
+    "explanationTh": "ดาวเคราะห์โลกที่เต็มไปด้วยผู้คนคือโลกใบนี้"
+  },
+  {
+    "ingredients": [
+      "照片",
+      "机器"
+    ],
+    "result": "照相机",
+    "category": "Human World",
+    "explanation": "A machine that makes photographs is a camera.",
+    "explanationTh": "เครื่องจักรที่สร้างรูปถ่ายคือกล้องถ่ายรูป"
+  },
+  {
+    "ingredients": [
+      "电",
+      "杯子"
+    ],
+    "result": "电池",
+    "category": "Human World",
+    "explanation": "A small container storing electricity is a battery.",
+    "explanationTh": "ภาชนะเล็กที่เก็บกักไฟฟ้าไว้คือแบตเตอรี่"
+  },
+  {
+    "ingredients": [
+      "电视",
+      "手"
+    ],
+    "result": "遥控器",
+    "category": "Human World",
+    "explanation": "A hand-held device that controls the television is a remote control.",
+    "explanationTh": "อุปกรณ์ถือในมือที่ควบคุมโทรทัศน์คือรีโมทคอนโทรล"
+  },
+  {
+    "ingredients": [
+      "电脑",
+      "纸"
+    ],
+    "result": "打印机",
+    "category": "Human World",
+    "explanation": "A machine that turns computer files into paper is a printer.",
+    "explanationTh": "เครื่องจักรที่เปลี่ยนไฟล์คอมพิวเตอร์เป็นกระดาษคือเครื่องพิมพ์"
+  },
+  {
+    "ingredients": [
+      "电视",
+      "光"
+    ],
+    "result": "屏幕",
+    "category": "Human World",
+    "explanation": "The lit surface of a television that shows images is a screen.",
+    "explanationTh": "พื้นผิวเรืองแสงของโทรทัศน์ที่แสดงภาพคือหน้าจอ"
+  },
+  {
+    "ingredients": [
+      "电脑",
+      "字"
+    ],
+    "result": "键盘",
+    "category": "Human World",
+    "explanation": "A panel of keys used to type characters into a computer is a keyboard.",
+    "explanationTh": "แผงปุ่มที่ใช้พิมพ์ตัวอักษรเข้าคอมพิวเตอร์คือคีย์บอร์ด"
+  },
+  {
+    "ingredients": [
+      "耳朵",
+      "音乐"
+    ],
+    "result": "耳机",
+    "category": "Human World",
+    "explanation": "A device worn on the ears to hear music is headphones.",
+    "explanationTh": "อุปกรณ์ที่สวมใส่หูเพื่อฟังดนตรีคือหูฟัง"
+  },
+  {
+    "ingredients": [
+      "声音",
+      "机器"
+    ],
+    "result": "扬声器",
+    "category": "Human World",
+    "explanation": "A machine that projects sound aloud is a speaker.",
+    "explanationTh": "เครื่องจักรที่ปล่อยเสียงออกมาดังคือลำโพง"
+  },
+  {
+    "ingredients": [
+      "锁",
+      "字"
+    ],
+    "result": "密码",
+    "category": "Human World",
+    "explanation": "Characters that unlock something instead of a key form a password.",
+    "explanationTh": "ตัวอักษรที่ใช้ปลดล็อกแทนกุญแจคือรหัสผ่าน"
+  },
+  {
+    "ingredients": [
+      "网络",
+      "书"
+    ],
+    "result": "网站",
+    "category": "Human World",
+    "explanation": "A book-like page of information on the internet is a website.",
+    "explanationTh": "หน้าข้อมูลบนอินเทอร์เน็ตที่เหมือนหนังสือคือเว็บไซต์"
+  },
+  {
+    "ingredients": [
+      "橡胶",
+      "游戏"
+    ],
+    "result": "球",
+    "category": "Culture & Arts",
+    "explanation": "A round object used in games is a ball.",
+    "explanationTh": "วัตถุทรงกลมที่ใช้ในเกมคือลูกบอล"
+  },
+  {
+    "ingredients": [
+      "树",
+      "黑"
+    ],
+    "result": "橡胶",
+    "category": "Earth & Materials",
+    "explanation": "A dark bouncy material tapped from trees is rubber.",
+    "explanationTh": "วัสดุยืดหยุ่นสีดำที่กรีดจากต้นไม้คือยาง"
+  },
+  {
+    "ingredients": [
+      "球",
+      "脚"
+    ],
+    "result": "足球",
+    "category": "Culture & Arts",
+    "explanation": "A game where a ball is kicked with the feet is soccer.",
+    "explanationTh": "เกมที่เตะลูกบอลด้วยเท้าคือฟุตบอล"
+  },
+  {
+    "ingredients": [
+      "球",
+      "手"
+    ],
+    "result": "篮球",
+    "category": "Culture & Arts",
+    "explanation": "A game where a ball is thrown by hand into a basket is basketball.",
+    "explanationTh": "เกมที่โยนลูกบอลด้วยมือลงห่วงคือบาสเกตบอล"
+  },
+  {
+    "ingredients": [
+      "水",
+      "鱼"
+    ],
+    "result": "游泳",
+    "category": "Body & Senses",
+    "explanation": "Moving through water the way a fish does is to swim.",
+    "explanationTh": "การเคลื่อนไหวในน้ำเหมือนปลาคือว่ายน้ำ"
+  },
+  {
+    "ingredients": [
+      "跑",
+      "健康"
+    ],
+    "result": "运动",
+    "category": "Body & Senses",
+    "explanation": "Running to build a healthy body is exercise.",
+    "explanationTh": "การวิ่งเพื่อให้ร่างกายแข็งแรงคือการออกกำลังกาย"
+  },
+  {
+    "ingredients": [
+      "游戏",
+      "朋友"
+    ],
+    "result": "比赛",
+    "category": "Culture & Arts",
+    "explanation": "Friends playing a game to see who is best make a competition.",
+    "explanationTh": "เพื่อนเล่นเกมแข่งกันว่าใครเก่งกว่าคือการแข่งขัน"
+  },
+  {
+    "ingredients": [
+      "比赛",
+      "高兴"
+    ],
+    "result": "赢",
+    "category": "Culture & Arts",
+    "explanation": "Finishing a competition happily on top is to win.",
+    "explanationTh": "จบการแข่งขันด้วยความดีใจที่อยู่อันดับหนึ่งคือชนะ"
+  },
+  {
+    "ingredients": [
+      "比赛",
+      "伤心"
+    ],
+    "result": "输",
+    "category": "Culture & Arts",
+    "explanation": "Finishing a competition sadly behind is to lose.",
+    "explanationTh": "จบการแข่งขันด้วยความเศร้าที่อยู่อันดับรอง คือแพ้"
+  },
+  {
+    "ingredients": [
+      "朋友",
+      "工作"
+    ],
+    "result": "团队",
+    "category": "Culture & Arts",
+    "explanation": "Friends working together toward one goal are a team.",
+    "explanationTh": "เพื่อนที่ทำงานร่วมกันเพื่อเป้าหมายเดียวคือทีม"
+  },
+  {
+    "ingredients": [
+      "老师",
+      "运动"
+    ],
+    "result": "教练",
+    "category": "Culture & Arts",
+    "explanation": "A teacher who guides exercise and sport is a coach.",
+    "explanationTh": "ครูที่สอนด้านการออกกำลังกายและกีฬาคือโค้ช"
+  },
+  {
+    "ingredients": [
+      "年",
+      "天气"
+    ],
+    "result": "季节",
+    "category": "Sky & Space",
+    "explanation": "A recurring stretch of weather across the year is a season.",
+    "explanationTh": "ช่วงสภาพอากาศที่วนซ้ำในแต่ละปีคือฤดู"
+  },
+  {
+    "ingredients": [
+      "季节",
+      "花"
+    ],
+    "result": "春天",
+    "category": "Sky & Space",
+    "explanation": "The flowering season of new growth is spring.",
+    "explanationTh": "ฤดูที่ดอกไม้บานและสิ่งใหม่เติบโตคือฤดูใบไม้ผลิ"
+  },
+  {
+    "ingredients": [
+      "季节",
+      "太阳"
+    ],
+    "result": "夏天",
+    "category": "Sky & Space",
+    "explanation": "The hottest, sunniest season is summer.",
+    "explanationTh": "ฤดูที่ร้อนและมีแดดจัดที่สุดคือฤดูร้อน"
+  },
+  {
+    "ingredients": [
+      "季节",
+      "叶子"
+    ],
+    "result": "秋天",
+    "category": "Sky & Space",
+    "explanation": "The season when leaves fall is autumn.",
+    "explanationTh": "ฤดูที่ใบไม้ร่วงหล่นคือฤดูใบไม้ร่วง"
+  },
+  {
+    "ingredients": [
+      "季节",
+      "雪"
+    ],
+    "result": "冬天",
+    "category": "Sky & Space",
+    "explanation": "The coldest, snowiest season is winter.",
+    "explanationTh": "ฤดูที่หนาวและมีหิมะมากที่สุดคือฤดูหนาว"
+  },
+  {
+    "ingredients": [
+      "蛋糕",
+      "年"
+    ],
+    "result": "生日",
+    "category": "Culture & Arts",
+    "explanation": "The yearly day marked with a cake is a birthday.",
+    "explanationTh": "วันที่วนมาทุกปีพร้อมเค้กคือวันเกิด"
+  },
+  {
+    "ingredients": [
+      "爱",
+      "节日"
+    ],
+    "result": "婚礼",
+    "category": "Culture & Arts",
+    "explanation": "A celebration built around love becoming lasting is a wedding.",
+    "explanationTh": "งานฉลองที่ความรักกลายเป็นความผูกพันยั่งยืนคืองานแต่งงาน"
+  },
+  {
+    "ingredients": [
+      "爱",
+      "纸"
+    ],
+    "result": "礼物",
+    "category": "Culture & Arts",
+    "explanation": "Something wrapped in paper to show love is a gift.",
+    "explanationTh": "สิ่งของห่อกระดาษที่มอบให้ด้วยความรักคือของขวัญ"
+  },
+  {
+    "ingredients": [
+      "旅游",
+      "节日"
+    ],
+    "result": "假期",
+    "category": "Culture & Arts",
+    "explanation": "Time off used for travel is vacation.",
+    "explanationTh": "ช่วงเวลาหยุดที่ใช้ไปเที่ยวคือวันหยุดพักผ่อน"
+  },
+  {
+    "ingredients": [
+      "星期",
+      "游戏"
+    ],
+    "result": "周末",
+    "category": "Sky & Space",
+    "explanation": "The days at the end of the week set aside for fun are the weekend.",
+    "explanationTh": "วันท้ายสัปดาห์ที่เว้นไว้เพื่อความสนุกคือสุดสัปดาห์"
+  },
+  {
+    "ingredients": [
+      "地球",
+      "山"
+    ],
+    "result": "地震",
+    "category": "Weather Cycle",
+    "explanation": "The ground and mountains shaking together is an earthquake.",
+    "explanationTh": "พื้นดินและภูเขาสั่นสะเทือนพร้อมกันคือแผ่นดินไหว"
+  },
+  {
+    "ingredients": [
+      "地震",
+      "海洋"
+    ],
+    "result": "海啸",
+    "category": "Weather Cycle",
+    "explanation": "An earthquake beneath the ocean can raise a tsunami.",
+    "explanationTh": "แผ่นดินไหวใต้มหาสมุทรก่อให้เกิดสึนามิ"
+  },
+  {
+    "ingredients": [
+      "太阳",
+      "沙漠"
+    ],
+    "result": "干旱",
+    "category": "Weather Cycle",
+    "explanation": "A long stretch without rain that dries the land is a drought.",
+    "explanationTh": "ช่วงเวลานานที่ไม่มีฝนจนแผ่นดินแห้งแล้งคือภัยแล้ง"
+  },
+  {
+    "ingredients": [
+      "暴风雨",
+      "河"
+    ],
+    "result": "洪水",
+    "category": "Weather Cycle",
+    "explanation": "A rainstorm overflowing a river causes a flood.",
+    "explanationTh": "พายุฝนที่ทำให้แม่น้ำล้นตลิ่งก่อให้เกิดน้ำท่วม"
+  },
+  {
+    "ingredients": [
+      "火",
+      "森林"
+    ],
+    "result": "野火",
+    "category": "Weather Cycle",
+    "explanation": "Fire spreading uncontrolled through a forest is a wildfire.",
+    "explanationTh": "ไฟที่ลุกลามไม่หยุดในป่าคือไฟป่า"
+  },
+  {
+    "ingredients": [
+      "风暴",
+      "龙"
+    ],
+    "result": "龙卷风",
+    "category": "Weather Cycle",
+    "explanation": "A storm twisting like a dragon of wind is a tornado.",
+    "explanationTh": "พายุที่หมุนควงเหมือนมังกรแห่งลมคือพายุทอร์นาโด"
+  },
+  {
+    "ingredients": [
+      "风暴",
+      "海洋"
+    ],
+    "result": "台风",
+    "category": "Weather Cycle",
+    "explanation": "A massive storm born over the ocean is a typhoon.",
+    "explanationTh": "พายุขนาดใหญ่ที่ก่อตัวเหนือมหาสมุทรคือไต้ฝุ่น"
+  },
+  {
+    "ingredients": [
+      "雪",
+      "山"
+    ],
+    "result": "雪崩",
+    "category": "Weather Cycle",
+    "explanation": "Built-up snow suddenly sliding down a mountain is an avalanche.",
+    "explanationTh": "หิมะที่สะสมแล้วไถลลงจากภูเขาอย่างฉับพลันคือหิมะถล่ม"
+  },
+  {
+    "ingredients": [
+      "暴风雨",
+      "冰"
+    ],
+    "result": "冰雹",
+    "category": "Weather Cycle",
+    "explanation": "Ice falling from a storm cloud is hail.",
+    "explanationTh": "น้ำแข็งที่ตกลงมาจากเมฆพายุคือลูกเห็บ"
+  },
+  {
+    "ingredients": [
+      "云",
+      "彩虹"
+    ],
+    "result": "彩云",
+    "category": "Weather Cycle",
+    "explanation": "A cloud lit with rainbow colors is a colorful cloud.",
+    "explanationTh": "เมฆที่ฉาบด้วยสีสันของรุ้งคือเมฆสีรุ้ง"
+  },
+  {
+    "ingredients": [
+      "田",
+      "面粉"
+    ],
+    "result": "小麦",
+    "category": "Nature & Plants",
+    "explanation": "A grain grown in fields and ground into flour is wheat.",
+    "explanationTh": "ธัญพืชที่ปลูกในทุ่งนาแล้วบดเป็นแป้งคือข้าวสาลี"
+  },
+  {
+    "ingredients": [
+      "田",
+      "黄"
+    ],
+    "result": "玉米",
+    "category": "Nature & Plants",
+    "explanation": "A yellow grain grown tall in fields is corn.",
+    "explanationTh": "ธัญพืชสีเหลืองที่ปลูกสูงในทุ่งนาคือข้าวโพด"
+  },
+  {
+    "ingredients": [
+      "树",
+      "土"
+    ],
+    "result": "树根",
+    "category": "Nature & Plants",
+    "explanation": "The part of a tree buried in the soil is the root.",
+    "explanationTh": "ส่วนของต้นไม้ที่ฝังอยู่ในดินคือราก"
+  },
+  {
+    "ingredients": [
+      "树",
+      "鸟"
+    ],
+    "result": "树枝",
+    "category": "Nature & Plants",
+    "explanation": "A limb of a tree where birds perch is a branch.",
+    "explanationTh": "ส่วนของต้นไม้ที่นกเกาะคือกิ่งไม้"
+  },
+  {
+    "ingredients": [
+      "树",
+      "树枝"
+    ],
+    "result": "树干",
+    "category": "Nature & Plants",
+    "explanation": "The thick central stem holding up a tree’s branches is the trunk.",
+    "explanationTh": "ลำต้นหนาตรงกลางที่ค้ำกิ่งไม้คือลำต้น"
+  },
+  {
+    "ingredients": [
+      "草",
+      "树"
+    ],
+    "result": "竹子",
+    "category": "Nature & Plants",
+    "explanation": "A tall hollow grass that grows like a tree is bamboo.",
+    "explanationTh": "หญ้าลำต้นกลวงสูงคล้ายต้นไม้คือไผ่"
+  },
+  {
+    "ingredients": [
+      "树",
+      "山"
+    ],
+    "result": "松树",
+    "category": "Nature & Plants",
+    "explanation": "An evergreen tree common on mountains is a pine tree.",
+    "explanationTh": "ต้นไม้ใบเขียวตลอดปีที่พบมากบนภูเขาคือต้นสน"
+  },
+  {
+    "ingredients": [
+      "花",
+      "红"
+    ],
+    "result": "玫瑰",
+    "category": "Nature & Plants",
+    "explanation": "A red flower symbolizing love is a rose.",
+    "explanationTh": "ดอกไม้สีแดงที่เป็นสัญลักษณ์ของความรักคือกุหลาบ"
+  },
+  {
+    "ingredients": [
+      "花",
+      "太阳"
+    ],
+    "result": "向日葵",
+    "category": "Nature & Plants",
+    "explanation": "A flower that turns to follow the sun is a sunflower.",
+    "explanationTh": "ดอกไม้ที่หันตามดวงอาทิตย์คือทานตะวัน"
+  },
+  {
+    "ingredients": [
+      "花",
+      "池塘"
+    ],
+    "result": "荷花",
+    "category": "Nature & Plants",
+    "explanation": "A flower that blooms on the surface of a pond is a lotus.",
+    "explanationTh": "ดอกไม้ที่บานอยู่บนผิวน้ำในบ่อคือดอกบัว"
+  },
+  {
+    "ingredients": [
+      "沙漠",
+      "植物"
+    ],
+    "result": "仙人掌",
+    "category": "Nature & Plants",
+    "explanation": "A spiny plant that survives the desert is a cactus.",
+    "explanationTh": "พืชมีหนามที่อยู่รอดในทะเลทรายคือกระบองเพชร"
+  },
+  {
+    "ingredients": [
+      "石",
+      "雨"
+    ],
+    "result": "苔藓",
+    "category": "Nature & Plants",
+    "explanation": "A soft green growth covering damp stone is moss.",
+    "explanationTh": "สิ่งมีชีวิตสีเขียวนุ่มที่ปกคลุมหินชื้นคือมอส"
+  },
+  {
+    "ingredients": [
+      "植物",
+      "树枝"
+    ],
+    "result": "藤蔓",
+    "category": "Nature & Plants",
+    "explanation": "A climbing plant winding around branches is a vine.",
+    "explanationTh": "พืชเลื้อยที่พันรอบกิ่งไม้คือเถาวัลย์"
+  },
+  {
+    "ingredients": [
+      "花",
+      "小"
+    ],
+    "result": "花瓣",
+    "category": "Nature & Plants",
+    "explanation": "One colorful piece of a flower’s bloom is a petal.",
+    "explanationTh": "ส่วนหนึ่งของดอกไม้ที่มีสีสันคือกลีบดอกไม้"
+  },
+  {
+    "ingredients": [
+      "流星",
+      "想"
+    ],
+    "result": "惊讶",
+    "category": "Feelings",
+    "explanation": "A sudden meteor catching the mind off guard leaves you surprised.",
+    "explanationTh": "ดาวตกที่เกิดขึ้นฉับพลันทำให้ใจประหลาดใจ"
+  },
+  {
+    "ingredients": [
+      "心",
+      "危险"
+    ],
+    "result": "担心",
+    "category": "Feelings",
+    "explanation": "A heart aware of danger feels worried.",
+    "explanationTh": "หัวใจที่รับรู้อันตรายจึงรู้สึกกังวล"
+  },
+  {
+    "ingredients": [
+      "游戏",
+      "高兴"
+    ],
+    "result": "兴奋",
+    "category": "Feelings",
+    "explanation": "A fun game bringing extra happiness makes you excited.",
+    "explanationTh": "เกมสนุกที่เพิ่มความสุขให้ตื่นเต้น"
+  },
+  {
+    "ingredients": [
+      "时间",
+      "累"
+    ],
+    "result": "无聊",
+    "category": "Feelings",
+    "explanation": "Time passing with tired disinterest feels boring.",
+    "explanationTh": "เวลาที่ผ่านไปอย่างไร้ชีวิตชีวาทำให้รู้สึกเบื่อ"
+  },
+  {
+    "ingredients": [
+      "赢",
+      "家人"
+    ],
+    "result": "骄傲",
+    "category": "Feelings",
+    "explanation": "Winning something that makes family happy brings pride.",
+    "explanationTh": "การชนะที่ทำให้ครอบครัวดีใจนำมาซึ่งความภูมิใจ"
+  },
+  {
+    "ingredients": [
+      "朋友",
+      "生气"
+    ],
+    "result": "嫉妒",
+    "category": "Feelings",
+    "explanation": "Anger at a friend’s good fortune is jealousy.",
+    "explanationTh": "ความโกรธที่เพื่อนโชคดีกว่าคือความอิจฉา"
+  },
+  {
+    "ingredients": [
+      "星星",
+      "想"
+    ],
+    "result": "希望",
+    "category": "Feelings",
+    "explanation": "Wishing on a star reflects hope.",
+    "explanationTh": "การขอพรจากดวงดาวสะท้อนความหวัง"
+  },
+  {
+    "ingredients": [
+      "朋友",
+      "心"
+    ],
+    "result": "信任",
+    "category": "Feelings",
+    "explanation": "A friend held close to the heart earns trust.",
+    "explanationTh": "เพื่อนที่อยู่ใกล้หัวใจย่อมได้รับความไว้วางใจ"
+  },
+  {
+    "ingredients": [
+      "错",
+      "爱"
+    ],
+    "result": "原谅",
+    "category": "Feelings",
+    "explanation": "Loving someone past their mistake is to forgive.",
+    "explanationTh": "การรักใครสักคนแม้ทำผิดคือการให้อภัย"
+  },
+  {
+    "ingredients": [
+      "时间",
+      "心"
+    ],
+    "result": "耐心",
+    "category": "Feelings",
+    "explanation": "A heart willing to wait through time shows patience.",
+    "explanationTh": "หัวใจที่ยอมรอคอยตามกาลเวลาแสดงถึงความอดทน"
+  },
+  {
+    "ingredients": [
+      "城市",
+      "大"
+    ],
+    "result": "国家",
+    "category": "City & Market",
+    "explanation": "Land holding many cities together is a country.",
+    "explanationTh": "แผ่นดินที่รวมหลายเมืองไว้ด้วยกันคือประเทศ"
+  },
+  {
+    "ingredients": [
+      "国家",
+      "工作"
+    ],
+    "result": "政府",
+    "category": "City & Market",
+    "explanation": "The organization that runs a country’s work is the government.",
+    "explanationTh": "องค์กรที่ทำหน้าที่บริหารประเทศคือรัฐบาล"
+  },
+  {
+    "ingredients": [
+      "政府",
+      "对"
+    ],
+    "result": "法律",
+    "category": "City & Market",
+    "explanation": "Rules set by the government to define what is right are law.",
+    "explanationTh": "กฎที่รัฐบาลกำหนดว่าอะไรถูกต้องคือกฎหมาย"
+  },
+  {
+    "ingredients": [
+      "国家",
+      "国王"
+    ],
+    "result": "总统",
+    "category": "City & Market",
+    "explanation": "The elected leader of a country, like a modern king, is president.",
+    "explanationTh": "ผู้นำประเทศที่มาจากการเลือกตั้ง เปรียบดังราชาสมัยใหม่ คือประธานาธิบดี"
+  },
+  {
+    "ingredients": [
+      "人",
+      "总统"
+    ],
+    "result": "选举",
+    "category": "City & Market",
+    "explanation": "People choosing their president together hold an election.",
+    "explanationTh": "ผู้คนร่วมกันเลือกประธานาธิบดีคือการเลือกตั้ง"
+  },
+  {
+    "ingredients": [
+      "钱",
+      "政府"
+    ],
+    "result": "税",
+    "category": "City & Market",
+    "explanation": "Money citizens pay to the government is tax.",
+    "explanationTh": "เงินที่ประชาชนจ่ายให้รัฐบาลคือภาษี"
+  },
+  {
+    "ingredients": [
+      "钱",
+      "安全"
+    ],
+    "result": "银行",
+    "category": "City & Market",
+    "explanation": "A building that stores people’s money is a bank.",
+    "explanationTh": "อาคารที่เก็บรักษาเงินของผู้คนคือธนาคาร"
+  },
+  {
+    "ingredients": [
+      "机器",
+      "工人"
+    ],
+    "result": "工厂",
+    "category": "City & Market",
+    "explanation": "A building where workers and machines make goods is a factory.",
+    "explanationTh": "อาคารที่คนงานและเครื่องจักรผลิตสินค้าคือโรงงาน"
+  },
+  {
+    "ingredients": [
+      "工作",
+      "钱"
+    ],
+    "result": "公司",
+    "category": "City & Market",
+    "explanation": "An organization of people working to earn money is a company.",
+    "explanationTh": "องค์กรของคนที่ทำงานเพื่อหาเงินคือบริษัท"
+  },
+  {
+    "ingredients": [
+      "市场",
+      "公司"
+    ],
+    "result": "经济",
+    "category": "City & Market",
+    "explanation": "Markets and companies working together form an economy.",
+    "explanationTh": "ตลาดและบริษัทที่ทำงานร่วมกันประกอบเป็นเศรษฐกิจ"
+  },
+  {
+    "ingredients": [
+      "工厂",
+      "机器"
+    ],
+    "result": "工业",
+    "category": "City & Market",
+    "explanation": "Factories full of machines together form industry.",
+    "explanationTh": "โรงงานที่เต็มไปด้วยเครื่องจักรรวมกันเป็นอุตสาหกรรม"
+  },
+  {
+    "ingredients": [
+      "学校",
+      "大"
+    ],
+    "result": "大学",
+    "category": "People & Learning",
+    "explanation": "A big school for advanced study is a university.",
+    "explanationTh": "โรงเรียนขนาดใหญ่สำหรับการศึกษาขั้นสูงคือมหาวิทยาลัย"
+  },
+  {
+    "ingredients": [
+      "颜色",
+      "葡萄"
+    ],
+    "result": "紫",
+    "category": "Colors",
+    "explanation": "The color of grapes is purple.",
+    "explanationTh": "สีขององุ่นคือสีม่วง"
+  },
+  {
+    "ingredients": [
+      "红",
+      "白"
+    ],
+    "result": "粉红",
+    "category": "Colors",
+    "explanation": "Red softened by white becomes pink.",
+    "explanationTh": "สีแดงที่ผสมสีขาวจนอ่อนลงกลายเป็นสีชมพู"
+  },
+  {
+    "ingredients": [
+      "颜色",
+      "木头"
+    ],
+    "result": "棕色",
+    "category": "Colors",
+    "explanation": "The color of wood is brown.",
+    "explanationTh": "สีของไม้คือสีน้ำตาล"
+  },
+  {
+    "ingredients": [
+      "颜色",
+      "烟"
+    ],
+    "result": "灰色",
+    "category": "Colors",
+    "explanation": "The color of smoke is gray.",
+    "explanationTh": "สีของควันคือสีเทา"
+  },
+  {
+    "ingredients": [
+      "颜色",
+      "钱"
+    ],
+    "result": "金色",
+    "category": "Colors",
+    "explanation": "The shining color of money is gold.",
+    "explanationTh": "สีเปล่งประกายของเงินตราคือสีทอง"
+  },
+  {
+    "ingredients": [
+      "太阳",
+      "球"
+    ],
+    "result": "圆",
+    "category": "Colors",
+    "explanation": "A shape as round as the sun or a ball is a circle.",
+    "explanationTh": "รูปทรงกลมเหมือนดวงอาทิตย์หรือลูกบอลคือวงกลม"
+  },
+  {
+    "ingredients": [
+      "窗",
+      "砖"
+    ],
+    "result": "方形",
+    "category": "Colors",
+    "explanation": "A shape with four equal sides, like a window or brick, is a square.",
+    "explanationTh": "รูปทรงสี่ด้านเท่ากันเหมือนหน้าต่างหรืออิฐคือสี่เหลี่ยม"
+  },
+  {
+    "ingredients": [
+      "山",
+      "塔"
+    ],
+    "result": "三角形",
+    "category": "Colors",
+    "explanation": "A three-sided shape like a mountain peak or tower top is a triangle.",
+    "explanationTh": "รูปทรงสามด้านเหมือนยอดเขาหรือยอดหอคอยคือสามเหลี่ยม"
+  },
+  {
+    "ingredients": [
+      "钱",
+      "金色"
+    ],
+    "result": "金子",
+    "category": "Earth & Materials",
+    "explanation": "A precious yellow metal used for money and jewelry is gold.",
+    "explanationTh": "โลหะสีทองมีค่าที่ใช้ทำเงินและเครื่องประดับคือทองคำ"
+  },
+  {
+    "ingredients": [
+      "金子",
+      "白"
+    ],
+    "result": "银",
+    "category": "Earth & Materials",
+    "explanation": "A precious pale metal like white gold is silver.",
+    "explanationTh": "โลหะมีค่าสีขาวคล้ายทองคำสีอ่อนคือเงิน"
+  },
+  {
+    "ingredients": [
+      "植物",
+      "白"
+    ],
+    "result": "棉花",
+    "category": "Earth & Materials",
+    "explanation": "A soft white plant fiber used for cloth is cotton.",
+    "explanationTh": "เส้นใยพืชสีขาวนุ่มที่ใช้ทำผ้าคือฝ้าย"
+  },
+  {
+    "ingredients": [
+      "蜘蛛",
+      "衣服"
+    ],
+    "result": "丝绸",
+    "category": "Earth & Materials",
+    "explanation": "A fine thread like a spider’s web, woven into cloth, is silk.",
+    "explanationTh": "เส้นใยละเอียดคล้ายใยแมงมุมที่ทอเป็นผ้าคือผ้าไหม"
+  },
+  {
+    "ingredients": [
+      "学校",
+      "学习"
+    ],
+    "result": "教育",
+    "category": "People & Learning",
+    "explanation": "Learning organized through schools is education.",
+    "explanationTh": "การเรียนรู้ที่จัดผ่านโรงเรียนคือการศึกษา"
+  },
+  {
+    "ingredients": [
+      "书",
+      "房子"
+    ],
+    "result": "图书馆",
+    "category": "Home & Places",
+    "explanation": "A building holding many books is a library.",
+    "explanationTh": "อาคารที่เก็บหนังสือจำนวนมากคือห้องสมุด"
+  },
+  {
+    "ingredients": [
+      "学习",
+      "实验室"
+    ],
+    "result": "科学",
+    "category": "People & Learning",
+    "explanation": "Study carried out in a laboratory is science.",
+    "explanationTh": "การศึกษาที่ทำในห้องทดลองคือวิทยาศาสตร์"
+  },
+  {
+    "ingredients": [
+      "学校",
+      "机器"
+    ],
+    "result": "实验室",
+    "category": "Home & Places",
+    "explanation": "A room at school full of equipment for testing ideas is a laboratory.",
+    "explanationTh": "ห้องในโรงเรียนที่เต็มไปด้วยอุปกรณ์ทดสอบความคิดคือห้องทดลอง"
+  },
+  {
+    "ingredients": [
+      "科学",
+      "人"
+    ],
+    "result": "科学家",
+    "category": "People & Learning",
+    "explanation": "A person devoted to science is a scientist.",
+    "explanationTh": "คนที่อุทิศตัวให้วิทยาศาสตร์คือนักวิทยาศาสตร์"
+  },
+  {
+    "ingredients": [
+      "学习",
+      "钱"
+    ],
+    "result": "数学",
+    "category": "People & Learning",
+    "explanation": "Counting money at school is an early lesson in mathematics.",
+    "explanationTh": "การนับเงินที่โรงเรียนคือบทเรียนแรกของคณิตศาสตร์"
+  },
+  {
+    "ingredients": [
+      "时间",
+      "书"
+    ],
+    "result": "历史",
+    "category": "People & Learning",
+    "explanation": "Books that record time gone by hold history.",
+    "explanationTh": "หนังสือที่บันทึกกาลเวลาที่ผ่านไปเก็บประวัติศาสตร์ไว้"
+  },
+  {
+    "ingredients": [
+      "地图",
+      "学习"
+    ],
+    "result": "地理",
+    "category": "People & Learning",
+    "explanation": "Studying maps of the world is geography.",
+    "explanationTh": "การเรียนแผนที่ของโลกคือภูมิศาสตร์"
+  },
+  {
+    "ingredients": [
+      "学习",
+      "药"
+    ],
+    "result": "化学",
+    "category": "People & Learning",
+    "explanation": "Studying how substances like medicine combine is chemistry.",
+    "explanationTh": "การเรียนว่าสารต่างๆ เช่นยารวมกันอย่างไรคือเคมี"
+  },
+  {
+    "ingredients": [
+      "房子",
+      "历史"
+    ],
+    "result": "博物馆",
+    "category": "Home & Places",
+    "explanation": "A building that displays history is a museum.",
+    "explanationTh": "อาคารที่จัดแสดงประวัติศาสตร์คือพิพิธภัณฑ์"
+  },
+  {
+    "ingredients": [
+      "房子",
+      "舞"
+    ],
+    "result": "剧院",
+    "category": "Home & Places",
+    "explanation": "A building built for performing dance and drama is a theater.",
+    "explanationTh": "อาคารที่สร้างไว้แสดงระบำและละครคือโรงละคร"
+  },
+  {
+    "ingredients": [
+      "电视",
+      "故事"
+    ],
+    "result": "电影",
+    "category": "Culture & Arts",
+    "explanation": "A story shown on a screen is a movie.",
+    "explanationTh": "เรื่องราวที่ฉายบนจอคือภาพยนตร์"
+  },
+  {
+    "ingredients": [
+      "电影",
+      "人"
+    ],
+    "result": "演员",
+    "category": "Culture & Arts",
+    "explanation": "A person who performs in a movie is an actor.",
+    "explanationTh": "คนที่แสดงในภาพยนตร์คือนักแสดง"
+  },
+  {
+    "ingredients": [
+      "故事",
+      "纸"
+    ],
+    "result": "记者",
+    "category": "People & Learning",
+    "explanation": "A person who writes true stories on paper is a journalist.",
+    "explanationTh": "คนที่เขียนเรื่องจริงลงกระดาษคือนักข่าว"
+  },
+  {
+    "ingredients": [
+      "法律",
+      "人"
+    ],
+    "result": "律师",
+    "category": "People & Learning",
+    "explanation": "A person who works with the law is a lawyer.",
+    "explanationTh": "คนที่ทำงานเกี่ยวกับกฎหมายคือทนายความ"
+  },
+  {
+    "ingredients": [
+      "医院",
+      "人"
+    ],
+    "result": "护士",
+    "category": "People & Learning",
+    "explanation": "A person who cares for patients in a hospital is a nurse.",
+    "explanationTh": "คนที่ดูแลผู้ป่วยในโรงพยาบาลคือพยาบาล"
+  },
+  {
+    "ingredients": [
+      "想",
+      "警察"
+    ],
+    "result": "侦探",
+    "category": "People & Learning",
+    "explanation": "A thinking police officer who solves mysteries is a detective.",
+    "explanationTh": "ตำรวจที่ใช้ความคิดไขคดีลึกลับคือนักสืบ"
+  },
+  {
+    "ingredients": [
+      "森林",
+      "刀"
+    ],
+    "result": "猎人",
+    "category": "People & Learning",
+    "explanation": "A person who tracks animals through the forest with a blade is a hunter.",
+    "explanationTh": "คนที่ตามล่าสัตว์ในป่าด้วยมีดคือนายพราน"
+  },
+  {
+    "ingredients": [
+      "国家",
+      "危险"
+    ],
+    "result": "士兵",
+    "category": "People & Learning",
+    "explanation": "A person whose job is defending the country is a soldier.",
+    "explanationTh": "คนที่มีหน้าที่ปกป้องประเทศคือทหาร"
+  },
+  {
+    "ingredients": [
+      "士兵",
+      "危险"
+    ],
+    "result": "战争",
+    "category": "People & Learning",
+    "explanation": "Soldiers caught in great danger together are at war.",
+    "explanationTh": "ทหารที่เผชิญอันตรายครั้งใหญ่ร่วมกันคือภาวะสงคราม"
+  },
+  {
+    "ingredients": [
+      "朋友",
+      "国家"
+    ],
+    "result": "和平",
+    "category": "People & Learning",
+    "explanation": "Countries treating each other like friends is peace.",
+    "explanationTh": "ประเทศที่ปฏิบัติต่อกันเหมือนเพื่อนคือสันติภาพ"
+  },
+  {
+    "ingredients": [
+      "士兵",
+      "刀"
+    ],
+    "result": "武器",
+    "category": "People & Learning",
+    "explanation": "A blade carried by a soldier is a weapon.",
+    "explanationTh": "มีดที่ทหารพกพาคืออาวุธ"
+  },
+  {
+    "ingredients": [
+      "钢",
+      "武器"
+    ],
+    "result": "剑",
+    "category": "People & Learning",
+    "explanation": "A long steel weapon is a sword.",
+    "explanationTh": "อาวุธเหล็กกล้าเล่มยาวคือดาบ"
+  },
+  {
+    "ingredients": [
+      "钢",
+      "安全"
+    ],
+    "result": "盾",
+    "category": "People & Learning",
+    "explanation": "A steel plate carried for safety in battle is a shield.",
+    "explanationTh": "แผ่นเหล็กกล้าที่ถือไว้เพื่อความปลอดภัยคือโล่"
+  },
+  {
+    "ingredients": [
+      "城市",
+      "国王"
+    ],
+    "result": "城堡",
+    "category": "People & Learning",
+    "explanation": "A fortified home built for a king is a castle.",
+    "explanationTh": "ที่พำนักมั่นคงที่สร้างไว้สำหรับราชาคือปราสาท"
+  },
+  {
+    "ingredients": [
+      "国王",
+      "女孩"
+    ],
+    "result": "公主",
+    "category": "People & Learning",
+    "explanation": "A king’s daughter is a princess.",
+    "explanationTh": "ลูกสาวของราชาคือเจ้าหญิง"
+  },
+  {
+    "ingredients": [
+      "国王",
+      "男孩"
+    ],
+    "result": "王子",
+    "category": "People & Learning",
+    "explanation": "A king’s son is a prince.",
+    "explanationTh": "ลูกชายของราชาคือเจ้าชาย"
+  },
+  {
+    "ingredients": [
+      "马",
+      "剑"
+    ],
+    "result": "骑士",
+    "category": "People & Learning",
+    "explanation": "A warrior fighting on horseback with a sword is a knight.",
+    "explanationTh": "นักรบที่ต่อสู้บนหลังม้าด้วยดาบคืออัศวิน"
+  },
+  {
+    "ingredients": [
+      "光",
+      "梦"
+    ],
+    "result": "魔法",
+    "category": "People & Learning",
+    "explanation": "Thought that bends light into wonder is magic.",
+    "explanationTh": "ความคิดที่บิดเบือนแสงให้เกิดสิ่งมหัศจรรย์คือเวทมนตร์"
+  },
+  {
+    "ingredients": [
+      "影子",
+      "晚上"
+    ],
+    "result": "幽灵",
+    "category": "People & Learning",
+    "explanation": "A shadow that lingers into the night becomes a ghost.",
+    "explanationTh": "เงาที่ค้างอยู่จนถึงยามค่ำคืนกลายเป็นผี"
+  },
+  {
+    "ingredients": [
+      "天空",
+      "爱"
+    ],
+    "result": "天使",
+    "category": "People & Learning",
+    "explanation": "A loving being said to live in the sky is an angel.",
+    "explanationTh": "สิ่งมีชีวิตแห่งความรักที่กล่าวว่าอาศัยบนท้องฟ้าคือนางฟ้า"
+  },
+  {
+    "ingredients": [
+      "火",
+      "飞机"
+    ],
+    "result": "火箭",
+    "category": "Sky & Space",
+    "explanation": "A flying vehicle launched by fire is a rocket.",
+    "explanationTh": "ยานบินที่พุ่งขึ้นด้วยไฟคือจรวด"
+  },
+  {
+    "ingredients": [
+      "火箭",
+      "宇宙"
+    ],
+    "result": "宇宙飞船",
+    "category": "Sky & Space",
+    "explanation": "A rocket built to travel the universe is a spaceship.",
+    "explanationTh": "จรวดที่สร้างมาเพื่อเดินทางในจักรวาลคือยานอวกาศ"
+  },
+  {
+    "ingredients": [
+      "星星",
+      "人"
+    ],
+    "result": "外星人",
+    "category": "Sky & Space",
+    "explanation": "A person imagined to come from the stars is an alien.",
+    "explanationTh": "สิ่งมีชีวิตที่จินตนาการว่ามาจากดวงดาวคือเอเลี่ยน"
+  },
+  {
+    "ingredients": [
+      "月亮",
+      "机器"
+    ],
+    "result": "卫星",
+    "category": "Sky & Space",
+    "explanation": "A machine circling Earth like a small moon is a satellite.",
+    "explanationTh": "เครื่องจักรที่โคจรรอบโลกเหมือนดวงจันทร์ดวงเล็กคือดาวเทียม"
+  },
+  {
+    "ingredients": [
+      "眼镜",
+      "星星"
+    ],
+    "result": "望远镜",
+    "category": "Sky & Space",
+    "explanation": "Lenses built to bring distant stars closer form a telescope.",
+    "explanationTh": "เลนส์ที่สร้างมาเพื่อดึงดวงดาวไกลให้ใกล้ขึ้นคือกล้องโทรทรรศน์"
   }
 ]
