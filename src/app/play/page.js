@@ -118,6 +118,7 @@ export default function GamePage() {
   const [discovery, setDiscovery] = useState(null);
   const [resetConfirming, setResetConfirming] = useState(false);
   const [reactionMessage, setReactionMessage] = useState(null);
+  const [reactionIsHint, setReactionIsHint] = useState(false);
   const [librarySearch, setLibrarySearch] = useState('');
   const [hasLoaded, setHasLoaded] = useState(false);
 
@@ -200,9 +201,10 @@ export default function GamePage() {
 
   React.useEffect(() => () => window.clearTimeout(reactionTimerRef.current), []);
 
-  const showReactionMessage = useCallback((message) => {
+  const showReactionMessage = useCallback((message, isHint = false) => {
     window.clearTimeout(reactionTimerRef.current);
     setReactionMessage(message);
+    setReactionIsHint(isHint);
     reactionTimerRef.current = window.setTimeout(() => setReactionMessage(null), 1800);
   }, []);
 
@@ -231,7 +233,7 @@ export default function GamePage() {
       const hint = failStreakRef.current >= HINT_AFTER_FAILS ? findHint(libraryRef.current) : null;
       if (hint) {
         failStreakRef.current = 0;
-        showReactionMessage(tPlay('hint', { first: hint.first, second: hint.second }));
+        showReactionMessage(tPlay('hint', { first: hint.first, second: hint.second }), true);
       } else {
         showReactionMessage(tPlay('noConnection', { first: firstText, second: secondText }));
       }
@@ -602,8 +604,19 @@ export default function GamePage() {
           })}
 
           {reactionMessage && (
-            <div role="status" aria-live="polite" className="animate-no-reaction absolute left-1/2 top-20 z-40 max-w-[calc(100%-2rem)] -translate-x-1/2 rounded-full bg-[var(--lab-ink)] px-5 py-3 text-center text-xs font-black text-[var(--lab-surface)] shadow-xl md:top-5">
-              {reactionMessage}
+            <div
+              role="status"
+              aria-live="polite"
+              className={`animate-no-reaction absolute left-1/2 top-20 z-40 flex max-w-[calc(100%-2rem)] -translate-x-1/2 items-center gap-2 rounded-full px-5 py-3 text-center text-xs font-black shadow-xl md:top-5 ${reactionIsHint ? 'bg-[var(--lab-mint)] text-[var(--lab-mint-ink)]' : 'bg-[var(--lab-ink)] text-[var(--lab-surface)]'}`}
+            >
+              {reactionIsHint && (
+                <span className="animate-emerge grid h-5 w-5 shrink-0 place-items-center rounded-full bg-[var(--lab-mint-ink)] text-[10px] font-black text-[var(--lab-mint)]" aria-hidden="true">
+                  i
+                </span>
+              )}
+              <span className={reactionIsHint ? 'animate-ingredient-enter' : ''} style={reactionIsHint ? { animationDelay: '150ms' } : undefined}>
+                {reactionMessage}
+              </span>
             </div>
           )}
 
