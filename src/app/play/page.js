@@ -31,6 +31,24 @@ const SPAWN_POINTS = [
 
 const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
 
+// Once the canvas has used up the hand-placed SPAWN_POINTS, later spawns fall
+// back to a golden-angle spiral: each step turns by the same irrational angle
+// and grows its radius, so no two spiral points ever land near each other
+// (the classic sunflower-seed distribution) without any runtime overlap search.
+// WHY: phase/radius tuned offline against the 9 hand-placed SPAWN_POINTS above
+// so the spiral's early points don't land near them (plain angle=0 pointed
+// straight at an existing point and nearly overlapped it).
+const GOLDEN_ANGLE_RAD = 137.508 * (Math.PI / 180);
+const SPIRAL_PHASE_RAD = 218 * (Math.PI / 180);
+const spiralSpawnPoint = (overflowIndex) => {
+  const angle = SPIRAL_PHASE_RAD + overflowIndex * GOLDEN_ANGLE_RAD;
+  const radius = 25 + Math.sqrt(overflowIndex) * 9;
+  return [
+    clamp(50 + radius * Math.cos(angle), EDGE_PADDING_PERCENT, 100 - EDGE_PADDING_PERCENT),
+    clamp(44 + radius * Math.sin(angle), EDGE_PADDING_PERCENT, 100 - EDGE_PADDING_PERCENT),
+  ];
+};
+
 // Recipe adjacency: two words are "related" if a recipe links them as
 // co-ingredients or as ingredient/result. Used to surface related words in search.
 const RELATED = (() => {
@@ -196,13 +214,11 @@ export default function GamePage() {
   }), []);
 
   const spawnItem = useCallback((text) => {
-    const point = SPAWN_POINTS[canvasItemsRef.current.length % SPAWN_POINTS.length];
-    const offset = Math.floor(canvasItemsRef.current.length / SPAWN_POINTS.length) * 2;
-    const item = createCanvasItem(
-      text,
-      clamp(point[0] + offset, EDGE_PADDING_PERCENT, 100 - EDGE_PADDING_PERCENT),
-      clamp(point[1] + offset, EDGE_PADDING_PERCENT, 100 - EDGE_PADDING_PERCENT),
-    );
+    const index = canvasItemsRef.current.length;
+    const [x, y] = index < SPAWN_POINTS.length
+      ? SPAWN_POINTS[index]
+      : spiralSpawnPoint(index - SPAWN_POINTS.length);
+    const item = createCanvasItem(text, x, y);
 
     commitCanvas((current) => [...current, item].slice(-MAX_CANVAS_ITEMS));
     commitSelectedId(null);
