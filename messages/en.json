@@ -65,6 +65,7 @@
     "closeDiscovery": "Close discovery card",
     "keepExploring": "Keep exploring",
     "noConnection": "No real-world connection for {first} + {second} yet.",
+    "hint": "Stuck? Try {first} + {second}.",
     "resetEyebrow": "Reset progress",
     "resetTitle": "Start from four words?",
     "resetDesc": "This permanently removes every discovered word and recipe saved on this device. Your four starter words will stay.",

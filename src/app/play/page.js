@@ -65,6 +65,21 @@ const scoreItem = (data, char, query) => {
   return best;
 };
 
+const HINT_AFTER_FAILS = 3;
+
+// First recipe craftable from words already in the library but not yet discovered.
+// Used to nudge a stuck player after repeated failed combines.
+const findHint = (library) => {
+  const owned = new Set(library);
+  for (const recipe of Object.values(RECIPES)) {
+    const [first, second] = recipe.ingredients;
+    if (owned.has(first) && owned.has(second) && !owned.has(recipe.result)) {
+      return { first, second };
+    }
+  }
+  return null;
+};
+
 export default function GamePage() {
   const tNav = useTranslations('Nav');
   const tPlay = useTranslations('Play');
@@ -96,6 +111,7 @@ export default function GamePage() {
   const mobileSelectionRef = useRef([]);
   const dragStateRef = useRef(null);
   const reactionTimerRef = useRef(null);
+  const failStreakRef = useRef(0);
   const { playingCharacter, playPronunciation, pronunciationError } = usePronunciation();
 
   const commitCanvas = useCallback((updater) => {
@@ -195,10 +211,18 @@ export default function GamePage() {
   const resolveCombination = useCallback((firstText, secondText, options = {}) => {
     const match = getRecipe(firstText, secondText);
     if (!match) {
-      showReactionMessage(tPlay('noConnection', { first: firstText, second: secondText }));
+      failStreakRef.current += 1;
+      const hint = failStreakRef.current >= HINT_AFTER_FAILS ? findHint(libraryRef.current) : null;
+      if (hint) {
+        failStreakRef.current = 0;
+        showReactionMessage(tPlay('hint', { first: hint.first, second: hint.second }));
+      } else {
+        showReactionMessage(tPlay('noConnection', { first: firstText, second: secondText }));
+      }
       commitSelectedId(null);
       return false;
     }
+    failStreakRef.current = 0;
 
     const {
       consumedIds = [],
