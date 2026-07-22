@@ -95,11 +95,20 @@ export default function GuidePage() {
   const lockedWordCount = Math.max(DISCOVERABLE_ITEMS.length - discoveredWordCount, 0);
 
   const discoveredSet = new Set(discoveredRecipeKeys);
-  const lockedRecipes = useMemo(
-    () => Object.entries(RECIPES).filter(([key]) => !discoveredSet.has(key)),
+  const lockedRecipes = useMemo(() => {
+    const query = search.trim().toLowerCase();
+    return Object.entries(RECIPES).filter(([key, recipe]) => {
+      if (discoveredSet.has(key)) return false;
+      if (!query) return true;
+      const [first, second] = recipe.ingredients;
+      return recipe.result.includes(search)
+        || recipe.pinyin.toLowerCase().includes(query)
+        || recipe.name.toLowerCase().includes(query)
+        || getData(first).name.toLowerCase().includes(query)
+        || getData(second).name.toLowerCase().includes(query);
+    });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [discoveredRecipeKeys],
-  );
+  }, [discoveredRecipeKeys, search]);
 
   return (
     <main className="relative min-h-screen bg-graph-paper pb-20 font-sans">
@@ -263,14 +272,19 @@ export default function GuidePage() {
             <div className="eyebrow">{t('cheatEyebrow')}</div>
             <h2 id="cheat-title" className="mt-1 text-2xl font-black tracking-[-0.035em] text-[var(--lab-ink)]">{t('cheatTitle')}</h2>
             {lockedRecipes.length === 0 ? (
-              <p className="mt-3 text-sm font-bold text-[var(--lab-muted)]">{t('cheatDone')}</p>
+              <p className="mt-3 text-sm font-bold text-[var(--lab-muted)]">
+                {discoveredRecipeKeys.length >= Object.keys(RECIPES).length ? t('cheatDone') : t('noMatch')}
+              </p>
             ) : (
               <ul className="mt-4 grid gap-2 sm:grid-cols-2">
                 {lockedRecipes.map(([key, recipe]) => {
                   const [first, second] = getRecipeIngredients(key);
                   return (
-                    <li key={key} className="flex items-center gap-2 rounded-[1rem] bg-[var(--lab-lilac)] px-4 py-3 text-sm font-black text-[var(--lab-ink)]" lang="zh-Hans">
-                      <span>{first}</span><span aria-hidden="true" className="text-[var(--lab-muted)]">+</span><span>{second}</span><span aria-hidden="true" className="text-[var(--lab-muted)]">→</span><span className="text-[var(--lab-action)]">{recipe.result}</span>
+                    <li key={key} className="rounded-[1rem] bg-[var(--lab-lilac)] px-4 py-3 text-sm font-black text-[var(--lab-ink)]">
+                      <div className="flex flex-wrap items-center gap-1.5" lang="zh-Hans">
+                        <span>{first}</span><span aria-hidden="true" className="text-[var(--lab-muted)]">+</span><span>{second}</span><span aria-hidden="true" className="text-[var(--lab-muted)]">→</span><span className="text-[var(--lab-action)]">{recipe.result}</span>
+                      </div>
+                      <div className="mt-1 text-xs font-bold text-[var(--lab-muted)]">{recipe.pinyin} · {wordLabel(recipe)}</div>
                     </li>
                   );
                 })}
