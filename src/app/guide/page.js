@@ -254,7 +254,7 @@ export default function GuidePage() {
           </label>
         </section>
 
-        {discoveredRecipeKeys.length === 0 && (
+        {discoveredRecipeKeys.length === 0 && !search.trim() && (
           <section className="surface-panel mt-10 rounded-[2rem] border-dashed p-8 text-center sm:p-14">
             <div className="text-5xl" aria-hidden="true">🧪</div>
             <h2 className="mt-4 text-2xl font-black tracking-[-0.04em] text-[var(--lab-ink)]">{t('emptyTitle')}</h2>
@@ -263,7 +263,7 @@ export default function GuidePage() {
           </section>
         )}
 
-        {discoveredRecipeKeys.length > 0 && discoveredRecipes.length === 0 && (
+        {search.trim() && discoveredRecipes.length === 0 && (
           <section className="surface-panel mt-10 rounded-[2rem] border-dashed p-10 text-center">
             <p className="font-black text-[var(--lab-muted)]">{t('noMatch')}</p>
           </section>
@@ -304,7 +304,7 @@ export default function GuidePage() {
           );
         })}
 
-        {showAnswers && (
+        {(showAnswers || search.trim()) && (
           <section className="mt-10" aria-labelledby="cheat-title">
             <div className="eyebrow">{t('cheatEyebrow')}</div>
             <h2 id="cheat-title" className="mt-1 text-2xl font-black tracking-[-0.035em] text-[var(--lab-ink)]">{t('cheatTitle')}</h2>
@@ -319,7 +319,7 @@ export default function GuidePage() {
                 if (categoryLocked.length === 0) return null;
 
                 return (
-                  <details key={category} className="group mt-4 overflow-hidden rounded-[1.6rem] border border-[var(--lab-line)] bg-[var(--lab-surface-60)]">
+                  <details key={category} open={search.trim() ? true : undefined} className="group mt-4 overflow-hidden rounded-[1.6rem] border border-[var(--lab-line)] bg-[var(--lab-surface-60)]">
                     <summary className="flex cursor-pointer list-none items-center gap-3 px-5 py-4 text-lg font-black text-[var(--lab-ink)] [&::-webkit-details-marker]:hidden">
                       <span className="inline-grid h-9 w-9 shrink-0 place-items-center rounded-[0.8rem] bg-[var(--lab-lilac)] text-base grayscale" aria-hidden="true">{CATEGORY_ICONS[category] ?? '🧩'}</span>
                       {tCat(category)}
