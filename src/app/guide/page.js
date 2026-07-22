@@ -304,24 +304,6 @@ export default function GuidePage() {
           );
         })}
 
-        <section aria-labelledby="bibliography-title" className="surface-panel mt-16 rounded-[2rem] p-6 sm:p-8">
-          <div className="eyebrow">{t('sourcesEyebrow')}</div>
-          <h2 id="bibliography-title" className="mt-2 text-2xl font-black tracking-[-0.035em] text-[var(--lab-ink)]">{t('bibliography')}</h2>
-          <p className="mt-2 max-w-3xl text-sm font-bold leading-6 text-[var(--lab-muted)]">{t('bibDesc')}</p>
-          <ol className="mt-5 grid gap-3 md:grid-cols-2">
-            {BIBLIOGRAPHY.map((source, index) => (
-              <li key={source.id} className="rounded-[1.3rem] bg-[var(--lab-lilac)] p-4 text-sm leading-relaxed text-[var(--lab-ink-soft)]">
-                <span className="font-black">[{index + 1}] {source.citation}</span>
-                <span className="mt-1 block text-xs text-[var(--lab-muted)]">{source.scope}</span>
-                <a href={source.url} target="_blank" rel="noreferrer" className="lift-control mt-2 inline-flex min-h-11 items-center font-black text-[var(--lab-action)] underline decoration-2 underline-offset-4 focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/30">{t('openSource')}</a>
-                {source.license && (
-                  <span className="block text-xs text-[var(--lab-muted)]">{t('license')} <a href={source.licenseUrl} target="_blank" rel="noreferrer" className="inline-flex min-h-11 items-center align-middle underline underline-offset-2">{source.license}</a></span>
-                )}
-              </li>
-            ))}
-          </ol>
-        </section>
-
         {showAnswers && (
           <section className="mt-10" aria-labelledby="cheat-title">
             <div className="eyebrow">{t('cheatEyebrow')}</div>
@@ -370,6 +352,24 @@ export default function GuidePage() {
             )}
           </section>
         )}
+
+        <section aria-labelledby="bibliography-title" className="surface-panel mt-16 rounded-[2rem] p-6 sm:p-8">
+          <div className="eyebrow">{t('sourcesEyebrow')}</div>
+          <h2 id="bibliography-title" className="mt-2 text-2xl font-black tracking-[-0.035em] text-[var(--lab-ink)]">{t('bibliography')}</h2>
+          <p className="mt-2 max-w-3xl text-sm font-bold leading-6 text-[var(--lab-muted)]">{t('bibDesc')}</p>
+          <ol className="mt-5 grid gap-3 md:grid-cols-2">
+            {BIBLIOGRAPHY.map((source, index) => (
+              <li key={source.id} className="rounded-[1.3rem] bg-[var(--lab-lilac)] p-4 text-sm leading-relaxed text-[var(--lab-ink-soft)]">
+                <span className="font-black">[{index + 1}] {source.citation}</span>
+                <span className="mt-1 block text-xs text-[var(--lab-muted)]">{source.scope}</span>
+                <a href={source.url} target="_blank" rel="noreferrer" className="lift-control mt-2 inline-flex min-h-11 items-center font-black text-[var(--lab-action)] underline decoration-2 underline-offset-4 focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/30">{t('openSource')}</a>
+                {source.license && (
+                  <span className="block text-xs text-[var(--lab-muted)]">{t('license')} <a href={source.licenseUrl} target="_blank" rel="noreferrer" className="inline-flex min-h-11 items-center align-middle underline underline-offset-2">{source.license}</a></span>
+                )}
+              </li>
+            ))}
+          </ol>
+        </section>
       </div>
 
       {pronunciationError && <div role="status" className="fixed left-1/2 top-20 z-[70] -translate-x-1/2 rounded-full bg-[var(--lab-ink)] px-5 py-3 text-center text-xs font-black text-[var(--lab-surface)] shadow-xl">{pronunciationError}</div>}
