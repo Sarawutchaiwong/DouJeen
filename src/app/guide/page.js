@@ -125,7 +125,15 @@ export default function GuidePage() {
           </div>
           <div className="grid grid-cols-2 gap-2 md:pb-2" aria-label="Notebook summary">
             <span className="rounded-full bg-[var(--lab-mint)] px-4 py-2 text-center text-sm font-black text-[var(--lab-mint-ink)]">{t('recipes', { count: discoveredRecipeKeys.length })}</span>
-            <span className="pastel-pill rounded-full px-4 py-2 text-center text-sm font-black">{t('hidden', { count: lockedWordCount })}</span>
+            <button
+              type="button"
+              onClick={() => setShowAnswers((value) => !value)}
+              aria-pressed={showAnswers}
+              aria-label={t('cheatToggle')}
+              className="pastel-pill lift-control rounded-full px-4 py-2 text-center text-sm font-black focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/25"
+            >
+              {t('hidden', { count: lockedWordCount })}
+            </button>
           </div>
         </section>
 
@@ -271,13 +279,6 @@ export default function GuidePage() {
           </section>
         )}
       </div>
-
-      <button
-        type="button"
-        onClick={() => setShowAnswers((value) => !value)}
-        aria-label={t('cheatToggle')}
-        className="fixed bottom-3 right-3 z-30 h-4 w-4 rounded-full opacity-0 hover:opacity-10 focus:opacity-10 focus:outline-none"
-      />
 
       {pronunciationError && <div role="status" className="fixed left-1/2 top-20 z-[70] -translate-x-1/2 rounded-full bg-[var(--lab-ink)] px-5 py-3 text-center text-xs font-black text-[var(--lab-surface)] shadow-xl">{pronunciationError}</div>}
     </main>

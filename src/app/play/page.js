@@ -211,7 +211,7 @@ export default function GamePage() {
     window.clearTimeout(reactionTimerRef.current);
     setReactionMessage(message);
     setReactionIsHint(isHint);
-    reactionTimerRef.current = window.setTimeout(() => setReactionMessage(null), 1800);
+    reactionTimerRef.current = window.setTimeout(() => setReactionMessage(null), isHint ? 10000 : 1800);
   }, []);
 
   const createCanvasItem = useCallback((text, x, y) => ({
