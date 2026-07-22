@@ -90,6 +90,7 @@
     "craftFirst": "ประดิษฐ์คำแรกของคุณ",
     "noMatch": "ไม่พบสูตรที่ค้นพบตรงกับที่ค้นหา",
     "categoryFound": "พบ {count}",
+    "categoryHidden": "ซ่อน {count}",
     "dictionary": "พจนานุกรม: “{def}”",
     "whyGrounded": "ทำไมความเชื่อมโยงนี้อิงจริง ↗",
     "sourcesEyebrow": "แหล่งอ้างอิง · ไม่มีคำที่แต่งขึ้น",

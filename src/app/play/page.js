@@ -547,11 +547,11 @@ export default function GamePage() {
             <span className="sm:hidden">{tPlay('clear')}</span>
             <span className="hidden sm:inline">{tPlay('clearCanvas')}</span>
           </button>
-          <button type="button" onClick={() => setResetConfirming(true)} disabled={!hasLoaded} aria-haspopup="dialog" aria-expanded={resetConfirming} className="lift-control inline-flex min-h-11 items-center rounded-full border border-[var(--lab-line-strong)] px-3 text-xs font-black text-[var(--lab-muted)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/25 disabled:cursor-not-allowed disabled:opacity-50 sm:px-4">
+          <button type="button" onClick={() => setResetConfirming(true)} disabled={!hasLoaded} aria-haspopup="dialog" aria-expanded={resetConfirming} className="lift-control inline-flex min-h-11 items-center rounded-full border border-[var(--lab-danger)]/35 bg-[var(--lab-danger)]/5 px-3 text-xs font-black text-[var(--lab-danger)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-danger)]/25 disabled:cursor-not-allowed disabled:opacity-50 sm:px-4">
             <span className="sm:hidden">{tPlay('reset')}</span>
             <span className="hidden sm:inline">{tPlay('resetProgress')}</span>
           </button>
-          <Link href="/guide" className="lift-control inline-flex min-h-11 items-center rounded-full border border-[var(--lab-line-strong)] bg-[var(--lab-surface)] px-4 text-xs font-black text-[var(--lab-ink)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/25 sm:text-sm">
+          <Link href="/guide" className="lift-control inline-flex min-h-11 items-center rounded-full bg-[var(--lab-action)] px-4 text-xs font-black text-[var(--lab-surface)] shadow-[0_8px_22px_var(--lab-action-shadow)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/25 sm:text-sm">
             {tNav('notebook')}
           </Link>
         </div>

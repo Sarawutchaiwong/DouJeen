@@ -90,6 +90,7 @@
     "craftFirst": "Craft your first word",
     "noMatch": "No discovered recipe matches that search.",
     "categoryFound": "{count} found",
+    "categoryHidden": "{count} hidden",
     "dictionary": "Dictionary: “{def}”",
     "whyGrounded": "Why this connection is grounded ↗",
     "sourcesEyebrow": "Sources · no invented vocabulary",

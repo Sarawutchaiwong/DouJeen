@@ -36,6 +36,71 @@ const CATEGORY_ICONS = {
   'Time & Routine': '🕰️',
 };
 
+const EyeIcon = (props) => (
+  <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z" />
+    <circle cx="12" cy="12" r="3" />
+  </svg>
+);
+
+const EyeOffIcon = (props) => (
+  <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <path d="M9.9 4.24A10.94 10.94 0 0 1 12 4c6.5 0 10 7 10 7a17.7 17.7 0 0 1-2.16 3.19M6.5 6.61C3.4 8.5 2 11.99 2 11.99s3.5 7 10 7a10.6 10.6 0 0 0 5-1.24M14.12 14.12a3 3 0 1 1-4.24-4.24" />
+    <path d="M2 2l20 20" />
+  </svg>
+);
+
+const ChevronIcon = (props) => (
+  <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <path d="m6 9 6 6 6-6" />
+  </svg>
+);
+
+// Shared card for a single recipe — used both for discovered words and, dimmed with a
+// lock badge, for the answer-reveal cheat list. Keeping one component means the two
+// lists can never visually drift apart.
+function RecipeCard({ recipeKey, recipe, first, second, locale, wordLabel, t, playingCharacter, onPlay, locked = false }) {
+  const firstData = getData(first);
+  const secondData = getData(second);
+  const factSource = recipe.factSourceId
+    ? BIBLIOGRAPHY.find(({ id }) => id === recipe.factSourceId)
+    : null;
+
+  return (
+    <article className={`surface-panel relative rounded-[1.8rem] p-5 ${locked ? 'grayscale opacity-75' : ''}`}>
+      {locked && (
+        <span className="absolute right-3 top-3 grid h-8 w-8 place-items-center rounded-full bg-[var(--lab-surface)] text-sm shadow-[0_4px_10px_var(--lab-shadow)]" aria-hidden="true">
+          🔒
+        </span>
+      )}
+      <div className="flex flex-wrap items-center gap-2 text-sm font-black text-[var(--lab-ink)]">
+        <span className="rounded-full bg-[var(--lab-peach)] px-3 py-2" lang="zh-Hans"><Glyph data={firstData} /> {first}</span>
+        <span aria-hidden="true">+</span>
+        <span className="rounded-full bg-[var(--lab-sky)] px-3 py-2" lang="zh-Hans"><Glyph data={secondData} /> {second}</span>
+        <span aria-hidden="true">→</span>
+      </div>
+
+      <div className="mt-4 flex items-center gap-3">
+        <span className="grid h-14 w-14 shrink-0 place-items-center rounded-[1rem] bg-[var(--lab-mint)] text-3xl" aria-hidden="true"><Glyph data={recipe} /></span>
+        <div className="min-w-0 flex-1 pr-8">
+          <h3 className="hanzi-text text-3xl font-black tracking-[-0.04em] text-[var(--lab-ink)]" lang="zh-Hans">{recipe.result}</h3>
+          <p className="text-sm font-black text-[var(--lab-action)]">{recipe.pinyin}</p>
+          <p className="text-sm font-bold text-[var(--lab-muted)]">{wordLabel(recipe)}{recipe.hskLevel ? ` · ${recipe.hskLevel}` : ''}</p>
+        </div>
+        <PronunciationButton character={recipe.result} isPlaying={playingCharacter === recipe.result} onPlay={onPlay} className="h-12 w-12 shrink-0" />
+      </div>
+
+      <p className="mt-4 text-sm font-bold leading-6 text-[var(--lab-ink-soft)]">{locale === 'th' && recipe.explanationTh ? recipe.explanationTh : recipe.explanation}</p>
+      <p className="mt-3 text-xs leading-5 text-[var(--lab-muted)]">{t('dictionary', { def: locale === 'th' && recipe.defTh ? recipe.defTh : recipe.sourceDefinition })}</p>
+      {factSource && (
+        <a href={factSource.url} target="_blank" rel="noreferrer" className="lift-control mt-3 inline-flex min-h-11 items-center rounded-full px-3 text-xs font-black text-[var(--lab-action)] underline decoration-2 underline-offset-4 focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/25">
+          {t('whyGrounded')}
+        </a>
+      )}
+    </article>
+  );
+}
+
 export default function GuidePage() {
   const t = useTranslations('Guide');
   const tNav = useTranslations('Nav');
@@ -75,19 +140,33 @@ export default function GuidePage() {
     return () => window.clearTimeout(timer);
   }, []);
 
+  // A recipe matches if the query hits any language variant of its name, definition,
+  // or explanation — English and Thai both, since the search box promises both.
+  const matchesQuery = (recipe, first, second, query) => {
+    if (!query) return true;
+    const firstData = getData(first);
+    const secondData = getData(second);
+    return recipe.result.includes(query)
+      || recipe.pinyin.toLowerCase().includes(query)
+      || recipe.name.toLowerCase().includes(query)
+      || (recipe.nameTh ?? '').includes(query)
+      || recipe.explanation.toLowerCase().includes(query)
+      || (recipe.explanationTh ?? '').includes(query)
+      || (recipe.sourceDefinition ?? '').toLowerCase().includes(query)
+      || (recipe.defTh ?? '').includes(query)
+      || firstData.name.toLowerCase().includes(query)
+      || (firstData.nameTh ?? '').includes(query)
+      || secondData.name.toLowerCase().includes(query)
+      || (secondData.nameTh ?? '').includes(query);
+  };
+
   const discoveredRecipes = useMemo(() => {
     const query = search.trim().toLowerCase();
     return discoveredRecipeKeys
       .map((key) => [key, RECIPES[key]])
-      .filter(([, recipe]) => {
-        if (!query) return true;
-        const [first, second] = recipe.ingredients;
-        return recipe.result.includes(search)
-          || recipe.pinyin.toLowerCase().includes(query)
-          || recipe.name.toLowerCase().includes(query)
-          || recipe.explanation.toLowerCase().includes(query)
-          || getData(first).name.toLowerCase().includes(query)
-          || getData(second).name.toLowerCase().includes(query);
+      .filter(([key, recipe]) => {
+        const [first, second] = getRecipeIngredients(key);
+        return matchesQuery(recipe, first, second, query);
       });
   }, [discoveredRecipeKeys, search]);
 
@@ -99,13 +178,8 @@ export default function GuidePage() {
     const query = search.trim().toLowerCase();
     return Object.entries(RECIPES).filter(([key, recipe]) => {
       if (discoveredSet.has(key)) return false;
-      if (!query) return true;
-      const [first, second] = recipe.ingredients;
-      return recipe.result.includes(search)
-        || recipe.pinyin.toLowerCase().includes(query)
-        || recipe.name.toLowerCase().includes(query)
-        || getData(first).name.toLowerCase().includes(query)
-        || getData(second).name.toLowerCase().includes(query);
+      const [first, second] = getRecipeIngredients(key);
+      return matchesQuery(recipe, first, second, query);
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [discoveredRecipeKeys, search]);
@@ -139,8 +213,9 @@ export default function GuidePage() {
               onClick={() => setShowAnswers((value) => !value)}
               aria-pressed={showAnswers}
               aria-label={t('cheatToggle')}
-              className="pastel-pill lift-control rounded-full px-4 py-2 text-center text-sm font-black focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/25"
+              className={`lift-control inline-flex items-center justify-center gap-1.5 rounded-full px-4 py-2 text-center text-sm font-black transition-colors focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/25 ${showAnswers ? 'bg-[var(--lab-ink)] text-[var(--lab-surface)]' : 'pastel-pill'}`}
             >
+              {showAnswers ? <EyeIcon /> : <EyeOffIcon />}
               {t('hidden', { count: lockedWordCount })}
             </button>
           </div>
@@ -209,39 +284,19 @@ export default function GuidePage() {
               <div className="grid gap-4 md:grid-cols-2">
                 {categoryRecipes.map(([key, recipe]) => {
                   const [first, second] = getRecipeIngredients(key);
-                  const firstData = getData(first);
-                  const secondData = getData(second);
-                  const factSource = recipe.factSourceId
-                    ? BIBLIOGRAPHY.find(({ id }) => id === recipe.factSourceId)
-                    : null;
-
                   return (
-                    <article key={key} className="surface-panel rounded-[1.8rem] p-5">
-                      <div className="flex flex-wrap items-center gap-2 text-sm font-black text-[var(--lab-ink)]">
-                        <span className="rounded-full bg-[var(--lab-peach)] px-3 py-2" lang="zh-Hans"><Glyph data={firstData} /> {first}</span>
-                        <span aria-hidden="true">+</span>
-                        <span className="rounded-full bg-[var(--lab-sky)] px-3 py-2" lang="zh-Hans"><Glyph data={secondData} /> {second}</span>
-                        <span aria-hidden="true">→</span>
-                      </div>
-
-                      <div className="mt-4 flex items-center gap-3">
-                        <span className="grid h-14 w-14 shrink-0 place-items-center rounded-[1rem] bg-[var(--lab-mint)] text-3xl" aria-hidden="true"><Glyph data={recipe} /></span>
-                        <div className="min-w-0 flex-1">
-                          <h3 className="hanzi-text text-3xl font-black tracking-[-0.04em] text-[var(--lab-ink)]" lang="zh-Hans">{recipe.result}</h3>
-                          <p className="text-sm font-black text-[var(--lab-action)]">{recipe.pinyin}</p>
-                          <p className="text-sm font-bold text-[var(--lab-muted)]">{wordLabel(recipe)}{recipe.hskLevel ? ` · ${recipe.hskLevel}` : ''}</p>
-                        </div>
-                        <PronunciationButton character={recipe.result} isPlaying={playingCharacter === recipe.result} onPlay={playPronunciation} className="h-12 w-12 shrink-0" />
-                      </div>
-
-                      <p className="mt-4 text-sm font-bold leading-6 text-[var(--lab-ink-soft)]">{locale === 'th' && recipe.explanationTh ? recipe.explanationTh : recipe.explanation}</p>
-                      <p className="mt-3 text-xs leading-5 text-[var(--lab-muted)]">{t('dictionary', { def: locale === 'th' && recipe.defTh ? recipe.defTh : recipe.sourceDefinition })}</p>
-                      {factSource && (
-                        <a href={factSource.url} target="_blank" rel="noreferrer" className="lift-control mt-3 inline-flex min-h-11 items-center rounded-full px-3 text-xs font-black text-[var(--lab-action)] underline decoration-2 underline-offset-4 focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--lab-action)]/25">
-                          {t('whyGrounded')}
-                        </a>
-                      )}
-                    </article>
+                    <RecipeCard
+                      key={key}
+                      recipeKey={key}
+                      recipe={recipe}
+                      first={first}
+                      second={second}
+                      locale={locale}
+                      wordLabel={wordLabel}
+                      t={t}
+                      playingCharacter={playingCharacter}
+                      onPlay={playPronunciation}
+                    />
                   );
                 })}
               </div>
@@ -268,27 +323,50 @@ export default function GuidePage() {
         </section>
 
         {showAnswers && (
-          <section className="surface-panel mt-10 rounded-[2rem] border-dashed p-6 sm:p-8" aria-labelledby="cheat-title">
+          <section className="mt-10" aria-labelledby="cheat-title">
             <div className="eyebrow">{t('cheatEyebrow')}</div>
             <h2 id="cheat-title" className="mt-1 text-2xl font-black tracking-[-0.035em] text-[var(--lab-ink)]">{t('cheatTitle')}</h2>
+
             {lockedRecipes.length === 0 ? (
-              <p className="mt-3 text-sm font-bold text-[var(--lab-muted)]">
+              <p className="surface-panel mt-4 rounded-[1.6rem] border-dashed p-6 text-center text-sm font-bold text-[var(--lab-muted)]">
                 {discoveredRecipeKeys.length >= Object.keys(RECIPES).length ? t('cheatDone') : t('noMatch')}
               </p>
             ) : (
-              <ul className="mt-4 grid gap-2 sm:grid-cols-2">
-                {lockedRecipes.map(([key, recipe]) => {
-                  const [first, second] = getRecipeIngredients(key);
-                  return (
-                    <li key={key} className="rounded-[1rem] bg-[var(--lab-lilac)] px-4 py-3 text-sm font-black text-[var(--lab-ink)]">
-                      <div className="flex flex-wrap items-center gap-1.5" lang="zh-Hans">
-                        <span>{first}</span><span aria-hidden="true" className="text-[var(--lab-muted)]">+</span><span>{second}</span><span aria-hidden="true" className="text-[var(--lab-muted)]">→</span><span className="text-[var(--lab-action)]">{recipe.result}</span>
-                      </div>
-                      <div className="mt-1 text-xs font-bold text-[var(--lab-muted)]">{recipe.pinyin} · {wordLabel(recipe)}</div>
-                    </li>
-                  );
-                })}
-              </ul>
+              RECIPE_CATEGORIES.map((category) => {
+                const categoryLocked = lockedRecipes.filter(([, recipe]) => recipe.category === category);
+                if (categoryLocked.length === 0) return null;
+
+                return (
+                  <details key={category} className="group mt-4 overflow-hidden rounded-[1.6rem] border border-[var(--lab-line)] bg-[var(--lab-surface-60)]">
+                    <summary className="flex cursor-pointer list-none items-center gap-3 px-5 py-4 text-lg font-black text-[var(--lab-ink)] [&::-webkit-details-marker]:hidden">
+                      <span className="inline-grid h-9 w-9 shrink-0 place-items-center rounded-[0.8rem] bg-[var(--lab-lilac)] text-base grayscale" aria-hidden="true">{CATEGORY_ICONS[category] ?? '🧩'}</span>
+                      {tCat(category)}
+                      <span className="rounded-full border border-[var(--lab-line)] bg-[var(--lab-surface)] px-3 py-1 text-[10px] font-black uppercase tracking-wider text-[var(--lab-muted)]">{t('categoryHidden', { count: categoryLocked.length })}</span>
+                      <ChevronIcon className="ml-auto shrink-0 text-[var(--lab-muted)] transition-transform duration-200 group-open:rotate-180" />
+                    </summary>
+                    <div className="grid gap-4 p-5 pt-1 md:grid-cols-2">
+                      {categoryLocked.map(([key, recipe]) => {
+                        const [first, second] = getRecipeIngredients(key);
+                        return (
+                          <RecipeCard
+                            key={key}
+                            recipeKey={key}
+                            recipe={recipe}
+                            first={first}
+                            second={second}
+                            locale={locale}
+                            wordLabel={wordLabel}
+                            t={t}
+                            playingCharacter={playingCharacter}
+                            onPlay={playPronunciation}
+                            locked
+                          />
+                        );
+                      })}
+                    </div>
+                  </details>
+                );
+              })
             )}
           </section>
         )}
